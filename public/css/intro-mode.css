@@ -1,0 +1,78 @@
+/* ===== Intro モード：入場後は Hero だけ見せる ===== */
+
+/* 初期状態：左サイド非表示・クリック不可 */
+body.intro-mode .sidebar{
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-12px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+/* 初期状態：Hero 以外のセクションを折りたたみ */
+body.intro-mode .content > .section:not(#top){
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+  transition:
+    opacity .4s ease,
+    max-height .4s ease,
+    padding .4s ease,
+    border .4s ease;
+}
+
+/* Hero を完全な 1st ビューに */
+#top.hero{
+  min-height: 100vh;
+}
+
+/* 退出後のスムーズさ（保険） */
+.sidebar{ transition: opacity .5s ease, transform .5s ease; }
+.content > .section{ transition: opacity .5s ease, max-height .5s ease, padding .5s ease; }
+
+/* ===== 入場スプラッシュ層（純CSS版の土台だけ） ===== */
+.splash{
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center;
+  background: linear-gradient(180deg,#0b0b0b,#111); color: #fff;
+}
+.splash.hide{
+  opacity: 0; visibility: hidden;
+  transition: opacity .7s ease, visibility .7s ease;
+}
+.splash__stage{
+  position: relative; width: min(960px,92vw); height: min(520px,60vh);
+  border-radius: 24px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45); background:#0b0b0b;
+}
+
+/* ちょい演出（必要なら style.css の詳細版で上書き可） */
+.halo{position:absolute; inset:-20% -20% auto -20%; height:140%;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(255,204,0,.35), rgba(255,204,0,.08) 55%, transparent 60%);
+  filter: blur(18px);
+}
+.logo{position:absolute; inset:0; display:grid; place-items:center;
+  font-weight:900; letter-spacing:.06em; font-size:clamp(40px,9vw,96px);}
+.logo__v{background:linear-gradient(135deg,#ffcc00,#ffe066);
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.splash__skip{
+  position:absolute; right:14px; bottom:14px;
+  padding:10px 14px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(0,0,0,.35); color:#fff; cursor:pointer;
+}
+
+/*intro-mode补丁*/
+/* 让首屏在 Intro 模式下占满可视宽度 */
+body.intro-mode .content{
+  margin-left: 0;
+}
+
+/* Intro 模式下不显示汉堡按钮（避免遮住主视觉） */
+body.intro-mode .hamburger{
+  display: none;
+}
