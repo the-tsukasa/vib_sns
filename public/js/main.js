@@ -37,10 +37,11 @@ document.getElementById('hamburger')?.addEventListener('click', ()=>{
 });
 
 /* ===== ここがキモ：スクロールで Intro モードを解除 ===== */
+// ===== 只有当 Hero 的【第一个模块】滑到底才退出 Intro =====
 (function(){
   const body = document.body;
-  const hero = document.getElementById('top');
-  if (!hero) return;
+  const firstModEnd = document.getElementById('hero-mod-1-end');
+  if (!firstModEnd) return;
 
   let exited = false;
   function exitIntro(){
@@ -48,19 +49,15 @@ document.getElementById('hamburger')?.addEventListener('click', ()=>{
     exited = true;
     body.classList.remove('intro-mode');
 
-    // 折り畳み解除（max-height を自然高さへ → その後クリア）
-    const rest = document.querySelectorAll('.content > .section:not(#top)');
-    rest.forEach(sec=>{
+    // 展开其它区块
+    document.querySelectorAll('.content > .section:not(#top)').forEach(sec=>{
       sec.style.maxHeight = sec.scrollHeight + 'px';
       sec.style.opacity = '1';
       sec.style.pointerEvents = '';
-      // 過渡終了後に inline を外して自然状態へ
-      sec.addEventListener('transitionend', ()=>{
-        sec.style.maxHeight = '';
-      }, { once:true });
+      sec.addEventListener('transitionend', ()=>{ sec.style.maxHeight = ''; }, { once:true });
     });
 
-    // サイドバーも可視化
+    // 侧边栏淡入
     const sidebar = document.querySelector('.sidebar');
     if (sidebar){
       sidebar.style.opacity = '1';
@@ -69,20 +66,19 @@ document.getElementById('hamburger')?.addEventListener('click', ()=>{
     }
   }
 
-  // Hero の可視率が 40% 未満になったら解除
-  const o = new IntersectionObserver((es)=>{
-    const e = es[0];
-    if (!e.isIntersecting || e.intersectionRatio < 0.4) exitIntro();
-  }, { threshold: [0, .4, 1] });
-  o.observe(hero);
+  // 哨兵进入视口（几乎完全可见）就解锁
+  const o = new IntersectionObserver((entries)=>{
+    const e = entries[0];
+    if (e.isIntersecting && e.intersectionRatio >= 0.98) exitIntro();
+  }, { threshold: [0.98] });
+  o.observe(firstModEnd);
 
-  // 念のためのスクロール閾値（15%）でも解除
-  let tried = false;
-  addEventListener('scroll', ()=>{
-    if (tried) return;
-    if (window.scrollY > window.innerHeight * 0.15) {
-      tried = true;
+  // 兜底：以“滚动到底”的几何判断再确认一次（解决某些移动端地址栏收缩导致的 IO 抖动）
+  function checkAtBottom(){
+    const rect = firstModEnd.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
       exitIntro();
     }
-  }, { passive: true });
+  }
+  window.addEventListener('scroll', checkAtBottom, { passive:true });
 })();
