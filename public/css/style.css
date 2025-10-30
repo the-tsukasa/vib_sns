@@ -1,169 +1,108 @@
 :root{
-  --yellow:#ffcc00;
-  --yellow-2:#ffe066;
-  --ink:#0b0b0b;
-  --bg:#fafaf7;
-  --muted:#6b6b6b;
-  --line:#e9e9e9;
+  --yellow:#ffcc00; --yellow-2:#ffe066;
+  --ink:#0b0b0b; --bg:#fafaf7; --muted:#6b6b6b; --line:#e9e9e9;
 }
 
-/* 基本 */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,Inter,Roboto,"Noto Sans JP",sans-serif;
-  color:#1b1b1b; background:var(--bg);
-}
-img{max-width:100%;display:block}
-a{text-decoration:none}
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{font-family:Inter,Roboto,"Noto Sans JP",system-ui,sans-serif;color:#1b1b1b;background:var(--bg)}
+a{text-decoration:none} img{max-width:100%;display:block}
 
-/* 布局：左侧固定栏 + 右侧滚动区 */
-.sidebar{
-  position:fixed; inset:0 auto 0 0; width:260px; background:#fff;
+/* ===== Left Sidebar ===== */
+.sidebar{position:fixed; inset:0 auto 0 0; width:260px; background:#fff;
   border-right:1px solid var(--line); padding:24px 20px; z-index:100;
-  display:flex; flex-direction:column; gap:24px;
-}
+  display:flex; flex-direction:column; gap:24px}
 .brand{display:flex; align-items:center; gap:12px}
-.brand__logo{width:32px; height:32px; object-fit:contain}
+.brand__dot{width:18px;height:18px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px rgba(255,204,0,.25)}
 .brand__name{font-weight:900; letter-spacing:.06em}
-
 .side-nav{display:flex; flex-direction:column; gap:10px}
-.side-nav .nav-link{
-  padding:10px 12px; border-radius:10px; color:#222; font-weight:700;
-}
+.side-nav .nav-link{padding:10px 12px;border-radius:10px;color:#222;font-weight:700}
 .side-nav .nav-link:hover{background:#f7f7f7}
-.side-nav .nav-link.active{
-  background:var(--yellow); color:#000; box-shadow:0 6px 18px rgba(255,204,0,.25);
-}
-
-/* 浮动按钮 */
-.contact-fab{
-  margin-top:auto; align-self:flex-end;
-  background:#18c16e; color:#fff; border:none; border-radius:999px;
-  padding:10px 14px; cursor:pointer; font-weight:800;
-  box-shadow:0 10px 24px rgba(24,193,110,.35);
-}
-.contact-fab:hover{filter:brightness(1.05)}
-
-/* 右侧内容 */
+.side-nav .nav-link.active{background:var(--yellow);color:#000;box-shadow:0 6px 18px rgba(255,204,0,.25)}
+.contact-fab{margin-top:auto;align-self:flex-end;background:#18c16e;color:#fff;border:none;border-radius:999px;padding:10px 14px;cursor:pointer;font-weight:800;box-shadow:0 10px 24px rgba(24,193,110,.35)}
 .content{margin-left:260px}
 
-/* 共通区块 */
+/* ===== Sections ===== */
 .section{padding:80px 8vw; position:relative}
-
-/* 01 Hero（黄底） */
-.hero{background:var(--yellow); overflow:hidden; min-height:80vh; display:flex; align-items:center}
+.hero{background:var(--yellow); min-height:80vh; display:flex; align-items:center; overflow:hidden}
 .hero__inner{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center}
-.pill{display:inline-block; background:#000; color:#fff; font-weight:800; font-size:12px; letter-spacing:.08em;
-  border-radius:999px; padding:6px 10px; margin-bottom:12px}
+.pill{display:inline-block;background:#000;color:#fff;font-weight:800;font-size:12px;letter-spacing:.08em;border-radius:999px;padding:6px 10px;margin-bottom:12px}
 .hero h1{font-size:clamp(28px,4.6vw,56px); line-height:1.15; margin:.2em 0 .3em}
-.lead{color:#333; font-size:1.05rem}
-.hero__actions{display:flex; gap:12px; margin-top:18px}
-.btn{display:inline-block; padding:12px 18px; border-radius:12px; background:#111; color:#fff; font-weight:800}
-.btn--primary{background:#111; color:#fff}
+.lead{color:#333}
+.hero__actions{display:flex;gap:12px;margin-top:18px}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;background:#111;color:#fff;font-weight:800}
 .btn:hover{filter:brightness(1.06)}
-.hero__art img{width:100%; height:auto}
-.hero__scroll{position:absolute; left:32px; bottom:24px; writing-mode:vertical-rl; display:flex; align-items:center; gap:10px}
-.hero__scroll .dot{width:8px; height:8px; border-radius:50%; background:#000; animation:bob 1.6s infinite}
+.panel{height:320px;border-radius:18px;border:1px dashed rgba(0,0,0,.2);background:
+  radial-gradient(500px 260px at 30% 40%, rgba(255,255,255,.3), transparent 60%), rgba(255,255,255,.2)}
+.hero__scroll{position:absolute;left:32px;bottom:24px;writing-mode:vertical-rl;display:flex;align-items:center;gap:10px}
+.hero__scroll .dot{width:8px;height:8px;border-radius:50%;background:#000;animation:bob 1.6s infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
-/* 02 About（白底） */
-.about .split{display:grid; grid-template-columns:1fr 1.1fr; gap:40px; align-items:center}
-.split__text h2{font-size:clamp(22px,3.4vw,36px); margin:.2em 0 .4em}
-.split__text p{color:#333}
-.illo{width:100%; height:320px; border-radius:18px; border:1px dashed #ddd; background:
-  radial-gradient(500px 260px at 20% 40%, rgba(255,204,0,.2), transparent 60%),
-  #fff;}
-.illo--about{background:
-  radial-gradient(460px 240px at 20% 40%, rgba(255,204,0,.18), transparent 60%),
-  #fff}
-
-/* 03 Features（淡灰底） */
+.about .split, .features .split{display:grid; grid-template-columns:1fr 1.1fr; gap:40px; align-items:center}
 .features{background:#f4f4f4}
-.features .split{display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center}
-.features .split--reverse{grid-template-columns:1.1fr 1fr}
-.feature-list{padding-left:1.2em}
-.feature-list li{margin:.6em 0; line-height:1.7}
-.illo--features{background:
-  radial-gradient(480px 230px at 70% 40%, rgba(0,0,0,.06), transparent 60%),
-  #fff}
+.split--reverse{grid-template-columns:1.1fr 1fr}
+.illo{width:100%;height:320px;border-radius:18px;border:1px dashed #ddd;background:#fff}
+.price-table{width:min(680px,100%);border-collapse:collapse;margin-top:14px}
+.price-table th,.price-table td{border:1px solid #ddd;padding:12px 14px}
+.price-table th{background:#111;color:#fff;text-align:left}
+.news-list{list-style:none;padding:0;margin:14px 0 0}
+.news-list li{padding:8px 0;border-bottom:1px dashed #ddd}
+.news-list time{color:#666;margin-right:10px}
+details{background:#fff;border:1px solid #e6e6e6;border-radius:12px;padding:12px 14px;margin:10px 0}
+.footer{padding:40px 8vw;border-top:1px solid #eee;color:#777;text-align:center}
 
-/* 04 Plans */
-.plans h2,.news h2,.faq h2,.contact h2{font-size:clamp(22px,3.2vw,34px)}
-.price-table{width:min(680px,100%); border-collapse:collapse; margin-top:14px}
-.price-table th,.price-table td{border:1px solid #ddd; padding:12px 14px}
-.price-table th{background:#111; color:#fff; text-align:left}
-
-/* 05 News */
-.news-list{list-style:none; padding:0; margin:14px 0 0}
-.news-list li{padding:8px 0; border-bottom:1px dashed #ddd}
-.news-list time{color:#666; margin-right:10px}
-
-/* 06 FAQ */
-details{background:#fff; border:1px solid #e6e6e6; border-radius:12px; padding:12px 14px; margin:10px 0}
-
-/* Footer */
-.footer{padding:40px 8vw; border-top:1px solid #eee; color:#777; text-align:center}
-
-/* 响应式：移动端把侧边栏变成汉堡顶部栏 */
-.hamburger{
-  position:fixed; top:14px; left:14px; z-index:120; display:none;
-  padding:8px 10px; border-radius:10px; background:#000; color:#fff; border:none;
-  box-shadow:0 8px 18px rgba(0,0,0,.25)
-}
-
-@media (max-width: 960px){
+.hamburger{position:fixed;top:14px;left:14px;z-index:120;display:none;padding:8px 10px;border-radius:10px;background:#000;color:#fff;border:none;box-shadow:0 8px 18px rgba(0,0,0,.25)}
+@media (max-width:960px){
   .hamburger{display:block}
-  .sidebar{
-    transform:translateX(-100%); transition:transform .25s ease; width:78%;
-    max-width:320px; box-shadow:8px 0 30px rgba(0,0,0,.2)
-  }
+  .sidebar{transform:translateX(-100%);transition:transform .25s ease;width:78%;max-width:320px;box-shadow:8px 0 30px rgba(0,0,0,.2)}
   .sidebar.open{transform:translateX(0)}
   .content{margin-left:0}
-  .hero__inner, .about .split, .features .split{grid-template-columns:1fr}
+  .hero__inner,.about .split,.features .split{grid-template-columns:1fr}
 }
 
-/* 进入视口淡入动画（IntersectionObserver触发） */
+/* 视口淡入（由 IO 控制） */
 .observe{opacity:0; transform:translateY(16px); transition:all .6s ease}
 .observe.on{opacity:1; transform:none}
 
+/* ===== 纯CSS入场动画 ===== */
+.splash{position:fixed; inset:0; z-index:9999; display:grid; place-items:center; background:linear-gradient(180deg,#0b0b0b,#111); color:#fff}
+.splash.hide{opacity:0; visibility:hidden; transition:opacity .7s ease, visibility .7s ease}
+.splash__stage{position:relative; width:min(960px,92vw); height:min(520px,60vh); border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.08); box-shadow:0 20px 60px rgba(0,0,0,.45); background:#0b0b0b}
 
-/* ===== Splash (Entrance) ===== */
-.splash{
-  position:fixed; inset:0; z-index:9999;
-  display:grid; place-items:center;
-  background:linear-gradient(180deg,#0b0b0b,#111);
-}
-.splash.hidden{opacity:0; visibility:hidden; transition:opacity .7s ease, visibility .7s ease}
-.splash__inner{
-  position:relative; width:min(1200px,96vw); height:min(680px,56vw);
-  border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 20px 60px rgba(0,0,0,.45);
-}
-.splash__video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.05) brightness(.95)}
-.splash__veil{position:absolute; inset:0; background:
-  radial-gradient(70% 70% at 50% 50%, transparent 0 60%, rgba(0,0,0,.5) 100%)}
-.splash__brand{
-  position:absolute; left:24px; top:20px; display:flex; align-items:center; gap:10px;
-}
-.splash__logo{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:54px; height:54px; border-radius:14px;
-  font-weight:900; font-size:22px; letter-spacing:.06em;
-  background:linear-gradient(135deg,#ffcc00,#ffe066); color:#000;
-  box-shadow:inset 0 0 0 2px #00000022, 0 10px 26px rgba(255,204,0,.25);
-}
-.splash__tag{
-  color:#eee; font-size:12px; letter-spacing:.2em; opacity:.85
-}
-.splash__skip{
-  position:absolute; right:16px; bottom:16px;
-  padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.3);
-  background:rgba(0,0,0,.35); color:#fff; cursor:pointer;
-}
+/* 光圈 */
+.halo{position:absolute; inset:-20% -20% auto -20%; height:140%; background:
+  radial-gradient(60% 60% at 50% 50%, rgba(255,204,0,.35), rgba(255,204,0,.08) 55%, transparent 60%); filter:blur(18px); animation:halo 3.2s ease-in-out forwards}
+@keyframes halo{0%{opacity:0; transform:scale(.7)}60%{opacity:1; transform:scale(1)}100%{opacity:.85; transform:scale(1.05)}}
+
+/* 粒子 */
+.particle{position:absolute; width:10px; height:10px; border-radius:50%; background:var(--yellow); box-shadow:0 0 16px rgba(255,204,0,.8)}
+.p1{left:16%; top:70%; animation:float1 2.6s ease-in-out infinite}
+.p2{left:78%; top:28%; animation:float2 3s ease-in-out infinite}
+.p3{left:58%; top:76%; animation:float3 2.4s ease-in-out infinite}
+@keyframes float1{50%{transform:translate(8px,-10px)}}
+@keyframes float2{50%{transform:translate(-12px,6px)}}
+@keyframes float3{50%{transform:translate(10px,-8px)}}
+
+/* LOGO */
+.logo{position:absolute; inset:0; display:grid; place-items:center; font-weight:900; letter-spacing:.06em; font-size:clamp(40px,9vw,96px)}
+.logo span{display:inline-block; transform:translateY(40px); opacity:0; filter:blur(6px)}
+.logo span:nth-child(1){animation:logoUp .7s .2s forwards cubic-bezier(.2,.9,.2,1)}
+.logo span:nth-child(2){animation:logoUp .7s .32s forwards cubic-bezier(.2,.9,.2,1)}
+.logo span:nth-child(3){animation:logoUp .7s .44s forwards cubic-bezier(.2,.9,.2,1)}
+.logo__v{background:linear-gradient(135deg,var(--yellow),var(--yellow-2)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 10px 28px rgba(255,204,0,.35)}
+@keyframes logoUp{to{transform:none; opacity:1; filter:blur(0)}}
+
+/* 扫光条 */
+.sweep{position:absolute; inset:0; pointer-events:none; background:
+  linear-gradient(120deg, transparent 0 40%, rgba(255,255,255,.28) 50%, transparent 60%); transform:translateX(-120%); animation:sweep 1.2s 1.2s ease-out forwards}
+@keyframes sweep{to{transform:translateX(120%)}}
+
+/* Skip */
+.splash__skip{position:absolute; right:14px; bottom:14px; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.3); background:rgba(0,0,0,.35); color:#fff; cursor:pointer}
 .splash__skip:hover{background:rgba(0,0,0,.5)}
 
-/* ユーザーが reduced motion を設定している場合の軽量化 */
+/* 减少动画偏好 */
 @media (prefers-reduced-motion: reduce){
-  .splash__video{display:none}
+  .halo,.particle,.logo span,.sweep{animation:none}
 }
+
+
