@@ -14,12 +14,17 @@ const hamburger = document.getElementById("hamburger");
 const overlay = document.getElementById("overlay");
 
 if (sidebar && hamburger && overlay) {
+  // 初期状態設定（モバイルでは閉じる）
+  if (window.innerWidth <= 900) {
+    sidebar.classList.add("closed");
+  }
+
   // ハンバーガーボタン押下
   hamburger.addEventListener("click", () => {
-    const isOpen = sidebar.classList.contains("open");
-    sidebar.classList.toggle("open", !isOpen);
-    sidebar.classList.toggle("closed", isOpen);
-    overlay.classList.toggle("active", !isOpen);
+    const isClosed = sidebar.classList.contains("closed");
+    sidebar.classList.toggle("closed", !isClosed);
+    sidebar.classList.toggle("open", isClosed);
+    overlay.classList.toggle("active", isClosed);
   });
 
   // オーバーレイ押下で閉じる
@@ -44,10 +49,9 @@ if (sidebar && hamburger && overlay) {
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900) {
       sidebar.classList.remove("closed");
-      sidebar.classList.add("open");
-      overlay.classList.remove("active");
-    } else {
       sidebar.classList.remove("open");
+      overlay.classList.remove("active");
+    } else if (!sidebar.classList.contains("open")) {
       sidebar.classList.add("closed");
     }
   });
@@ -78,21 +82,3 @@ document.querySelectorAll(".observe").forEach(section => {
   observer.observe(section);
 });
 
-
-/* =========================================================
-   4. スクロールトップボタン（オプション）
-   ========================================================= */
-const scrollTopBtn = document.getElementById("scrollTop");
-if (scrollTopBtn) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      scrollTopBtn.classList.remove("hide");
-    } else {
-      scrollTopBtn.classList.add("hide");
-    }
-  });
-
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
