@@ -1,0 +1,31 @@
+/* =========================================================
+   ファイル名：photo.css
+   概要　　：画像の比率・影・ホバー演出設定
+   作成者　：曹 小帥（SOU）
+   最終更新：2025-11-01
+   ========================================================= */
+
+/* 共通画像スタイル */
+.section__image,
+.hero__image,
+.card__img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.section__image:hover, .card__img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* 推奨比率（参考）
+   hero-main.jpg        → 3:2
+   about-team.jpg       → 1:1
+   features-image.jpg   → 3:2
+   vision-*.jpg         → 2:3
+   faq-illustration.jpg → 1:1
+   contact-bg.jpg       → 3:2
+*/

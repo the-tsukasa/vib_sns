@@ -1,0 +1,170 @@
+/* ===============================
+   sections.css ｜页面区块样式层
+   =============================== */
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #000;
+  position: relative;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.pill {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .08em;
+  border-radius: 999px;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4.6vw, 56px);
+  line-height: 1.15;
+  margin: .2em 0 .3em;
+  color: #000;
+}
+
+.lead {
+  color: #333;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.hero__scroll {
+  position: absolute;
+  left: 32px;
+  bottom: 24px;
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero__scroll .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+  animation: bob 1.6s infinite;
+}
+
+@keyframes bob {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* About / Features / Plans / Vision / News / FAQ */
+.about .split,
+.features .split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.features {
+  background: #f4f4f4;
+}
+
+.split--reverse {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.price-table {
+  width: min(680px, 100%);
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
+.price-table th,
+.price-table td {
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+}
+
+.price-table th {
+  background: #111;
+  color: #fff;
+  text-align: left;
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+
+.news-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.news-list time {
+  color: #666;
+  margin-right: 10px;
+}
+
+details {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 10px 0;
+}
+
+.footer {
+  padding: 40px 8vw;
+  border-top: 1px solid #eee;
+  color: #777;
+  text-align: center;
+}
+
+.section__lead {
+  text-align: center;
+  max-width: 720px;
+  margin: auto;
+}
+
+.plans__banner {
+  max-width: 720px;
+  margin: 40px auto;
+}
+
+.vision .grid {
+  margin-top: 40px;
+}
+
+.news__banner {
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+.faq__illustration {
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.contact__banner {
+  max-width: 600px;
+  margin: 30px auto;
+}
