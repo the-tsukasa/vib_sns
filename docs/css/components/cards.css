@@ -1,0 +1,67 @@
+/* =========================================================
+   Cards Component - カードコンポーネント
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+/* ===== Base Card ===== */
+.card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Top Border Animation */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+  transform-origin: left;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ===== Card Image ===== */
+.card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 0;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .card__img {
+  transform: scale(1.1);
+}
+
+/* ===== Card Content ===== */
+.card h3 {
+  margin: 1.5rem 1.5rem 1rem;
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+.card p {
+  margin: 0 1.5rem 1.5rem;
+  color: var(--gray);
+  line-height: var(--line-height-loose);
+}
+

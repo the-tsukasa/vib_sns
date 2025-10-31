@@ -1,121 +1,59 @@
 /* =========================================================
-   ファイル名：main.css
-   概要　　：全体スタイル統合ファイル（VIB公式サイト用）
-   作成者　：曹 小帥（SOU）
-   最終更新：2025-11-02（安定版・構造分離完了）
+   VIB CSS Architecture - メインエントリーファイル
+   
+   ITCSS方法論に基づいた模块化CSS架構
+   
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   バージョン：v2.0（模块化重构版）
    ========================================================= */
-
 
 /* =========================================================
-   1. ベース設定（変数・リセット・共通設定）
+   1. Core - 核心基础
+   变量、重置、动画等基础样式
    ========================================================= */
-@import url("./base.css");
-
+@import url("./core/variables.css");
+@import url("./core/reset.css");
+@import url("./core/animations.css");
 
 /* =========================================================
-   2. ヘッダー領域（サイドバー・ハンバーガー・オーバーレイ）
+   2. Layout - 布局结构
+   整体布局、侧边栏、header、footer
    ========================================================= */
-@import url("./header.css");
-
-
-/* =========================================================
-   3. メインコンテンツ（Hero / About / Features / Plans / Vision / News / FAQ / Contact）
-   ========================================================= */
-@import url("./sections.css");
-
-
-/* =========================================================
-   4. フッター領域（コピーライト・SNSリンク・トップへ戻る）
-   ========================================================= */
+@import url("./layout/content.css");
+@import url("./layout/sidebar.css");
+@import url("./layout/hamburger.css");
+@import url("./layout/overlay.css");
 @import url("./footer.css");
 
+/* =========================================================
+   3. Components - UI组件
+   可复用的UI组件
+   ========================================================= */
+@import url("./components/buttons.css");
+@import url("./components/cards.css");
+@import url("./components/scrollbar.css");
 
 /* =========================================================
-   5. 共通UI要素（ボタン・トランジション・アニメーション補助）
+   4. Sections - 页面区块
+   各个section的特定样式
    ========================================================= */
-.btn {
-  display: inline-block;
-  border: none;
-  border-radius: var(--radius-md);
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 14px 32px;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.02em;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.btn:active::before {
-  width: 300px;
-  height: 300px;
-}
-
-.btn--primary {
-  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
-  color: #000;
-  box-shadow: var(--shadow-yellow);
-}
-
-.btn--primary:hover {
-  background: linear-gradient(135deg, var(--yellow-2) 0%, var(--yellow) 100%);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(255, 204, 0, 0.4);
-}
-
-.btn--primary:active {
-  transform: translateY(-1px);
-}
-
-.btn--outline {
-  background: transparent;
-  color: #000;
-  border: 2.5px solid var(--yellow);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn--outline:hover {
-  background: var(--yellow);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-yellow);
-  border-color: var(--yellow);
-}
-
-.btn--outline:active {
-  transform: translateY(-1px);
-}
-
+@import url("./sections/section-base.css");
+@import url("./sections/hero.css");
+@import url("./sections/about.css");
+@import url("./sections/features.css");
+@import url("./sections/plans.css");
+@import url("./sections/vision.css");
+@import url("./sections/news.css");
+@import url("./sections/faq.css");
+@import url("./sections/contact.css");
 
 /* =========================================================
-   6. アニメーション補助（セクションのフェードイン）
+   5. Utilities - 工具类（可选）
+   单一功能的工具类
    ========================================================= */
-.observe {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.observe.on {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== 装飾要素 ===== */
+/* ===== Decoration Elements ===== */
 .section-decoration {
   position: absolute;
   width: 200px;
@@ -126,7 +64,7 @@
   z-index: 0;
 }
 
-/* ===== テキストグラデーション ===== */
+/* ===== Text Gradient ===== */
 .text-gradient {
   background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%);
   -webkit-background-clip: text;
@@ -134,66 +72,26 @@
   background-clip: text;
 }
 
-
 /* =========================================================
-   7. スクロールバー（デザイン調整）
+   架构说明
+   
+   目录结构:
+   css/
+   ├── main.css (このファイル)
+   ├── core/ .......... 核心基础
+   ├── layout/ ........ 布局结构
+   ├── components/ .... UI组件
+   ├── sections/ ...... 页面区块
+   └── footer.css ..... Footer样式
+   
+   命名规范:
+   - BEM方法论: .block__element--modifier
+   - 使用CSS变量统一管理设计系统
+   - 按功能模块组织代码
+   
+   维护指南:
+   - 新增组件: components/
+   - 新增section: sections/
+   - 修改变量: core/variables.css
+   - 全局样式: core/reset.css
    ========================================================= */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-dark) 100%);
-  border-radius: 5px;
-  border: 2px solid var(--bg);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--yellow-dark);
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-  border-radius: 5px;
-}
-
-/* =========================================================
-   8. ローディングアニメーション
-   ========================================================= */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}

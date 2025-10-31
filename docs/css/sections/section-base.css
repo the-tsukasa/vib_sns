@@ -1,0 +1,134 @@
+/* =========================================================
+   Section Base - 全セクション共通スタイル
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+/* ===== Common Section Styles ===== */
+.section {
+  padding: 120px 8vw;
+  position: relative;
+  background: var(--bg-white);
+  color: var(--ink-light);
+  overflow: hidden;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  border-radius: 2px;
+}
+
+.section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  color: var(--ink);
+}
+
+.section__lead {
+  font-size: 1.15rem;
+  margin-bottom: 3rem;
+  line-height: var(--line-height-loose);
+  color: var(--gray);
+  max-width: 800px;
+}
+
+.section__image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.section__image:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ===== Split Layout ===== */
+.split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4vw;
+}
+
+.split__media {
+  flex: 1;
+}
+
+.split__text {
+  flex: 1.2;
+}
+
+.split--reverse {
+  flex-direction: row-reverse;
+}
+
+/* ===== Grid Layout ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 6vw;
+  }
+  
+  .section h2 {
+    font-size: 2rem;
+  }
+  
+  .split {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 5vw;
+  }
+  
+  .section h2 {
+    font-size: 1.75rem;
+  }
+  
+  .section h2::after {
+    width: 40px;
+    height: 3px;
+  }
+  
+  .section__lead {
+    font-size: 1rem;
+  }
+}
+
