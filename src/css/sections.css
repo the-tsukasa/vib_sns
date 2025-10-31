@@ -7,6 +7,22 @@
 
 
 /* =========================================================
+   メインコンテンツ領域
+   ========================================================= */
+.content {
+  margin-left: 220px;
+  min-height: 100vh;
+  transition: margin-left 0.4s ease;
+}
+
+@media (max-width: 900px) {
+  .content {
+    margin-left: 0;
+  }
+}
+
+
+/* =========================================================
    共通設定（全セクション）
    ========================================================= */
 .section {
@@ -63,11 +79,27 @@
   background: linear-gradient(135deg, #fffef5 0%, #fff8d1 100%);
 }
 
+.hero-mod {
+  position: relative;
+}
+
 .hero__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 5vw;
+}
+
+.hero__copy .pill {
+  display: inline-block;
+  background: var(--yellow);
+  color: #000;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.25);
 }
 
 .hero__copy h1 {
@@ -117,6 +149,15 @@
 @keyframes scrollDot {
   0%, 100% { transform: translateY(0); opacity: 1; }
   50% { transform: translateY(6px); opacity: 0.3; }
+}
+
+.mod-end {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
 }
 
 
@@ -185,14 +226,14 @@
 /* =========================================================
    05. Vision
    ========================================================= */
-.vision .grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.vision .card {
+.card {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
@@ -200,10 +241,10 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
-.vision .card:hover {
+.card:hover {
   transform: translateY(-4px);
 }
-.vision .card__img {
+.card__img {
   width: 100%;
   height: 160px;
   object-fit: cover;
