@@ -1,36 +1,199 @@
 /* =========================================================
    ファイル名：main.css
-   概要　　：全体CSSの統合エントリーポイント
+   概要　　：全体スタイル統合ファイル（VIB公式サイト用）
    作成者　：曹 小帥（SOU）
-   最終更新：2025-11-03
+   最終更新：2025-11-02（安定版・構造分離完了）
    ========================================================= */
 
-/* =========================================================
-   ① ベース設定（リセット・変数・基本フォント）
-   ========================================================= */
-@import url('./base.css');        /* Reset, Root Variables, Fonts */
 
 /* =========================================================
-   ② レイアウト構成（Sidebar / Content / Header / Footer）
+   1. ベース設定（変数・リセット・共通設定）
    ========================================================= */
-@import url('./layout.css');
+@import url("./base.css");
+
 
 /* =========================================================
-   ③ コンポーネント（共通UI部品：カード、フォームなど）
+   2. ヘッダー領域（サイドバー・ハンバーガー・オーバーレイ）
    ========================================================= */
-@import url('./components.css');
+@import url("./header.css");
+
 
 /* =========================================================
-   ④ ボタン（共通ボタンデザインシステム）
+   3. メインコンテンツ（Hero / About / Features / Plans / Vision / News / FAQ / Contact）
    ========================================================= */
-@import url('./buttons.css');
+@import url("./sections.css");
+
 
 /* =========================================================
-   ⑤ セクション（ページ単位：Hero, About, Features...）
+   4. フッター領域（コピーライト・SNSリンク・トップへ戻る）
    ========================================================= */
-@import url('./sections.css');
+@import url("./footer.css");
+
 
 /* =========================================================
-   ⑥ メディア / 画像関連（photo, gallery, animationなど）
+   5. 共通UI要素（ボタン・トランジション・アニメーション補助）
    ========================================================= */
-@import url('./photo.css');
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  color: #000;
+  box-shadow: var(--shadow-yellow);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(135deg, var(--yellow-2) 0%, var(--yellow) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(255, 204, 0, 0.4);
+}
+
+.btn--primary:active {
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: #000;
+  border: 2.5px solid var(--yellow);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--outline:hover {
+  background: var(--yellow);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-yellow);
+  border-color: var(--yellow);
+}
+
+.btn--outline:active {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   6. アニメーション補助（セクションのフェードイン）
+   ========================================================= */
+.observe {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.observe.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 装飾要素 ===== */
+.section-decoration {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 204, 0, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== テキストグラデーション ===== */
+.text-gradient {
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* =========================================================
+   7. スクロールバー（デザイン調整）
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+  border-radius: 5px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow-dark);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 5px;
+}
+
+/* =========================================================
+   8. ローディングアニメーション
+   ========================================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
