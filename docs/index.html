@@ -1,146 +1,149 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VIB｜人と人がつながる未来を可能にするSNS</title>
-  <meta name="theme-color" content="#ffcc00" />
-  <meta name="description" content="以心伝心 — 言葉によらずに、互いの心から心に伝えること。" />
-  <link rel="stylesheet" href="./css/intro-mode.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-</head>
-<body class="intro-mode">
+  <!DOCTYPE html>
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VIB｜人と人がつながる未来を可能にするSNS</title>
+    <meta name="theme-color" content="#ffcc00" />
+    <meta name="description" content="以心伝心 — 言葉によらずに、互いの心から心に伝えること。" />
+    <link rel="stylesheet" href="./css/intro-mode.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="intro-mode">
 
-  <!-- ===== 纯代码入场动画（无视频/图片） ===== -->
-  <div class="splash" id="splash" aria-hidden="false">
-    <div class="splash__stage">
-      <!-- 光圈 & 粒子（纯CSS生成） -->
-      <div class="halo"></div>
-      <div class="particle p1"></div>
-      <div class="particle p2"></div>
-      <div class="particle p3"></div>
+    <!-- ===== 纯代码入场动画（无视频/图片） ===== -->
+    <div class="splash" id="splash" aria-hidden="false">
+      <div class="splash__stage">
+        <!-- 光圈 & 粒子（纯CSS生成） -->
+        <div class="halo"></div>
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
 
-      <!-- 文字LOGO（纯文本） -->
-      <div class="logo">
-        <span class="logo__v">V</span><span>I</span><span>B</span>
+        <!-- 文字LOGO（纯文本） -->
+        <div class="logo">
+          <span class="logo__v">V</span><span>I</span><span>B</span>
+        </div>
+
+        <!-- 扫光条 -->
+        <div class="sweep"></div>
+
+        <!-- Skip -->
+        <button id="skipBtn" class="splash__skip" aria-label="スキップ">Skip ▶︎</button>
       </div>
-
-      <!-- 扫光条 -->
-      <div class="sweep"></div>
-
-      <!-- Skip -->
-      <button id="skipBtn" class="splash__skip" aria-label="スキップ">Skip ▶︎</button>
     </div>
-  </div>
 
-  <!-- ===== 左侧固定导航 ===== -->
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="brand__dot"></div>
-      <p class="brand__name">VIB</p>
-    </div>
-    <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
-      <a href="#top"      class="nav-link active">TOP</a>
-      <a href="#about"    class="nav-link">私たちについて</a>
-      <a href="#features" class="nav-link">事業内容</a>
-      <a href="#plans"    class="nav-link">料金表</a>
-      <a href="#news"     class="nav-link">お知らせ</a>
-      <a href="#faq"      class="nav-link">よくある質問</a>
-    </nav>
-    <button class="contact-fab" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">お問い合わせ ✉</button>
-  </aside>
+    <!-- ===== 左侧固定导航 ===== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand__dot"></div>
+        <p class="brand__name">VIB</p>
+      </div>
+      <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
+        <a href="#top"      class="nav-link active">TOP</a>
+        <a href="#about"    class="nav-link">私たちについて</a>
+        <a href="#features" class="nav-link">事業内容</a>
+        <a href="#plans"    class="nav-link">プラン</a>
+        <a href="#news"     class="nav-link">お知らせ</a>
+        <a href="#faq"      class="nav-link">よくある質問</a>
+      </nav>
+      <button class="contact-fab" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">お問い合わせ ✉</button>
+    </aside>
 
-  <!-- ===== 右侧内容 ===== -->
-  <main class="content">
-    <!-- 01 Hero -->
-    <section id="top" class="section hero observe">
-      <div class="hero-mod hero-mod--1"></div>  /*直し*/
-      <div class="hero__inner">
-        <div class="hero__copy">
-          <span class="pill">広がる共感のインターネット</span>
-          <h1>人と人がつながる未来をつくり、<br>以心伝心で心を届けます。</h1>
-          <p class="lead">VIBは「言葉にしづらい想い」まで届ける新しいSNS。</p>
-          <div class="hero__actions">
-            <a href="#about" class="btn btn--primary">私たちについて</a>
-            <a href="#features" class="btn">サービスを見る</a>
+    <!-- ===== 右侧内容 ===== -->
+    <main class="content">
+      <section id="top" class="section hero observe">
+        <!-- Hero Module #1：必须滑到底才解锁 -->
+        <div class="hero-mod hero-mod--1">
+          <div class="hero__inner">
+            <div class="hero__copy">
+              <span class="pill">広がる共感のインターネット</span>
+              <h1>人と人がつながる未来をつくり、<br>以心伝心で心を届けます。</h1>
+              <p class="lead">VIBは「言葉にしづらい想い」まで届ける新しいSNS。</p>
+              <div class="hero__actions">
+                <a href="#about" class="btn btn--primary">私たちについて</a>
+                <a href="#features" class="btn">サービスを見る</a>
+              </div>
+            </div>
+            <div class="hero__art">
+              <div class="panel"></div>
+            </div>
+          </div>
+
+          <!-- 可选：SCROLL 提示 -->
+          <div class="hero__scroll"><span>SCROLL</span><div class="dot"></div></div>
+
+          <!-- 哨兵：必须完全进入视口才解锁 -->
+          <div id="hero-mod-1-end" class="mod-end" aria-hidden="true"></div>
+        </div>
+      </section>
+
+
+      <!-- 02 About -->
+      <section id="about" class="section about observe">
+        <div class="split">
+          <div class="split__media"><div class="illo illo--about"></div></div>
+          <div class="split__text">
+            <h2>私たちについて</h2>
+            <p>近接検知やAI推定を駆使し、言葉以外のシグナルを大切な人へ。</p>
           </div>
         </div>
-        <div class="hero__art">
-          <!-- 占位面板（可后续换成你的主视觉） -->
-          <div class="panel"></div>
+      </section>
+
+      <!-- 03 Features -->
+      <section id="features" class="section features observe">
+        <div class="split split--reverse">
+          <div class="split__text">
+            <h2>事業内容（機能）</h2>
+            <ul class="feature-list">
+              <li><strong>すれ違い通信：</strong>偶然の出会いを“次”へ。</li>
+              <li><strong>感情共有AI：</strong>以心伝心の体験を補助。</li>
+              <li><strong>プライバシー：</strong>端末内完結の設計。</li>
+              <li><strong>クロスデバイス：</strong>スマホ/ウェアラブル/PC。</li>
+            </ul>
+          </div>
+          <div class="split__media"><div class="illo illo--features"></div></div>
         </div>
-      </div>
-      <!-- 可选：你的 “SCROLL” 提示 -->
-      <div class="hero__scroll"><span>SCROLL</span><div class="dot"></div></div>
-      <!-- 哨兵：必须进入视口才解锁 -->
-      <div id="hero-mod-1-end" class="mod-end" aria-hidden="true"></div>
-    </section>
+      </section>
 
-    <!-- 02 About -->
-    <section id="about" class="section about observe">
-      <div class="split">
-        <div class="split__media"><div class="illo illo--about"></div></div>
-        <div class="split__text">
-          <h2>私たちについて</h2>
-          <p>近接検知やAI推定を駆使し、言葉以外のシグナルを大切な人へ。</p>
-        </div>
-      </div>
-    </section>
+      <!-- 04 Plans -->
+      <section id="plans" class="section plans observe">
+        <h2>料金表</h2>
+        <table class="price-table">
+          <tr><th>Free</th><td>¥0 / 月</td></tr>
+          <tr><th>Premium</th><td>¥980 / 月</td></tr>
+          <tr><th>Enterprise</th><td>応相談</td></tr>
+        </table>
+      </section>
 
-    <!-- 03 Features -->
-    <section id="features" class="section features observe">
-      <div class="split split--reverse">
-        <div class="split__text">
-          <h2>事業内容（機能）</h2>
-          <ul class="feature-list">
-            <li><strong>すれ違い通信：</strong>偶然の出会いを“次”へ。</li>
-            <li><strong>感情共有AI：</strong>以心伝心の体験を補助。</li>
-            <li><strong>プライバシー：</strong>端末内完結の設計。</li>
-            <li><strong>クロスデバイス：</strong>スマホ/ウェアラブル/PC。</li>
-          </ul>
-        </div>
-        <div class="split__media"><div class="illo illo--features"></div></div>
-      </div>
-    </section>
+      <!-- 05 News -->
+      <section id="news" class="section news observe">
+        <h2>お知らせ</h2>
+        <ul class="news-list">
+          <li><time>2025/10/30</time> VIB β版リリース開始。</li>
+          <li><time>2025/09/12</time> AI共感モデル Ver.2 公開。</li>
+        </ul>
+      </section>
 
-    <!-- 04 Plans -->
-    <section id="plans" class="section plans observe">
-      <h2>料金表</h2>
-      <table class="price-table">
-        <tr><th>Free</th><td>¥0 / 月</td></tr>
-        <tr><th>Premium</th><td>¥980 / 月</td></tr>
-        <tr><th>Enterprise</th><td>応相談</td></tr>
-      </table>
-    </section>
+      <!-- 06 FAQ -->
+      <section id="faq" class="section faq observe">
+        <h2>よくある質問</h2>
+        <details><summary>位置情報の扱い</summary><p>必要最小限・端末内処理。</p></details>
+        <details><summary>感情解析の精度</summary><p>継続的に改善。</p></details>
+      </section>
 
-    <!-- 05 News -->
-    <section id="news" class="section news observe">
-      <h2>お知らせ</h2>
-      <ul class="news-list">
-        <li><time>2025/10/30</time> VIB β版リリース開始。</li>
-        <li><time>2025/09/12</time> AI共感モデル Ver.2 公開。</li>
-      </ul>
-    </section>
+      <!-- Contact / Footer -->
+      <section id="contact" class="section contact observe">
+        <h2>お問い合わせ</h2>
+        <a class="btn" href="mailto:contact@vib.jp">contact@vib.jp</a>
+      </section>
 
-    <!-- 06 FAQ -->
-    <section id="faq" class="section faq observe">
-      <h2>よくある質問</h2>
-      <details><summary>位置情報の扱い</summary><p>必要最小限・端末内処理。</p></details>
-      <details><summary>感情解析の精度</summary><p>継続的に改善。</p></details>
-    </section>
+      <footer class="footer"><small>© <span id="year"></span> VIB. All rights reserved.</small></footer>
+    </main>
 
-    <!-- Contact / Footer -->
-    <section id="contact" class="section contact observe">
-      <h2>お問い合わせ</h2>
-      <a class="btn" href="mailto:contact@vib.jp">contact@vib.jp</a>
-    </section>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">☰</button>
 
-    <footer class="footer"><small>© <span id="year"></span> VIB. All rights reserved.</small></footer>
-  </main>
-
-  <button class="hamburger" id="hamburger" aria-label="メニュー">☰</button>
-
-  <script src="./js/splash.js"></script>
-  <script src="./js/main.js"></script>
-</body>
-</html>
+    <script src="./js/splash.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+  </html>
