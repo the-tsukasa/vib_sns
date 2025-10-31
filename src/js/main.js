@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ========= ① Intro Mode解除 ========= */
   window.exitIntro = () => {
+    // Splash未结束时，不执行任何操作
+    if (document.getElementById("splash")) return;
+
     if (!body.classList.contains("intro-mode")) return;
     body.classList.remove("intro-mode");
 
@@ -96,23 +99,24 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ========= ⑦ 年度更新 ========= */
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  /* ========= ⑧ 現在のセクションに応じてナビリンクをハイライト ========= */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".side-nav .nav-link");
+
+  const ioNav = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 全てのリンクからactiveを除去
+        navLinks.forEach(link => link.classList.remove("active"));
+
+        // 対応するリンクをactiveに
+        const id = entry.target.getAttribute("id");
+        const current = document.querySelector(`.side-nav a[href="#${id}"]`);
+        if (current) current.classList.add("active");
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(sec => ioNav.observe(sec));
 });
-/* ========= ⑧ 現在のセクションに応じてナビリンクをハイライト ========= */
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".side-nav .nav-link");
-
-const ioNav = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // 全てのリンクからactiveを除去
-      navLinks.forEach(link => link.classList.remove("active"));
-
-      // 対応するリンクをactiveに
-      const id = entry.target.getAttribute("id");
-      const current = document.querySelector(`.side-nav a[href="#${id}"]`);
-      if (current) current.classList.add("active");
-    }
-  });
-}, { threshold: 0.5 });
-
-sections.forEach(sec => ioNav.observe(sec));
