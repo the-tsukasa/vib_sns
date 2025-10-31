@@ -1,0 +1,68 @@
+/* =========================================================
+   Hamburger Button - ハンバーガーメニュー
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: var(--z-hamburger);
+  background: var(--yellow);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+}
+
+.hamburger:hover {
+  background: var(--yellow-2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger:active {
+  transform: scale(0.95);
+}
+
+/* デスクトップで非表示 */
+@media (min-width: 901px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ===== ハンバーガーラインアニメーション ===== */
+.hamburger__line {
+  width: 24px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+/* アクティブ状態（X字に変形） */
+.hamburger.active .hamburger__line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .hamburger__line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active .hamburger__line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
