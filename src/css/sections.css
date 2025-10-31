@@ -1,170 +1,296 @@
-/* ===============================
-   sections.css ｜页面区块样式层
-   =============================== */
+/* =========================================================
+   ファイル名：sections.css
+   概要　　：メインコンテンツ領域（各セクション）
+   作成者　：曹 小帥（SOU）
+   最終更新：2025-11-02（HTML構造対応・安定版）
+   ========================================================= */
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-2) 100%);
-  min-height: 100vh;
+
+/* =========================================================
+   共通設定（全セクション）
+   ========================================================= */
+.section {
+  padding: 100px 8vw;
+  position: relative;
+  background: #fff;
+  color: #222;
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.section__lead {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.section__image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.split {
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  color: #000;
-  position: relative;
+  justify-content: space-between;
+  gap: 4vw;
+}
+
+.split__media {
+  flex: 1;
+}
+
+.split__text {
+  flex: 1.2;
+}
+
+.split--reverse {
+  flex-direction: row-reverse;
+}
+
+/* =========================================================
+   01. Hero（トップセクション）
+   ========================================================= */
+.hero {
+  background: linear-gradient(135deg, #fffef5 0%, #fff8d1 100%);
 }
 
 .hero__inner {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 5vw;
 }
 
-.pill {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: .08em;
-  border-radius: 999px;
-  padding: 6px 10px;
-  margin-bottom: 12px;
+.hero__copy h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.hero h1 {
-  font-size: clamp(28px, 4.6vw, 56px);
-  line-height: 1.15;
-  margin: .2em 0 .3em;
-  color: #000;
-}
-
-.lead {
+.hero__copy .lead {
+  font-size: 1.1rem;
   color: #333;
+  margin-bottom: 1.5rem;
 }
 
 .hero__actions {
   display: flex;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 1rem;
+}
+
+.hero__image {
+  width: 460px;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .hero__scroll {
   position: absolute;
-  left: 32px;
-  bottom: 24px;
-  writing-mode: vertical-rl;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #555;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
 }
-
 .hero__scroll .dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
   border-radius: 50%;
-  background: #000;
-  animation: bob 1.6s infinite;
+  animation: scrollDot 1.6s infinite ease-in-out;
+}
+@keyframes scrollDot {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.3; }
 }
 
-@keyframes bob {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+
+/* =========================================================
+   02. About
+   ========================================================= */
+.about ul {
+  list-style: none;
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+.about li {
+  margin-bottom: 0.5rem;
 }
 
-/* About / Features / Plans / Vision / News / FAQ */
-.about .split,
-.features .split {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 40px;
-  align-items: center;
+
+/* =========================================================
+   03. Features
+   ========================================================= */
+.features .feature-list {
+  list-style: none;
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+.features .feature-list li {
+  margin-bottom: 0.5rem;
 }
 
-.features {
-  background: #f4f4f4;
-}
 
-.split--reverse {
-  grid-template-columns: 1.1fr 1fr;
+/* =========================================================
+   04. Plans
+   ========================================================= */
+.plans {
+  background: #fffef8;
+  text-align: center;
 }
 
 .price-table {
-  width: min(680px, 100%);
+  margin: 2rem auto;
   border-collapse: collapse;
-  margin-top: 14px;
+  width: 80%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .price-table th,
 .price-table td {
-  border: 1px solid #ddd;
-  padding: 12px 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
 }
 
 .price-table th {
-  background: #111;
-  color: #fff;
-  text-align: left;
+  background: var(--yellow);
+  color: #000;
+  font-weight: 900;
 }
 
+.price-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   05. Vision
+   ========================================================= */
+.vision .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vision .card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+.vision .card:hover {
+  transform: translateY(-4px);
+}
+.vision .card__img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+
+/* =========================================================
+   06. News
+   ========================================================= */
+.news__banner {
+  margin-bottom: 2rem;
+}
 .news-list {
   list-style: none;
   padding: 0;
-  margin: 14px 0 0;
 }
-
 .news-list li {
-  padding: 8px 0;
-  border-bottom: 1px dashed #ddd;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
 }
-
 .news-list time {
-  color: #666;
-  margin-right: 10px;
+  font-weight: 700;
+  color: #000;
+  margin-right: 0.5rem;
 }
 
-details {
+
+/* =========================================================
+   07. FAQ
+   ========================================================= */
+.faq {
+  background: #fffef5;
+}
+
+.faq details {
+  margin-bottom: 1rem;
+  padding: 1rem;
   background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
-  padding: 12px 14px;
-  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+.faq summary {
+  font-weight: 700;
+}
+.faq summary:hover {
+  color: var(--yellow);
+}
+.faq p {
+  margin-top: 0.5rem;
+  line-height: 1.6;
 }
 
-.footer {
-  padding: 40px 8vw;
-  border-top: 1px solid #eee;
-  color: #777;
+
+/* =========================================================
+   08. Contact
+   ========================================================= */
+.contact {
   text-align: center;
+  background: linear-gradient(135deg, #fffef5 0%, #fff7c8 100%);
 }
 
-.section__lead {
-  text-align: center;
-  max-width: 720px;
-  margin: auto;
+.contact .btn--primary {
+  margin-top: 1.5rem;
+  padding: 12px 26px;
+  font-size: 1.1rem;
 }
 
-.plans__banner {
-  max-width: 720px;
-  margin: 40px auto;
-}
-
-.vision .grid {
-  margin-top: 40px;
-}
-
-.news__banner {
-  max-width: 900px;
-  margin: 0 auto 30px;
-}
-
-.faq__illustration {
-  max-width: 700px;
-  margin: 0 auto 30px;
-}
-
-.contact__banner {
-  max-width: 600px;
-  margin: 30px auto;
+/* =========================================================
+   Responsive（レスポンシブ対応）
+   ========================================================= */
+@media (max-width: 900px) {
+  .split {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero__inner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero__image {
+    width: 80%;
+  }
+  .section {
+    padding: 80px 6vw;
+  }
 }
