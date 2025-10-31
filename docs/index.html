@@ -1,147 +1,254 @@
-  <!DOCTYPE html>
-  <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VIB｜人と人がつながる未来を可能にするSNS</title>
-    <meta name="theme-color" content="#ffcc00" />
-    <meta name="description" content="以心伝心 — 言葉によらずに、互いの心から心に伝えること。" />
-    <link rel="stylesheet" href="./css/main.css" />
-  </head>
-  <body class="intro-mode">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIB｜人と人がつながる未来を可能にするSNS</title>
 
-    <!-- ===== 纯代码入场动画（无视频/图片） ===== -->
-    <div class="splash" id="splash" aria-hidden="false">
-      <div class="splash__stage">
-        <!-- 光圈 & 粒子（纯CSS生成） -->
-        <div class="halo"></div>
-        <div class="particle p1"></div>
-        <div class="particle p2"></div>
-        <div class="particle p3"></div>
+  <!-- 基础样式 -->
+  <meta name="theme-color" content="#ffcc00" />
+  <meta name="description" content="以心伝心 — 言葉によらずに、互いの心から心に伝えること。" />
 
-        <!-- 文字LOGO（纯文本） -->
-        <div class="logo">
-          <span class="logo__v">V</span><span>I</span><span>B</span>
-        </div>
+  <!-- 🧭 Favicon -->
+  <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
 
-        <!-- 扫光条 -->
-        <div class="sweep"></div>
+  <!-- 🪶 Open Graph / SNS预览 -->
+  <meta property="og:title" content="VIB｜人と人がつながる未来を可能にするSNS">
+  <meta property="og:description" content="以心伝心 — 言葉によらずに、互いの心から心に伝えること。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://the-tsukasa.github.io/vib_sns/">
+  <meta property="og:image" content="./assets/icons/og-image.jpg">
+  <meta property="og:locale" content="ja_JP">
 
-        <!-- Skip -->
-        <button id="skipBtn" class="splash__skip" aria-label="スキップ">Skip ▶︎</button>
-      </div>
+  <!-- 🐦 Twitter / X 预览 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VIB｜人と人がつながる未来を可能にするSNS">
+  <meta name="twitter:description" content="以心伝心 — 言葉によらずに、互いの心から心に伝えること。">
+  <meta name="twitter:image" content="./assets/icons/og-image.jpg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body class="intro-mode">
+
+  <!-- ===== Splash 入場動畫 ===== -->
+  <div class="splash" id="splash" aria-hidden="false">
+    <div class="splash__stage">
+      <div class="halo"></div>
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="logo"><span class="logo__v">V</span><span>I</span><span>B</span></div>
+      <div class="sweep"></div>
+      <button id="skipBtn" class="splash__skip" aria-label="スキップ">Skip ▶︎</button>
     </div>
+  </div>
 
-    <!-- ===== 左侧固定导航 ===== -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand__dot"></div>
-        <p class="brand__name">VIB</p>
+<!-- ===== 左側ナビゲーション ===== -->
+<aside class="sidebar">
+  <div class="brand">
+    <a href="index.html" class="brand__link">
+      <img src="./assets/icons/logo.png" alt="VIB ロゴ" class="brand__logo">
+    </a>
+    <p class="brand__name">VIB</p>
+  </div>
+
+  <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
+    <a href="#top" class="nav-link active">TOP</a>
+    <a href="#about" class="nav-link">私たちについて</a>
+    <a href="#features" class="nav-link">事業内容</a>
+    <a href="#plans" class="nav-link">プラン</a>
+    <a href="#vision" class="nav-link">ビジョン</a>
+    <a href="#news" class="nav-link">お知らせ</a>
+    <a href="#faq" class="nav-link">よくある質問</a>
+  </nav>
+
+  <button class="contact-fab"
+    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    お問い合わせ
+  </button>
+</aside>
+
+<!-- ===== ハンバーガーボタン ===== -->
+<button class="hamburger" id="hamburger" aria-label="メニュー">☰</button>
+
+
+
+  <!-- ===== メインコンテンツ ===== -->
+  <main class="content">
+
+    <!-- 01 Hero -->
+    <section id="top" class="section hero observe">
+      <div class="hero-mod hero-mod--1">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <span class="pill">広がる共感のインターネット</span>
+            <h1>人と人がつながる未来をつくり、<br>以心伝心で心を届けます。</h1>
+            <p class="lead">VIBは「言葉にしづらい想い」まで届ける新しいSNS。</p>
+            <div class="hero__actions">
+              <a href="#about" class="btn btn--primary">私たちについて</a>
+              <a href="#features" class="btn btn--outline">サービスを見る</a>
+            </div>
+          </div>
+          <div class="hero__art">
+            <!-- ★ Hero主视觉 -->
+            <img src="./assets/images/hero-main.jpg" alt="VIB メインビジュアル" class="hero__image">
+          </div>
+        </div>
+        <div class="hero__scroll"><span>SCROLL</span><div class="dot"></div></div>
+        <div id="hero-mod-1-end" class="mod-end" aria-hidden="true"></div>
       </div>
-      <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
-        <a href="#top"      class="nav-link active">TOP</a>
-        <a href="#about"    class="nav-link">私たちについて</a>
-        <a href="#features" class="nav-link">事業内容</a>
-        <a href="#plans"    class="nav-link">プラン</a>
-        <a href="#news"     class="nav-link">お知らせ</a>
-        <a href="#faq"      class="nav-link">よくある質問</a>
-      </nav>
-      <button class="contact-fab" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" >お問い合わせ ✉</button>
-    </aside>
+    </section>
 
-    <!-- ===== 右侧内容 ===== -->
-    <main class="content">
-      <section id="top" class="section hero observe">
-        <!-- Hero Module #1：必须滑到底才解锁 -->
-        <div class="hero-mod hero-mod--1">
-          <div class="hero__inner">
-            <div class="hero__copy">
-              <span class="pill">広がる共感のインターネット</span>
-              <h1>人と人がつながる未来をつくり、<br>以心伝心で心を届けます。</h1>
-              <p class="lead">VIBは「言葉にしづらい想い」まで届ける新しいSNS。</p>
-              <div class="hero__actions">
-                <a href="#about" class="btn btn--primary">私たちについて</a>
-                <a href="#features" class="btn">サービスを見る</a>
-              </div>
-            </div>
-            <div class="hero__art">
-              <div class="panel"></div>
-            </div>
-          </div>
-
-          <!-- 可选：SCROLL 提示 -->
-          <div class="hero__scroll"><span>SCROLL</span><div class="dot"></div></div>
-
-          <!-- 哨兵：必须完全进入视口才解锁 -->
-          <div id="hero-mod-1-end" class="mod-end" aria-hidden="true"></div>
+    <!-- 02 About -->
+    <section id="about" class="section about observe">
+      <div class="split">
+        <div class="split__media">
+          <!-- ★ About区 照片 -->
+          <img src="./assets/images/about-team.jpg" alt="VIB チーム写真" class="section__image">
         </div>
-      </section>
+        <div class="split__text">
+          <h2>私たちについて</h2>
+          <p>
+            VIBは「共感でつながる」次世代型SNSです。<br>
+            言葉にできない感情や思考をテクノロジーで可視化し、<br>
+            人と人がより深く理解し合える世界を目指しています。
+          </p>
 
+          <h3>VIBが大切にする3つの軸</h3>
+          <ul>
+            <li><strong>1. 感情のテクノロジー化：</strong> AIがユーザーの心の動きを読み取り、共感の波を解析します。</li>
+            <li><strong>2. 自然なつながり：</strong> 近接通信で、偶然のすれ違いを新しい出会いに変えます。</li>
+            <li><strong>3. プライバシー設計：</strong> すべての処理を端末内で完結し、安全を確保します。</li>
+          </ul>
 
-      <!-- 02 About -->
-      <section id="about" class="section about observe">
-        <div class="split">
-          <div class="split__media"><div class="illo illo--about"></div></div>
-          <div class="split__text">
-            <h2>私たちについて</h2>
-            <p>近接検知やAI推定を駆使し、言葉以外のシグナルを大切な人へ。</p>
-          </div>
+          <p>これらの技術を通じて、VIBは「共感を共有する社会」を実現します。</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 03 Features -->
-      <section id="features" class="section features observe">
-        <div class="split split--reverse">
-          <div class="split__text">
-            <h2>事業内容（機能）</h2>
-            <ul class="feature-list">
-              <li><strong>すれ違い通信：</strong>偶然の出会いを“次”へ。</li>
-              <li><strong>感情共有AI：</strong>以心伝心の体験を補助。</li>
-              <li><strong>プライバシー：</strong>端末内完結の設計。</li>
-              <li><strong>クロスデバイス：</strong>スマホ/ウェアラブル/PC。</li>
-            </ul>
-          </div>
-          <div class="split__media"><div class="illo illo--features"></div></div>
+    <!-- 03 Features -->
+    <section id="features" class="section features observe">
+      <div class="split split--reverse">
+        <div class="split__text">
+          <h2>事業内容（機能）</h2>
+          <p>
+            VIBは、人の感情とテクノロジーを自然に結びつけるプラットフォームです。<br>
+            偶然の出会い、感情共有、プライバシー、クロスデバイス体験を通じて、<br>
+            あなたの毎日がもっと「共鳴」で満たされます。
+          </p>
+          <ul class="feature-list">
+            <li><strong>すれ違い通信：</strong> 偶然の出会いを“次”へつなげる近接マッチング。</li>
+            <li><strong>感情共有AI：</strong> 感情の波を検出し、共感体験をサポート。</li>
+            <li><strong>プライバシー設計：</strong> 端末内で完結し、データ外部送信なし。</li>
+            <li><strong>クロスデバイス：</strong> スマホ・ウェアラブル・PCをシームレスに連携。</li>
+          </ul>
         </div>
-      </section>
+        <div class="split__media">
+          <!-- ★ Features区主图 -->
+          <img src="./assets/images/features-image.jpg" alt="機能紹介イメージ" class="section__image">
+        </div>
+      </div>
+    </section>
 
-      <!-- 04 Plans -->
-      <section id="plans" class="section plans observe">
-        <h2>料金表</h2>
-        <table class="price-table">
-          <tr><th>Free</th><td>¥0 / 月</td></tr>
-          <tr><th>Premium</th><td>¥980 / 月</td></tr>
-          <tr><th>Enterprise</th><td>応相談</td></tr>
-        </table>
-      </section>
+    <!-- 04 Plans -->
+    <section id="plans" class="section plans observe">
+      <h2>料金プラン</h2>
+      <p class="section__lead">あなたの使い方に合わせて選べる3つのプラン。</p>
 
-      <!-- 05 News -->
-      <section id="news" class="section news observe">
-        <h2>お知らせ</h2>
-        <ul class="news-list">
-          <li><time>2025/10/30</time> VIB β版リリース開始。</li>
-          <li><time>2025/09/12</time> AI共感モデル Ver.2 公開。</li>
-        </ul>
-      </section>
+      <!-- ★ Plans区视觉图 -->
+      <div class="plans__banner">
+        <img src="./assets/images/plans-banner.jpg" alt="料金プランバナー" class="section__image">
+      </div>
 
-      <!-- 06 FAQ -->
-      <section id="faq" class="section faq observe">
-        <h2>よくある質問</h2>
-        <details><summary>位置情報の扱い</summary><p>必要最小限・端末内処理。</p></details>
-        <details><summary>感情解析の精度</summary><p>継続的に改善。</p></details>
-      </section>
+      <table class="price-table">
+        <tr><th>Free</th><td>¥0 / 月 — 基本機能すべて利用可能。</td></tr>
+        <tr><th>Premium</th><td>¥980 / 月 — 高精度共感AIと広告非表示。</td></tr>
+        <tr><th>Enterprise</th><td>応相談 — チーム利用・API統合対応。</td></tr>
+      </table>
+    </section>
 
-      <!-- Contact / Footer -->
-      <section id="contact" class="section contact observe">
-        <h2>お問い合わせ</h2>
-        <a class="btn" href="mailto:contact@vib.jp">contact@vib.jp</a>
-      </section>
+    <!-- 05 Vision -->
+    <section id="vision" class="section observe">
+      <h2>VIBのビジョン</h2>
+      <p class="section__lead">
+        VIBは「人と人の共鳴」を軸に、より深いコミュニケーションの形を追求します。<br>
+        感情の波をテクノロジーで可視化し、孤独を減らす社会を目指します。
+      </p>
 
-      <footer class="footer"><small>© <span id="year"></span> VIB. All rights reserved.</small></footer>
-    </main>
+      <div class="grid">
+        <div class="card">
+          <img src="./assets/images/vision-tech.jpg" alt="共感テクノロジー" class="card__img">
+          <h3>共感テクノロジー</h3>
+          <p>AIで心の動きを読み取り、共鳴する瞬間を増やします。</p>
+        </div>
+        <div class="card">
+          <img src="./assets/images/vision-community.jpg" alt="地域共創" class="card__img">
+          <h3>地域共創</h3>
+          <p>すれ違い通信を活用し、リアルなつながりを促進します。</p>
+        </div>
+        <div class="card">
+          <img src="./assets/images/vision-future.jpg" alt="未来設計" class="card__img">
+          <h3>未来設計</h3>
+          <p>デジタルと感情の融合で、新しい社会的価値を創出します。</p>
+        </div>
+      </div>
+    </section>
 
-    <button class="hamburger" id="hamburger" aria-label="メニュー">☰</button>
+    <!-- 06 News -->
+    <section id="news" class="section news observe">
+      <h2>お知らせ</h2>
 
-    <script src="./js/main.js"></script>
-  </body>
-  </html>
+      <!-- ★ News区 顶部视觉横幅 -->
+      <div class="news__banner">
+        <img src="./assets/images/news-banner.jpg" alt="お知らせバナー" class="section__image">
+      </div>
+
+      <ul class="news-list">
+        <li><time>2025/10/30</time> VIB β版リリース開始。</li>
+        <li><time>2025/09/12</time> AI共感モデル Ver.2 公開。</li>
+        <li><time>2025/07/01</time> コラボパートナー募集開始。</li>
+      </ul>
+    </section>
+
+    <!-- 07 FAQ -->
+    <section id="faq" class="section faq observe">
+      <h2>よくある質問</h2>
+
+      <!-- ★ FAQ视觉图 -->
+      <div class="faq__illustration">
+        <img src="./assets/images/faq-illustration.jpg" alt="FAQイラスト" class="section__image">
+      </div>
+
+      <details><summary>位置情報の扱い</summary><p>必要最小限・端末内処理。外部送信は一切ありません。</p></details>
+      <details><summary>感情解析の精度</summary><p>AI学習により継続的に改善されています。</p></details>
+      <details><summary>法人向け利用は可能ですか？</summary><p>はい、API連携を通じた企業向け利用が可能です。</p></details>
+    </section>
+
+    <!-- 08 Contact -->
+    <section id="contact" class="section contact observe">
+      <h2>お問い合わせ</h2>
+      <p>サービスに関する質問・取材依頼などお気軽にどうぞ。</p>
+
+      <!-- ★ Contact视觉图 -->
+      <div class="contact__banner">
+        <img src="./assets/images/contact-banner.jpg" alt="お問い合わせバナー" class="section__image">
+      </div>
+
+      <a class="btn btn--primary" href="mailto:contact@vib.jp">contact@vib.jp</a>
+    </section>
+
+    <footer class="footer">
+      <small>© <span id="year"></span> VIB. All rights reserved.</small>
+    </footer>
+  </main>
+
+
+  <script src="./js/splash.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/sidebar-toggle.js"></script>
+
+</body>
+</html>
