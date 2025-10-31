@@ -1,38 +1,29 @@
-// 入場スプラッシュの制御（メディア無し版）
-// ※ ここでは intro-mode を外さない（最初のスクロールで外す設計）
-(function () {
-  const splash = document.getElementById('splash');
-  const skip   = document.getElementById('skipBtn');
+/* ===============================
+   splash.js
+   功能：
+   1. 控制入場動畫的播放與結束
+   2. 播放完後隱藏 Splash，但不解除 intro-mode
+   =============================== */
 
-  // 入場中はスクロールをロック
-  const root = document.documentElement;
-  const prevOverflow = root.style.overflow;
-  root.style.overflow = 'hidden';
+document.addEventListener("DOMContentLoaded", () => {
+  const splash = document.getElementById("splash");
+  const skipBtn = document.getElementById("skipBtn");
 
-  let ended = false;
-  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const DURATION = REDUCED ? 600 : 2600; // ms
-
-  const timer = setTimeout(finish, DURATION);
-  skip?.addEventListener('click', finish);
-
-  function finish() {
-    if (ended) return;
-    ended = true;
-    clearTimeout(timer);
-
-    // スプラッシュをフェードアウト
-    if (splash) {
-      splash.classList.add('hide');
-      splash.setAttribute('aria-hidden', 'true');
-      setTimeout(() => splash.remove(), 720);
-    }
-
-    // スクロール解放（ただし intro-mode はそのまま）
-    root.style.overflow = prevOverflow || '';
-    // アクセシビリティ：Hero 先頭へフォーカス移動
-    const top = document.getElementById('top');
-    if (top) top.setAttribute('tabindex', '-1');
-    top?.focus({ preventScroll: true });
+  // 手动跳过按钮
+  if (skipBtn) {
+    skipBtn.addEventListener("click", hideSplash);
   }
-})();
+
+  // 自動結束（動畫播放完後自動消失）
+  setTimeout(hideSplash, 3800); // 約3.8秒後消失，可按需調整
+
+  function hideSplash() {
+    if (!splash || splash.classList.contains("hide")) return;
+    splash.classList.add("hide");
+
+    // 防止重複操作
+    setTimeout(() => {
+      splash.remove();
+    }, 800); // 與 CSS 過渡一致
+  }
+});
