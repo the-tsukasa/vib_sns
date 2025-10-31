@@ -2,40 +2,108 @@
    ファイル名：base.css
    概要　　：全体共通の基本スタイル・変数・リセット設定
    作成者　：曹 小帥（SOU）
-   最終更新：2025-11-01
+   最終更新：2025-11-02（美化版・カラーシステム拡張）
    ========================================================= */
 
 :root {
+  /* メインカラー */
   --yellow: #ffcc00;
   --yellow-2: #ffd633;
+  --yellow-light: #fff4cc;
+  --yellow-dark: #e6b800;
+  
+  /* ニュートラルカラー */
   --ink: #0b0b0b;
+  --ink-light: #1b1b1b;
+  --gray: #666666;
+  --gray-light: #999999;
   --bg: #fafaf7;
+  --bg-white: #ffffff;
   --line: #e9e9e9;
+  --line-dark: #d0d0d0;
+  
+  /* アクセントカラー */
+  --accent-blue: #4a90e2;
+  --accent-green: #7ed321;
+  --accent-red: #ff6b6b;
+  
+  /* シャドウ */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.15);
+  --shadow-yellow: 0 8px 24px rgba(255, 204, 0, 0.3);
+  
+  /* レイアウト */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* アニメーション */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
 }
 
 /* ===== Reset & Global ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html, body { 
+  margin: 0; 
+  padding: 0; 
+  scroll-behavior: smooth; 
+}
 
 body {
-  font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
-  color: #1b1b1b;
-  background-color: var(--yellow);
+  font-family: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  color: var(--ink-light);
+  background: linear-gradient(135deg, #ffcc00 0%, #ffd633 100%);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===== 全リンク共通設定（下線削除・色統一） ===== */
 a {
-  text-decoration: none;      /* 下線を消す */
-  color: inherit;             /* 親の色を引き継ぐ（紫にならない） */
-  transition: color .2s ease, opacity .2s ease;
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
 a:hover,
 a:focus {
-  text-decoration: none;      /* hover 時も下線なし */
-  opacity: 0.8;               /* 軽いフィードバック */
+  text-decoration: none;
+  opacity: 0.85;
 }
 
 a:visited {
-  color: inherit;             /* 訪問済みでも色を変えない */
+  color: inherit;
+}
+
+/* ===== テキスト選択 ===== */
+::selection {
+  background: var(--yellow);
+  color: #000;
+}
+
+::-moz-selection {
+  background: var(--yellow);
+  color: #000;
+}
+
+/* ===== フォーカススタイル ===== */
+*:focus {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
 }
