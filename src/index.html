@@ -34,6 +34,11 @@
 <body>
     <!-- ===== 左側ナビゲーション ===== -->
     <aside class="sidebar">
+      <!-- モバイル用クローズボタン -->
+      <button class="sidebar__close" id="sidebarClose" aria-label="メニューを閉じる">
+        <span>×</span>
+      </button>
+
       <div class="brand">
         <a href="index.html" class="brand__link">
           <img src="./assets/icons/logo.png" alt="VIB ロゴ" class="brand__logo">
@@ -42,13 +47,13 @@
       </div>
 
       <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
-        <a href="#top" class="nav-link active">TOP</a>
-        <a href="#about" class="nav-link">私たちについて</a>
-        <a href="#features" class="nav-link">事業内容</a>
-        <a href="#plans" class="nav-link">プラン</a>
-        <a href="#vision" class="nav-link">ビジョン</a>
-        <a href="#news" class="nav-link">お知らせ</a>
-        <a href="#faq" class="nav-link">よくある質問</a>
+        <a href="#top" class="nav-link" data-section="top">TOP</a>
+        <a href="#about" class="nav-link" data-section="about">私たちについて</a>
+        <a href="#features" class="nav-link" data-section="features">事業内容</a>
+        <a href="#plans" class="nav-link" data-section="plans">プラン</a>
+        <a href="#vision" class="nav-link" data-section="vision">ビジョン</a>
+        <a href="#news" class="nav-link" data-section="news">お知らせ</a>
+        <a href="#faq" class="nav-link" data-section="faq">よくある質問</a>
       </nav>
 
       <button class="contact-fab"
@@ -62,7 +67,11 @@
 
 
   <!-- ===== ハンバーガーボタン ===== -->
-<button class="hamburger" id="hamburger" aria-label="メニュー">☰</button>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span class="hamburger__line"></span>
+    <span class="hamburger__line"></span>
+    <span class="hamburger__line"></span>
+  </button>
 
 
   <!-- ===== メインコンテンツ ===== -->
