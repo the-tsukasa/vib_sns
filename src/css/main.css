@@ -1,36 +1,93 @@
 /* =========================================================
    ファイル名：main.css
-   概要　　：全体CSSの統合エントリーポイント
+   概要　　：全体スタイル統合ファイル（VIB公式サイト用）
    作成者　：曹 小帥（SOU）
-   最終更新：2025-11-03
+   最終更新：2025-11-02（安定版・構造分離完了）
    ========================================================= */
 
-/* =========================================================
-   ① ベース設定（リセット・変数・基本フォント）
-   ========================================================= */
-@import url('./base.css');        /* Reset, Root Variables, Fonts */
 
 /* =========================================================
-   ② レイアウト構成（Sidebar / Content / Header / Footer）
+   1. ベース設定（変数・リセット・共通設定）
    ========================================================= */
-@import url('./layout.css');
+@import url("./base.css");
+
 
 /* =========================================================
-   ③ コンポーネント（共通UI部品：カード、フォームなど）
+   2. ヘッダー領域（サイドバー・ハンバーガー・オーバーレイ）
    ========================================================= */
-@import url('./components.css');
+@import url("./header.css");
+
 
 /* =========================================================
-   ④ ボタン（共通ボタンデザインシステム）
+   3. メインコンテンツ（Hero / About / Features / Plans / Vision / News / FAQ / Contact）
    ========================================================= */
-@import url('./buttons.css');
+@import url("./sections.css");
+
 
 /* =========================================================
-   ⑤ セクション（ページ単位：Hero, About, Features...）
+   4. フッター領域（コピーライト・SNSリンク・トップへ戻る）
    ========================================================= */
-@import url('./sections.css');
+@import url("./footer.css");
+
 
 /* =========================================================
-   ⑥ メディア / 画像関連（photo, gallery, animationなど）
+   5. 共通UI要素（ボタン・トランジション・アニメーション補助）
    ========================================================= */
-@import url('./photo.css');
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn--primary {
+  background: var(--yellow);
+  color: #000;
+  box-shadow: 0 6px 18px rgba(255, 204, 0, 0.3);
+}
+.btn--primary:hover {
+  background: var(--yellow-2);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: #000;
+  border: 2px solid var(--yellow);
+}
+.btn--outline:hover {
+  background: var(--yellow);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   6. アニメーション補助（セクションのフェードイン）
+   ========================================================= */
+.observe {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.observe.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   7. スクロールバー（デザイン調整）
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 204, 0, 0.6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}

@@ -31,49 +31,38 @@
   <link rel="stylesheet" href="./css/main.css" />
 </head>
 
-<body class="intro-mode">
+<body>
+    <!-- ===== 左側ナビゲーション ===== -->
+    <aside class="sidebar closed">
+      <div class="brand">
+        <a href="index.html" class="brand__link">
+          <img src="./assets/icons/logo.png" alt="VIB ロゴ" class="brand__logo">
+        </a>
+        <p class="brand__name">VIB</p>
+      </div>
 
-  <!-- ===== Splash 入場動畫 ===== -->
-  <div class="splash" id="splash" aria-hidden="false">
-    <div class="splash__stage">
-      <div class="halo"></div>
-      <div class="particle p1"></div>
-      <div class="particle p2"></div>
-      <div class="particle p3"></div>
-      <div class="logo"><span class="logo__v">V</span><span>I</span><span>B</span></div>
-      <div class="sweep"></div>
-      <button id="skipBtn" class="splash__skip" aria-label="スキップ">Skip ▶︎</button>
-    </div>
-  </div>
+      <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
+        <a href="#top" class="nav-link active">TOP</a>
+        <a href="#about" class="nav-link">私たちについて</a>
+        <a href="#features" class="nav-link">事業内容</a>
+        <a href="#plans" class="nav-link">プラン</a>
+        <a href="#vision" class="nav-link">ビジョン</a>
+        <a href="#news" class="nav-link">お知らせ</a>
+        <a href="#faq" class="nav-link">よくある質問</a>
+      </nav>
 
-<!-- ===== 左側ナビゲーション ===== -->
-<aside class="sidebar">
-  <div class="brand">
-    <a href="index.html" class="brand__link">
-      <img src="./assets/icons/logo.png" alt="VIB ロゴ" class="brand__logo">
-    </a>
-    <p class="brand__name">VIB</p>
-  </div>
+      <button class="contact-fab"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        お問い合わせ
+      </button>
+    </aside>
 
-  <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
-    <a href="#top" class="nav-link active">TOP</a>
-    <a href="#about" class="nav-link">私たちについて</a>
-    <a href="#features" class="nav-link">事業内容</a>
-    <a href="#plans" class="nav-link">プラン</a>
-    <a href="#vision" class="nav-link">ビジョン</a>
-    <a href="#news" class="nav-link">お知らせ</a>
-    <a href="#faq" class="nav-link">よくある質問</a>
-  </nav>
+    <!-- 背景オーバーレイ -->
+    <div class="overlay" id="overlay"></div>
 
-  <button class="contact-fab"
-    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-    お問い合わせ
-  </button>
-</aside>
 
-<!-- ===== ハンバーガーボタン ===== -->
+  <!-- ===== ハンバーガーボタン ===== -->
 <button class="hamburger" id="hamburger" aria-label="メニュー">☰</button>
-
 
 
   <!-- ===== メインコンテンツ ===== -->
@@ -93,7 +82,6 @@
             </div>
           </div>
           <div class="hero__art">
-            <!-- ★ Hero主视觉 -->
             <img src="./assets/images/hero-main.jpg" alt="VIB メインビジュアル" class="hero__image">
           </div>
         </div>
@@ -106,7 +94,6 @@
     <section id="about" class="section about observe">
       <div class="split">
         <div class="split__media">
-          <!-- ★ About区 照片 -->
           <img src="./assets/images/about-team.jpg" alt="VIB チーム写真" class="section__image">
         </div>
         <div class="split__text">
@@ -147,7 +134,6 @@
           </ul>
         </div>
         <div class="split__media">
-          <!-- ★ Features区主图 -->
           <img src="./assets/images/features-image.jpg" alt="機能紹介イメージ" class="section__image">
         </div>
       </div>
@@ -157,12 +143,9 @@
     <section id="plans" class="section plans observe">
       <h2>料金プラン</h2>
       <p class="section__lead">あなたの使い方に合わせて選べる3つのプラン。</p>
-
-      <!-- ★ Plans区视觉图 -->
       <div class="plans__banner">
         <img src="./assets/images/plans-banner.jpg" alt="料金プランバナー" class="section__image">
       </div>
-
       <table class="price-table">
         <tr><th>Free</th><td>¥0 / 月 — 基本機能すべて利用可能。</td></tr>
         <tr><th>Premium</th><td>¥980 / 月 — 高精度共感AIと広告非表示。</td></tr>
@@ -200,12 +183,9 @@
     <!-- 06 News -->
     <section id="news" class="section news observe">
       <h2>お知らせ</h2>
-
-      <!-- ★ News区 顶部视觉横幅 -->
       <div class="news__banner">
         <img src="./assets/images/news-banner.jpg" alt="お知らせバナー" class="section__image">
       </div>
-
       <ul class="news-list">
         <li><time>2025/10/30</time> VIB β版リリース開始。</li>
         <li><time>2025/09/12</time> AI共感モデル Ver.2 公開。</li>
@@ -216,12 +196,9 @@
     <!-- 07 FAQ -->
     <section id="faq" class="section faq observe">
       <h2>よくある質問</h2>
-
-      <!-- ★ FAQ视觉图 -->
       <div class="faq__illustration">
         <img src="./assets/images/faq-illustration.jpg" alt="FAQイラスト" class="section__image">
       </div>
-
       <details><summary>位置情報の扱い</summary><p>必要最小限・端末内処理。外部送信は一切ありません。</p></details>
       <details><summary>感情解析の精度</summary><p>AI学習により継続的に改善されています。</p></details>
       <details><summary>法人向け利用は可能ですか？</summary><p>はい、API連携を通じた企業向け利用が可能です。</p></details>
@@ -231,12 +208,9 @@
     <section id="contact" class="section contact observe">
       <h2>お問い合わせ</h2>
       <p>サービスに関する質問・取材依頼などお気軽にどうぞ。</p>
-
-      <!-- ★ Contact视觉图 -->
       <div class="contact__banner">
         <img src="./assets/images/contact-banner.jpg" alt="お問い合わせバナー" class="section__image">
       </div>
-
       <a class="btn btn--primary" href="mailto:contact@vib.jp">contact@vib.jp</a>
     </section>
 
@@ -245,10 +219,8 @@
     </footer>
   </main>
 
-
-  <script src="./js/splash.js"></script>
+  <!-- ===== JSファイル ===== -->
   <script src="./js/main.js"></script>
   <script src="./js/sidebar-toggle.js"></script>
-
 </body>
 </html>
