@@ -1,0 +1,22 @@
+/* =========================================================
+   Overlay - 背景オーバーレイ
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: var(--z-overlay);
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+

@@ -1,0 +1,19 @@
+/* =========================================================
+   Content Layout - メインコンテンツレイアウト
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+.content {
+  margin-left: 220px;
+  min-height: 100vh;
+  transition: margin-left 0.4s ease;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .content {
+    margin-left: 0;
+  }
+}
+

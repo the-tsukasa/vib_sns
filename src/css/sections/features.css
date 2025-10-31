@@ -1,0 +1,48 @@
+/* =========================================================
+   Features Section
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+.features {
+  background: var(--bg-white);
+}
+
+.features .feature-list {
+  list-style: none;
+  margin-top: 2rem;
+  line-height: 1.9;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.features .feature-list li {
+  padding: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--yellow);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.features .feature-list li:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--yellow-dark);
+}
+
+.features .feature-list li strong {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .features .feature-list li:hover {
+    transform: translateY(-2px);
+  }
+}
+
