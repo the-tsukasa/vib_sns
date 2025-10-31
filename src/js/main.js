@@ -12,6 +12,23 @@
 const sidebar = document.querySelector(".sidebar");
 const hamburger = document.getElementById("hamburger");
 const overlay = document.getElementById("overlay");
+const sidebarClose = document.getElementById("sidebarClose");
+
+// サイドバーを閉じる共通関数
+function closeSidebar() {
+  sidebar.classList.remove("open");
+  sidebar.classList.add("closed");
+  overlay.classList.remove("active");
+  hamburger.classList.remove("active");
+}
+
+// サイドバーを開く共通関数
+function openSidebar() {
+  sidebar.classList.remove("closed");
+  sidebar.classList.add("open");
+  overlay.classList.add("active");
+  hamburger.classList.add("active");
+}
 
 if (sidebar && hamburger && overlay) {
   // 初期状態設定（モバイルでは閉じる）
@@ -22,25 +39,26 @@ if (sidebar && hamburger && overlay) {
   // ハンバーガーボタン押下
   hamburger.addEventListener("click", () => {
     const isClosed = sidebar.classList.contains("closed");
-    sidebar.classList.toggle("closed", !isClosed);
-    sidebar.classList.toggle("open", isClosed);
-    overlay.classList.toggle("active", isClosed);
+    if (isClosed) {
+      openSidebar();
+    } else {
+      closeSidebar();
+    }
   });
 
+  // サイドバー閉じるボタン押下
+  if (sidebarClose) {
+    sidebarClose.addEventListener("click", closeSidebar);
+  }
+
   // オーバーレイ押下で閉じる
-  overlay.addEventListener("click", () => {
-    sidebar.classList.remove("open");
-    sidebar.classList.add("closed");
-    overlay.classList.remove("active");
-  });
+  overlay.addEventListener("click", closeSidebar);
 
   // スマホでリンクを押したら自動で閉じる
   document.querySelectorAll(".side-nav .nav-link").forEach(link => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
       if (window.innerWidth <= 900) {
-        sidebar.classList.remove("open");
-        sidebar.classList.add("closed");
-        overlay.classList.remove("active");
+        closeSidebar();
       }
     });
   });
@@ -51,8 +69,10 @@ if (sidebar && hamburger && overlay) {
       sidebar.classList.remove("closed");
       sidebar.classList.remove("open");
       overlay.classList.remove("active");
+      hamburger.classList.remove("active");
     } else if (!sidebar.classList.contains("open")) {
       sidebar.classList.add("closed");
+      hamburger.classList.remove("active");
     }
   });
 }
@@ -81,4 +101,48 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".observe").forEach(section => {
   observer.observe(section);
 });
+
+
+/* =========================================================
+   4. ナビゲーション自動ハイライト（スクロール連動）
+   ========================================================= */
+const sections = document.querySelectorAll(".section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+// スクロール時にアクティブなセクションを検出
+function updateActiveNav() {
+  let current = "";
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    // スクロール位置がセクションの上半分に達したらアクティブ
+    if (window.scrollY >= sectionTop - 200) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  // ナビゲーションリンクのアクティブクラスを更新
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("data-section") === current) {
+      link.classList.add("active");
+    }
+  });
+}
+
+// スクロールイベントをスロットル処理（パフォーマンス最適化）
+let scrollTimeout;
+window.addEventListener("scroll", () => {
+  if (scrollTimeout) {
+    window.cancelAnimationFrame(scrollTimeout);
+  }
+  scrollTimeout = window.requestAnimationFrame(() => {
+    updateActiveNav();
+  });
+});
+
+// 初期実行
+updateActiveNav();
 
