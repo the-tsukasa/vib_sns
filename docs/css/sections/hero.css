@@ -1,0 +1,178 @@
+/* =========================================================
+   Hero Section - トップセクション
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+.hero {
+  background: linear-gradient(135deg, #fffef5 0%, #fff8d1 50%, #fffaeb 100%);
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 204, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-mod {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6vw;
+}
+
+.hero__copy .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-yellow);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.hero__copy h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero__copy .lead {
+  font-size: 1.2rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1.2rem;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.hero__image {
+  width: 500px;
+  max-width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  transition: transform var(--transition-slow);
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.hero__image:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero__scroll .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: scrollDot 1.6s infinite ease-in-out;
+}
+
+.mod-end {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    padding: 80px 6vw;
+  }
+  
+  .hero__inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .hero__image {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .hero__copy h1 {
+    font-size: 2rem;
+  }
+  
+  .hero__copy .lead {
+    font-size: 1.05rem;
+  }
+  
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 5vw;
+  }
+  
+  .hero__copy h1 {
+    font-size: 1.6rem;
+  }
+  
+  .hero__copy .lead {
+    font-size: 0.95rem;
+  }
+  
+  .hero__copy .pill {
+    font-size: 0.85rem;
+    padding: 6px 16px;
+  }
+}
+

@@ -1,0 +1,93 @@
+/* =========================================================
+   FAQ Section
+   作成者：曹 小帥（SOU）
+   最終更新：2025-11-02
+   ========================================================= */
+
+.faq {
+  background: linear-gradient(135deg, #fffef5 0%, #fff9e6 100%);
+}
+
+.faq__illustration {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.faq__illustration img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.faq details {
+  margin-bottom: 1.5rem;
+  padding: 0;
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+}
+
+.faq details:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--yellow-light);
+}
+
+.faq details[open] {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--yellow);
+}
+
+.faq summary {
+  font-weight: 700;
+  padding: 20px 24px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  position: relative;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--yellow-dark);
+  transition: transform var(--transition-base);
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq summary:hover {
+  background: rgba(255, 204, 0, 0.05);
+  padding-left: 28px;
+}
+
+.faq p {
+  margin: 0;
+  padding: 0 24px 20px 24px;
+  line-height: 1.8;
+  color: var(--gray);
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .faq summary {
+    font-size: 0.95rem;
+    padding: 16px 18px;
+  }
+  
+  .faq p {
+    padding: 0 18px 16px 18px;
+  }
+}
+
