@@ -1,0 +1,128 @@
+/* ================================
+   VIB splash animation (code-generated intro)
+   ================================ */
+
+#splash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 204, 0, 0.08) 0%, rgba(0, 0, 0, 0.92) 55%), #000;
+  z-index: 9999;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.splash__code {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(1.2rem, 3vw, 2.8rem);
+  padding-inline: max(3vw, 24px);
+  overflow: hidden;
+}
+
+.code-line {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: "Roboto Mono", "Courier New", monospace;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 2.2rem);
+  letter-spacing: 0.18em;
+  line-height: 1.45;
+  color: rgba(255, 214, 51, 0.22);
+  text-shadow: 0 0 12px rgba(255, 214, 51, 0.35);
+  transform: translateY(-120%);
+  opacity: 0;
+  animation: code-fall var(--duration, 8s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  animation-play-state: paused;
+  pointer-events: none;
+}
+
+.code-line:nth-child(even) {
+  color: rgba(255, 255, 255, 0.16);
+  text-shadow: 0 0 18px rgba(255, 214, 51, 0.25);
+}
+
+/* LOGO overlay (initially hidden) */
+.splash__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  transition: opacity 1.1s ease, visibility 0s linear 1.1s;
+}
+
+.splash__logo {
+  width: 140px;
+  height: auto;
+  opacity: 0.9;
+}
+
+.splash__title {
+  font-size: 2rem;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* LOGO overlay visible state */
+.splash__overlay.show {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.splash__overlay.show .splash__logo {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Splash fade-out */
+#splash.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.code-line,
+#splash.fade-out .splash__overlay {
+  transition: opacity 0.8s ease, filter 0.8s ease;
+}
+
+#splash.fade-out .code-line {
+  opacity: 0;
+  filter: blur(12px);
+}
+
+#splash.fade-out .splash__overlay {
+  filter: blur(6px);
+}
+
+@keyframes code-fall {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.38;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+/* LOGO gentle float */
+@keyframes float {
+  0%,100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -52%) scale(1.05); }
+}
