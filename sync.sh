@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash bash sync.sh
+
 echo "🔄 src → docs 同期中..."
 rm -rf docs/*
 cp -r src/* docs/
