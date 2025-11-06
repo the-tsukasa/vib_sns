@@ -29,9 +29,25 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/splash.css" />
+
 </head>
 
-<body>
+<body> 
+
+    <!-- ===== 入場アニメーション（视频后显示LOGO） ===== -->
+    <div id="splash">
+      <video id="splashVideo" autoplay muted playsinline>
+        <source src="./assets/videos/test.mp4" type="video/mp4">
+      </video>
+      <div class="splash__overlay">
+        <img src="./assets/icons/logo.png" alt="VIB ロゴ" class="splash__logo">
+        <h1 class="splash__title">人と人がつながる未来をつくり、以心伝心で心を届けます。</h1>
+      </div>
+    </div>
+
+
+
     <!-- ===== 左側ナビゲーション ===== -->
     <aside class="sidebar">
       <!-- モバイル用クローズボタン -->
@@ -286,6 +302,7 @@
   </main>
 
   <!-- ===== JSファイル ===== -->
+  <script src="./js/splash.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>
