@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
@@ -6,12 +6,17 @@
   <title>VIB公式</title>
 
   <!-- 基础样式 -->
-  <meta name="theme-color" content="#ffcc00" />
+  <meta name="theme-color" content="#0D0F1A" />
   <meta name="description" content="以心伝心 — 言葉によらずに、互いの心から心に伝えること。" />
 
   <!--  Favicon -->
   <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- 🪶 Open Graph / SNS预览 -->
   <meta property="og:title" content="VIB｜人と人がつながる未来を可能にするSNS">
@@ -35,22 +40,14 @@
 
 <body> 
 
-    <!-- ===== 入場アニメーション（视频后显示LOGO） ===== -->
+    <!-- ===== 入場アニメーション (粒子效果) ===== -->
     <div id="splash">
-      <div class="splash__code" aria-hidden="true">
-        <div class="code-line" style="--delay: 0s; --duration: 7s;">0101100110101110010010110100101011100100101101010101</div>
-        <div class="code-line" style="--delay: 0.6s; --duration: 8.5s;">1010011010111100101010011100100100110101110010101010</div>
-        <div class="code-line" style="--delay: 1.2s; --duration: 7.8s;">0010110101110010101011100100101101011100100101101011</div>
-        <div class="code-line" style="--delay: 0.9s; --duration: 9.2s;">1100101010111001010011010111001001011010101011001010</div>
-        <div class="code-line" style="--delay: 1.5s; --duration: 8.8s;">0110010101110010010101110010010110101110010010110101</div>
-      </div>
+      <div class="splash__particles" aria-hidden="true"></div>
       <div class="splash__overlay">
         <img src="./assets/icons/logo.png" alt="VIB ロゴ" class="splash__logo">
-        <h1 class="splash__title">人と人がつながる未来をつくり、以心伝心で心を届けます。</h1>
+        <h1 class="splash__title">以心伝心で心を届けます。</h1>
       </div>
     </div>
-
-
 
     <!-- ===== 左側ナビゲーション ===== -->
     <aside class="sidebar">
@@ -162,8 +159,11 @@
             <li><strong>クロスデバイス：</strong> スマホ・ウェアラブル・PCをシームレスに連携。</li>
           </ul>
         </div>
-        <div class="split__media">
-          <img src="./assets/images/features-image.jpg" alt="機能紹介イメージ" class="section__image">
+        <div class="split__media features-grid">
+          <img src="./assets/images/APP/APP_01.jpg" alt="機能紹介イメージ" class="section__image">
+          <img src="./assets/images/APP/APP_02.jpg" alt="機能紹介イメージ" class="section__image">
+          <img src="./assets/images/APP/APP_03.jpg" alt="機能紹介イメージ" class="section__image">
+          <img src="./assets/images/APP/APP_04.jpg" alt="機能紹介イメージ" class="section__image">
         </div>
       </div>
     </section>
@@ -190,21 +190,26 @@
         感情の波をテクノロジーで可視化し、孤独を減らす社会を目指します。
       </p>
 
-      <div class="grid">
+      <div class="grid vision-grid">
         <div class="card">
-          <img src="./assets/images/vision-tech.jpg" alt="共感テクノロジー" class="card__img">
+          <img src="./assets/images/vision/1.webp" alt="共感テクノロジー" class="card__img">
           <h3>共感テクノロジー</h3>
           <p>AIで心の動きを読み取り、共鳴する瞬間を増やします。</p>
         </div>
         <div class="card">
-          <img src="./assets/images/vision-community.jpg" alt="地域共創" class="card__img">
+          <img src="./assets/images/vision/2.webp" alt="地域共創" class="card__img">
           <h3>地域共創</h3>
           <p>すれ違い通信を活用し、リアルなつながりを促進します。</p>
         </div>
         <div class="card">
-          <img src="./assets/images/vision-future.jpg" alt="未来設計" class="card__img">
+          <img src="./assets/images/vision/3.webp" alt="未来設計" class="card__img">
           <h3>未来設計</h3>
           <p>デジタルと感情の融合で、新しい社会的価値を創出します。</p>
+        </div>
+        <div class="card">
+          <img src="./assets/images/vision/4.webp" alt="グローバル接続" class="card__img">
+          <h3>グローバル接続</h3>
+          <p>世界中の人々との共感の輪を広げ、文化を超えた理解を深めます。</p>
         </div>
       </div>
     </section>
