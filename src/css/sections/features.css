@@ -39,10 +39,25 @@
   margin-bottom: 0.5rem;
 }
 
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.features-grid .section__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .features .feature-list li:hover {
     transform: translateY(-2px);
   }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
 }
-
