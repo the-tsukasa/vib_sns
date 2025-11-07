@@ -18,7 +18,7 @@
 
 .features .feature-list li {
   padding: 24px;
-  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  background: var(--gradient-soft);
   border-radius: var(--radius-md);
   border-left: 4px solid var(--yellow);
   box-shadow: var(--shadow-sm);

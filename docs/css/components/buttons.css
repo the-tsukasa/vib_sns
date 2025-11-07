@@ -41,7 +41,7 @@
 /* ===== Primary Button ===== */
 .btn--primary {
   background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
-  color: #000;
+  color: var(--text-primary);
   box-shadow: var(--shadow-yellow);
 }
 
@@ -58,7 +58,7 @@
 /* ===== Outline Button ===== */
 .btn--outline {
   background: transparent;
-  color: #000;
+  color: var(--text-primary);
   border: 2.5px solid var(--yellow);
   box-shadow: var(--shadow-sm);
 }

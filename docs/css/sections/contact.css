@@ -6,7 +6,7 @@
 
 .contact {
   text-align: center;
-  background: linear-gradient(135deg, #fffef5 0%, #fff7c8 50%, #ffe88e 100%);
+  background: var(--gradient-strong);
   position: relative;
   overflow: hidden;
 }

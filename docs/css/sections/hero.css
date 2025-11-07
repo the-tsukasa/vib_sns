@@ -5,7 +5,7 @@
    ========================================================= */
 
 .hero {
-  background: linear-gradient(135deg, #fffef5 0%, #fff8d1 50%, #fffaeb 100%);
+  background: var(--gradient-warm);
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@
   align-items: center;
   gap: 8px;
   background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
-  color: #000;
+  color: var(--text-primary);
   padding: 8px 20px;
   border-radius: 30px;
   font-size: 0.9rem;
@@ -94,7 +94,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.8rem;
-  color: #555;
+  color: var(--text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
