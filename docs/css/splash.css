@@ -5,7 +5,7 @@
 #splash {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 204, 0, 0.08) 0%, rgba(0, 0, 0, 0.92) 55%), #000;
+  background: var(--gradient-splash), var(--ink);
   z-index: 9999;
   overflow: hidden;
   opacity: 1;
@@ -54,7 +54,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff;
+  color: var(--text-inverse);
   opacity: 0;
   visibility: hidden;
   z-index: 2;
