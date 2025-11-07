@@ -1,0 +1,74 @@
+/* =========================================================
+   Download Section - ダウンロードセクション
+   作成者：GPT-4
+   最終更新：2025-11-07
+   ========================================================= */
+
+.download {
+  background: var(--gradient-light);
+  text-align: center;
+  padding: 80px 4vw;
+}
+
+.download h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.download p {
+  font-size: 1.1rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.store-buttons a {
+  display: inline-block;
+}
+
+.store-buttons img {
+  height: 60px;
+  transition: transform var(--transition-fast);
+}
+
+.store-buttons img:hover {
+  transform: scale(1.05);
+}
+
+.coming-soon {
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  font-style: italic;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .download h2 {
+    font-size: 2rem;
+  }
+
+  .download p {
+    font-size: 1rem;
+  }
+
+  .store-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .store-buttons img {
+    height: 50px;
+  }
+}
