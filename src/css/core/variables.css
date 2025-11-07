@@ -25,6 +25,22 @@
   --accent-blue: #4a90e2;
   --accent-green: #7ed321;
   --accent-red: #ff6b6b;
+
+  /* ===== タイポグラフィ・サーフェスカラー ===== */
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-light);
+  --text-muted: var(--gray);
+  --text-inverse: var(--bg-white);
+
+  /* ===== グラデーションシステム ===== */
+  --gradient-brand: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  --gradient-surface: linear-gradient(135deg, var(--bg-white) 0%, var(--bg) 100%);
+  --gradient-soft: linear-gradient(135deg, var(--bg-white) 0%, rgba(11, 11, 11, 0.04) 100%);
+  --gradient-warm: linear-gradient(135deg, var(--bg-white) 0%, rgba(255, 204, 0, 0.22) 100%);
+  --gradient-strong: linear-gradient(135deg, rgba(255, 204, 0, 0.18) 0%, rgba(255, 214, 51, 0.34) 100%);
+  --gradient-footer: linear-gradient(135deg, rgba(12, 12, 12, 0.98) 0%, rgba(0, 0, 0, 0.96) 100%);
+  --gradient-splash: radial-gradient(circle at center, rgba(255, 204, 0, 0.08) 0%, rgba(0, 0, 0, 0.92) 55%);
+  --gradient-light: linear-gradient(135deg, var(--bg-white) 0%, rgba(255, 204, 0, 0.12) 100%);
   
   /* ===== シャドウシステム ===== */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);

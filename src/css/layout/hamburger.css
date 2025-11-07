@@ -46,7 +46,7 @@
 .hamburger__line {
   width: 24px;
   height: 3px;
-  background: #000;
+  background: var(--text-primary);
   border-radius: 2px;
   transition: all var(--transition-base);
   transform-origin: center;
