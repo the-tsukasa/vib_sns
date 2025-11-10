@@ -144,6 +144,12 @@
   text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55), 0 0 30px rgba(255, 214, 51, 0.4);
 }
 
+.splash__tagline {
+  margin-top: 10px;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  letter-spacing: 0.05em;
+}
+
 /* LOGO overlay visible state */
 .splash__overlay.show {
   opacity: 1;

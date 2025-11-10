@@ -13,6 +13,43 @@ const CODE_STREAMS = [
 
 const PARTICLE_COUNT = 36;
 
+const ensureOverlay = (splash) => {
+  let overlay = splash.querySelector(".splash__overlay");
+
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "splash__overlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-live", "polite");
+    overlay.setAttribute("aria-label", "VIB イントロダクション");
+
+    const logo = document.createElement("img");
+    logo.src = "./assets/icons/logo.png";
+    logo.alt = "VIB ロゴ";
+    logo.className = "splash__logo";
+
+    const title = document.createElement("p");
+    title.className = "splash__title";
+    title.textContent = "VIB";
+
+    const tagline = document.createElement("p");
+    tagline.className = "splash__tagline";
+    tagline.textContent = "共感でつながる未来へ";
+
+    overlay.append(logo, title, tagline);
+    splash.appendChild(overlay);
+  } else {
+    if (!overlay.hasAttribute("role")) {
+      overlay.setAttribute("role", "dialog");
+    }
+    if (!overlay.hasAttribute("aria-live")) {
+      overlay.setAttribute("aria-live", "polite");
+    }
+  }
+
+  return overlay;
+};
+
 const ensureCodeRain = (splash, overlay) => {
   let codeContainer = document.querySelector(".splash__code");
 
@@ -83,11 +120,13 @@ const ensureParticleField = (splash, overlay) => {
 
 window.addEventListener("load", () => {
   const splash = document.getElementById("splash");
-  const overlay = document.querySelector(".splash__overlay");
+  if (!splash) return;
+
+  const overlay = ensureOverlay(splash);
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (!splash || !overlay) return;
+  if (!overlay) return;
 
   if (!prefersReducedMotion) {
     ensureParticleField(splash, overlay);
