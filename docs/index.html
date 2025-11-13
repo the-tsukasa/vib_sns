@@ -26,10 +26,15 @@
 <body>
   <!-- ===== 入場アニメーション ===== -->
   <div id="splash">
-    <div class="splash__particles" aria-hidden="true"></div>
-    <div class="splash__overlay">
+    <div class="splash__background" aria-hidden="true">
+      <img src="./assets/images/splash-hands.svg" alt="柔らかな光の中で触れ合う二つの手" class="splash__image">
+      <div class="splash__halo" aria-hidden="true"></div>
+      <div class="splash__ripple" aria-hidden="true"></div>
+    </div>
+    <div class="splash__overlay" role="dialog" aria-labelledby="splashBrandTitle" aria-describedby="splashBrandTagline">
       <img src="./assets/icons/logo.png" alt="VIB ロゴ" class="splash__logo">
-      <h1 class="splash__title">共感が届く、新しいつながりのかたち。</h1>
+      <p id="splashBrandTitle" class="splash__title">VIB</p>
+      <p id="splashBrandTagline">共感でつながる未来へ</p>
     </div>
   </div>
 
@@ -136,10 +141,10 @@
           </ul>
         </div>
         <div class="split__media features-grid">
-          <img src="./assets/images/APP/APP_01.jpg" alt="アプリ画面1" class="section__image">
-          <img src="./assets/images/APP/APP_02.jpg" alt="アプリ画面2" class="section__image">
-          <img src="./assets/images/APP/APP_03.jpg" alt="アプリ画面3" class="section__image">
-          <img src="./assets/images/APP/APP_04.jpg" alt="アプリ画面4" class="section__image">
+          <img src="./assets/images/demo/Group1.png" alt="アプリ画面1" class="section__image">
+          <img src="./assets/images/demo/Group2.png" alt="アプリ画面2" class="section__image">
+          <img src="./assets/images/demo/Group3.png" alt="アプリ画面3" class="section__image">
+          <img src="./assets/images/demo/Group4.png" alt="アプリ画面4" class="section__image">
         </div>
       </div>
     </section>
@@ -205,6 +210,29 @@
       <p class="coming-soon">※ 現在β版公開中・正式リリースは近日予定</p>
     </section>
 
+    <!-- 08 Legal -->
+    <section id="privacy" class="section legal observe">
+      <h2>プライバシーポリシー</h2>
+      <p>
+        VIBはユーザーの感情データを含むすべての個人情報を端末内で処理し、第三者に提供することはありません。
+        利用状況の分析は匿名化された統計情報のみを使用し、ユーザーがいつでもデータ削除をリクエストできる仕組みを備えています。
+      </p>
+      <p>
+        詳細な取り扱い方針については、正式リリース時に公開されるポリシーページでご案内いたします。
+      </p>
+    </section>
+
+    <section id="terms" class="section legal observe">
+      <h2>利用規約</h2>
+      <p>
+        本サービスは共感を通じた安全なコミュニケーションを目的としており、他者への誹謗中傷や不正アクセス、無断転載などは禁止されています。
+        ルールに反する行為が確認された場合、アカウント停止を含む適切な措置を講じる場合があります。
+      </p>
+      <p>
+        最新の規約はアプリ公開時に告知され、ユーザーは更新内容への同意後にサービスを継続利用いただけます。
+      </p>
+    </section>
+
     <!-- ===== Footer ===== -->
     <footer class="footer">
       <div class="footer__brand">
@@ -236,8 +264,18 @@
         <div class="footer__section">
           <h4>フォローする</h4>
           <div class="footer__sns">
-            <a href="https://github.com/vib-sns" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://discord.gg/vib-sns" target="_blank" rel="noopener">Discord</a>
+            <a href="https://github.com/vib-sns" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                <path d="M12 1.5c-5.8 0-10.5 4.7-10.5 10.5 0 4.6 3 8.5 7.1 9.9.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.6.4-1.1.7-1.3-2.3-.3-4.8-1.2-4.8-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.8-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.5 4.7-4.8 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C22.5 6.2 17.8 1.5 12 1.5Z"></path>
+              </svg>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://discord.gg/vib-sns" target="_blank" rel="noopener" aria-label="Discord">
+              <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                <path d="M20.3 4.4c-1.5-.7-3.1-1.2-4.8-1.5-.2.4-.4.9-.6 1.4-1.7-.3-3.4-.3-5.2 0-.2-.5-.4-.9-.6-1.4-1.7.3-3.3.8-4.8 1.5C1.6 8.2 1 11.8 1.3 15.3c2 1.5 3.9 2.4 5.8 3-.5-.7-.9-1.4-1.2-2.2.2.1.4.2.6.3 2.3 1.1 4.8 1.7 7.3 1.7s5-.6 7.3-1.7c.2-.1.4-.2.6-.3-.4.8-.9 1.5-1.3 2.2 1.9-.6 3.8-1.5 5.8-3 .3-3.5-.3-7.1-3.1-10.9ZM8.7 12.9c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Zm6.6 0c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Z"></path>
+              </svg>
+              <span class="sr-only">Discord</span>
+            </a>
           </div>
         </div>
       </div>

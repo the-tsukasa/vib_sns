@@ -106,8 +106,20 @@ document.querySelectorAll(".observe").forEach(section => {
 /* =========================================================
    4. ナビゲーション自動ハイライト（スクロール連動）
    ========================================================= */
-const sections = document.querySelectorAll(".section");
+const sections = document.querySelectorAll(".section[id]");
 const navLinks = document.querySelectorAll(".nav-link");
+
+function getSectionIdFromLink(link) {
+  const dataSection = link.getAttribute("data-section");
+  if (dataSection) return dataSection;
+
+  const href = link.getAttribute("href") || "";
+  if (href.startsWith("#")) {
+    return href.slice(1);
+  }
+
+  return null;
+}
 
 // スクロール時にアクティブなセクションを検出
 function updateActiveNav() {
@@ -115,8 +127,7 @@ function updateActiveNav() {
   
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    
+
     // スクロール位置がセクションの上半分に達したらアクティブ
     if (window.scrollY >= sectionTop - 200) {
       current = section.getAttribute("id");
@@ -126,7 +137,7 @@ function updateActiveNav() {
   // ナビゲーションリンクのアクティブクラスを更新
   navLinks.forEach(link => {
     link.classList.remove("active");
-    if (link.getAttribute("data-section") === current) {
+    if (getSectionIdFromLink(link) === current) {
       link.classList.add("active");
     }
   });
