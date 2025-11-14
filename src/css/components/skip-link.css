@@ -1,0 +1,27 @@
+/* =========================================================
+   Skip Link - 跳过链接（A11y）
+   作成者：曹 小帥（SOU）
+   最終更新：2025-01-XX
+   ========================================================= */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: 700;
+  z-index: 10000;
+  border-radius: 0 0 8px 0;
+  box-shadow: var(--shadow-lg);
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--yellow-dark);
+  outline-offset: 2px;
+}
+

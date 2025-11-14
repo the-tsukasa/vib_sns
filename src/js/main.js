@@ -83,3 +83,82 @@ const yearEl = document.getElementById("year");
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
+
+/* =========================================================
+   3. 返回顶部按钮
+   ========================================================= */
+const backToTopBtn = document.getElementById("backToTop");
+if (backToTopBtn) {
+  // 滚动显示/隐藏按钮
+  function toggleBackToTop() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  }
+
+  // 点击返回顶部
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  // 监听滚动事件（使用节流优化性能）
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        toggleBackToTop();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // 初始检查
+  toggleBackToTop();
+}
+
+/* =========================================================
+   4. 导航栏当前页面高亮
+   ========================================================= */
+function updateActiveNav() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // 获取当前滚动位置
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute("id");
+
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${sectionId}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}
+
+// 使用节流优化滚动事件
+let navTicking = false;
+window.addEventListener("scroll", () => {
+  if (!navTicking) {
+    window.requestAnimationFrame(() => {
+      updateActiveNav();
+      navTicking = false;
+    });
+    navTicking = true;
+  }
+});
+
+// 初始检查
+updateActiveNav();
