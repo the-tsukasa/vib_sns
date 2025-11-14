@@ -4,64 +4,70 @@
    最終更新：2025-01-XX
    ========================================================= */
 
-#usecase .grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  max-width: 600px;
-  margin: 4rem auto 0;
+#usecase .usecase-item {
+  margin-bottom: 4rem;
 }
 
-#usecase .card {
-  display: flex;
-  flex-direction: column;
+#usecase .usecase-item:last-child {
+  margin-bottom: 0;
+}
+
+#usecase .split {
   align-items: center;
-  text-align: center;
-  gap: 1.5rem;
-  padding: 2.5rem;
-  background: var(--bg-white);
+  gap: 4vw;
+}
+
+#usecase .split__text {
+  padding: 2rem;
+}
+
+#usecase .split__text h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+#usecase .split__text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray);
+  margin: 0;
+}
+
+#usecase .split__media {
+  flex: 1;
+}
+
+#usecase .section__image {
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   transition: all 0.3s ease;
 }
 
-#usecase .card:hover {
-  transform: translateY(-4px);
+#usecase .section__image:hover {
+  transform: scale(1.02);
   box-shadow: var(--shadow-xl);
-}
-
-#usecase .card__img {
-  width: 100%;
-  max-width: 400px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-}
-
-#usecase .card h3 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.5rem;
-}
-
-#usecase .card p {
-  margin: 0;
-  line-height: 1.7;
-  color: var(--gray);
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
-  #usecase .grid {
-    max-width: 100%;
+  #usecase .usecase-item {
+    margin-bottom: 3rem;
   }
 
-  #usecase .card {
-    padding: 2rem;
+  #usecase .split {
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  #usecase .card__img {
-    height: 200px;
+  #usecase .split--reverse {
+    flex-direction: column;
+  }
+
+  #usecase .split__text {
+    text-align: center;
+    padding: 1.5rem;
   }
 }
 
