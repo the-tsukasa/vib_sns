@@ -53,11 +53,14 @@
 
     <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
       <a href="#top" class="nav-link">TOP</a>
-      <a href="#about" class="nav-link">Vibとは</a>
-      <a href="#features" class="nav-link">主な機能</a>
-      <a href="#vision" class="nav-link">ビジョン</a>
+      <a href="#worldview" class="nav-link">世界観</a>
+      <a href="#how-it-works" class="nav-link">Vibの仕組み</a>
+      <a href="#experience" class="nav-link">体験紹介</a>
+      <a href="#vib-score" class="nav-link">共鳴スコア</a>
+      <a href="#usecase" class="nav-link">ユースケース</a>
+      <a href="#safety" class="nav-link">技術&安全性</a>
+      <a href="#roadmap" class="nav-link">ロードマップ</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="#download" class="nav-link">ダウンロード</a>
     </nav>
 
     <button class="contact-fab" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
@@ -84,17 +87,16 @@
           <div class="hero__copy">
             <span class="pill">共鳴する日常</span>
             <h1>
-              Vib（ヴィブ）は、共感の振動を通じて<br>
-              人々やアイデアをつなげ、エネルギッシュな関係性を生み出す<br>
-              次世代のソーシャルコネクションサービスです。
+              共鳴する日常。<br>
+              あなたの感情が届くSNS
             </h1>
             <p class="lead">
-              言葉や表面的な情報に頼らない、本能レベルでの繋がりと、<br>
-              日常のポジティブな行動への「見えない評価（いいね！）」の交換。
+              非言語でつながる、新しいソーシャル体験へ。<br>
+              <strong>五感フィードバック</strong> / <strong>すれ違い同期</strong>
             </p>
             <div class="hero__actions">
-              <a href="#about" class="btn btn--primary">Vibとは</a>
-              <a href="#download" class="btn btn--outline">今すぐ体験</a>
+              <a href="#experience" class="btn btn--primary">アプリ紹介を見る</a>
+              <a href="#worldview" class="btn btn--outline">世界観を知る</a>
             </div>
           </div>
           <div class="hero__art">
@@ -105,178 +107,301 @@
       </div>
     </section>
 
-    <!-- 02 About -->
-    <section id="about" class="section about observe">
+    <!-- 02 Worldview -->
+    <section id="worldview" class="section observe">
       <div class="split">
-        <div class="split__media">
-          <img src="./assets/images/about-team.jpg" alt="Vib チーム" class="section__image">
-        </div>
         <div class="split__text">
-          <h2>Vibとは</h2>
-          <p>
-            Vib（ヴィブ）は、<span class="highlight">生体チップ（体内埋め込み型）</span>、<span class="highlight">超指向性ワイヤレス通信</span>、<span class="highlight">非侵襲的五感フィードバック</span>を組み合わせた、  
-            言葉や表面的な情報に頼らない、本能レベルでの繋がりを実現する  
-            次世代のソーシャルコネクションサービスです。
+          <h2>なぜVibが必要なのか</h2>
+          <p class="section__lead">
+            現代の孤独 / 情報疲れの問題を解決するために。
           </p>
-
-          <h3>1. 情報取得：生体チップ（The Vib Chip）</h3>
           <p>
-            <strong>デバイス：</strong>首の横側（目立たない位置）に埋め込まれる極小の生体チップ。<br>
-            <strong>検知データ（匿名化）：</strong>
+            私たちは日々、SNSで大量の情報に囲まれながらも、本当の意味での「共感」や「つながり」を感じられずにいます。
+            言葉だけでは伝わらない感情、表面的な「いいね」では測れない深い共鳴。
           </p>
-          <ul>
-            <li><strong>生体情報：</strong> 心拍数、体温、脳波パターン（感情状態、集中度、リラックス度を推測）</li>
-            <li><strong>行動パターン：</strong> 内蔵されたAIと微細なセンサーにより、特定のポジティブな行動（例：困っている人への手助け、創造的な集中ジェスチャー、公共でのマナー遵守など）を検知・タグ付け</li>
-            <li><strong>パッションデータ：</strong> ユーザーが事前に設定した興味・関心領域、専門スキル、情熱の度合い</li>
-          </ul>
-
-          <h3>2. 情報交換：すれ違いシンクロ（Sympathy Sync）</h3>
           <p>
-            <strong>通信技術：</strong>極めて短い距離（例：半径数メートル以内）かつ超指向性のテラヘルツ波通信を使用。情報が広範囲に漏洩せず、特定の相手とのみセキュアに交換されます。<br>
-            <strong>データ処理：</strong>双方のチップ内のエッジAIが、交換された匿名データを瞬時に比較・分析し、「共鳴度」を算出。共鳴は以下の基準で判断されます：
+            <strong>Vibの核心理念：</strong><br>
+            「言葉に依存しない、本能レベルの共感コミュニケーション」
           </p>
-          <ul>
-            <li><strong>感情同期：</strong> 互いの感情状態がポジティブな形で一致・共鳴している</li>
-            <li><strong>関心一致：</strong> 趣味や専門領域が一致している</li>
-            <li><strong>行動評価：</strong> 一方のポジティブな行動に対し、もう一方がそれを感知し評価する</li>
-          </ul>
-
-          <h3>3. 共鳴フィードバック：五感による「Vib」の体験</h3>
           <p>
-            共鳴度が高い、またはポジティブな情報が感知された瞬間に、ユーザーの脳へ非侵襲的に以下の感覚がフィードバックされます：
+            生体チップが感情と行動を検知し、すれ違い通信で「共鳴」を計算。
+            五感フィードバックとして届く、まったく新しいつながりの形。
           </p>
-          <ul>
-            <li><strong>視覚：</strong> 相手の輪郭が淡いブルーやシアンの光で瞬間的に輝く。相手が誰かを助けた瞬間、相手の周りに温かい光の粒子が拡散して見える</li>
-            <li><strong>聴覚：</strong> 非常に繊細で心地よいハーモニー音やチャイム音が脳内に響く。相手の創作性が検知された際、そのジャンルのインスピレーションを喚起する微細なメロディが聞こえる</li>
-            <li><strong>触覚：</strong> 掌や首筋に微かな温もりや心地よい振動を感じる。相手がリラックス状態にある場合、自分にもその安心感が伝わる</li>
-            <li><strong>嗅覚：</strong> 相手のパッションに関連する特定の記憶の香り（例：図書館の匂い、コーヒーの匂い）が再現される。相手と共通の趣味がある場合、一瞬、関連する香りを感じる</li>
-          </ul>
-
-          <h3>4. SNS的相互作用：非言語の「いいね！」</h3>
-          <p>
-            <strong>自動評価システム：</strong>ユーザーがポジティブな行動を取った際、それを感知した周囲のVibチップが、言葉を介さずに自動で「共感シグナル（非言語のいいね！）」を返し、相手のチップに記録されます。<br>
-            <strong>ポジティブな循環：</strong>この「見えない評価」により、行動者は自己肯定感を得て、社会全体の利他的な行動が促進されます。<br>
-            <strong>ダッシュボード：</strong>ユーザーは、専用アプリを通じて、自分が受け取った「共感のVib」の数、共鳴した相手のタイプ、最も評価された行動などを確認できます（全て匿名化されたデータ）。
-          </p>
-
-          <h3>プライバシーと安全性</h3>
-          <p>
-            生体情報は全てチップ内で匿名化・暗号化され、個人を特定できる情報はチップ外へ送信されません。ユーザーは共有する情報（例：趣味、感情状態）を細かく選択可能です。共鳴度が高い場合や特定のポジティブな情報に限定してフィードバックが発生し、ユーザーは五感フィードバックの感度や種類をいつでも調整・オフにできます。
-          </p>
-          
+        </div>
+        <div class="split__media">
+          <img src="./assets/images/vision-community.jpg" alt="光の粒子が交差する世界観" class="section__image">
         </div>
       </div>
     </section>
 
-    <!-- 03 Features -->
-    <section id="features" class="section features observe">
+    <!-- 03 How It Works -->
+    <section id="how-it-works" class="section observe">
+      <h2>Vibの仕組み</h2>
+      <p class="section__lead">
+        シンプルな3ステップで、共鳴が生まれます。
+      </p>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;">
+        <div class="card">
+          <div style="padding: 2rem; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🔬</div>
+            <h3>1. 生体チップが感情/行動を検知</h3>
+            <p>首の横側に埋め込まれた極小チップが、心拍・体温・脳波パターンから感情状態を推定し、ポジティブな行動を検知・タグ付けします。</p>
+          </div>
+        </div>
+        <div class="card">
+          <div style="padding: 2rem; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">📡</div>
+            <h3>2. すれ違い通信で「共鳴」を計算</h3>
+            <p>超指向性テラヘルツ波通信により、すれ違った相手との間で匿名データを瞬時に交換。エッジAIが「共鳴度」を算出します。</p>
+          </div>
+        </div>
+        <div class="card">
+          <div style="padding: 2rem; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+            <h3>3. 五感フィードバックとして届く</h3>
+            <p>共鳴度が高い瞬間、視覚・聴覚・触覚・嗅覚による非侵襲的なフィードバックが脳へ届き、「共感」が言葉を超えて伝わります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Experience -->
+    <section id="experience" class="section observe" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
+      <h2>体験紹介｜五感フィードバック</h2>
+      <p class="section__lead">
+        Vibの独特な魅力を、4つの感覚で体験してください。
+      </p>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 4rem;">
+        <div class="card" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2196f3;">
+          <div style="padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🔵</div>
+            <h3 style="text-align: center; color: #1976d2;">視覚 Vib</h3>
+            <p style="text-align: center; margin-top: 1rem;">
+              淡い光が相手の輪郭を照らす<br>
+              温かい光の粒子が拡散して見える
+            </p>
+          </div>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #9c27b0;">
+          <div style="padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🎧</div>
+            <h3 style="text-align: center; color: #7b1fa2;">聴覚 Vib</h3>
+            <p style="text-align: center; margin-top: 1rem;">
+              脳内にチャイムのような音が響く<br>
+              インスピレーションを喚起する微細なメロディ
+            </p>
+          </div>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: 2px solid #ff9800;">
+          <div style="padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">💠</div>
+            <h3 style="text-align: center; color: #f57c00;">触覚 Vib</h3>
+            <p style="text-align: center; margin-top: 1rem;">
+              首筋・掌に微振動が伝わる<br>
+              リラックス状態の安心感が共有される
+            </p>
+          </div>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #4caf50;">
+          <div style="padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🌿</div>
+            <h3 style="text-align: center; color: #388e3c;">嗅覚 Vib</h3>
+            <p style="text-align: center; margin-top: 1rem;">
+              記憶の香りが再現される<br>
+              パッションに関連する特定の香りを感じる
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Vib Score -->
+    <section id="vib-score" class="section observe">
       <div class="split split--reverse">
         <div class="split__text">
-        <h2>主な機能</h2>
-        <p>
-          Vibは、生体チップ・超指向性通信・非侵襲的五感フィードバックを組み合わせた  
-          新しいコミュニケーション体験を提供します。
-        </p>
-        <ul class="feature-list">
-          <li>
-            <strong>💫 すれ違いシンクロ（Sympathy Sync）：</strong> 
-            極めて短い距離（半径数メートル以内）かつ超指向性のテラヘルツ波通信を使用。すれ違い時にだけ共鳴データを瞬間交換し、情報が広範囲に漏洩せず、特定の相手とのみセキュアに交換されます。
-          </li>
-          <li>
-            <strong>💭 感情共鳴AI：</strong> 
-            双方のチップ内のエッジAIが、交換された匿名データを瞬時に比較・分析し、「共鳴度」を算出。感情同期、関心一致、行動評価の3つの基準で判断されます。
-          </li>
-          <li>
-            <strong>🔔 五感フィードバック：</strong> 
-            共鳴度が高い、またはポジティブな情報が感知された瞬間に、視覚（光の輝き）、聴覚（ハーモニー音）、触覚（温もり・振動）、嗅覚（記憶の香り）が非侵襲的にフィードバックされます。
-          </li>
-          <li>
-            <strong>🌟 非言語の「いいね！」：</strong> 
-            ポジティブな行動を取った際、それを感知した周囲のVibチップが、言葉を介さずに自動で「共感シグナル（非言語のいいね！）」を返し、相手のチップに記録されます。専用アプリで「共感のVib」の数や共鳴した相手のタイプを確認できます。
-          </li>
-        </ul>
+          <h2>共鳴スコア（Vib Score）</h2>
+          <p class="section__lead">
+            Vibの可視化内容 - アプリで確認できる実際の機能
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 1.5rem; padding-left: 2rem; position: relative;">
+              <strong style="font-size: 1.2rem;">📊 共鳴数 / 行動ポイント</strong>
+              <p style="margin-top: 0.5rem; color: var(--gray);">
+                自分が受け取った「共感のVib」の数、共鳴した相手のタイプ、最も評価された行動を確認できます。
+              </p>
+            </li>
+            <li style="margin-bottom: 1.5rem; padding-left: 2rem; position: relative;">
+              <strong style="font-size: 1.2rem;">🔒 匿名性説明</strong>
+              <p style="margin-top: 0.5rem; color: var(--gray);">
+                全てのデータは匿名化され、個人を特定できる情報は一切表示されません。
+              </p>
+            </li>
+            <li style="margin-bottom: 1.5rem; padding-left: 2rem; position: relative;">
+              <strong style="font-size: 1.2rem;">🤖 データ読み取り方式</strong>
+              <p style="margin-top: 0.5rem; color: var(--gray);">
+                Edge AI / 暗号化により、チップ内で処理され、外部へ送信されません。
+              </p>
+            </li>
+          </ul>
         </div>
-        <div class="split__media features-grid">
-          <img src="./assets/images/demo/Group1.png" alt="アプリ画面1" class="section__image">
-          <img src="./assets/images/demo/Group2.png" alt="アプリ画面2" class="section__image">
-          <img src="./assets/images/demo/Group3.png" alt="アプリ画面3" class="section__image">
-          <img src="./assets/images/demo/Group4.png" alt="アプリ画面4" class="section__image">
+        <div class="split__media">
+          <img src="./assets/images/demo/Group1.png" alt="Vib Score Dashboard UI" class="section__image">
         </div>
       </div>
     </section>
 
-    <!-- 04 Vision -->
-    <section id="vision" class="section observe">
-      <h2>Vibのビジョン</h2>
+    <!-- 06 Use Case -->
+    <section id="usecase" class="section observe" style="background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);">
+      <h2>ユースケース</h2>
       <p class="section__lead">
-        共感の振動を通じて人々やアイデアをつなげ、エネルギッシュな関係性を生み出す。<br>
-        Vibは「共鳴する日常」を実現し、活気と温かさを兼ね備えた非言語コミュニケーションの未来を目指しています。
+        機能を生活に落とし込む、3つの具体的なシーン。
       </p>
-
-      <div class="grid vision-grid">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 4rem;">
         <div class="card">
-          <img src="./assets/images/vision/1.webp" alt="生体チップ技術" class="card__img">
-          <h3>生体チップ技術</h3>
-          <p>首の横側に埋め込まれる極小の生体チップが、感情・行動・興味を匿名化して読み取り、本能レベルでの繋がりを実現します。</p>
+          <img src="./assets/images/vision/1.webp" alt="通勤シーン" class="card__img">
+          <h3>🚉 通勤</h3>
+          <p>優しい行動が共鳴として届く。電車内で席を譲った瞬間、周囲から「共感のVib」が静かに届きます。</p>
         </div>
         <div class="card">
-          <img src="./assets/images/vision/2.webp" alt="すれ違いシンクロ" class="card__img">
-          <h3>すれ違いシンクロ</h3>
-          <p>超指向性テラヘルツ波通信により、すれ違った相手との間で「共鳴度」を安全に算出し、リアルなつながりを取り戻します。</p>
+          <img src="./assets/images/vision/2.webp" alt="カフェ・クリエイター" class="card__img">
+          <h3>☕ カフェ・クリエイター</h3>
+          <p>インスピレーション共鳴。同じ創作活動に没頭している人と、言葉を交わさずとも共感の波が伝わります。</p>
         </div>
         <div class="card">
-          <img src="./assets/images/vision/3.webp" alt="五感フィードバック" class="card__img">
-          <h3>五感フィードバック</h3>
-          <p>視覚・聴覚・触覚・嗅覚による非侵襲的なフィードバックで、「共感」が言葉を超えて伝わる新体験を提供します。</p>
-        </div>
-        <div class="card">
-          <img src="./assets/images/vision/4.webp" alt="ポジティブな循環" class="card__img">
-          <h3>ポジティブな循環</h3>
-          <p>見えない評価システムにより、利他的な行動が促進され、社会全体の自己肯定感と温かさが広がります。</p>
+          <img src="./assets/images/vision/3.webp" alt="夜の帰宅" class="card__img">
+          <h3>🌆 夜の帰宅</h3>
+          <p>安心のVib（落ち着く波長同期）。同じリラックス状態にある人と、静かな共鳴を感じることができます。</p>
         </div>
       </div>
     </section>
 
-    <!-- 05 FAQ -->
+    <!-- 07 Safety & Technology -->
+    <section id="safety" class="section observe">
+      <h2>技術 & 安全性</h2>
+      <p class="section__lead">
+        信頼できる技術基盤と、徹底したプライバシー保護。
+      </p>
+      
+      <div class="split" style="margin-top: 3rem;">
+        <div class="split__media">
+          <img src="./assets/images/about-team.jpg" alt="Vib Chip 図解" class="section__image">
+        </div>
+        <div class="split__text">
+          <h3>Vib Chip（図解）</h3>
+          <p>
+            首の横側（目立たない位置）に埋め込まれる極小の生体チップ。
+            医療グレードの素材を使用し、非侵襲的な設計により、人体への長期的な影響を最小限に抑えます。
+          </p>
+          
+          <h3 style="margin-top: 2.5rem;">プライバシー原則</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+              <strong>🔐 ゼロID（個人情報非公開）</strong>
+              <p style="margin-top: 0.5rem; color: var(--gray);">
+                個人を特定できる情報は一切チップ外へ送信されません。
+              </p>
+            </li>
+            <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+              <strong>⚡ Edge処理</strong>
+              <p style="margin-top: 0.5rem; color: var(--gray);">
+                全てのデータ処理はチップ内のエッジAIで完結し、外部サーバーへの送信は行いません。
+              </p>
+            </li>
+            <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+              <strong>👤 ユーザー選択制</strong>
+              <p style="margin-top: 0.5rem; color: var(--gray);">
+                共有する情報（趣味、感情状態など）を細かく選択可能で、いつでも設定を変更できます。
+              </p>
+            </li>
+          </ul>
+          
+          <h3 style="margin-top: 2.5rem;">健康安全性</h3>
+          <p>
+            非侵襲的な五感フィードバック技術を用いることで、人体への長期的な影響を最小限に抑えます。
+            定期的な健康チェックも可能で、必要に応じて医療機関での安全な取り外しが可能です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Roadmap -->
+    <section id="roadmap" class="section observe" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
+      <h2>ロードマップ</h2>
+      <p class="section__lead">
+        未来への展望 - Vibの進化の道のり
+      </p>
+      <div style="max-width: 900px; margin: 4rem auto 0; position: relative; padding-left: 2rem;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-2) 100%);"></div>
+        
+        <div style="margin-bottom: 3rem; position: relative; padding-left: 3rem;">
+          <div style="position: absolute; left: -1.5rem; top: 0.5rem; width: 1.5rem; height: 1.5rem; background: var(--yellow); border-radius: 50%; border: 4px solid var(--bg-white); box-shadow: 0 0 0 3px var(--yellow);"></div>
+          <h3 style="margin-bottom: 0.5rem;">2025年</h3>
+          <p style="color: var(--gray);"><strong>Vib Chip Prototype（非侵襲モデル）</strong><br>
+          生体チップのプロトタイプ開発と安全性検証を実施。</p>
+        </div>
+        
+        <div style="margin-bottom: 3rem; position: relative; padding-left: 3rem;">
+          <div style="position: absolute; left: -1.5rem; top: 0.5rem; width: 1.5rem; height: 1.5rem; background: var(--yellow); border-radius: 50%; border: 4px solid var(--bg-white); box-shadow: 0 0 0 3px var(--yellow);"></div>
+          <h3 style="margin-bottom: 0.5rem;">2026年</h3>
+          <p style="color: var(--gray);"><strong>五感フィードバック研究段階</strong><br>
+          視覚・聴覚・触覚・嗅覚の非侵襲的フィードバック技術の研究開発。</p>
+        </div>
+        
+        <div style="margin-bottom: 3rem; position: relative; padding-left: 3rem;">
+          <div style="position: absolute; left: -1.5rem; top: 0.5rem; width: 1.5rem; height: 1.5rem; background: var(--yellow); border-radius: 50%; border: 4px solid var(--bg-white); box-shadow: 0 0 0 3px var(--yellow);"></div>
+          <h3 style="margin-bottom: 0.5rem;">2027年</h3>
+          <p style="color: var(--gray);"><strong>体験版アプリ</strong><br>
+          限定的なベータ版アプリをリリースし、ユーザーフィードバックを収集。</p>
+        </div>
+        
+        <div style="margin-bottom: 3rem; position: relative; padding-left: 3rem;">
+          <div style="position: absolute; left: -1.5rem; top: 0.5rem; width: 1.5rem; height: 1.5rem; background: var(--yellow); border-radius: 50%; border: 4px solid var(--bg-white); box-shadow: 0 0 0 3px var(--yellow);"></div>
+          <h3 style="margin-bottom: 0.5rem;">未来</h3>
+          <p style="color: var(--gray);"><strong>AR・XRとの連携</strong><br>
+          拡張現実・仮想現実技術との統合により、より没入感のある共感体験を実現。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 FAQ -->
     <section id="faq" class="section faq observe">
       <h2>よくある質問</h2>
-      <details>
-        <summary>生体チップの安全性について</summary>
-        <p>Vib Chipは安全性を最優先し、首の横側（目立たない位置）に配置されます。非侵襲的な五感フィードバック技術を用いることで、人体への長期的な影響を最小限に抑えます。チップは医療グレードの素材を使用し、定期的な健康チェックも可能です。</p>
-      </details>
-      <details>
-        <summary>プライバシーの保護について</summary>
-        <p>生体情報は全てチップ内で匿名化・暗号化され、個人を特定できる情報はチップ外へ送信されません。ユーザーは共有する情報（例：趣味、感情状態）を細かく選択可能で、いつでも設定を変更できます。</p>
-      </details>
-      <details>
-        <summary>五感フィードバックの感度調整は可能ですか？</summary>
-        <p>はい。ユーザーは五感フィードバックの感度や種類をいつでも調整・オフにできます。共鳴度が高い場合や特定のポジティブな情報に限定してフィードバックが発生するよう設定することも可能です。</p>
-      </details>
-      <details>
-        <summary>情報過多にならないか心配です</summary>
-        <p>共鳴度が高い場合や特定のポジティブな情報に限定してフィードバックが発生するため、情報過多になることはありません。また、ユーザーが感度を調整できるため、自分に最適な体験をカスタマイズできます。</p>
-      </details>
-      <details>
-        <summary>すれ違いシンクロの通信範囲は？</summary>
-        <p>極めて短い距離（半径数メートル以内）かつ超指向性のテラヘルツ波通信を使用するため、情報が広範囲に漏洩せず、特定の相手とのみセキュアに交換されます。すれ違った瞬間のみデータ交換が行われます。</p>
-      </details>
-      <details>
-        <summary>チップの取り外しは可能ですか？</summary>
-        <p>はい。医療機関での安全な取り外しが可能です。ただし、チップは極小サイズで目立たない位置に配置されているため、多くのユーザーは日常的に気にならないと報告しています。</p>
-      </details>
-    </section>
-
-    <!-- 06 Contact -->
-    <section id="contact" class="section contact observe">
-      <h2>お問い合わせ</h2>
-      <p>ご質問・取材・コラボ依頼など、お気軽にお問い合わせください。</p>
-      <div class="contact__banner">
-        <img src="./assets/images/help.webp" alt="お問い合わせバナー" class="section__image">
+      <p class="section__lead">
+        最後の疑問を解消する、よくある質問と回答。
+      </p>
+      <div style="max-width: 800px; margin: 3rem auto 0;">
+        <details>
+          <summary>チップは安全？</summary>
+          <p>Vib Chipは安全性を最優先し、首の横側（目立たない位置）に配置されます。非侵襲的な五感フィードバック技術を用いることで、人体への長期的な影響を最小限に抑えます。チップは医療グレードの素材を使用し、定期的な健康チェックも可能です。</p>
+        </details>
+        <details>
+          <summary>個人が特定されない理由は？</summary>
+          <p>生体情報は全てチップ内で匿名化・暗号化され、個人を特定できる情報はチップ外へ送信されません。ゼロID（個人情報非公開）原則により、全てのデータは匿名化された統計情報のみが使用されます。</p>
+        </details>
+        <details>
+          <summary>五感刺激は過剰では？</summary>
+          <p>共鳴度が高い場合や特定のポジティブな情報に限定してフィードバックが発生するため、過剰な刺激になることはありません。また、ユーザーが感度を調整できるため、自分に最適な体験をカスタマイズできます。</p>
+        </details>
+        <details>
+          <summary>オン/オフできる？</summary>
+          <p>はい。ユーザーは五感フィードバックの感度や種類をいつでも調整・オフにできます。特定の感覚だけをオフにすることも、全てのフィードバックを一時的に無効にすることも可能です。</p>
+        </details>
+        <details>
+          <summary>プライバシーの保護について</summary>
+          <p>生体情報は全てチップ内で匿名化・暗号化され、個人を特定できる情報はチップ外へ送信されません。ユーザーは共有する情報（例：趣味、感情状態）を細かく選択可能で、いつでも設定を変更できます。</p>
+        </details>
+        <details>
+          <summary>すれ違いシンクロの通信範囲は？</summary>
+          <p>極めて短い距離（半径数メートル以内）かつ超指向性のテラヘルツ波通信を使用するため、情報が広範囲に漏洩せず、特定の相手とのみセキュアに交換されます。すれ違った瞬間のみデータ交換が行われます。</p>
+        </details>
+        <details>
+          <summary>チップの取り外しは可能ですか？</summary>
+          <p>はい。医療機関での安全な取り外しが可能です。ただし、チップは極小サイズで目立たない位置に配置されているため、多くのユーザーは日常的に気にならないと報告しています。</p>
+        </details>
       </div>
-      <a class="btn btn--primary" href="mailto:ths40996@ths.hal.ac.jp">メールで問い合わせる</a>
     </section>
 
-    <!-- 07 Download -->
+    <!-- 10 Download -->
     <section id="download" class="section download observe">
       <h2>アプリをダウンロード</h2>
       <p>Vibアプリは iOS / Android に対応。今すぐ体験しましょう。(仮QR)</p>
@@ -286,6 +411,17 @@
       </div>
       <p class="coming-soon">※ 現在β版公開中・正式リリースは近日予定</p>
     </section>
+
+    <!-- 11 Contact -->
+    <section id="contact" class="section contact observe">
+      <h2>お問い合わせ</h2>
+      <p>ご質問・取材・コラボ依頼など、お気軽にお問い合わせください。</p>
+      <div class="contact__banner">
+        <img src="./assets/images/help.webp" alt="お問い合わせバナー" class="section__image">
+      </div>
+      <a class="btn btn--primary" href="mailto:ths40996@ths.hal.ac.jp">メールで問い合わせる</a>
+    </section>
+
 
     <!-- 08 Legal -->
     <section id="privacy" class="section legal observe">
@@ -325,9 +461,10 @@
         <div class="footer__section">
           <h4>サービス</h4>
           <ul class="footer__links">
-            <li><a href="#about">Vibとは</a></li>
-            <li><a href="#features">主な機能</a></li>
-            <li><a href="#vision">ビジョン</a></li>
+            <li><a href="#worldview">世界観</a></li>
+            <li><a href="#how-it-works">Vibの仕組み</a></li>
+            <li><a href="#experience">体験紹介</a></li>
+            <li><a href="#usecase">ユースケース</a></li>
           </ul>
         </div>
 
