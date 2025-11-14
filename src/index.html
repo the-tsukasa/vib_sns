@@ -40,18 +40,17 @@
       <a href="#top" class="nav-link">TOP</a>
       <a href="#worldview" class="nav-link">世界観</a>
       <a href="#how-it-works" class="nav-link">Vibの仕組み</a>
-      <a href="#experience" class="nav-link">体験紹介</a>
       <a href="#features-showcase" class="nav-link">アプリ機能</a>
-      <a href="#vib-score" class="nav-link">共鳴スコア</a>
+      <a href="#feature-1" class="nav-link">機能紹介</a>
       <a href="#usecase" class="nav-link">ユースケース</a>
       <a href="#safety" class="nav-link">技術&安全性</a>
       <a href="#roadmap" class="nav-link">ロードマップ</a>
       <a href="#faq" class="nav-link">FAQ</a>
     </nav>
 
-    <button class="contact-fab" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    <a href="./contact.html" class="contact-fab">
       お問い合わせ
-    </button>
+    </a>
   </aside>
 
   <div class="overlay" id="overlay"></div>
@@ -67,7 +66,7 @@
   <main class="content">
 
     <!-- 01 Hero -->
-c    <section id="top" class="section hero observe">
+    <section id="top" class="section hero observe">
       <div class="hero-mod hero-mod--1">
         <div class="hero__inner">
           <div class="hero__copy">
@@ -81,7 +80,7 @@ c    <section id="top" class="section hero observe">
               <strong>五感フィードバック</strong> / <strong>すれ違い同期</strong>
             </p>
             <div class="hero__actions">
-              <a href="#experience" class="btn btn--primary">アプリ紹介を見る</a>
+              <a href="#features-showcase" class="btn btn--primary">アプリ紹介を見る</a>
               <a href="#worldview" class="btn btn--outline">世界観を知る</a>
             </div>
           </div>
@@ -151,136 +150,156 @@ c    <section id="top" class="section hero observe">
       </div>
     </section>
 
-    <!-- 04 Experience -->
-    <section id="experience" class="section observe" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
-      <h2>体験紹介｜五感フィードバック</h2>
-      <p class="section__lead">
-        Vibの独特な魅力を、4つの感覚で体験してください。
-      </p>
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 4rem;">
-        <div class="card" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2196f3;">
-          <div style="padding: 2rem;">
-            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🔵</div>
-            <h3 style="text-align: center; color: #1976d2;">視覚 Vib</h3>
-            <p style="text-align: center; margin-top: 1rem;">
-              淡い光が相手の輪郭を照らす<br>
-              温かい光の粒子が拡散して見える
-            </p>
-          </div>
-        </div>
-        <div class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #9c27b0;">
-          <div style="padding: 2rem;">
-            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🎧</div>
-            <h3 style="text-align: center; color: #7b1fa2;">聴覚 Vib</h3>
-            <p style="text-align: center; margin-top: 1rem;">
-              脳内にチャイムのような音が響く<br>
-              インスピレーションを喚起する微細なメロディ
-            </p>
-          </div>
-        </div>
-        <div class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: 2px solid #ff9800;">
-          <div style="padding: 2rem;">
-            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">💠</div>
-            <h3 style="text-align: center; color: #f57c00;">触覚 Vib</h3>
-            <p style="text-align: center; margin-top: 1rem;">
-              首筋・掌に微振動が伝わる<br>
-              リラックス状態の安心感が共有される
-            </p>
-          </div>
-        </div>
-        <div class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #4caf50;">
-          <div style="padding: 2rem;">
-            <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🌿</div>
-            <h3 style="text-align: center; color: #388e3c;">嗅覚 Vib</h3>
-            <p style="text-align: center; margin-top: 1rem;">
-              記憶の香りが再現される<br>
-              パッションに関連する特定の香りを感じる
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 05 Features Showcase -->
-    <section id="features-showcase" class="section observe" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
-      <h2>アプリ機能紹介</h2>
-      <p class="section__lead">
-        Vibアプリの主要機能を、実際の画面でご覧ください。
-      </p>
-      <div class="features-grid" style="margin-top: 3rem;">
-        <div class="feature-image-card">
-          <img src="./assets/images/demo/Group1.png" alt="Vib アプリ画面 1" class="feature-image">
-          <div class="feature-image-overlay">
-            <h4>共鳴ダッシュボード</h4>
-            <p>共鳴数や行動ポイントを確認</p>
-          </div>
-        </div>
-        <div class="feature-image-card">
-          <img src="./assets/images/demo/Group2.png" alt="Vib アプリ画面 2" class="feature-image">
-          <div class="feature-image-overlay">
-            <h4>すれ違いシンクロ</h4>
-            <p>リアルタイムで共鳴を検知</p>
-          </div>
-        </div>
-        <div class="feature-image-card">
-          <img src="./assets/images/demo/Group3.png" alt="Vib アプリ画面 3" class="feature-image">
-          <div class="feature-image-overlay">
-            <h4>五感フィードバック設定</h4>
-            <p>感度や種類をカスタマイズ</p>
-          </div>
-        </div>
-        <div class="feature-image-card">
-          <img src="./assets/images/demo/Group4.png" alt="Vib アプリ画面 4" class="feature-image">
-          <div class="feature-image-overlay">
-            <h4>プライバシー管理</h4>
-            <p>データ共有設定を細かく調整</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 06 Vib Score -->
-    <section id="vib-score" class="section observe" style="background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);">
-      <div class="split split--reverse">
+    <!-- 04 機能1 -->
+    <section id="feature-1" class="section observe" style="background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);">
+      <div class="split">
         <div class="split__text">
-          <h2>共鳴スコア（Vib Score）</h2>
+          <h2>機能1</h2>
           <p class="section__lead">
-            Vibの可視化内容 - アプリで確認できる実際の機能
+            Vibアプリの主要機能1の詳細説明
           </p>
-          <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 1.5rem; padding-left: 2rem; position: relative;">
-              <strong style="font-size: 1.2rem;">📊 共鳴数 / 行動ポイント</strong>
-              <p style="margin-top: 0.5rem; color: var(--gray);">
-                自分が受け取った「共感のVib」の数、共鳴した相手のタイプ、最も評価された行動を確認できます。
+          <ul class="feature-list">
+            <li>
+              <strong>📊 機能1の特徴</strong>
+              <p>
+                機能1の詳細な説明と利点をここに記載します。
               </p>
             </li>
-            <li style="margin-bottom: 1.5rem; padding-left: 2rem; position: relative;">
-              <strong style="font-size: 1.2rem;">🔒 匿名性説明</strong>
-              <p style="margin-top: 0.5rem; color: var(--gray);">
-                全てのデータは匿名化され、個人を特定できる情報は一切表示されません。
+            <li>
+              <strong>🔒 機能1のセキュリティ</strong>
+              <p>
+                機能1に関するセキュリティとプライバシー保護の説明。
               </p>
             </li>
-            <li style="margin-bottom: 1.5rem; padding-left: 2rem; position: relative;">
-              <strong style="font-size: 1.2rem;">🤖 データ読み取り方式</strong>
-              <p style="margin-top: 0.5rem; color: var(--gray);">
-                Edge AI / 暗号化により、チップ内で処理され、外部へ送信されません。
+            <li>
+              <strong>🤖 機能1の技術仕様</strong>
+              <p>
+                機能1の技術的な実装方法と仕組みの説明。
               </p>
             </li>
           </ul>
         </div>
         <div class="split__media">
-          <img src="./assets/images/demo/Group1.png" alt="Vib Score Dashboard UI" class="section__image">
+          <img src="./assets/images/demo/Group1.png" alt="機能1 アプリ画面" class="section__image">
         </div>
       </div>
     </section>
 
+    <!-- 05 機能2 -->
+    <section id="feature-2" class="section observe">
+      <div class="split">
+        <div class="split__text">
+          <h2>機能2</h2>
+          <p class="section__lead">
+            Vibアプリの主要機能2の詳細説明
+          </p>
+          <ul class="feature-list">
+            <li>
+              <strong>📊 機能2の特徴</strong>
+              <p>
+                機能2の詳細な説明と利点をここに記載します。
+              </p>
+            </li>
+            <li>
+              <strong>🔒 機能2のセキュリティ</strong>
+              <p>
+                機能2に関するセキュリティとプライバシー保護の説明。
+              </p>
+            </li>
+            <li>
+              <strong>🤖 機能2の技術仕様</strong>
+              <p>
+                機能2の技術的な実装方法と仕組みの説明。
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="split__media">
+          <img src="./assets/images/demo/Group2.png" alt="機能2 アプリ画面" class="section__image">
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 機能3 -->
+    <section id="feature-3" class="section observe" style="background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);">
+      <div class="split">
+        <div class="split__text">
+          <h2>機能3</h2>
+          <p class="section__lead">
+            Vibアプリの主要機能3の詳細説明
+          </p>
+          <ul class="feature-list">
+            <li>
+              <strong>📊 機能3の特徴</strong>
+              <p>
+                機能3の詳細な説明と利点をここに記載します。
+              </p>
+            </li>
+            <li>
+              <strong>🔒 機能3のセキュリティ</strong>
+              <p>
+                機能3に関するセキュリティとプライバシー保護の説明。
+              </p>
+            </li>
+            <li>
+              <strong>🤖 機能3の技術仕様</strong>
+              <p>
+                機能3の技術的な実装方法と仕組みの説明。
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="split__media">
+          <img src="./assets/images/demo/Group3.png" alt="機能3 アプリ画面" class="section__image">
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 機能4 -->
+    <section id="feature-4" class="section observe">
+      <div class="split">
+        <div class="split__text">
+          <h2>機能4</h2>
+          <p class="section__lead">
+            Vibアプリの主要機能4の詳細説明
+          </p>
+          <ul class="feature-list">
+            <li>
+              <strong>📊 機能4の特徴</strong>
+              <p>
+                機能4の詳細な説明と利点をここに記載します。
+              </p>
+            </li>
+            <li>
+              <strong>🔒 機能4のセキュリティ</strong>
+              <p>
+                機能4に関するセキュリティとプライバシー保護の説明。
+              </p>
+            </li>
+            <li>
+              <strong>🤖 機能4の技術仕様</strong>
+              <p>
+                機能4の技術的な実装方法と仕組みの説明。
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="split__media">
+          <img src="./assets/images/demo/Group4.png" alt="機能4 アプリ画面" class="section__image">
+        </div>
+      </div>
+    </section>
+
+ 
     <!-- 07 Use Case -->
     <section id="usecase" class="section observe">
       <h2>ユースケース</h2>
       <p class="section__lead">
         機能を生活に落とし込む、3つの具体的なシーン。
       </p>
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 4rem;">
+      <div class="grid">
         <div class="card">
           <img src="./assets/images/vision/1.webp" alt="通勤シーン" class="card__img">
           <h3>🚉 通勤</h3>
@@ -436,43 +455,6 @@ c    <section id="top" class="section hero observe">
       <p class="coming-soon">※ 現在β版公開中・正式リリースは近日予定</p>
     </section>
 
-    <!-- 12 Contact -->
-    <section id="contact" class="section contact observe" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
-      <h2>お問い合わせ</h2>
-      <p>ご質問・取材・コラボ依頼など、お気軽にお問い合わせください。</p>
-      <div class="contact__banner">
-        <img src="./assets/images/help.webp" alt="お問い合わせバナー" class="section__image">
-      </div>
-      <a class="btn btn--primary" href="mailto:ths40996@ths.hal.ac.jp">メールで問い合わせる</a>
-    </section>
-
-
-    <!-- 08 Legal -->
-    <section id="privacy" class="section legal observe">
-      <h2>プライバシーポリシー</h2>
-      <p>
-        Vibはユーザーの生体情報（心拍数、体温、脳波パターン）を含むすべての個人情報をVib Chip内で処理し、第三者に提供することはありません。
-        データは全てチップ内で匿名化・暗号化され、個人を特定できる情報はチップ外へ送信されません。
-        利用状況の分析は匿名化された統計情報のみを使用し、ユーザーがいつでもデータ削除をリクエストできる仕組みを備えています。
-      </p>
-      <p>
-        ユーザーは共有する情報（例：趣味、感情状態、パッションデータ）を細かく選択可能で、いつでも設定を変更できます。
-        詳細な取り扱い方針については、正式リリース時に公開されるポリシーページでご案内いたします。
-      </p>
-    </section>
-
-    <section id="terms" class="section legal observe">
-      <h2>利用規約</h2>
-      <p>
-        本サービスは共感の振動を通じた安全なコミュニケーションを目的としており、他者への誹謗中傷や不正アクセス、無断転載などは禁止されています。
-        ルールに反する行為が確認された場合、アカウント停止を含む適切な措置を講じる場合があります。
-      </p>
-      <p>
-        生体チップの使用にあたっては、医療機関での適切な埋め込み・管理が必要です。
-        最新の規約はアプリ公開時に告知され、ユーザーは更新内容への同意後にサービスを継続利用いただけます。
-      </p>
-    </section>
-
     <!-- ===== Footer ===== -->
     <footer class="footer">
       <div class="footer__brand">
@@ -487,7 +469,7 @@ c    <section id="top" class="section hero observe">
           <ul class="footer__links">
             <li><a href="#worldview">世界観</a></li>
             <li><a href="#how-it-works">Vibの仕組み</a></li>
-            <li><a href="#experience">体験紹介</a></li>
+            <li><a href="#features-showcase">アプリ機能</a></li>
             <li><a href="#usecase">ユースケース</a></li>
           </ul>
         </div>
@@ -496,7 +478,7 @@ c    <section id="top" class="section hero observe">
           <h4>サポート</h4>
           <ul class="footer__links">
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="./contact.html">お問い合わせ</a></li>
             <li><a href="#download">ダウンロード</a></li>
             <li><a href="mailto:ths40996@ths.hal.ac.jp">メール</a></li>
           </ul>
@@ -525,9 +507,9 @@ c    <section id="top" class="section hero observe">
         <div class="footer__legal">
           <small>© <span id="year"></span> Vib. All rights reserved.</small>
           <div class="footer__legal-links">
-            <a href="#privacy">プライバシーポリシー</a>
+            <a href="./privacy.html">プライバシーポリシー</a>
             <span>•</span>
-            <a href="#terms">利用規約</a>
+            <a href="./terms.html">利用規約</a>
           </div>
         </div>
         <div class="footer__credit">

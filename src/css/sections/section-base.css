@@ -56,10 +56,12 @@
 
 .section__image {
   width: 100%;
+  height: auto;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
+  display: block;
 }
 
 .section__image:hover {
@@ -72,15 +74,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4vw;
+  gap: 5vw;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .split__media {
   flex: 1;
+  min-width: 0;
 }
 
 .split__text {
-  flex: 1.2;
+  flex: 1.1;
+  min-width: 0;
 }
 
 .split--reverse {
