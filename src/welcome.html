@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vib（ヴィブ）へようこそ｜触れずに伝わる、未来のSNS</title>
+
+  <meta name="theme-color" content="#0D0F1A" />
+  <meta name="description" content="触れずに伝わる、未来のSNS。Vib（ヴィブ）へようこそ。" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/welcome.css" />
+</head>
+<body>
+  <div class="welcome-container" id="welcomeContainer">
+    <!-- 背景装饰 -->
+    <div class="welcome-bg" aria-hidden="true">
+      <div class="bg-gradient"></div>
+      <div class="bg-particles"></div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="welcome-content">
+      <!-- 左侧：手机 Mockup -->
+      <div class="welcome-visual">
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="./assets/images/demo/Group1.png" alt="Vib アプリ画面" class="phone-image" id="phoneImage">
+            </div>
+          </div>
+          <div class="phone-glow"></div>
+        </div>
+      </div>
+
+      <!-- 右侧：文本和按钮 -->
+      <div class="welcome-text">
+        <div class="text-content">
+          <h1 class="welcome-title">
+            <span class="title-line">触れずに伝わる、</span>
+            <span class="title-line">未来のSNS</span>
+          </h1>
+          <p class="welcome-subtitle">
+            共感の振動を通じて、言葉を超えたつながりを実現する<br>
+            次世代のソーシャルコネクションサービス
+          </p>
+          <button class="welcome-btn" id="enterBtn" aria-label="Vibへ入る">
+            <span class="btn-text">Vibへ入る</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 过渡动画遮罩 -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+  </div>
+
+  <!-- JS -->
+  <script src="./js/welcome.js"></script>
+</body>
+</html>
+
