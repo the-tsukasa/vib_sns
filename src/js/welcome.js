@@ -12,6 +12,7 @@
   const transitionOverlay = document.getElementById('transitionOverlay');
   const welcomeContainer = document.getElementById('welcomeContainer');
   const phoneImage = document.getElementById('phoneImage');
+  const bgParticles = document.querySelector('.bg-particles');
 
   // 图片轮播（可选：让手机 mockup 显示不同的应用画面）
   const appImages = [
@@ -38,25 +39,63 @@
     }, 5000);
   }
 
-  // 进入主网站的动画和跳转
+  // 创建过渡粒子效果（与 index.html splash 风格一致）
+  function createTransitionParticles() {
+    if (!transitionOverlay || !bgParticles) return;
+    
+    const PARTICLE_COUNT = 24;
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'transition-particles';
+    transitionOverlay.appendChild(particlesContainer);
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const particle = document.createElement('span');
+      particle.className = 'transition-particle';
+
+      const top = Math.random() * 100;
+      const left = Math.random() * 100;
+      const size = 6 + Math.random() * 18;
+      const speed = 10 + Math.random() * 6;
+      const delay = Math.random() * -8;
+      const glowIntensity = 0.4 + Math.random() * 0.3;
+      const haloIntensity = 0.45 + Math.random() * 0.25;
+
+      particle.style.setProperty("--particle-core", `rgba(255, 240, 190, ${0.7 + Math.random() * 0.25})`);
+      particle.style.setProperty("--particle-glow", `rgba(255, 204, 0, ${glowIntensity})`);
+      particle.style.setProperty("--particle-halo", `rgba(255, 214, 51, ${haloIntensity})`);
+
+      particle.style.setProperty("--top", `${top}%`);
+      particle.style.setProperty("--left", `${left}%`);
+      particle.style.setProperty("--size", `${size}px`);
+      particle.style.setProperty("--speed", `${speed}s`);
+      particle.style.setProperty("--delay", `${delay}s`);
+
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  // 进入主网站的动画和跳转（与 index.html splash 风格一致）
   function enterMainSite() {
     // 禁用按钮，防止重复点击
     enterBtn.disabled = true;
     enterBtn.style.pointerEvents = 'none';
     enterBtn.style.opacity = '0.7';
 
-    // 添加过渡动画
-    transitionOverlay.classList.add('active');
+    // 创建过渡粒子
+    createTransitionParticles();
 
-    // 可选：添加容器淡出效果
-    welcomeContainer.style.opacity = '0';
-    welcomeContainer.style.transform = 'scale(0.95)';
-    welcomeContainer.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    // 添加容器淡出效果（与 splash fade-out 一致）
+    welcomeContainer.classList.add('fade-out');
 
-    // 延迟跳转，让动画完成
+    // 延迟显示过渡遮罩，让容器先淡出
+    setTimeout(() => {
+      transitionOverlay.classList.add('active');
+    }, 300);
+
+    // 延迟跳转，让动画完成（与 splash 的 1s 过渡时间一致）
     setTimeout(() => {
       window.location.href = './index.html';
-    }, 800);
+    }, 1200);
   }
 
   // 事件监听
