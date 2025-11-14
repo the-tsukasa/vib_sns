@@ -1,10 +1,9 @@
 /* =========================================================
    ファイル名：main.js
-   概要　　：VIB公式サイト 全体インタラクション制御
+   概要　　：VIB公式サイト 基本インタラクション制御（簡易版）
    作成者　：曹 小帥（SOU）
-   最終更新：2025-11-02（安定版・統合済）
+   最終更新：2025-01-XX
    ========================================================= */
-
 
 /* =========================================================
    1. Sidebar（サイドバー開閉 + オーバーレイ制御）
@@ -16,18 +15,18 @@ const sidebarClose = document.getElementById("sidebarClose");
 
 // サイドバーを閉じる共通関数
 function closeSidebar() {
-  sidebar.classList.remove("open");
-  sidebar.classList.add("closed");
-  overlay.classList.remove("active");
-  hamburger.classList.remove("active");
+  if (sidebar) sidebar.classList.remove("open");
+  if (sidebar) sidebar.classList.add("closed");
+  if (overlay) overlay.classList.remove("active");
+  if (hamburger) hamburger.classList.remove("active");
 }
 
 // サイドバーを開く共通関数
 function openSidebar() {
-  sidebar.classList.remove("closed");
-  sidebar.classList.add("open");
-  overlay.classList.add("active");
-  hamburger.classList.add("active");
+  if (sidebar) sidebar.classList.remove("closed");
+  if (sidebar) sidebar.classList.add("open");
+  if (overlay) overlay.classList.add("active");
+  if (hamburger) hamburger.classList.add("active");
 }
 
 if (sidebar && hamburger && overlay) {
@@ -77,7 +76,6 @@ if (sidebar && hamburger && overlay) {
   });
 }
 
-
 /* =========================================================
    2. 年号の自動更新
    ========================================================= */
@@ -85,75 +83,3 @@ const yearEl = document.getElementById("year");
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
-
-
-/* =========================================================
-   3. スクロールアニメーション（セクションのフェードイン）
-   ========================================================= */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("on");
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll(".observe").forEach(section => {
-  observer.observe(section);
-});
-
-
-/* =========================================================
-   4. ナビゲーション自動ハイライト（スクロール連動）
-   ========================================================= */
-const sections = document.querySelectorAll(".section[id]");
-const navLinks = document.querySelectorAll(".nav-link");
-
-function getSectionIdFromLink(link) {
-  const dataSection = link.getAttribute("data-section");
-  if (dataSection) return dataSection;
-
-  const href = link.getAttribute("href") || "";
-  if (href.startsWith("#")) {
-    return href.slice(1);
-  }
-
-  return null;
-}
-
-// スクロール時にアクティブなセクションを検出
-function updateActiveNav() {
-  let current = "";
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-
-    // スクロール位置がセクションの上半分に達したらアクティブ
-    if (window.scrollY >= sectionTop - 200) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  // ナビゲーションリンクのアクティブクラスを更新
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (getSectionIdFromLink(link) === current) {
-      link.classList.add("active");
-    }
-  });
-}
-
-// スクロールイベントをスロットル処理（パフォーマンス最適化）
-let scrollTimeout;
-window.addEventListener("scroll", () => {
-  if (scrollTimeout) {
-    window.cancelAnimationFrame(scrollTimeout);
-  }
-  scrollTimeout = window.requestAnimationFrame(() => {
-    updateActiveNav();
-  });
-});
-
-// 初期実行
-updateActiveNav();
-
