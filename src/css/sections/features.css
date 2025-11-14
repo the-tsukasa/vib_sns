@@ -1,63 +1,148 @@
 /* =========================================================
-   Features Section
+   Features Section - 機能紹介セクション
    作成者：曹 小帥（SOU）
-   最終更新：2025-11-02
+   最終更新：2025-01-XX
    ========================================================= */
 
-.features {
-  background: var(--bg-white);
+/* ===== Feature Sections ===== */
+#feature-1,
+#feature-2,
+#feature-3,
+#feature-4 {
+  position: relative;
 }
 
-.features .feature-list {
+#feature-1 .split__text,
+#feature-3 .split__text {
+  padding-right: 2rem;
+}
+
+#feature-2 .split__text,
+#feature-4 .split__text {
+  padding-left: 2rem;
+}
+
+/* ===== Feature List ===== */
+#feature-1 .feature-list,
+#feature-2 .feature-list,
+#feature-3 .feature-list,
+#feature-4 .feature-list {
   list-style: none;
-  margin-top: 2rem;
-  line-height: 1.9;
-  display: grid;
-  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 
-.features .feature-list li {
-  padding: 24px;
-  background: var(--gradient-soft);
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--yellow);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-base);
+/* ===== Feature List Items ===== */
+#feature-1 .feature-list li,
+#feature-2 .feature-list li,
+#feature-3 .feature-list li,
+#feature-4 .feature-list li {
+  position: relative;
+  padding-left: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  transition: all 0.3s ease;
 }
 
-.features .feature-list li:hover {
+#feature-1 .feature-list li::before,
+#feature-2 .feature-list li::before,
+#feature-3 .feature-list li::before,
+#feature-4 .feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
+}
+
+#feature-1 .feature-list li:hover,
+#feature-2 .feature-list li:hover,
+#feature-3 .feature-list li:hover,
+#feature-4 .feature-list li:hover {
   transform: translateX(8px);
-  box-shadow: var(--shadow-md);
-  border-left-color: var(--yellow-dark);
 }
 
-.features .feature-list li strong {
-  color: var(--ink);
-  font-weight: 700;
-  font-size: 1.1rem;
+#feature-1 .feature-list li strong,
+#feature-2 .feature-list li strong,
+#feature-3 .feature-list li strong,
+#feature-4 .feature-list li strong {
   display: block;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+  line-height: 1.4;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+#feature-1 .feature-list li p,
+#feature-2 .feature-list li p,
+#feature-3 .feature-list li p,
+#feature-4 .feature-list li p {
+  margin-top: 0;
+  line-height: 1.7;
+  color: var(--gray);
 }
 
-.features-grid .section__image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-md);
-    object-fit: cover;
+/* ===== Feature Images ===== */
+#feature-1 .section__image,
+#feature-2 .section__image,
+#feature-3 .section__image,
+#feature-4 .section__image {
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+}
+
+#feature-1 .section__image:hover,
+#feature-2 .section__image:hover,
+#feature-3 .section__image:hover,
+#feature-4 .section__image:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Alternating Layout ===== */
+#feature-1 .split,
+#feature-3 .split {
+  flex-direction: row-reverse;
+}
+
+#feature-2 .split,
+#feature-4 .split {
+  flex-direction: row;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
-  .features .feature-list li:hover {
-    transform: translateY(-2px);
+  #feature-1 .split__text,
+  #feature-2 .split__text,
+  #feature-3 .split__text,
+  #feature-4 .split__text {
+    padding-left: 0;
+    padding-right: 0;
   }
-  .features-grid {
-    grid-template-columns: 1fr;
+
+  #feature-1 ul li,
+  #feature-2 ul li,
+  #feature-3 ul li,
+  #feature-4 ul li {
+    padding-left: 2.5rem;
+  }
+
+  #feature-1 ul li:hover,
+  #feature-2 ul li:hover,
+  #feature-3 ul li:hover,
+  #feature-4 ul li:hover {
+    transform: translateY(-2px);
   }
 }
