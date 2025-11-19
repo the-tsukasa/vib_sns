@@ -145,4 +145,36 @@
   #feature-4 ul li:hover {
     transform: translateY(-2px);
   }
+
+  #feature-1 .split,
+  #feature-2 .split,
+  #feature-3 .split,
+  #feature-4 .split {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  #feature-1 ul li,
+  #feature-2 ul li,
+  #feature-3 ul li,
+  #feature-4 ul li {
+    padding-left: 2rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  #feature-1 .feature-list li strong,
+  #feature-2 .feature-list li strong,
+  #feature-3 .feature-list li strong,
+  #feature-4 .feature-list li strong {
+    font-size: 1.1rem;
+  }
+
+  #feature-1 .feature-list li p,
+  #feature-2 .feature-list li p,
+  #feature-3 .feature-list li p,
+  #feature-4 .feature-list li p {
+    font-size: 0.95rem;
+  }
 }

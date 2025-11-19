@@ -53,13 +53,31 @@
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .download {
+    padding: 60px 6vw;
+  }
+
   .download h2 {
     font-size: 2rem;
   }
 
   .download p {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .download {
+    padding: 50px 5vw;
+  }
+
+  .download h2 {
+    font-size: 1.75rem;
+  }
+
+  .download p {
+    font-size: 0.95rem;
   }
 
   .store-buttons {
@@ -70,5 +88,7 @@
 
   .store-buttons img {
     height: 50px;
+    width: auto;
+    max-width: 100%;
   }
 }

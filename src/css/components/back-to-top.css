@@ -56,11 +56,22 @@
     right: 1.5rem;
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
   
   .back-to-top svg {
     width: 20px;
     height: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
   }
 }
 
