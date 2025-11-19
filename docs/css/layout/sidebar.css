@@ -104,7 +104,8 @@
 }
 
 /* ===== お問い合わせボタン ===== */
-.contact-fab {
+.contact-fab,
+a.contact-fab {
   margin-top: auto;
   align-self: flex-start;
   background: transparent;
@@ -116,6 +117,9 @@
   cursor: pointer;
   transition: all var(--transition-fast);
   opacity: 0.9;
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
 
 .contact-fab:hover {

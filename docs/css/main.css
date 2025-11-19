@@ -33,6 +33,9 @@
 @import url("./components/buttons.css");
 @import url("./components/cards.css");
 @import url("./components/scrollbar.css");
+@import url("./components/back-to-top.css");
+@import url("./components/skip-link.css");
+@import url("./components/skeleton.css");
 
 /* =========================================================
    4. Sections - 页面区块
@@ -42,6 +45,9 @@
 @import url("./sections/hero.css");
 @import url("./sections/about.css");
 @import url("./sections/features.css");
+@import url("./sections/features-showcase.css");
+@import url("./sections/usecase.css");
+@import url("./sections/inline-styles.css");
 @import url("./sections/plans.css");
 @import url("./sections/vision.css");
 @import url("./sections/news.css");
