@@ -80,6 +80,12 @@
 }
 
 /* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .faq-container {
+    margin-top: 2.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .faq summary {
     font-size: 0.95rem;
@@ -88,6 +94,11 @@
   
   .faq p {
     padding: 0 18px 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .faq-container {
+    margin-top: 2rem;
   }
 }
 

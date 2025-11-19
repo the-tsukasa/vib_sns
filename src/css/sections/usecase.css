@@ -71,3 +71,22 @@
   }
 }
 
+@media (max-width: 600px) {
+  #usecase .usecase-item {
+    margin-bottom: 2.5rem;
+  }
+
+  #usecase .split__text {
+    text-align: left;
+    padding: 1rem;
+  }
+
+  #usecase .split__text h3 {
+    font-size: 1.5rem;
+  }
+
+  #usecase .split__text p {
+    font-size: 1rem;
+  }
+}
+

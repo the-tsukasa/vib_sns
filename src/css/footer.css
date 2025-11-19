@@ -34,28 +34,28 @@
 .footer__brand {
   text-align: center;
   margin-bottom: 50px;
-}
-
-.footer__logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 4px 12px rgba(255, 204, 0, 0.3));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer__name {
   font-size: 2rem;
   font-weight: 900;
   color: var(--yellow);
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
   letter-spacing: 0.1em;
+  line-height: 1.2;
 }
 
 .footer__tagline {
   color: rgba(255, 255, 255, 0.6);
   font-size: 1rem;
   font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
 }
 
 /* Footer Content - Three Columns */
@@ -91,12 +91,22 @@
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: all var(--transition-fast);
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px 0;
+  min-height: 44px;
 }
 
 .footer__links a:hover {
   color: var(--yellow);
   transform: translateX(5px);
+}
+
+@media (max-width: 900px) {
+  .footer__links a:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* =========================================================
@@ -142,6 +152,8 @@
   flex-wrap: wrap;
   gap: 20px;
   padding-top: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer__legal {
@@ -242,10 +254,33 @@
     padding: 60px 6vw 30px;
   }
 
+  .footer__brand {
+    margin-bottom: 45px;
+  }
+
   .footer__content {
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
+  }
+
+  .footer__section {
+    text-align: center;
+  }
+
+  .footer__links {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__links li {
+    text-align: center;
+  }
+
+  .footer__links a {
+    justify-content: center;
   }
 
   .footer__sns {
@@ -280,17 +315,15 @@
     margin-bottom: 40px;
   }
 
-  .footer__logo {
-    width: 50px;
-    height: 50px;
-  }
-
   .footer__name {
     font-size: 1.6rem;
+    margin-top: 0;
   }
 
   .footer__tagline {
     font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0 10px;
   }
 
   .footer__content {
