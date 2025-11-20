@@ -26,7 +26,7 @@
         }
 
         /* =========================================
-           1. 加载层 (改为左右开门式)
+           1. 加载层 (左右开门式)
            ========================================= */
         #loader-wrapper {
             position: fixed;
@@ -35,10 +35,9 @@
             width: 100%;
             height: 100%;
             z-index: 50;
-            pointer-events: none; /* 动画结束后允许点击下方内容 */
+            pointer-events: none;
         }
 
-        /* 左面板 (黑) */
         .loader-panel {
             position: absolute;
             top: 0;
@@ -46,68 +45,59 @@
             height: 100%;
             background: #000;
             z-index: 2;
-            transition: transform 1s cubic-bezier(0.8, 0, 0.2, 1); /* 缓动曲线 */
+            transition: transform 1s cubic-bezier(0.8, 0, 0.2, 1);
         }
         
         .panel-left {
             left: 0;
-            border-right: 1px solid rgba(255,255,255,0.1); /* 中缝细节 */
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
         
         .panel-right {
             right: 0;
-            border-left: 1px solid rgba(255,255,255,0.1); /* 中缝细节 */
+            border-left: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* 垂直加载线 */
         .loading-line-wrap {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 4px; /* 线条宽度 */
-            height: 100%; /* 最终高度 */
+            width: 4px;
+            height: 100%;
             z-index: 3;
             display: flex;
-            align-items: center; /* 从中间向两头长，或者改为 flex-start 从上往下 */
+            align-items: center;
             justify-content: center;
         }
 
         #v-bar {
             width: 100%;
-            height: 0%; /* 初始高度 */
-            background-color: var(--bg-color); /* 黄色线条 */
-            box-shadow: 0 0 20px var(--bg-color); /* 发光效果 */
+            height: 0%;
+            background-color: var(--bg-color);
+            box-shadow: 0 0 20px var(--bg-color);
             transition: opacity 0.5s;
         }
 
-        /* 数字百分比 (跟在垂直线旁边) */
         .loader-counter {
             position: absolute;
             top: 50%;
-            left: calc(50% + 20px); /* 在线条右侧 */
+            left: calc(50% + 20px);
             transform: translateY(-50%);
             font-family: 'Oswald', sans-serif;
-            font-size: 2rem; /* 字体不用太大 */
+            font-size: 2rem;
             font-weight: bold;
             color: var(--bg-color);
             z-index: 3;
             transition: opacity 0.3s;
         }
 
-        /* --- 开门动画类 --- */
-        .split-open .panel-left {
-            transform: translateX(-100%); /* 左移 */
-        }
-        .split-open .panel-right {
-            transform: translateX(100%); /* 右移 */
-        }
-        .fade-out {
-            opacity: 0;
-        }
+        .split-open .panel-left { transform: translateX(-100%); }
+        .split-open .panel-right { transform: translateX(100%); }
+        .fade-out { opacity: 0; }
 
         /* =========================================
-           2. 跑马灯 (Marquee)
+           2. 跑马灯 (Marquee) - 关键修改部分
            ========================================= */
         .marquee-container {
             position: absolute;
@@ -120,7 +110,17 @@
             pointer-events: none; 
             white-space: nowrap; 
             overflow: hidden;
+            /* 默认显示 (电脑端) */
+            display: block;
         }
+
+        /* --- 这里是控制手机端隐藏的核心代码 --- */
+        @media (max-width: 768px) {
+            .marquee-container {
+                display: none; /* 屏幕小于768px时隐藏 */
+            }
+        }
+
         .marquee-content {
             display: inline-block;
             font-family: 'Oswald', 'Noto Sans JP', sans-serif;
@@ -198,19 +198,21 @@
     <div id="loader-wrapper">
         <div id="panel-left" class="loader-panel panel-left"></div>
         <div id="panel-right" class="loader-panel panel-right"></div>
-        
         <div class="loading-line-wrap">
             <div id="v-bar"></div>
         </div>
-        
         <div class="loader-counter">0%</div>
     </div>
-
-
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
     <div class="grid-bg"></div>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            HAL FUTURE CREATION EXHIBITION 2025  //  DESIGN  //  DEVELOPMENT  //  INNOVATION  //  HAL FUTURE CREATION EXHIBITION 2025  //  DESIGN  //  DEVELOPMENT  //  INNOVATION  //
+        </div>
+    </div>
 
     <div id="hero">
         <div class="magnetic-wrap">
@@ -222,7 +224,7 @@
         </div>
 
         <a href="index.html" class="enter-btn interactable">
-            Enter Portfolio
+            Explore VIB
         </a>
 
         <div class="mt-4 text-[10px] font-bold tracking-[0.5em] opacity-60">
@@ -241,32 +243,25 @@
 
             let progress = 0;
             const interval = setInterval(() => {
-                // 模拟加载进度
                 progress += Math.floor(Math.random() * 5) + 2;
                 if (progress > 100) progress = 100;
                 
-                // 更新高度 (垂直线)
                 vBar.style.height = progress + '%';
-                // 更新数字
                 counter.innerText = progress + '%';
 
                 if (progress === 100) {
                     clearInterval(interval);
                     setTimeout(() => {
-                        // 1. 隐藏线条和文字
                         vBar.classList.add('fade-out');
                         counter.classList.add('fade-out');
-
-                        // 2. 触发开门动画
                         wrapper.classList.add('split-open');
                         
-                        // 3. 显现主内容
                         setTimeout(() => {
                             hero.style.opacity = '1';
                             hero.style.transform = 'scale(1)';
                             if(logo) logo.classList.add('logo-reveal');
                             if(text) text.classList.add('show');
-                        }, 500); // 等门开了一半再显示内容
+                        }, 500);
                     }, 500);
                 }
             }, 30);
