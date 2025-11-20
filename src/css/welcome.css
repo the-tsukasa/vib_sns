@@ -1,5 +1,5 @@
 /* =========================================================
-   Welcome Page - 入口专用页面样式
+   Welcome Page - 超高级入口页面样式（纯CSS制作）
    作成者：曹 小帥（SOU）
    最終更新：2025-01-XX
    ========================================================= */
@@ -17,51 +17,51 @@
   justify-content: center;
   overflow: hidden;
   z-index: 1;
-  transition: opacity 0.6s ease;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #000000;
 }
 
 .welcome-container.fade-out {
   opacity: 0;
 }
 
-/* ===== 背景装饰（与 index.html splash 风格一致） ===== */
+/* ===== 背景装饰 ===== */
 .welcome-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 25% 20%, rgba(255, 214, 51, 0.22) 0%, rgba(8, 10, 20, 0.92) 46%),
-    radial-gradient(circle at 75% 15%, rgba(255, 204, 0, 0.18) 0%, rgba(8, 10, 20, 0.94) 55%),
-    linear-gradient(165deg, rgba(6, 7, 14, 0.96) 0%, rgba(10, 11, 20, 0.98) 65%, rgba(11, 11, 11, 0.98) 100%);
+  background: #000000;
 }
 
 .bg-gradient {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
+  left: -50%;
+  top: -50%;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 214, 51, 0.25), transparent 55%),
-    radial-gradient(circle at 70% 25%, rgba(255, 204, 0, 0.18), transparent 48%),
-    radial-gradient(circle at 50% 90%, rgba(255, 163, 0, 0.14), transparent 60%);
-  filter: blur(0);
-  animation: aurora-shift 16s ease-in-out infinite alternate;
+    radial-gradient(circle at 30% 20%, rgba(255, 204, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(255, 214, 51, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.1) 0%, transparent 60%);
+  animation: aurora-shift 25s ease-in-out infinite alternate;
   z-index: 0;
-  opacity: 0.9;
 }
 
 .bg-gradient::after {
   content: "";
   position: absolute;
-  inset: 0;
+  width: 200%;
+  height: 200%;
+  left: -50%;
+  top: -50%;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 214, 51, 0.25), transparent 55%),
-    radial-gradient(circle at 70% 25%, rgba(255, 204, 0, 0.18), transparent 48%),
-    radial-gradient(circle at 50% 90%, rgba(255, 163, 0, 0.14), transparent 60%);
+    radial-gradient(circle at 60% 30%, rgba(255, 214, 51, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 20% 70%, rgba(255, 204, 0, 0.12) 0%, transparent 45%);
   mix-blend-mode: screen;
-  animation: aurora-shift 20s ease-in-out infinite alternate;
-  animation-delay: 1.6s;
-  opacity: 0.45;
+  animation: aurora-shift 30s ease-in-out infinite alternate;
+  animation-delay: 3s;
+  opacity: 0.7;
 }
 
 .bg-particles {
@@ -71,6 +71,14 @@
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(255, 204, 0, 0.4), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(255, 214, 51, 0.4), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 204, 0, 0.5), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(255, 214, 51, 0.3), transparent),
+    radial-gradient(1px 1px at 10% 90%, rgba(255, 204, 0, 0.3), transparent);
+  background-size: 200% 200%;
+  animation: particles-float 40s linear infinite;
 }
 
 /* ===== 主要内容区域 ===== */
@@ -78,236 +86,499 @@
   position: relative;
   z-index: 2;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5vw;
   width: 100%;
-  max-width: 1200px;
+  height: 100%;
   padding: 3vw;
-  animation: fadeInUp 1s ease-out;
-  backdrop-filter: blur(0px);
+  gap: 4rem;
+  perspective: 1000px;
 }
 
-/* ===== 左侧：手机 Mockup ===== */
-.welcome-visual {
-  flex: 1;
+/* ===== Logo 容器 ===== */
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  animation: contentFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  max-width: 45%;
+  transform-style: preserve-3d;
 }
 
-.phone-mockup {
-  position: relative;
+/* ===== 轨道系统 ===== */
+.logo-orbits {
+  position: absolute;
   width: 100%;
-  max-width: 320px;
-  animation: phone-float 3s ease-in-out infinite;
+  height: 100%;
+  transform-style: preserve-3d;
 }
 
-.phone-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 24px;
-  box-shadow: 
-    0 25px 80px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 204, 0, 0.1),
-    0 0 60px rgba(255, 204, 0, 0.15);
-  animation: image-fade 1.5s ease-in;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
 }
 
-.phone-mockup:hover .phone-image {
-  transform: scale(1.02);
-  box-shadow: 
-    0 30px 100px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 204, 0, 0.2),
-    0 0 80px rgba(255, 204, 0, 0.25);
+.orbit-1 {
+  width: 280px;
+  height: 280px;
+  border-color: rgba(255, 204, 0, 0.4);
+  animation: orbit-rotate 20s linear infinite;
+  box-shadow: 0 0 40px rgba(255, 204, 0, 0.2);
 }
 
-/* ===== 右侧：文本和按钮 ===== */
-.welcome-text {
-  flex: 1;
+.orbit-2 {
+  width: 260px;
+  height: 260px;
+  border-color: rgba(255, 214, 51, 0.3);
+  animation: orbit-rotate 15s linear infinite reverse;
+  box-shadow: 0 0 30px rgba(255, 214, 51, 0.15);
+}
+
+.orbit-3 {
+  width: 240px;
+  height: 240px;
+  border-color: rgba(255, 204, 0, 0.2);
+  animation: orbit-rotate 25s linear infinite;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.1);
+}
+
+/* ===== Logo核心 ===== */
+.logo-core {
+  position: relative;
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 45%;
+  animation: core-float 4s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
-.text-content {
-  text-align: left;
-  animation: fadeInRight 1s ease-out 0.3s both;
+.core-glow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 204, 0, 0.5) 0%, transparent 70%);
+  animation: core-glow-pulse 3s ease-in-out infinite;
+  filter: blur(30px);
+  z-index: 0;
+}
+
+.core-glow::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 214, 51, 0.4) 0%, transparent 60%);
+  animation: core-glow-pulse 2.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+  filter: blur(20px);
+}
+
+.core-inner {
+  position: relative;
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: core-rotate 20s linear infinite;
+}
+
+.vib-logo {
   width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 30px rgba(255, 204, 0, 0.8)) 
+          drop-shadow(0 0 60px rgba(255, 204, 0, 0.5))
+          drop-shadow(0 0 90px rgba(255, 204, 0, 0.3));
 }
 
-.welcome-title {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 900;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-  letter-spacing: -0.03em;
-  text-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.3),
-    0 0 40px rgba(255, 204, 0, 0.2);
-  max-width: 100%;
+.v-path {
+  animation: path-glow 2s ease-in-out infinite;
+}
+
+/* ===== 粒子效果 ===== */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffcc00;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+  opacity: 0;
+}
+
+.particle:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation: particle-float 4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  animation: particle-float 5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.particle:nth-child(3) {
+  bottom: 20%;
+  left: 25%;
+  animation: particle-float 4.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.particle:nth-child(4) {
+  bottom: 15%;
+  right: 20%;
+  animation: particle-float 5.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.particle:nth-child(5) {
+  top: 50%;
+  left: 10%;
+  animation: particle-float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.particle:nth-child(6) {
+  top: 60%;
+  right: 10%;
+  animation: particle-float 5s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+.particle:nth-child(7) {
+  top: 20%;
+  left: 50%;
+  animation: particle-float 4.5s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.particle:nth-child(8) {
+  bottom: 30%;
+  right: 30%;
+  animation: particle-float 5s ease-in-out infinite;
+  animation-delay: 3.5s;
+}
+
+/* ===== 品牌名称 ===== */
+.brand-name {
+  position: relative;
   overflow: hidden;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.title-line {
-  display: block;
-  background: linear-gradient(135deg, #ffffff 0%, #ffd633 50%, #ffffff 100%);
+.brand-text {
+  display: flex;
+  gap: 0.3rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.letter {
+  display: inline-block;
+  font-size: 5rem;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 0%, #ffd633 30%, #ffcc00 60%, #ffd633 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: title-shine 4s ease-in-out infinite;
-  position: relative;
-  white-space: nowrap;
-}
-
-.title-line:nth-child(2) {
-  animation-delay: 0.6s;
-  margin-top: 0.25rem;
-}
-
-.welcome-subtitle {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 2.5rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== 进入按钮（美化版） ===== */
-.welcome-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #ffcc00 0%, #ffd633 50%, #ffcc00 100%);
-  background-size: 200% 200%;
-  color: #0b0b0b;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 8px 30px rgba(255, 204, 0, 0.4),
-    0 0 0 0 rgba(255, 204, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-}
-
-/* 背景动画 */
-.welcome-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #ffd633 0%, #ffcc00 50%, #ffd633 100%);
-  background-size: 200% 200%;
+  animation: letter-shine 3s ease-in-out infinite;
+  text-shadow: 0 0 40px rgba(255, 204, 0, 0.5);
+  filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.4));
+  transform-origin: center;
   opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
-  animation: shimmer-bg 3s ease-in-out infinite;
+  animation: letter-appear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards, letter-shine 3s ease-in-out infinite 1s, letter-float 3s ease-in-out infinite 1s;
 }
 
-/* 光效 */
-.welcome-btn::after {
+.letter-v {
+  animation-delay: 0.2s, 1.2s, 1.2s;
+}
+
+.letter-i {
+  animation-delay: 0.4s, 1.4s, 1.4s;
+  font-size: 4.5rem;
+}
+
+.letter-b {
+  animation-delay: 0.6s, 1.6s, 1.6s;
+}
+
+/* ===== 加载指示器 ===== */
+.loading-indicator {
+  width: 250px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  animation: indicator-fade-in 0.6s ease-out 1.5s both;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+}
+
+.loading-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffcc00 0%, #ffd633 30%, #ffcc00 60%, #ffd633 100%);
+  background-size: 200% 100%;
+  border-radius: 3px;
+  animation: loading-progress 5s linear forwards 2s, loading-shimmer 2s ease-in-out infinite 2s;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.4);
+  position: relative;
+}
+
+.loading-bar::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 70%
-  );
-  transform: rotate(45deg);
-  transition: transform 0.6s ease;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: loading-sweep 1.5s ease-in-out infinite 2s;
 }
 
-.welcome-btn:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 
-    0 20px 60px rgba(255, 204, 0, 0.5),
-    0 0 0 8px rgba(255, 204, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  background-position: 100% 0;
+/* ===== 动画定义 ===== */
+@keyframes aurora-shift {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translate(10%, -10%) scale(1.1) rotate(120deg);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-10%, 10%) scale(0.9) rotate(240deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(360deg);
+    opacity: 0.8;
+  }
 }
 
-.welcome-btn:hover::before {
-  opacity: 1;
+@keyframes particles-float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
 }
 
-.welcome-btn:hover::after {
-  transform: rotate(45deg) translate(100%, 100%);
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.welcome-btn:active {
-  transform: translateY(-2px) scale(0.98);
-  box-shadow: 
-    0 8px 30px rgba(255, 204, 0, 0.4),
-    0 0 0 4px rgba(255, 204, 0, 0.15);
+@keyframes orbit-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
-.welcome-btn .btn-text,
-.welcome-btn .btn-arrow {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
+@keyframes core-float {
+  0%, 100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotateY(5deg);
+  }
 }
 
-.welcome-btn .btn-arrow {
-  font-size: 1.2rem;
-  font-weight: 900;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.2rem;
+@keyframes core-glow-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
 }
 
-.welcome-btn:hover .btn-arrow {
-  transform: translateX(8px);
+@keyframes core-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* 按钮光晕动画 */
-@keyframes shimmer-bg {
+@keyframes path-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 30px rgba(255, 204, 0, 0.8)) 
+            drop-shadow(0 0 60px rgba(255, 204, 0, 0.5))
+            drop-shadow(0 0 90px rgba(255, 204, 0, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 50px rgba(255, 204, 0, 1)) 
+            drop-shadow(0 0 100px rgba(255, 204, 0, 0.7))
+            drop-shadow(0 0 150px rgba(255, 204, 0, 0.5));
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(var(--tx, 50px), var(--ty, -50px)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 50px), var(--ty, -50px)) scale(0);
+  }
+}
+
+.particle:nth-child(1) { --tx: 80px; --ty: -100px; }
+.particle:nth-child(2) { --tx: -90px; --ty: -80px; }
+.particle:nth-child(3) { --tx: 70px; --ty: 90px; }
+.particle:nth-child(4) { --tx: -80px; --ty: 100px; }
+.particle:nth-child(5) { --tx: 100px; --ty: 50px; }
+.particle:nth-child(6) { --tx: -100px; --ty: -60px; }
+.particle:nth-child(7) { --tx: 60px; --ty: -90px; }
+.particle:nth-child(8) { --tx: -70px; --ty: 80px; }
+
+@keyframes letter-appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes letter-shine {
   0%, 100% {
     background-position: 0% 50%;
+    filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.4));
   }
   50% {
     background-position: 100% 50%;
+    filter: drop-shadow(0 0 40px rgba(255, 204, 0, 0.8));
   }
 }
 
-/* ===== 过渡动画遮罩（简化版） ===== */
+@keyframes letter-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes indicator-fade-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes loading-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes loading-shimmer {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes loading-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes logoFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateY(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8) translateY(-30px) rotateY(180deg);
+  }
+}
+
+/* ===== 过渡动画遮罩 ===== */
 .transition-overlay {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at 25% 20%, rgba(255, 214, 51, 0.22) 0%, rgba(8, 10, 20, 0.92) 46%),
-    radial-gradient(circle at 75% 15%, rgba(255, 204, 0, 0.18) 0%, rgba(8, 10, 20, 0.94) 55%),
-    linear-gradient(165deg, rgba(6, 7, 14, 0.96) 0%, rgba(10, 11, 20, 0.98) 65%, rgba(11, 11, 11, 0.98) 100%);
+  background: #000000;
   z-index: 10000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
   pointer-events: none;
 }
 
@@ -317,156 +588,89 @@
   pointer-events: all;
 }
 
-/* ===== 动画定义 ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes phone-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes image-fade {
-  from {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
-
-@keyframes title-shine {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* 按钮光晕动画 */
-@keyframes shimmer-bg {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-
 /* ===== 响应式设计 ===== */
-/* 桌面模式：确保标题两行显示 */
-@media (min-width: 1025px) {
-  .welcome-content {
-    gap: 4vw;
-    max-width: 1100px;
-  }
-  
-  .welcome-title {
-    font-size: clamp(2.5rem, 4vw, 3.2rem);
-    max-width: 100%;
-  }
-  
-  .title-line {
-    white-space: nowrap;
-    display: block;
-  }
-  
-  .text-content {
-    min-width: 0;
-    flex-shrink: 1;
-  }
-  
-  .welcome-visual,
-  .welcome-text {
-    max-width: 48%;
-  }
-}
-
-@media (max-width: 1024px) {
-  .welcome-content {
-    flex-direction: column;
-    gap: 4rem;
-    text-align: center;
-  }
-
-  .welcome-visual {
-    order: 1;
-  }
-
-  .welcome-text {
-    order: 2;
-    max-width: 100%;
-  }
-
-  .text-content {
-    text-align: center;
-  }
-
-  .phone-mockup {
-    max-width: 300px;
-  }
-}
-
 @media (max-width: 768px) {
-  .welcome-content {
-    padding: 2rem;
-    gap: 3rem;
+  .logo-container {
+    width: 250px;
+    height: 250px;
   }
 
-  .phone-mockup {
-    max-width: 250px;
+  .logo-core {
+    width: 160px;
+    height: 160px;
   }
 
-  .welcome-title {
-    font-size: 2rem;
+  .orbit-1 {
+    width: 230px;
+    height: 230px;
   }
 
-  .welcome-subtitle {
-    font-size: 0.95rem;
+  .orbit-2 {
+    width: 210px;
+    height: 210px;
   }
 
-  .welcome-btn {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+  .orbit-3 {
+    width: 190px;
+    height: 190px;
+  }
+
+  .letter {
+    font-size: 4rem;
+  }
+
+  .letter-i {
+    font-size: 3.5rem;
+  }
+
+  .loading-indicator {
+    width: 200px;
   }
 }
 
 @media (max-width: 480px) {
-  .phone-mockup {
-    max-width: 200px;
+  .logo-container {
+    width: 200px;
+    height: 200px;
   }
 
-  .welcome-title {
-    font-size: 1.75rem;
+  .logo-core {
+    width: 140px;
+    height: 140px;
+  }
+
+  .orbit-1 {
+    width: 190px;
+    height: 190px;
+  }
+
+  .orbit-2 {
+    width: 170px;
+    height: 170px;
+  }
+
+  .orbit-3 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .letter {
+    font-size: 3rem;
+  }
+
+  .letter-i {
+    font-size: 2.5rem;
+  }
+
+  .loading-indicator {
+    width: 180px;
+  }
+
+  .logo-wrapper {
+    gap: 2.5rem;
+  }
+
+  .brand-name {
+    height: 100px;
   }
 }
-
