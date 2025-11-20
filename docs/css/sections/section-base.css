@@ -140,5 +140,19 @@
   .section__lead {
     font-size: 1rem;
   }
+
+  .section__image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .split__text {
+    text-align: left;
+  }
+
+  .split__text p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
 }
 

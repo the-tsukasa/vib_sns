@@ -28,30 +28,77 @@
       <div class="bg-particles"></div>
     </div>
 
-    <!-- 主要内容 -->
+    <!-- Logo -->
     <div class="welcome-content">
-      <!-- 左侧：手机 Mockup -->
-      <div class="welcome-visual">
-        <div class="phone-mockup">
-          <img src="./assets/images/demo/Group1.png" alt="Vib アプリ画面" class="phone-image" id="phoneImage">
+      <div class="logo-wrapper">
+        <!-- 纯CSS制作的Vib Logo -->
+        <div class="logo-container">
+          <div class="logo-orbits">
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
+          </div>
+          <div class="logo-core">
+            <div class="core-glow"></div>
+            <div class="core-inner">
+              <svg class="vib-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#ffd633;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#ffcc00;stop-opacity:1">
+                      <animate attributeName="stop-opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- V字母路径 -->
+                <path class="v-path" d="M 50 50 L 100 150 L 150 50" fill="none" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+                  <animate attributeName="stroke-dasharray" values="0,300;150,150;300,0" dur="2s" repeatCount="indefinite"/>
+                  <animate attributeName="stroke-dashoffset" values="0;-150;-300" dur="2s" repeatCount="indefinite"/>
+                </path>
+                <!-- 装饰点 -->
+                <circle class="dot dot-1" cx="50" cy="50" r="6" fill="#ffcc00">
+                  <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle class="dot dot-2" cx="150" cy="50" r="6" fill="#ffd633">
+                  <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+                  <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+                </circle>
+                <circle class="dot dot-3" cx="100" cy="150" r="6" fill="#ffcc00">
+                  <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+                  <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+                </circle>
+              </svg>
+            </div>
+          </div>
+          <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
         </div>
-      </div>
-
-      <!-- 右侧：文本和按钮 -->
-      <div class="welcome-text">
-        <div class="text-content">
-          <h1 class="welcome-title">
-            <span class="title-line">すれ違いで響く、</span>
-            <span class="title-line">感じるSNS「Vib」。</span>
-          </h1>
-          <p class="welcome-subtitle">
-            共感の振動を通じて、言葉を超えたつながりを実現する<br>
-            次世代のソーシャルコネクションサービス
-          </p>
-          <button class="welcome-btn" id="enterBtn" aria-label="Vibへ入る">
-            <span class="btn-text">体験してみる</span>
-            <span class="btn-arrow">→</span>
-          </button>
+        <div class="brand-name">
+          <span class="brand-text">
+            <span class="letter letter-v" data-letter="V">V</span>
+            <span class="letter letter-i" data-letter="i">i</span>
+            <span class="letter letter-b" data-letter="b">b</span>
+          </span>
+        </div>
+        <div class="loading-indicator">
+          <div class="loading-bar"></div>
         </div>
       </div>
     </div>
