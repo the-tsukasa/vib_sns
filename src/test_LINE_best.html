@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | HAL未来創造展</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Space+Grotesk:wght@300;500;700&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 基础设定 --- */
+        :root {
+            --bg-color: #fce412; 
+            --text-color: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow: hidden;
+            cursor: none; 
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        /* =========================================
+           1. 加载层 (改为左右开门式)
+           ========================================= */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+            pointer-events: none; /* 动画结束后允许点击下方内容 */
+        }
+
+        /* 左面板 (黑) */
+        .loader-panel {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: #000;
+            z-index: 2;
+            transition: transform 1s cubic-bezier(0.8, 0, 0.2, 1); /* 缓动曲线 */
+        }
+        
+        .panel-left {
+            left: 0;
+            border-right: 1px solid rgba(255,255,255,0.1); /* 中缝细节 */
+        }
+        
+        .panel-right {
+            right: 0;
+            border-left: 1px solid rgba(255,255,255,0.1); /* 中缝细节 */
+        }
+
+        /* 垂直加载线 */
+        .loading-line-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px; /* 线条宽度 */
+            height: 100%; /* 最终高度 */
+            z-index: 3;
+            display: flex;
+            align-items: center; /* 从中间向两头长，或者改为 flex-start 从上往下 */
+            justify-content: center;
+        }
+
+        #v-bar {
+            width: 100%;
+            height: 0%; /* 初始高度 */
+            background-color: var(--bg-color); /* 黄色线条 */
+            box-shadow: 0 0 20px var(--bg-color); /* 发光效果 */
+            transition: opacity 0.5s;
+        }
+
+        /* 数字百分比 (跟在垂直线旁边) */
+        .loader-counter {
+            position: absolute;
+            top: 50%;
+            left: calc(50% + 20px); /* 在线条右侧 */
+            transform: translateY(-50%);
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem; /* 字体不用太大 */
+            font-weight: bold;
+            color: var(--bg-color);
+            z-index: 3;
+            transition: opacity 0.3s;
+        }
+
+        /* --- 开门动画类 --- */
+        .split-open .panel-left {
+            transform: translateX(-100%); /* 左移 */
+        }
+        .split-open .panel-right {
+            transform: translateX(100%); /* 右移 */
+        }
+        .fade-out {
+            opacity: 0;
+        }
+
+        /* =========================================
+           2. 跑马灯 (Marquee)
+           ========================================= */
+        .marquee-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%) rotate(-5deg); 
+            z-index: 0; 
+            opacity: 0.08; 
+            pointer-events: none; 
+            white-space: nowrap; 
+            overflow: hidden;
+        }
+        .marquee-content {
+            display: inline-block;
+            font-family: 'Oswald', 'Noto Sans JP', sans-serif;
+            font-weight: 900; 
+            font-size: 15vh; 
+            text-transform: uppercase;
+            animation: scrollText 25s linear infinite;
+        }
+        @keyframes scrollText {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* =========================================
+           3. 主内容区
+           ========================================= */
+        #hero {
+            position: relative;
+            z-index: 10; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 1s ease-out;
+        }
+        .brand-logo {
+            width: 300px; max-width: 60vw; mix-blend-mode: multiply; 
+            filter: blur(10px); transform: translateY(20px);
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .logo-reveal { filter: blur(0px) !important; transform: translateY(0) !important; }
+        .hero-text {
+            margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
+            font-size: 0.8rem; opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+        .hero-text.show { opacity: 1; transform: translateY(0); }
+        
+        .enter-btn {
+            margin-top: 3rem; padding: 12px 32px; border: 2px solid black;
+            background: transparent; text-transform: uppercase; font-weight: bold;
+            font-size: 0.9rem; cursor: none; position: relative; overflow: hidden;
+            transition: color 0.3s; opacity: 0; animation: fadeInUp 1s forwards 1.2s;
+        }
+        .enter-btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: black; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1); z-index: -1;
+        }
+        .enter-btn:hover { color: var(--bg-color); }
+        .enter-btn:hover::before { left: 0; }
+        @keyframes fadeInUp { to { opacity: 1; } }
+
+        /* 装饰 */
+        .cursor-dot {
+            width: 10px; height: 10px; background: black; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 100; transform: translate(-50%, -50%);
+        }
+        .cursor-outline {
+            width: 40px; height: 40px; border: 1px solid black; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 99; transform: translate(-50%, -50%); transition: transform 0.1s;
+        }
+        .grid-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 50px 50px; z-index: -1; pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader-wrapper">
+        <div id="panel-left" class="loader-panel panel-left"></div>
+        <div id="panel-right" class="loader-panel panel-right"></div>
+        
+        <div class="loading-line-wrap">
+            <div id="v-bar"></div>
+        </div>
+        
+        <div class="loader-counter">0%</div>
+    </div>
+
+
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="grid-bg"></div>
+
+    <div id="hero">
+        <div class="magnetic-wrap">
+            <img src="/src/assets/icons/vib_black.png" alt="Logo" class="brand-logo" id="main-logo">
+        </div>
+
+        <div class="hero-text">
+            HAL EVENT PROJECT
+        </div>
+
+        <a href="index.html" class="enter-btn interactable">
+            Enter Portfolio
+        </a>
+
+        <div class="mt-4 text-[10px] font-bold tracking-[0.5em] opacity-60">
+            HAL TOKYO 25
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const vBar = document.getElementById('v-bar');
+            const counter = document.querySelector('.loader-counter');
+            const wrapper = document.getElementById('loader-wrapper');
+            const hero = document.getElementById('hero');
+            const logo = document.getElementById('main-logo');
+            const text = document.querySelector('.hero-text');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                // 模拟加载进度
+                progress += Math.floor(Math.random() * 5) + 2;
+                if (progress > 100) progress = 100;
+                
+                // 更新高度 (垂直线)
+                vBar.style.height = progress + '%';
+                // 更新数字
+                counter.innerText = progress + '%';
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        // 1. 隐藏线条和文字
+                        vBar.classList.add('fade-out');
+                        counter.classList.add('fade-out');
+
+                        // 2. 触发开门动画
+                        wrapper.classList.add('split-open');
+                        
+                        // 3. 显现主内容
+                        setTimeout(() => {
+                            hero.style.opacity = '1';
+                            hero.style.transform = 'scale(1)';
+                            if(logo) logo.classList.add('logo-reveal');
+                            if(text) text.classList.add('show');
+                        }, 500); // 等门开了一半再显示内容
+                    }, 500);
+                }
+            }, 30);
+        });
+
+        // 鼠标跟随
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // 交互
+        document.querySelectorAll('.interactable').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
+        });
+
+        // 磁力
+        const magneticWrap = document.querySelector('.magnetic-wrap');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.clientX) / 25;
+            const y = (window.innerHeight / 2 - e.clientY) / 25;
+            magneticWrap.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>
