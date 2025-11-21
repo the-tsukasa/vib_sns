@@ -162,3 +162,37 @@ window.addEventListener("scroll", () => {
 
 // 初始检查
 updateActiveNav();
+
+/* =========================================================
+   5. IntersectionObserver によるスクロールアニメーション
+   ========================================================= */
+// アニメーション設定
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+// アニメーションを無効化する設定を確認
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        // 一度アニメーションが実行されたら監視を停止（パフォーマンス最適化）
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // すべての .observe 要素を監視
+  document.querySelectorAll('.observe').forEach(el => {
+    observer.observe(el);
+  });
+} else {
+  // アニメーションを無効化する場合は、すべての要素を即座に表示
+  document.querySelectorAll('.observe').forEach(el => {
+    el.classList.add('animate');
+  });
+}
