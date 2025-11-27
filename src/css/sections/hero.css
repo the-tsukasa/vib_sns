@@ -75,11 +75,6 @@
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
-.hero__art picture {
-  display: block;
-  width: 100%;
-}
-
 .hero__image {
   width: 500px;
   max-width: 100%;

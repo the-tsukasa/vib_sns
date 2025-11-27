@@ -73,8 +73,22 @@
 
 /* ===== Observe Animation Classes ===== */
 .observe {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.observe.animate {
   opacity: 1;
   transform: translateY(0);
-  /* 动画效果已移除，元素默认可见 */
+}
+
+/* 减少动画偏好设置的用户体验优化 */
+@media (prefers-reduced-motion: reduce) {
+  .observe {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+  }
 }
 
