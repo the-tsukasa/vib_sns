@@ -103,6 +103,34 @@
   border-radius: 2px;
 }
 
+/* ===== サイドバーフッター（Welcome に戻るボタン） ===== */
+.sidebar__footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sidebar__footer .nav-link--welcome {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.8rem;
+  transition: all var(--transition-fast);
+  position: relative;
+  text-align: center;
+  background: transparent;
+  border: none;
+  opacity: 0.6;
+}
+
+.sidebar__footer .nav-link--welcome:hover {
+  opacity: 0.9;
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.03);
+}
+
 /* ===== サイドバー閉じるボタン ===== */
 .sidebar__close {
   display: none;
