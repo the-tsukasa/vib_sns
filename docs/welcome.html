@@ -1,114 +1,299 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vib（ヴィブ）へようこそ｜触れずに伝わる、未来のSNS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | HAL未来創造展</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Space+Grotesk:wght@300;500;700&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 基础设定 --- */
+        :root {
+            --bg-color: #fce412; 
+            --text-color: #1a1a1a;
+        }
 
-  <meta name="theme-color" content="#0D0F1A" />
-  <meta name="description" content="触れずに伝わる、未来のSNS。Vib（ヴィブ）へようこそ。" />
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow: hidden;
+            cursor: none; 
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
 
-  <!-- Favicon -->
-  <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
+        /* =========================================
+           1. 加载层 (左右开门式)
+           ========================================= */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+            pointer-events: none;
+        }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+        .loader-panel {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: #000;
+            z-index: 2;
+            transition: transform 1s cubic-bezier(0.8, 0, 0.2, 1);
+        }
+        
+        .panel-left {
+            left: 0;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .panel-right {
+            right: 0;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/welcome.css" />
+        .loading-line-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 100%;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #v-bar {
+            width: 100%;
+            height: 0%;
+            background-color: var(--bg-color);
+            box-shadow: 0 0 20px var(--bg-color);
+            transition: opacity 0.5s;
+        }
+
+        .loader-counter {
+            position: absolute;
+            top: 50%;
+            left: calc(50% + 20px);
+            transform: translateY(-50%);
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--bg-color);
+            z-index: 3;
+            transition: opacity 0.3s;
+        }
+
+        .split-open .panel-left { transform: translateX(-100%); }
+        .split-open .panel-right { transform: translateX(100%); }
+        .fade-out { opacity: 0; }
+
+        /* =========================================
+           2. 跑马灯 (Marquee) - 关键修改部分
+           ========================================= */
+        .marquee-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%) rotate(-5deg); 
+            z-index: 0; 
+            opacity: 0.08; 
+            pointer-events: none; 
+            white-space: nowrap; 
+            overflow: hidden;
+            /* 默认显示 (电脑端) */
+            display: block;
+        }
+
+        /* --- 这里是控制手机端隐藏的核心代码 --- */
+        @media (max-width: 768px) {
+            .marquee-container {
+                display: none; /* 屏幕小于768px时隐藏 */
+            }
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-family: 'Oswald', 'Noto Sans JP', sans-serif;
+            font-weight: 900; 
+            font-size: 15vh; 
+            text-transform: uppercase;
+            animation: scrollText 25s linear infinite;
+        }
+        @keyframes scrollText {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* =========================================
+           3. 主内容区
+           ========================================= */
+        #hero {
+            position: relative;
+            z-index: 10; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 1s ease-out;
+        }
+        .brand-logo {
+            width: 300px; max-width: 60vw; mix-blend-mode: multiply; 
+            filter: blur(10px); transform: translateY(20px);
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .logo-reveal { filter: blur(0px) !important; transform: translateY(0) !important; }
+        .hero-text {
+            margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
+            font-size: 0.8rem; opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+        .hero-text.show { opacity: 1; transform: translateY(0); }
+        
+        .enter-btn {
+            margin-top: 3rem; padding: 12px 32px; border: 2px solid black;
+            background: transparent; text-transform: uppercase; font-weight: bold;
+            font-size: 0.9rem; cursor: none; position: relative; overflow: hidden;
+            transition: color 0.3s; opacity: 0; animation: fadeInUp 1s forwards 1.2s;
+        }
+        .enter-btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: black; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1); z-index: -1;
+        }
+        .enter-btn:hover { color: var(--bg-color); }
+        .enter-btn:hover::before { left: 0; }
+        @keyframes fadeInUp { to { opacity: 1; } }
+
+        /* 装饰 */
+        .cursor-dot {
+            width: 10px; height: 10px; background: black; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 100; transform: translate(-50%, -50%);
+        }
+        .cursor-outline {
+            width: 40px; height: 40px; border: 1px solid black; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 99; transform: translate(-50%, -50%); transition: transform 0.1s;
+        }
+        .grid-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 50px 50px; z-index: -1; pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="welcome-container" id="welcomeContainer">
-    <!-- 背景装饰 -->
-    <div class="welcome-bg" aria-hidden="true">
-      <div class="bg-gradient"></div>
-      <div class="bg-particles"></div>
+
+    <div id="loader-wrapper">
+        <div id="panel-left" class="loader-panel panel-left"></div>
+        <div id="panel-right" class="loader-panel panel-right"></div>
+        <div class="loading-line-wrap">
+            <div id="v-bar"></div>
+        </div>
+        <div class="loader-counter">0%</div>
     </div>
 
-    <!-- Logo -->
-    <div class="welcome-content">
-      <div class="logo-wrapper">
-        <!-- 纯CSS制作的Vib Logo -->
-        <div class="logo-container">
-          <div class="logo-orbits">
-            <div class="orbit orbit-1"></div>
-            <div class="orbit orbit-2"></div>
-            <div class="orbit orbit-3"></div>
-          </div>
-          <div class="logo-core">
-            <div class="core-glow"></div>
-            <div class="core-inner">
-              <svg class="vib-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:#ffd633;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#ffcc00;stop-opacity:1">
-                      <animate attributeName="stop-opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
-                    </stop>
-                  </linearGradient>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
-                <!-- V字母路径 -->
-                <path class="v-path" d="M 50 50 L 100 150 L 150 50" fill="none" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
-                  <animate attributeName="stroke-dasharray" values="0,300;150,150;300,0" dur="2s" repeatCount="indefinite"/>
-                  <animate attributeName="stroke-dashoffset" values="0;-150;-300" dur="2s" repeatCount="indefinite"/>
-                </path>
-                <!-- 装饰点 -->
-                <circle class="dot dot-1" cx="50" cy="50" r="6" fill="#ffcc00">
-                  <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
-                </circle>
-                <circle class="dot dot-2" cx="150" cy="50" r="6" fill="#ffd633">
-                  <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
-                  <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
-                </circle>
-                <circle class="dot dot-3" cx="100" cy="150" r="6" fill="#ffcc00">
-                  <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite" begin="1s"/>
-                  <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" begin="1s"/>
-                </circle>
-              </svg>
-            </div>
-          </div>
-          <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-          </div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="grid-bg"></div>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            HAL FUTURE CREATION EXHIBITION 2025  //  DESIGN  //  DEVELOPMENT  //  INNOVATION  //  HAL FUTURE CREATION EXHIBITION 2025  //  DESIGN  //  DEVELOPMENT  //  INNOVATION  //
         </div>
-        <div class="brand-name">
-          <span class="brand-text">
-            <span class="letter letter-v" data-letter="V">V</span>
-            <span class="letter letter-i" data-letter="i">i</span>
-            <span class="letter letter-b" data-letter="b">b</span>
-          </span>
-        </div>
-        <div class="loading-indicator">
-          <div class="loading-bar"></div>
-        </div>
-      </div>
     </div>
 
-    <!-- 过渡动画遮罩 -->
-    <div class="transition-overlay" id="transitionOverlay"></div>
-  </div>
+    <div id="hero">
+        <div class="magnetic-wrap">
+            <img src="./assets/icons/vib_black.png" alt="Logo" class="brand-logo" id="main-logo">
+        </div>
 
-  <!-- JS -->
-  <script src="./js/welcome.js"></script>
+        <div class="hero-text">
+            HAL EVENT PROJECT
+        </div>
+
+        <a href="index.html" class="enter-btn interactable">
+            Explore VIB
+        </a>
+
+        <div class="mt-4 text-[10px] font-bold tracking-[0.5em] opacity-60">
+            HAL TOKYO 25
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const vBar = document.getElementById('v-bar');
+            const counter = document.querySelector('.loader-counter');
+            const wrapper = document.getElementById('loader-wrapper');
+            const hero = document.getElementById('hero');
+            const logo = document.getElementById('main-logo');
+            const text = document.querySelector('.hero-text');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 5) + 2;
+                if (progress > 100) progress = 100;
+                
+                vBar.style.height = progress + '%';
+                counter.innerText = progress + '%';
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        vBar.classList.add('fade-out');
+                        counter.classList.add('fade-out');
+                        wrapper.classList.add('split-open');
+                        
+                        setTimeout(() => {
+                            hero.style.opacity = '1';
+                            hero.style.transform = 'scale(1)';
+                            if(logo) logo.classList.add('logo-reveal');
+                            if(text) text.classList.add('show');
+                        }, 500);
+                    }, 500);
+                }
+            }, 30);
+        });
+
+        // 鼠标跟随
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // 交互
+        document.querySelectorAll('.interactable').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
+        });
+
+        // 磁力
+        const magneticWrap = document.querySelector('.magnetic-wrap');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.clientX) / 25;
+            const y = (window.innerHeight / 2 - e.clientY) / 25;
+            magneticWrap.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
 </body>
 </html>
-
