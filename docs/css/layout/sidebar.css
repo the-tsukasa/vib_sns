@@ -131,31 +131,6 @@
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* ===== サイドバー閉じるボタン ===== */
-.sidebar__close {
-  display: none;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: transparent;
-  border: none;
-  font-size: 32px;
-  color: var(--gray);
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  transition: all var(--transition-fast);
-  line-height: 1;
-  padding: 0;
-}
-
-.sidebar__close:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--text-primary);
-  transform: rotate(90deg);
-}
-
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .sidebar {
@@ -173,10 +148,9 @@
     pointer-events: auto;
   }
   
-  .sidebar__close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* 侧边栏打开时，为左上角的汉堡按钮留出空间 */
+  .sidebar.open .brand {
+    padding-left: 70px; /* 避开左上角汉堡按钮 (left: 20px, width: 48px) + 间距 */
   }
 }
 
