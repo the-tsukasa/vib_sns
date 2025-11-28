@@ -210,6 +210,48 @@
     transition: opacity 0.5s ease-out;
 }
 
+/* Camera Shake 效果 - 开门后的震动 */
+.welcome-camera-shake,
+.welcome-page.welcome-camera-shake {
+    animation: welcome-cameraShake 0.2s ease-out;
+}
+
+@keyframes welcome-cameraShake {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    10% {
+        transform: translate(-2px, -1px) rotate(-0.2deg);
+    }
+    20% {
+        transform: translate(2px, 1px) rotate(0.2deg);
+    }
+    30% {
+        transform: translate(-1px, 1px) rotate(-0.1deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(0.1deg);
+    }
+    50% {
+        transform: translate(-1px, 0) rotate(-0.1deg);
+    }
+    60% {
+        transform: translate(1px, 0) rotate(0.1deg);
+    }
+    70% {
+        transform: translate(0, -1px) rotate(0deg);
+    }
+    80% {
+        transform: translate(0, 1px) rotate(0deg);
+    }
+    90% {
+        transform: translate(-0.5px, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
 /* =========================================
    2. 跑马灯 (增强版)
    ========================================= */
@@ -314,17 +356,31 @@
 .welcome-logo-reveal { 
     filter: blur(0px) !important; 
     transform: translateY(0) scale(1) !important;
-    animation: welcome-logoPulse 3s ease-in-out infinite;
+    animation: welcome-logoBreathSway 4s ease-in-out infinite;
+    transform-origin: center center; /* 设置旋转中心 */
 }
 
-@keyframes welcome-logoPulse {
-    0%, 100% {
-        transform: scale(1);
+/* 组合动画：呼吸效果（scale） + 轻微摇摆（rotate） */
+@keyframes welcome-logoBreathSway {
+    0% {
+        transform: translateY(0) scale(1) rotate(-1.2deg);
         filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
     }
+    25% {
+        transform: translateY(0) scale(1.025) rotate(1.2deg);
+        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.08));
+    }
     50% {
-        transform: scale(1.02);
+        transform: translateY(0) scale(1.03) rotate(-1.2deg);
         filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.1));
+    }
+    75% {
+        transform: translateY(0) scale(1.025) rotate(1.2deg);
+        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.08));
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(-1.2deg);
+        filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
     }
 }
 
@@ -568,15 +624,19 @@
 }
 
 .welcome-grid-bg {
-    position: absolute; 
+    position: fixed; 
     top: 0; 
     left: 0; 
-    width: 100%; 
-    height: 100%;
+    width: 100vw;
+    width: 100dvw; /* 动态视口宽度，移动端优化 */
+    height: 100vh;
+    height: 100dvh; /* 动态视口高度，移动端优化 */
     background-image: 
-        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
     background-size: 50px 50px; 
+    background-repeat: repeat; /* 确保网格重复铺满 */
+    background-position: 0 0; /* 确保从左上角开始 */
     z-index: -1; 
     pointer-events: none;
     animation: welcome-gridMove 20s linear infinite;
