@@ -1,0 +1,972 @@
+/* =========================================================
+   Welcome Page Creative Styles - 创意版欢迎页面样式
+   
+   包含3D效果、创意动画、高级视觉效果
+   ========================================================= */
+
+/* --- 基础设定 --- */
+:root {
+    --welcome-bg-color: #fce412; 
+    --welcome-text-color: #1a1a1a;
+    --welcome-transition-base: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    --welcome-transition-slow: 1s cubic-bezier(0.8, 0, 0.2, 1);
+    --welcome-glow-color: rgba(252, 228, 18, 0.6);
+    --welcome-accent: #ff0066;
+}
+
+.welcome-page {
+    background-color: var(--welcome-bg-color);
+    color: var(--welcome-text-color);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow: hidden;
+    cursor: none; 
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    position: relative;
+    perspective: 1000px;
+}
+
+/* =========================================
+   0. 创意背景系统 - 增强版
+   ========================================= */
+.welcome-creative-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    background: 
+        radial-gradient(circle at 15% 30%, rgba(255, 0, 102, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 85% 70%, rgba(0, 102, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(252, 228, 18, 0.05) 0%, transparent 70%),
+        linear-gradient(135deg, var(--welcome-bg-color) 0%, #fff9b3 30%, #fff9b3 70%, var(--welcome-bg-color) 100%);
+    background-size: 300% 300%, 300% 300%, 250% 250%, 200% 200%;
+    animation: welcome-creativeGradient 25s ease infinite;
+    opacity: 0.9;
+    filter: blur(0.5px);
+}
+
+@keyframes welcome-creativeGradient {
+    0%, 100% { 
+        background-position: 0% 50%, 100% 50%, 0% 50%;
+    }
+    50% { 
+        background-position: 100% 50%, 0% 50%, 100% 50%;
+    }
+}
+
+/* 3D网格背景 - 优化版 */
+.welcome-3d-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    filter: blur(0.3px);
+}
+
+.welcome-grid-plane {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    transform: rotateX(65deg) translateZ(-250px);
+    animation: welcome-grid3D 35s linear infinite;
+    opacity: 0.25;
+}
+
+@keyframes welcome-grid3D {
+    0% { transform: rotateX(60deg) translateZ(-200px) translateY(0); }
+    100% { transform: rotateX(60deg) translateZ(-200px) translateY(60px); }
+}
+
+/* 高级粒子系统 - 优化版 */
+.welcome-particles-creative {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.welcome-particle-creative {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1), transparent);
+    animation: welcome-particleFloat 20s infinite ease-in-out;
+    filter: blur(0.5px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.welcome-particle-creative::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(252, 228, 18, 0.2), transparent);
+    border-radius: inherit;
+    animation: welcome-particlePulse 3s infinite ease-in-out;
+}
+
+@keyframes welcome-particleFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.6;
+    }
+    85% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px)) scale(1.2) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes welcome-particlePulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+}
+
+/* 鼠标轨迹粒子 */
+.welcome-trail-particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--welcome-text-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 98;
+    opacity: 0.6;
+    animation: welcome-trailFade 0.8s ease-out forwards;
+}
+
+@keyframes welcome-trailFade {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   1. 创意加载动画
+   ========================================= */
+.welcome-loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+.welcome-loader-panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #000;
+    z-index: 2;
+    transition: transform 1.2s cubic-bezier(0.8, 0, 0.2, 1);
+    will-change: transform;
+    box-shadow: 
+        inset 0 0 150px rgba(252, 228, 18, 0.2),
+        0 0 100px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+}
+
+.welcome-panel-left {
+    left: 0;
+    border-right: 2px solid rgba(252, 228, 18, 0.3);
+    transform-origin: left center;
+}
+
+.welcome-panel-right {
+    right: 0;
+    border-left: 2px solid rgba(252, 228, 18, 0.3);
+    transform-origin: right center;
+}
+
+.welcome-loading-line-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.welcome-v-bar {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--welcome-bg-color) 20%,
+        #fff9b3 50%,
+        var(--welcome-bg-color) 80%,
+        transparent
+    );
+    box-shadow: 
+        0 0 40px var(--welcome-glow-color),
+        0 0 80px var(--welcome-glow-color),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: height 0.2s ease-out;
+    will-change: height;
+    position: relative;
+    overflow: visible;
+    border-radius: 4px;
+}
+
+.welcome-v-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.4),
+        transparent 50%,
+        rgba(0, 0, 0, 0.2)
+    );
+    animation: welcome-barShine 2s infinite;
+}
+
+.welcome-v-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+    );
+    animation: welcome-shimmer 1.5s infinite;
+}
+
+@keyframes welcome-barShine {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes welcome-shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.welcome-loader-counter {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 40px);
+    transform: translateY(-50%);
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--welcome-bg-color);
+    z-index: 3;
+    transition: opacity 0.3s;
+    text-shadow: 
+        0 0 30px var(--welcome-glow-color),
+        0 0 60px var(--welcome-glow-color),
+        0 0 90px var(--welcome-glow-color);
+    letter-spacing: 0.15em;
+    animation: welcome-counterPulse 2s ease-in-out infinite;
+}
+
+@keyframes welcome-counterPulse {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.1); }
+}
+
+.welcome-split-open .welcome-panel-left { 
+    transform: translateX(-100%) rotateY(-15deg);
+}
+
+.welcome-split-open .welcome-panel-right { 
+    transform: translateX(100%) rotateY(15deg);
+}
+
+.welcome-fade-out { 
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+/* =========================================
+   2. 创意跑马灯
+   ========================================= */
+.welcome-marquee-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%) rotate(-5deg) perspective(1000px) rotateX(10deg); 
+    z-index: 0; 
+    opacity: 0.1; 
+    pointer-events: none; 
+    white-space: nowrap; 
+    overflow: hidden;
+    display: block;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
+}
+
+.welcome-marquee-content {
+    display: inline-block;
+    font-family: 'Oswald', 'Noto Sans JP', sans-serif;
+    font-weight: 900; 
+    font-size: 16vh; 
+    text-transform: uppercase;
+    animation: welcome-scrollText 25s linear infinite;
+    will-change: transform;
+    background: linear-gradient(
+        90deg,
+        var(--welcome-text-color),
+        var(--welcome-accent),
+        var(--welcome-text-color),
+        var(--welcome-accent),
+        var(--welcome-text-color)
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 
+        welcome-scrollText 25s linear infinite,
+        welcome-textGradient 8s ease infinite;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes welcome-scrollText {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes welcome-textGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* =========================================
+   3. 创意主内容区
+   ========================================= */
+.welcome-hero {
+    position: relative;
+    z-index: 10; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.9) perspective(1000px) rotateX(10deg);
+    transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: opacity, transform;
+    transform-style: preserve-3d;
+}
+
+.welcome-brand-logo {
+    width: 300px; 
+    max-width: 60vw; 
+    mix-blend-mode: multiply; 
+    filter: blur(15px) brightness(0.8); 
+    transform: translateY(30px) scale(0.85) perspective(1000px) rotateX(20deg);
+    transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: filter, transform;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.welcome-logo-reveal { 
+    filter: blur(0px) brightness(1) !important; 
+    transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg) !important;
+    animation: welcome-logo3D 4s ease-in-out infinite;
+}
+
+@keyframes welcome-logo3D {
+    0%, 100% {
+        transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg);
+        filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
+    }
+    25% {
+        transform: translateY(-5px) scale(1.02) perspective(1000px) rotateX(2deg) rotateY(-2deg);
+        filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+    }
+    50% {
+        transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg);
+        filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
+    }
+    75% {
+        transform: translateY(-5px) scale(1.02) perspective(1000px) rotateX(-2deg) rotateY(2deg);
+        filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+    }
+}
+
+/* 文字拆分效果 - 美化布局 */
+.welcome-hero-text {
+    margin-top: 2.5rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.45em;
+    font-size: 0.9rem; 
+    font-weight: 700;
+    opacity: 0; 
+    transform: translateY(30px) perspective(1000px) rotateX(20deg);
+    transition: opacity 1s ease 0.6s, transform 1s ease 0.6s;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.1em 0.2em;
+    transform-style: preserve-3d;
+    text-align: center;
+    line-height: 1.8;
+    word-spacing: 0.3em;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+.welcome-hero-text .char {
+    display: inline-block;
+    transform: translateZ(0);
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                color 0.3s ease;
+    position: relative;
+    color: var(--welcome-text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-hero-text .char::after {
+    content: attr(data-char);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.15), transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.welcome-hero-text.show .char {
+    animation: welcome-charReveal 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: calc(var(--index) * 0.04s);
+}
+
+.welcome-hero-text.show .char:hover {
+    transform: translateY(-4px) scale(1.15);
+    color: rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 空格字符特殊处理 - 通过 JS 添加类 */
+.welcome-hero-text .char.space {
+    width: 0.3em;
+    min-width: 0.3em;
+}
+
+@keyframes welcome-charReveal {
+    0% {
+        transform: translateY(40px) rotateX(90deg) scale(0.6) rotateY(20deg);
+        opacity: 0;
+        filter: blur(5px);
+    }
+    50% {
+        transform: translateY(-8px) rotateX(0deg) scale(1.15) rotateY(0deg);
+        opacity: 0.9;
+        filter: blur(1px);
+    }
+    100% {
+        transform: translateY(0) rotateX(0deg) scale(1) rotateY(0deg);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.welcome-hero-text.show { 
+    opacity: 1; 
+    transform: translateY(0) perspective(1000px) rotateX(0deg);
+}
+
+/* 创意按钮 - 高级动效设计 */
+.welcome-enter-btn {
+    margin-top: 3rem; 
+    padding: 20px 52px; 
+    border: 2.5px solid var(--welcome-text-color);
+    background: transparent; 
+    text-transform: uppercase; 
+    font-weight: 700;
+    font-size: 0.95rem; 
+    cursor: none; 
+    position: relative; 
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
+    opacity: 0; 
+    animation: welcome-fadeInUp 1s forwards 1.4s;
+    text-decoration: none;
+    color: var(--welcome-text-color);
+    display: inline-block;
+    letter-spacing: 0.25em;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    border-radius: 2px;
+}
+
+/* 背景填充效果 */
+.welcome-enter-btn::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        var(--welcome-text-color) 0%,
+        rgba(0, 0, 0, 0.95) 50%,
+        var(--welcome-text-color) 100%
+    );
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 0;
+    transform-origin: top left;
+}
+
+/* 边框光效和阴影 */
+.welcome-enter-btn::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(
+        45deg,
+        var(--welcome-text-color),
+        rgba(252, 228, 18, 0.5),
+        var(--welcome-text-color),
+        rgba(252, 228, 18, 0.5),
+        var(--welcome-text-color)
+    );
+    background-size: 300% 300%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: welcome-borderShine 4s linear infinite;
+    border-radius: 4px;
+    filter: blur(2px);
+}
+
+.welcome-enter-btn .btn-text {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    background: linear-gradient(90deg, var(--welcome-text-color), var(--welcome-text-color));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 0 var(--welcome-text-color);
+}
+
+.welcome-enter-btn:focus-visible {
+    outline: 3px solid var(--welcome-text-color);
+    outline-offset: 8px;
+}
+
+.welcome-enter-btn:hover,
+.welcome-enter-btn:focus { 
+    border-color: var(--welcome-text-color);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        0 0 0 2px rgba(252, 228, 18, 0.2),
+        inset 0 0 30px rgba(252, 228, 18, 0.15),
+        0 0 60px rgba(252, 228, 18, 0.1);
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.welcome-enter-btn:hover .btn-text {
+    transform: translateX(3px) scale(1.05);
+    background: linear-gradient(
+        90deg, 
+        var(--welcome-text-color) 0%,
+        rgba(0, 0, 0, 0.6) 30%,
+        rgba(0, 0, 0, 0.6) 70%,
+        var(--welcome-text-color) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: welcome-textShimmer 2.5s ease infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.welcome-enter-btn:hover::before {
+    transform: translateX(0) translateY(0) rotate(45deg);
+}
+
+.welcome-enter-btn:hover::after {
+    opacity: 1;
+    filter: blur(1px);
+}
+
+.welcome-enter-btn:active {
+    transform: translateY(-5px) scale(0.99);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.2),
+        inset 0 0 25px rgba(252, 228, 18, 0.2);
+}
+
+.welcome-enter-btn:active .btn-text {
+    transform: translateX(2px) scale(1.02);
+}
+
+@keyframes welcome-borderShine {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
+}
+
+@keyframes welcome-textShimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes welcome-fadeInUp { 
+    from {
+        opacity: 0;
+        transform: translateY(30px) perspective(1000px) rotateX(20deg);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) perspective(1000px) rotateX(0deg);
+    }
+}
+
+/* 日期显示 */
+.welcome-date {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    opacity: 0;
+    animation: welcome-fadeInUp 1s forwards 1.6s;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   4. 创意装饰元素
+   ========================================= */
+/* 光标点 - 高级设计 */
+.welcome-cursor-dot {
+    width: 6px; 
+    height: 6px; 
+    background: radial-gradient(circle, var(--welcome-text-color) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border-radius: 50%;
+    position: fixed; 
+    pointer-events: none; 
+    z-index: 100; 
+    transform: translate(-50%, -50%);
+    will-change: left, top, transform, width, height;
+    transition: transform 0.08s cubic-bezier(0.23, 1, 0.32, 1), 
+                width 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+                height 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 
+        0 0 8px rgba(0, 0, 0, 0.4),
+        0 0 16px var(--welcome-glow-color),
+        inset 0 0 4px rgba(252, 228, 18, 0.3);
+    border: 1px solid rgba(252, 228, 18, 0.2);
+}
+
+.welcome-cursor-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    border: 1px solid rgba(252, 228, 18, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: welcome-dotPulse 2s ease-in-out infinite;
+}
+
+/* 光标外圈 - 流畅跟随增强 */
+.welcome-cursor-outline {
+    width: 36px; 
+    height: 36px; 
+    border: 1.5px solid var(--welcome-text-color); 
+    border-radius: 50%;
+    position: fixed; 
+    pointer-events: none; 
+    z-index: 99; 
+    transform: translate(-50%, -50%); 
+    transition: all 0.12s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: left, top, transform, width, height, border-width, opacity;
+    opacity: 0.5;
+    background: radial-gradient(circle, rgba(252, 228, 18, 0.05), transparent 70%);
+}
+
+/* 光标外圈光效 - 多层 */
+.welcome-cursor-outline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    border: 1px solid rgba(252, 228, 18, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: welcome-cursorPulse 2.5s ease-in-out infinite;
+    filter: blur(0.5px);
+}
+
+/* 光标外圈内部点 - 增强 */
+.welcome-cursor-outline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, var(--welcome-text-color), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    box-shadow: 0 0 6px rgba(252, 228, 18, 0.5);
+    animation: welcome-innerDotPulse 1.5s ease-in-out infinite;
+}
+
+.welcome-cursor-outline.hover {
+    width: 70px;
+    height: 70px;
+    border-color: var(--welcome-text-color);
+    border-width: 2px;
+    opacity: 0.9;
+    background: radial-gradient(circle, rgba(252, 228, 18, 0.1), transparent 60%);
+}
+
+.welcome-cursor-outline.hover::before {
+    border-color: rgba(252, 228, 18, 0.5);
+    width: 140%;
+    height: 140%;
+    animation: welcome-cursorPulseHover 1.2s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+.welcome-cursor-outline.hover::after {
+    width: 5px;
+    height: 5px;
+    box-shadow: 0 0 10px rgba(252, 228, 18, 0.7);
+}
+
+@keyframes welcome-dotPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.15;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.05;
+    }
+}
+
+@keyframes welcome-innerDotPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.6;
+    }
+}
+
+@keyframes welcome-cursorPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.1;
+    }
+}
+
+@keyframes welcome-cursorPulseHover {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.2;
+    }
+}
+
+.welcome-grid-bg {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 60px 60px; 
+    z-index: -1; 
+    pointer-events: none;
+    animation: welcome-gridMove 30s linear infinite;
+    opacity: 0.4;
+    filter: blur(0.2px);
+}
+
+@keyframes welcome-gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+.welcome-magnetic-wrap {
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+}
+
+/* 光晕效果增强 - 多层光效 */
+.welcome-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(252, 228, 18, 0.25),
+        rgba(255, 0, 102, 0.08),
+        rgba(0, 102, 255, 0.05),
+        transparent 65%
+    );
+    pointer-events: none;
+    z-index: 1;
+    animation: welcome-glowPulse 6s ease-in-out infinite;
+    filter: blur(50px);
+}
+
+.welcome-glow::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(252, 228, 18, 0.15),
+        transparent 60%
+    );
+    animation: welcome-glowPulse 4s ease-in-out infinite reverse;
+    filter: blur(30px);
+}
+
+@keyframes welcome-glowPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.3) rotate(180deg);
+        opacity: 0.6;
+    }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .welcome-brand-logo {
+        width: 200px;
+    }
+    
+    .welcome-hero-text {
+        font-size: 0.7rem;
+        margin-top: 1.5rem;
+    }
+    
+    .welcome-enter-btn {
+        font-size: 0.85rem;
+        padding: 14px 32px;
+        margin-top: 2rem;
+    }
+    
+    .welcome-loader-counter {
+        font-size: 2rem;
+        left: calc(50% + 25px);
+    }
+    
+    .welcome-creative-bg,
+    .welcome-3d-grid {
+        display: none;
+    }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .welcome-cursor-dot,
+    .welcome-cursor-outline {
+        display: none;
+    }
+}
+
