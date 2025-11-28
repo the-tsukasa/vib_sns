@@ -125,6 +125,17 @@
                     counter.classList.add('welcome-fade-out');
                     wrapper.classList.add('welcome-split-open');
                     
+                    // 开门动画完成后触发 Camera Shake 效果（开门动画 transition 为 1s）
+                    setTimeout(() => {
+                        const body = document.body;
+                        body.classList.add('welcome-camera-shake');
+                        
+                        // 移除 shake 类（在动画完成后）
+                        setTimeout(() => {
+                            body.classList.remove('welcome-camera-shake');
+                        }, 200); // 0.2 秒后移除
+                    }, 1000); // 1秒后触发（开门动画完成时）
+                    
                     setTimeout(() => {
                         hero.style.opacity = '1';
                         hero.style.transform = 'scale(1)';
