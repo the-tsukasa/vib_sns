@@ -47,6 +47,10 @@
 
   <!-- ===== サイドナビゲーション ===== -->
   <aside class="sidebar">
+    <button class="sidebar__close" id="sidebarClose" aria-label="メニューを閉じる">
+      <span>×</span>
+    </button>
+
     <div class="brand">
       <a href="#top" class="brand__link">
         <img src="./assets/icons/logo.png" alt="Vib ロゴ" class="brand__logo" width="36" height="36" loading="eager">
@@ -65,10 +69,6 @@
       <a href="#faq" class="nav-link">FAQ</a>
       <a href="#download" class="nav-link">ダウンロード</a>
     </nav>
-
-    <div class="sidebar__footer">
-      <a href="./welcome.html" class="nav-link nav-link--welcome">Back to Welcome</a>
-    </div>
   </aside>
 
   <div class="overlay" id="overlay"></div>
@@ -356,53 +356,111 @@
     </section>
 
     <!-- 08 Safety & Technology -->
-    <section id="safety" class="section observe">
-      <h2>技術 & 安全性</h2>
-      <p class="section__lead">
-        信頼できる技術基盤と、徹底したプライバシー保護。
+<section id="safety" class="section observe">
+  <h2>技術 & 安全性</h2>
+  <p class="section__lead">
+    Vib は、BLE・GPS・Firebase を組み合わせた “すれ違い検出アプリ” です。
+    日常の中で自然に動作し、安心して使える体験を目指しました。
+  </p>
+  
+  <div class="split">
+    <div class="split__media">
+      <img src="./assets/images/Safety.jpg" alt="Vib Chip 図解" class="section__image" loading="lazy" width="600" height="400">
+    </div>
+
+    <div class="split__text">
+      <h3>アプリコンセプト</h3>
+      <p>
+        Vib は、近くを通ったユーザー同士を自動で記録する “すれ違い SNS” です。
+        BLE の近接検出と GPS の位置情報を用いて、日常の中の小さなつながりを可視化します。
       </p>
-      
-      <div class="split">
-        <div class="split__media">
-          <img src="./assets/images/Safety.jpg" alt="Vib Chip 図解" class="section__image" loading="lazy" width="600" height="400">
-        </div>
-        <div class="split__text">
-          <h3>Vib Chip（図解）</h3>
-          <p>
-            首の横側（目立たない位置）に埋め込まれる極小の生体チップ。
-            医療グレードの素材を使用し、非侵襲的な設計により、人体への長期的な影響を最小限に抑えます。
-          </p>
-          
-          <h3>プライバシー原則</h3>
-          <ul>
-            <li>
-              <strong>ゼロID（個人情報非公開）</strong>
-              <p>
-                個人を特定できる情報は一切チップ外へ送信されません。
-              </p>
-            </li>
-            <li>
-              <strong>Edge処理</strong>
-              <p>
-                全てのデータ処理はチップ内のエッジAIで完結し、外部サーバーへの送信は行いません。
-              </p>
-            </li>
-            <li>
-              <strong>ユーザー選択制</strong>
-              <p>
-                共有する情報（趣味、感情状態など）を細かく選択可能で、いつでも設定を変更できます。
-              </p>
-            </li>
-          </ul>
-          
-          <h3>健康安全性</h3>
-          <p>
-            非侵襲的な五感フィードバック技術を用いることで、人体への長期的な影響を最小限に抑えます。
-            定期的な健康チェックも可能で、必要に応じて医療機関での安全な取り外しが可能です。
-          </p>
-        </div>
+
+      <h3>プライバシー設計</h3>
+      <ul>
+        <li>
+          <strong>匿名アカウント</strong>
+          <p>Firebase 匿名認証により、個人情報を保存せずに利用できます。</p>
+        </li>
+        <li>
+          <strong>端末内処理</strong>
+          <p>近接検出はオンデバイスで完結し、必要最小限のデータのみ Firestore に保存します。</p>
+        </li>
+        <li>
+          <strong>ユーザー選択</strong>
+          <p>名前・メッセージ・公開範囲などをいつでも変更可能です。</p>
+        </li>
+      </ul>
+
+      <h3>安全性</h3>
+      <p>
+        位置情報は権限取得時のみ取得し、バックグラウンド処理も最小限に制御。
+        電池消費とセキュリティの両立を重視した設計です。
+      </p>
+    </div>
+  </div>
+
+  <h3>技術構成</h3>
+
+  <!-- 技术图标展示栏 -->
+  <div class="tech-icons-carousel-wrapper">
+    <div class="tech-icons-carousel" id="techIconsCarousel">
+      <div class="tech-icons-track" id="techIconsTrack">
+
+        <!-- 第一组图标 -->
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/Bluetooth.png" alt="Bluetooth"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/firebase.png" alt="Firebase"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/Google_Maps_Logo.png" alt="Google Maps"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/gps.png" alt="GPS"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/map.png" alt="Map"></div></div>
+
+        <!-- 第二组图标（循环用） -->
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/Bluetooth.png" alt="Bluetooth"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/firebase.png" alt="Firebase"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/Google_Maps_Logo.png" alt="Google Maps"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/gps.png" alt="GPS"></div></div>
+        <div class="tech-icon-item"><div class="tech-icon-box"><img src="./assets/images/tech-icons/map.png" alt="Map"></div></div>
+
       </div>
-    </section>
+    </div>
+  </div>
+
+  <p>
+    Vib の技術は、「正確」「低遅延」「低消費電力」を軸に設計されています。
+    Firebase の高速同期、Bluetooth LE の近距離検出、GPS の空間認識、
+    Android ネイティブ制御が組み合わさり、すれ違い体験を滑らかに実現します。
+  </p>
+
+  <ul>
+    <li>
+      <strong>Firebase：</strong>
+      <p>認証、プロフィール管理、すれ違い履歴をクラウドで一元管理。</p>
+    </li>
+
+    <li>
+      <strong>Firestore：</strong>
+      <p>位置・近接データをリアルタイムで同期し、常に最新状態を保持。</p>
+    </li>
+
+    <li>
+      <strong>GPS：</strong>
+      <p>大まかなユーザー位置を取得し、距離計算に利用。</p>
+    </li>
+
+    <li>
+      <strong>Bluetooth LE：</strong>
+      <p>近接端末を低消費電力で検出し、“すれ違い” を記録。</p>
+    </li>
+
+    <li>
+      <strong>Android & Kotlin：</strong>
+      <p>バックグラウンド測位、権限管理、UI 制御を担当。</p>
+    </li>
+  </ul>
+
+</section>
+
 
     <!-- 09 Roadmap -->
     <section id="roadmap" class="section observe">
