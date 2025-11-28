@@ -11,7 +11,6 @@
 const sidebar = document.querySelector(".sidebar");
 const hamburger = document.getElementById("hamburger");
 const overlay = document.getElementById("overlay");
-const sidebarClose = document.getElementById("sidebarClose");
 
 // サイドバーを閉じる共通関数
 function closeSidebar() {
@@ -44,11 +43,6 @@ if (sidebar && hamburger && overlay) {
       closeSidebar();
     }
   });
-
-  // サイドバー閉じるボタン押下
-  if (sidebarClose) {
-    sidebarClose.addEventListener("click", closeSidebar);
-  }
 
   // オーバーレイ押下で閉じる
   overlay.addEventListener("click", closeSidebar);
