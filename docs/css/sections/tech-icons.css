@@ -1,0 +1,220 @@
+/* =========================================================
+   Tech Icons Carousel - 技术图标展示栏
+   作成者：曹 小帥（SOU）
+   最終更新：2025-01-XX
+   ========================================================= */
+
+.tech-icons-carousel-wrapper {
+  width: 100%;
+  margin: var(--space-2xl) 0 var(--space-xl);
+  padding: var(--space-xl) 0;
+  overflow: hidden;
+  position: relative;
+  background: transparent !important;
+  border-radius: var(--radius-lg);
+}
+
+/* 移除所有装饰元素 */
+.tech-icons-carousel-wrapper::before,
+.tech-icons-carousel-wrapper::after {
+  display: none;
+}
+
+.tech-icons-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  padding: var(--space-md) 0;
+}
+
+.tech-icons-carousel:active {
+  cursor: grabbing;
+}
+
+.tech-icons-track {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+  will-change: transform;
+  width: fit-content;
+  padding: 0 var(--space-lg);
+}
+
+/* 自动滚动动画 */
+.tech-icons-carousel:not(.paused) .tech-icons-track {
+  animation: scroll-left 30s linear infinite;
+}
+
+/* 暂停动画（当用户交互时） */
+.tech-icons-carousel.paused .tech-icons-track {
+  animation-play-state: paused;
+}
+
+.tech-icon-item {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  min-height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: visible;
+}
+
+.tech-icon-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.tech-icon-item:hover .tech-icon-box img {
+  transform: scale(1.08);
+  filter: brightness(1);
+  transition: transform var(--transition-base), filter var(--transition-base);
+}
+
+/* 移除所有伪元素装饰 */
+.tech-icon-item::before,
+.tech-icon-item::after {
+  display: none;
+}
+
+/* 图标约束盒子 - 统一尺寸 */
+.tech-icon-box {
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.tech-icon-item img {
+  width: auto;
+  height: auto;
+  max-width: 75px;
+  max-height: 75px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: transform var(--transition-base);
+  filter: brightness(0.98);
+}
+
+/* 图标标签文字 */
+.tech-icon-label {
+  font-size: var(--font-base);
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  line-height: 1.5;
+  margin: 0;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-base);
+}
+
+.tech-icon-item:hover .tech-icon-label {
+  color: var(--ink);
+}
+
+/* 自动滚动动画 */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - var(--space-lg) / 2));
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .tech-icons-carousel-wrapper {
+    margin: var(--space-xl) 0 var(--space-lg);
+    padding: var(--space-lg) 0;
+  }
+
+  .tech-icons-carousel {
+    padding: var(--space-sm) 0;
+  }
+
+  .tech-icon-item {
+    height: auto;
+    min-height: fit-content;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .tech-icon-box {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+    min-height: 75px;
+  }
+
+  .tech-icon-item img {
+    max-width: 65px;
+    max-height: 65px;
+  }
+
+  .tech-icon-label {
+    font-size: var(--font-sm);
+  }
+
+  .tech-icons-track {
+    gap: var(--space-lg);
+    padding: 0 var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icons-carousel-wrapper {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) 0;
+  }
+
+  .tech-icon-item {
+    height: auto;
+    min-height: fit-content;
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .tech-icon-box {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    min-height: 65px;
+  }
+
+  .tech-icon-item img {
+    max-width: 55px;
+    max-height: 55px;
+  }
+
+  .tech-icon-label {
+    font-size: 0.875rem;
+  }
+
+  .tech-icons-track {
+    gap: var(--space-md);
+    padding: 0 var(--space-sm);
+  }
+}
+
+/* 禁用动画时（对于偏好减少动画的用户） */
+@media (prefers-reduced-motion: reduce) {
+  .tech-icons-track {
+    animation: none;
+  }
+}
