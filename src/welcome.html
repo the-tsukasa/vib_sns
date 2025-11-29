@@ -151,10 +151,19 @@
         }
         .brand-logo {
             width: 300px; max-width: 60vw; mix-blend-mode: multiply; 
-            filter: blur(10px); transform: translateY(20px);
+            filter: blur(10px); 
+            transform: translateY(20px) translateZ(0);
             transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: filter, transform;
         }
-        .logo-reveal { filter: blur(0px) !important; transform: translateY(0) !important; }
+        .logo-reveal { 
+            filter: blur(0px) !important; 
+            transform: translateY(0) translateZ(0) !important; 
+        }
         .hero-text {
             margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
             font-size: 0.8rem; opacity: 0; transform: translateY(20px);
@@ -214,9 +223,9 @@
         </div>
     </div>
 
-    <div id="hero">
+        <div id="hero">
         <div class="magnetic-wrap">
-            <img src="./assets/icons/vib_black.png" alt="Logo" class="brand-logo" id="main-logo">
+            <img src="./assets/icons/vib_black.png" alt="Logo" class="brand-logo" id="main-logo" width="300" height="300" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
         </div>
 
         <div class="hero-text">
@@ -241,6 +250,13 @@
             const logo = document.getElementById('main-logo');
             const text = document.querySelector('.hero-text');
 
+            // 确保 logo 最终会清晰显示（备用方案）
+            const ensureLogoClear = () => {
+                if(logo && !logo.classList.contains('logo-reveal')) {
+                    logo.classList.add('logo-reveal');
+                }
+            };
+
             let progress = 0;
             const interval = setInterval(() => {
                 progress += Math.floor(Math.random() * 5) + 2;
@@ -259,12 +275,20 @@
                         setTimeout(() => {
                             hero.style.opacity = '1';
                             hero.style.transform = 'scale(1)';
-                            if(logo) logo.classList.add('logo-reveal');
+                            if(logo) {
+                                logo.classList.add('logo-reveal');
+                                // 强制移除模糊（备用方案）
+                                logo.style.filter = 'blur(0px)';
+                                logo.style.transform = 'translateY(0) translateZ(0)';
+                            }
                             if(text) text.classList.add('show');
                         }, 500);
                     }, 500);
                 }
             }, 30);
+
+            // 备用方案：如果 3 秒后 logo 还是模糊，强制清除
+            setTimeout(ensureLogoClear, 3000);
         });
 
         // 鼠标跟随
