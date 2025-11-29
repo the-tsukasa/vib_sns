@@ -1,5 +1,5 @@
 /**
- * Welcome Page Script - 欢迎页面脚本
+ * Welcome Page Enhanced Script - 增强版欢迎页面脚本
  * 包含增强的交互效果、粒子系统、打字机效果等
  */
 
@@ -16,9 +16,7 @@
         CURSOR_ANIMATION_DURATION: 500,
         THROTTLE_DELAY: 16, // ~60fps
         PARTICLE_COUNT: 30,
-        PARTICLE_COUNT_MOBILE: 0, // 移动端不创建粒子
-        TYPING_SPEED: 100, // 打字机速度（毫秒）
-        TYPING_SPEED_MOBILE: 80 // 移动端稍快的打字速度
+        TYPING_SPEED: 100 // 打字机速度（毫秒）
     };
 
     // 工具函数：节流
@@ -46,38 +44,21 @@
         return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     }
 
-    // 工具函数：检查是否为移动设备
-    function isMobileDevice() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-               (window.innerWidth <= 768);
-    }
-
-    // 工具函数：检查是否为低性能设备
-    function isLowPerformanceDevice() {
-        // 检查硬件并发数（CPU核心数）
-        const cores = navigator.hardwareConcurrency || 4;
-        // 检查内存（如果可用）
-        const memory = navigator.deviceMemory || 4;
-        return cores <= 2 || memory <= 2 || window.innerWidth <= 480;
-    }
-
     // 工具函数：检查是否偏好减少动画
     function prefersReducedMotion() {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
-    // 创建粒子系统（移动端优化）
+    // 创建粒子系统
     function createParticles() {
-        if (prefersReducedMotion() || isTouchDevice() || isMobileDevice() || isLowPerformanceDevice()) {
+        if (prefersReducedMotion() || isTouchDevice()) {
             return;
         }
 
         const particlesContainer = document.querySelector('.welcome-particles');
         if (!particlesContainer) return;
 
-        const particleCount = isMobileDevice() ? CONFIG.PARTICLE_COUNT_MOBILE : CONFIG.PARTICLE_COUNT;
-
-        for (let i = 0; i < particleCount; i++) {
+        for (let i = 0; i < CONFIG.PARTICLE_COUNT; i++) {
             const particle = document.createElement('div');
             particle.className = 'welcome-particle';
             
@@ -86,10 +67,6 @@
             particle.style.top = Math.random() * 100 + '%';
             particle.style.animationDelay = Math.random() * 20 + 's';
             particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-            
-            // 使用 transform 而不是 left/top 优化性能
-            particle.style.willChange = 'transform, opacity';
-            particle.style.transform = 'translateZ(0)'; // 启用硬件加速
             
             particlesContainer.appendChild(particle);
         }
@@ -145,19 +122,15 @@
         }, CONFIG.PROGRESS_INTERVAL);
     }
 
-    // 打字机效果（移动端优化）
+    // 打字机效果
     function typewriterEffect(element) {
         if (prefersReducedMotion()) {
-            element.classList.add('show');
             return;
         }
 
         const text = element.textContent.trim();
         element.textContent = '';
         element.classList.add('typing');
-        
-        // 移动端使用更快的速度
-        const typingSpeed = isMobileDevice() ? CONFIG.TYPING_SPEED_MOBILE : CONFIG.TYPING_SPEED;
         
         let index = 0;
         const typeInterval = setInterval(() => {
@@ -168,14 +141,12 @@
                 clearInterval(typeInterval);
                 element.classList.remove('typing');
             }
-        }, typingSpeed);
+        }, CONFIG.TYPING_SPEED);
     }
 
-    // 初始化鼠标跟随效果（增强版，移动端禁用）
+    // 初始化鼠标跟随效果（增强版）
     function initCursor() {
-        if (isTouchDevice() || prefersReducedMotion() || isMobileDevice()) {
-            // 移动端恢复默认光标
-            document.body.style.cursor = 'auto';
+        if (isTouchDevice() || prefersReducedMotion()) {
             return;
         }
 
@@ -228,9 +199,9 @@
         document.body.style.cursor = 'none';
     }
 
-    // 初始化磁力效果（增强版，移动端禁用）
+    // 初始化磁力效果（增强版）
     function initMagnetic() {
-        if (prefersReducedMotion() || isMobileDevice()) {
+        if (prefersReducedMotion()) {
             return;
         }
 
@@ -328,9 +299,9 @@
         dateElement.textContent = dateString;
     }
 
-    // 视差滚动效果（移动端禁用）
+    // 视差滚动效果
     function initParallax() {
-        if (prefersReducedMotion() || isMobileDevice() || isLowPerformanceDevice()) {
+        if (prefersReducedMotion()) {
             return;
         }
 
@@ -373,3 +344,4 @@
         init();
     }
 })();
+
