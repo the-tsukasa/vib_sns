@@ -1,5 +1,5 @@
 /**
- * Welcome Page Script - 欢迎页面脚本
+ * Welcome Test1 Page Script - 测试1版欢迎页面脚本
  * 包含增强的交互效果、粒子系统、打字机效果等
  */
 
@@ -124,6 +124,17 @@
                     vBar.classList.add('welcome-fade-out');
                     counter.classList.add('welcome-fade-out');
                     wrapper.classList.add('welcome-split-open');
+                    
+                    // 开门动画完成后触发 Camera Shake 效果（开门动画 transition 为 1s）
+                    setTimeout(() => {
+                        const body = document.body;
+                        body.classList.add('welcome-camera-shake');
+                        
+                        // 移除 shake 类（在动画完成后）
+                        setTimeout(() => {
+                            body.classList.remove('welcome-camera-shake');
+                        }, 200); // 0.2 秒后移除
+                    }, 1000); // 1秒后触发（开门动画完成时）
                     
                     setTimeout(() => {
                         hero.style.opacity = '1';
@@ -373,3 +384,4 @@
         init();
     }
 })();
+
