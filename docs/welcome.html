@@ -31,6 +31,27 @@
         .welcome-hero {
             opacity: 0;
         }
+        .brand-logo {
+            width: 300px; max-width: 60vw; mix-blend-mode: multiply; 
+            filter: blur(10px); 
+            transform: translateY(20px) translateZ(0);
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: filter, transform;
+        }
+        .logo-reveal { 
+            filter: blur(0px) !important; 
+            transform: translateY(0) translateZ(0) !important; 
+        }
+        .hero-text {
+            margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
+            font-size: 0.8rem; opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+        .hero-text.show { opacity: 1; transform: translateY(0); }
         
         /* JS無効時にコンテンツを表示 */
         .no-js .welcome-hero {
@@ -72,18 +93,9 @@
         </div>
     </div>
 
-    <!-- メインコンテンツエリア -->
-    <main id="welcome-hero" class="welcome-hero" role="main">
-        <div class="welcome-magnetic-wrap">
-            <img 
-                src="./assets/icons/vib_black.png" 
-                alt="VIB Logo - HAL未来創造展" 
-                class="welcome-brand-logo" 
-                id="welcome-main-logo"
-                width="300"
-                height="auto"
-                loading="eager"
-            >
+        <div id="hero">
+        <div class="magnetic-wrap">
+            <img src="./assets/icons/vib_black.png" alt="Logo" class="brand-logo" id="main-logo" width="300" height="300" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
         </div>
 
         <h1 class="welcome-hero-text">
@@ -105,19 +117,83 @@
         </div>
     </main>
 
-    <!-- 外部JavaScriptファイル -->
-    <script src="./js/welcome.js" defer></script>
-    
-    <!-- JavaScript無効時のフォールバック処理 -->
-    <noscript>
-        <style>
-            .welcome-loader-wrapper { display: none; }
-            .welcome-hero { opacity: 1 !important; transform: scale(1) !important; }
-            .welcome-brand-logo { filter: blur(0) !important; transform: translateY(0) !important; }
-            .welcome-hero-text { opacity: 1 !important; transform: translateY(0) !important; }
-            .welcome-enter-btn { opacity: 1 !important; }
-            body { cursor: auto !important; }
-        </style>
-    </noscript>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const vBar = document.getElementById('v-bar');
+            const counter = document.querySelector('.loader-counter');
+            const wrapper = document.getElementById('loader-wrapper');
+            const hero = document.getElementById('hero');
+            const logo = document.getElementById('main-logo');
+            const text = document.querySelector('.hero-text');
+
+            // 确保 logo 最终会清晰显示（备用方案）
+            const ensureLogoClear = () => {
+                if(logo && !logo.classList.contains('logo-reveal')) {
+                    logo.classList.add('logo-reveal');
+                }
+            };
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 5) + 2;
+                if (progress > 100) progress = 100;
+                
+                vBar.style.height = progress + '%';
+                counter.innerText = progress + '%';
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        vBar.classList.add('fade-out');
+                        counter.classList.add('fade-out');
+                        wrapper.classList.add('split-open');
+                        
+                        setTimeout(() => {
+                            hero.style.opacity = '1';
+                            hero.style.transform = 'scale(1)';
+                            if(logo) {
+                                logo.classList.add('logo-reveal');
+                                // 强制移除模糊（备用方案）
+                                logo.style.filter = 'blur(0px)';
+                                logo.style.transform = 'translateY(0) translateZ(0)';
+                            }
+                            if(text) text.classList.add('show');
+                        }, 500);
+                    }, 500);
+                }
+            }, 30);
+
+            // 备用方案：如果 3 秒后 logo 还是模糊，强制清除
+            setTimeout(ensureLogoClear, 3000);
+        });
+
+        // 鼠标跟随
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // 交互
+        document.querySelectorAll('.interactable').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
+        });
+
+        // 磁力
+        const magneticWrap = document.querySelector('.magnetic-wrap');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.clientX) / 25;
+            const y = (window.innerHeight / 2 - e.clientY) / 25;
+            magneticWrap.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
 </body>
 </html>
