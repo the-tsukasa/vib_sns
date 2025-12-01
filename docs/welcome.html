@@ -33,17 +33,15 @@
         }
         .welcome-brand-logo {
             width: 300px; max-width: 60vw; mix-blend-mode: multiply; 
-            filter: blur(10px); 
             transform: translateY(20px) translateZ(0);
             transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            will-change: filter, transform;
+            will-change: transform;
         }
         .welcome-logo-reveal { 
-            filter: blur(0px) !important; 
             transform: translateY(0) translateZ(0) !important; 
         }
         .welcome-hero-text {
@@ -95,7 +93,15 @@
 
     <main id="welcome-hero" class="welcome-hero" role="main">
         <div class="welcome-magnetic-wrap">
-            <img src="./assets/icons/vib_black.png" alt="Logo" class="welcome-brand-logo" id="welcome-main-logo" width="300" height="300" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+            <img 
+                src="./assets/icons/vib_black.png" 
+                alt="Logo" 
+                class="welcome-brand-logo" 
+                id="welcome-main-logo" 
+                width="300" 
+                height="300" 
+                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+            >
         </div>
 
         <h1 class="welcome-hero-text">
@@ -117,87 +123,6 @@
         </div>
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const vBar = document.getElementById('welcome-v-bar');
-            const counter = document.querySelector('.welcome-loader-counter');
-            const wrapper = document.getElementById('welcome-loader-wrapper');
-            const hero = document.getElementById('welcome-hero');
-            const logo = document.getElementById('welcome-main-logo');
-            const text = document.querySelector('.welcome-hero-text');
-
-            // 确保 logo 最终会清晰显示（备用方案）
-            const ensureLogoClear = () => {
-                if(logo && !logo.classList.contains('welcome-logo-reveal')) {
-                    logo.classList.add('welcome-logo-reveal');
-                }
-            };
-
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += Math.floor(Math.random() * 5) + 2;
-                if (progress > 100) progress = 100;
-                
-                if (vBar) vBar.style.height = progress + '%';
-                if (counter) counter.innerText = progress + '%';
-
-                if (progress === 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        if (vBar) vBar.classList.add('welcome-fade-out');
-                        if (counter) counter.classList.add('welcome-fade-out');
-                        if (wrapper) wrapper.classList.add('welcome-split-open');
-                        
-                        setTimeout(() => {
-                            if (hero) {
-                                hero.style.opacity = '1';
-                                hero.style.transform = 'scale(1)';
-                            }
-                            if(logo) {
-                                logo.classList.add('welcome-logo-reveal');
-                                // 强制移除模糊（备用方案）
-                                logo.style.filter = 'blur(0px)';
-                                logo.style.transform = 'translateY(0) translateZ(0)';
-                            }
-                            if(text) text.classList.add('show');
-                        }, 500);
-                    }, 500);
-                }
-            }, 30);
-
-            // 备用方案：如果 3 秒后 logo 还是模糊，强制清除
-            setTimeout(ensureLogoClear, 3000);
-        });
-
-        // 鼠标跟随
-        const cursorDot = document.querySelector('.welcome-cursor-dot');
-        const cursorOutline = document.querySelector('.welcome-cursor-outline');
-        window.addEventListener('mousemove', (e) => {
-            if (!cursorDot || !cursorOutline) return;
-            const posX = e.clientX;
-            const posY = e.clientY;
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        // 交互
-        document.querySelectorAll('.welcome-interactable').forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
-        });
-
-        // 磁力
-        const magneticWrap = document.querySelector('.welcome-magnetic-wrap');
-        document.addEventListener('mousemove', (e) => {
-            if (!magneticWrap) return;
-            const x = (window.innerWidth / 2 - e.clientX) / 25;
-            const y = (window.innerHeight / 2 - e.clientY) / 25;
-            magneticWrap.style.transform = `translate(${x}px, ${y}px)`;
-        });
-    </script>
+    <script src="./js/welcome.js" defer></script>
 </body>
 </html>

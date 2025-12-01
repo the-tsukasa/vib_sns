@@ -302,17 +302,17 @@
     width: 350px; 
     max-width: 65vw; 
     mix-blend-mode: multiply; 
-    filter: blur(10px); 
     transform: translateY(20px) scale(0.9);
     transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: filter, transform;
-    position: relative;
+    will-change: transform;
     margin-bottom: 0.3rem; /* 减小底部边距 */
     flex-shrink: 0; /* 防止被压缩 */
+    animation: welcome-logoFallbackReveal 2s ease-out 2s forwards;
+    animation-play-state: running;
+    display: block;
 }
 
 .welcome-logo-reveal { 
-    filter: blur(0px) !important; 
     transform: translateY(0) scale(1) !important;
     animation: welcome-logoPulse 3s ease-in-out infinite;
 }
@@ -325,6 +325,17 @@
     50% {
         transform: scale(1.02);
         filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.1));
+    }
+}
+
+@keyframes welcome-logoFallbackReveal {
+    0% {
+        transform: translateY(20px) scale(0.9);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
     }
 }
 
@@ -814,6 +825,12 @@
     .welcome-particle {
         animation: none !important;
         transition: none !important;
+    }
+
+    .welcome-brand-logo {
+        filter: blur(0px) !important;
+        transform: translateY(0) scale(1) !important;
+        opacity: 1 !important;
     }
     
     .welcome-cursor-dot,
