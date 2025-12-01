@@ -119,12 +119,12 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const vBar = document.getElementById('v-bar');
-            const counter = document.querySelector('.loader-counter');
-            const wrapper = document.getElementById('loader-wrapper');
+            const vBar = document.getElementById('welcome-v-bar');
+            const counter = document.querySelector('.welcome-loader-counter');
+            const wrapper = document.getElementById('welcome-loader-wrapper');
             const hero = document.getElementById('hero');
             const logo = document.getElementById('main-logo');
-            const text = document.querySelector('.hero-text');
+            const text = document.querySelector('.welcome-hero-text');
 
             // 确保 logo 最终会清晰显示（备用方案）
             const ensureLogoClear = () => {
@@ -138,19 +138,21 @@
                 progress += Math.floor(Math.random() * 5) + 2;
                 if (progress > 100) progress = 100;
                 
-                vBar.style.height = progress + '%';
-                counter.innerText = progress + '%';
+                if (vBar) vBar.style.height = progress + '%';
+                if (counter) counter.innerText = progress + '%';
 
                 if (progress === 100) {
                     clearInterval(interval);
                     setTimeout(() => {
-                        vBar.classList.add('fade-out');
-                        counter.classList.add('fade-out');
-                        wrapper.classList.add('split-open');
+                        if (vBar) vBar.classList.add('fade-out');
+                        if (counter) counter.classList.add('fade-out');
+                        if (wrapper) wrapper.classList.add('split-open');
                         
                         setTimeout(() => {
-                            hero.style.opacity = '1';
-                            hero.style.transform = 'scale(1)';
+                            if (hero) {
+                                hero.style.opacity = '1';
+                                hero.style.transform = 'scale(1)';
+                            }
                             if(logo) {
                                 logo.classList.add('logo-reveal');
                                 // 强制移除模糊（备用方案）
@@ -168,9 +170,10 @@
         });
 
         // 鼠标跟随
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
+        const cursorDot = document.querySelector('.welcome-cursor-dot');
+        const cursorOutline = document.querySelector('.welcome-cursor-outline');
         window.addEventListener('mousemove', (e) => {
+            if (!cursorDot || !cursorOutline) return;
             const posX = e.clientX;
             const posY = e.clientY;
             cursorDot.style.left = `${posX}px`;
@@ -182,7 +185,7 @@
         });
 
         // 交互
-        document.querySelectorAll('.interactable').forEach(el => {
+        document.querySelectorAll('.welcome-interactable').forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
             el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
         });
