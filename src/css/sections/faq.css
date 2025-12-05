@@ -73,7 +73,7 @@
 
 .faq p {
   margin: 0;
-  padding: 0 24px 20px 24px;
+  padding: 20px 24px 20px 24px;
   line-height: 1.8;
   color: var(--gray);
   animation: fadeInUp 0.3s ease-out;
