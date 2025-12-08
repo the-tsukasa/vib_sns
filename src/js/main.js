@@ -79,11 +79,11 @@ if (yearEl) {
 }
 
 /* =========================================================
-   3. 返回顶部按钮
+   3. トップへ戻るボタン
    ========================================================= */
 const backToTopBtn = document.getElementById("backToTop");
 if (backToTopBtn) {
-  // 滚动显示/隐藏按钮
+  // スクロールでボタンの表示/非表示
   function toggleBackToTop() {
     if (window.scrollY > 300) {
       backToTopBtn.classList.add("show");
@@ -92,7 +92,7 @@ if (backToTopBtn) {
     }
   }
 
-  // 点击返回顶部
+  // トップへ戻るをクリック
   backToTopBtn.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
@@ -100,7 +100,7 @@ if (backToTopBtn) {
     });
   });
 
-  // 监听滚动事件（使用节流优化性能）
+  // スクロールイベントを監視（スロットルでパフォーマンス最適化）
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
@@ -112,18 +112,18 @@ if (backToTopBtn) {
     }
   });
 
-  // 初始检查
+  // 初期チェック
   toggleBackToTop();
 }
 
 /* =========================================================
-   4. 导航栏当前页面高亮
+   4. ナビゲーションバーの現在のページをハイライト
    ========================================================= */
 function updateActiveNav() {
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // 获取当前滚动位置
+  // 現在のスクロール位置を取得
   const scrollY = window.pageYOffset;
 
   sections.forEach(section => {
@@ -142,7 +142,7 @@ function updateActiveNav() {
   });
 }
 
-// 使用节流优化滚动事件
+// スロットルを使用してスクロールイベントを最適化
 let navTicking = false;
 window.addEventListener("scroll", () => {
   if (!navTicking) {
@@ -154,7 +154,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// 初始检查
+// 初期チェック
 updateActiveNav();
 
 /* =========================================================
