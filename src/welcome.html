@@ -1,17 +1,89 @@
-transform: translateY(0) translateZ(0) !important;
-}
-.welcome-hero-text {
-margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
-font-size: 0.8rem; opacity: 0; transform: translateY(20px);
-transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
-}
-.welcome-hero-text.show { opacity: 1; transform: translateY(0); }
+<!DOCTYPE html>
+<html lang="ja">
 
-/* JS無効時にコンテンツを表示 */
-.no-js .welcome-hero {
-opacity: 1;
-}
-</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="HAL未来創造展ウェルカムページ - Welcome to HAL Future Creation Exhibition">
+
+    <!-- 重要リソースのプリロード -->
+    <link rel="preload" as="image" href="./assets/icons/vib_black.png">
+
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/favicon-64.png">
+    <title>Welcome | HAL未来創造展</title>
+
+    <!-- フォントプリロード -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Space+Grotesk:wght@300;500;700&family=Noto+Sans+JP:wght@900&display=swap"
+        rel="stylesheet">
+
+    <!-- 外部CSSファイル -->
+    <link rel="stylesheet" href="./css/sections/welcome.css">
+
+    <!-- インライン重要CSS（初回描画最適化） -->
+    <style>
+        /* クリティカルパスCSS - FOUC防止 */
+        body {
+            background-color: #fce412;
+            color: #1a1a1a;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* 読み込み時にコンテンツを非表示 */
+        .welcome-hero {
+            opacity: 0;
+        }
+
+        .welcome-brand-logo {
+            width: 300px;
+            max-width: 60vw;
+            mix-blend-mode: multiply;
+            transform: translateY(20px) translateZ(0);
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            image-rendering: -webkit-optimize-contrast;
+            /* Edge 79+ */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+
+        @supports (image-rendering: crisp-edges) {
+            .welcome-brand-logo {
+                image-rendering: crisp-edges;
+                /* 标准/其他浏览器回退 */
+            }
+        }
+
+        .welcome-logo-reveal {
+            transform: translateY(0) translateZ(0) !important;
+        }
+
+        .welcome-hero-text {
+            margin-top: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+
+        .welcome-hero-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* JS無効時にコンテンツを表示 */
+        .no-js .welcome-hero {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body class="welcome-page">
@@ -53,8 +125,7 @@ opacity: 1;
     <main id="welcome-hero" class="welcome-hero" role="main">
         <div class="welcome-magnetic-wrap">
             <img src="./assets/icons/vib_black.png" alt="Logo" class="welcome-brand-logo" id="welcome-main-logo"
-                width="300" height="300"
-                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                width="300" height="300">
         </div>
 
         <h1 class="welcome-hero-text">
