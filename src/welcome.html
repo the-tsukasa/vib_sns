@@ -1,66 +1,23 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="HAL未来創造展欢迎页面 - Welcome to HAL Future Creation Exhibition">
-    <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/favicon-64.png">
-    <title>Welcome | HAL未来創造展</title>
-    
-    <!-- フォントプリロード -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Space+Grotesk:wght@300;500;700&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
-    
-    <!-- 外部CSSファイル -->
-    <link rel="stylesheet" href="./css/sections/welcome.css">
-    
-    <!-- インライン重要CSS（初回描画最適化） -->
-    <style>
-        /* クリティカルパスCSS - FOUC防止 */
-        body {
-            background-color: #fce412;
-            color: #1a1a1a;
-            font-family: 'Space Grotesk', sans-serif;
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-        }
-        
-        /* 読み込み時にコンテンツを非表示 */
-        .welcome-hero {
-            opacity: 0;
-        }
-        .welcome-brand-logo {
-            width: 300px; max-width: 60vw; mix-blend-mode: multiply; 
-            transform: translateY(20px) translateZ(0);
-            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            will-change: transform;
-        }
-        .welcome-logo-reveal { 
-            transform: translateY(0) translateZ(0) !important; 
-        }
-        .welcome-hero-text {
-            margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
-            font-size: 0.8rem; opacity: 0; transform: translateY(20px);
-            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
-        }
-        .welcome-hero-text.show { opacity: 1; transform: translateY(0); }
-        
-        /* JS無効時にコンテンツを表示 */
-        .no-js .welcome-hero {
-            opacity: 1;
-        }
-    </style>
+transform: translateY(0) translateZ(0) !important;
+}
+.welcome-hero-text {
+margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
+font-size: 0.8rem; opacity: 0; transform: translateY(20px);
+transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+}
+.welcome-hero-text.show { opacity: 1; transform: translateY(0); }
+
+/* JS無効時にコンテンツを表示 */
+.no-js .welcome-hero {
+opacity: 1;
+}
+</style>
 </head>
+
 <body class="welcome-page">
     <!-- ローダー層 -->
-    <div id="welcome-loader-wrapper" class="welcome-loader-wrapper" role="progressbar" aria-label="ページ読み込み中" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div id="welcome-loader-wrapper" class="welcome-loader-wrapper" role="progressbar" aria-label="ページ読み込み中"
+        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
         <div id="welcome-panel-left" class="welcome-loader-panel welcome-panel-left" aria-hidden="true"></div>
         <div id="welcome-panel-right" class="welcome-loader-panel welcome-panel-right" aria-hidden="true"></div>
         <div class="welcome-loading-line-wrap" aria-hidden="true">
@@ -72,53 +29,44 @@
     <!-- カスタムカーソル（デスクトップのみ） -->
     <div class="welcome-cursor-dot" aria-hidden="true"></div>
     <div class="welcome-cursor-outline" aria-hidden="true"></div>
-    
+
     <!-- アニメーション背景 -->
     <div class="welcome-animated-bg" aria-hidden="true"></div>
-    
+
     <!-- パーティクル効果 -->
     <div class="welcome-particles" aria-hidden="true"></div>
-    
+
     <!-- 背景グリッド -->
     <div class="welcome-grid-bg" aria-hidden="true"></div>
-    
+
     <!-- グロー効果 -->
     <div class="welcome-glow" aria-hidden="true"></div>
 
     <!-- マーキー -->
     <div class="welcome-marquee-container" aria-hidden="true">
         <div class="welcome-marquee-content">
-        HAL FUTURE CREATION EXHIBITION 2026  //  VIB - THE NEXT SIGNAL  //  CREATIVE TECHNOLOGY  //  DESIGN  //  DEVELOPMENT  //  INNOVATION  //
+            HAL FUTURE CREATION EXHIBITION 2026 // VIB - THE NEXT SIGNAL // CREATIVE TECHNOLOGY // DESIGN // DEVELOPMENT
+            // INNOVATION //
         </div>
     </div>
 
     <main id="welcome-hero" class="welcome-hero" role="main">
         <div class="welcome-magnetic-wrap">
-            <img 
-                src="./assets/icons/vib_black.png" 
-                alt="Logo" 
-                class="welcome-brand-logo" 
-                id="welcome-main-logo" 
-                width="300" 
-                height="300" 
-                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
-            >
+            <img src="./assets/icons/vib_black.png" alt="Logo" class="welcome-brand-logo" id="welcome-main-logo"
+                width="300" height="300"
+                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
         </div>
 
         <h1 class="welcome-hero-text">
             HAL未来創造展2026 PROJECT
         </h1>
 
-        <a 
-            href="index.html" 
-            class="welcome-enter-btn welcome-interactable"
-            aria-label="VIBメインページへ"
-        >
+        <a href="index.html" class="welcome-enter-btn welcome-interactable" aria-label="VIBメインページへ">
             Enter VIB
         </a>
 
         <div class="welcome-date" style="font-family: 'Space Grotesk', sans-serif;"></div>
-        
+
         <div class="welcome-tokyo-text" style="font-family: 'Space Grotesk', sans-serif;">
             HAL TOKYO 26
         </div>
@@ -126,4 +74,5 @@
 
     <script src="./js/welcome.js" defer></script>
 </body>
+
 </html>
