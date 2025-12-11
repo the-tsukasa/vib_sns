@@ -190,3 +190,39 @@ if (!prefersReducedMotion) {
     el.classList.add('animate');
   });
 }
+
+/* =========================================================
+   6. 视频懒加载优化（可选）
+   ========================================================= */
+function initVideoLazyLoad() {
+  const videos = document.querySelectorAll('video[data-lazy]');
+  
+  if (videos.length === 0) return;
+  
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        const source = video.querySelector('source[data-src]');
+        if (source) {
+          video.src = source.dataset.src;
+          video.load();
+        }
+        videoObserver.unobserve(video);
+      }
+    });
+  }, {
+    rootMargin: '100px'
+  });
+  
+  videos.forEach(video => {
+    videoObserver.observe(video);
+  });
+}
+
+// 初始化视频懒加载
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVideoLazyLoad);
+} else {
+  initVideoLazyLoad();
+}
