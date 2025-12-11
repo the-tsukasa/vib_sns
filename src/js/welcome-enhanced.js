@@ -1,12 +1,12 @@
 /**
- * Welcome Page Enhanced Script - 增强版欢迎页面脚本
- * 包含增强的交互效果、粒子系统、打字机效果等
+ * Welcome Page Enhanced Script - 強化版ウェルカムページスクリプト
+ * 強化されたインタラクション、パーティクルシステム、タイプライター効果などを含む
  */
 
-(function() {
+(function () {
     'use strict';
 
-    // 配置常量
+    // 設定定数
     const CONFIG = {
         PROGRESS_INTERVAL: 30,
         PROGRESS_MIN: 2,
@@ -16,16 +16,16 @@
         CURSOR_ANIMATION_DURATION: 500,
         THROTTLE_DELAY: 16, // ~60fps
         PARTICLE_COUNT: 30,
-        TYPING_SPEED: 100 // 打字机速度（毫秒）
+        TYPING_SPEED: 100 // タイプライター速度（ミリ秒）
     };
 
-    // 工具函数：节流
+    // ユーティリティ関数：スロットル
     function throttle(func, delay) {
         let timeoutId;
         let lastExecTime = 0;
-        return function(...args) {
+        return function (...args) {
             const currentTime = Date.now();
-            
+
             if (currentTime - lastExecTime > delay) {
                 func.apply(this, args);
                 lastExecTime = currentTime;
@@ -39,17 +39,17 @@
         };
     }
 
-    // 工具函数：检查是否支持触摸设备
+    // ユーティリティ関数：タッチデバイス対応確認
     function isTouchDevice() {
         return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     }
 
-    // 工具函数：检查是否偏好减少动画
+    // ユーティリティ関数：視差効果減衰設定の確認
     function prefersReducedMotion() {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
-    // 创建粒子系统
+    // パーティクルシステムの作成
     function createParticles() {
         if (prefersReducedMotion() || isTouchDevice()) {
             return;
@@ -61,18 +61,18 @@
         for (let i = 0; i < CONFIG.PARTICLE_COUNT; i++) {
             const particle = document.createElement('div');
             particle.className = 'welcome-particle';
-            
-            // 随机位置和延迟
+
+            // ランダムな位置と遅延
             particle.style.left = Math.random() * 100 + '%';
             particle.style.top = Math.random() * 100 + '%';
             particle.style.animationDelay = Math.random() * 20 + 's';
             particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-            
+
             particlesContainer.appendChild(particle);
         }
     }
 
-    // 初始化加载动画（增强版）
+    // ローディングアニメーションの初期化（強化版）
     function initLoader() {
         const vBar = document.getElementById('welcome-v-bar');
         const counter = document.querySelector('.welcome-loader-counter');
@@ -90,7 +90,7 @@
         const interval = setInterval(() => {
             progress += Math.floor(Math.random() * CONFIG.PROGRESS_MAX) + CONFIG.PROGRESS_MIN;
             if (progress > 100) progress = 100;
-            
+
             vBar.style.height = progress + '%';
             counter.textContent = progress + '%';
             counter.setAttribute('aria-valuenow', progress);
@@ -101,18 +101,18 @@
                     vBar.classList.add('welcome-fade-out');
                     counter.classList.add('welcome-fade-out');
                     wrapper.classList.add('welcome-split-open');
-                    
+
                     setTimeout(() => {
                         hero.style.opacity = '1';
                         hero.style.transform = 'scale(1)';
-                        if(logo) logo.classList.add('welcome-logo-reveal');
-                        if(text) {
+                        if (logo) logo.classList.add('welcome-logo-reveal');
+                        if (text) {
                             text.classList.add('show');
-                            // 启动打字机效果
+                            // タイプライター効果を開始
                             typewriterEffect(text);
                         }
-                        
-                        // 移除加载器
+
+                        // ローダーを削除
                         setTimeout(() => {
                             wrapper.style.display = 'none';
                         }, 1000);
@@ -122,7 +122,7 @@
         }, CONFIG.PROGRESS_INTERVAL);
     }
 
-    // 打字机效果
+    // タイプライター効果
     function typewriterEffect(element) {
         if (prefersReducedMotion()) {
             return;
@@ -131,7 +131,7 @@
         const text = element.textContent.trim();
         element.textContent = '';
         element.classList.add('typing');
-        
+
         let index = 0;
         const typeInterval = setInterval(() => {
             if (index < text.length) {
@@ -144,7 +144,7 @@
         }, CONFIG.TYPING_SPEED);
     }
 
-    // 初始化鼠标跟随效果（增强版）
+    // マウス追従効果の初期化（強化版）
     function initCursor() {
         if (isTouchDevice() || prefersReducedMotion()) {
             return;
@@ -153,7 +153,7 @@
         const cursorDot = document.querySelector('.welcome-cursor-dot');
         const cursorOutline = document.querySelector('.welcome-cursor-outline');
         const interactables = document.querySelectorAll('.welcome-interactable');
-        
+
         if (!cursorDot || !cursorOutline) {
             return;
         }
@@ -166,7 +166,7 @@
         const updateCursor = throttle((e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
+
             cursorDot.style.left = `${mouseX}px`;
             cursorDot.style.top = `${mouseY}px`;
         }, CONFIG.THROTTLE_DELAY);
@@ -176,17 +176,17 @@
             const dy = mouseY - outlineY;
             outlineX += dx * 0.1;
             outlineY += dy * 0.1;
-            
+
             cursorOutline.style.left = `${outlineX}px`;
             cursorOutline.style.top = `${outlineY}px`;
-            
+
             requestAnimationFrame(updateOutline);
         };
 
         window.addEventListener('mousemove', updateCursor);
         updateOutline();
 
-        // 交互元素悬停效果
+        // インタラクティブ要素のホバー効果
         interactables.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursorOutline.classList.add('hover');
@@ -199,7 +199,7 @@
         document.body.style.cursor = 'none';
     }
 
-    // 初始化磁力效果（增强版）
+    // マグネット効果の初期化（強化版）
     function initMagnetic() {
         if (prefersReducedMotion()) {
             return;
@@ -214,14 +214,14 @@
 
         const handleMouseMove = throttle((e) => {
             if (!isHovering) return;
-            
+
             const rect = magneticWrap.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
-            
+
             const x = (centerX - e.clientX) / CONFIG.MAGNETIC_DIVISOR;
             const y = (centerY - e.clientY) / CONFIG.MAGNETIC_DIVISOR;
-            
+
             magneticWrap.style.transform = `translate(${x}px, ${y}px)`;
         }, CONFIG.THROTTLE_DELAY);
 
@@ -239,43 +239,43 @@
         document.addEventListener('mousemove', handleMouseMove);
     }
 
-    // 初始化交互效果（增强版）
+    // インタラクション効果の初期化（強化版）
     function initInteractions() {
         const interactables = document.querySelectorAll('.welcome-interactable');
-        
+
         interactables.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 document.body.classList.add('welcome-hover-active');
             });
-            
+
             el.addEventListener('mouseleave', () => {
                 document.body.classList.remove('welcome-hover-active');
             });
 
-            // 键盘导航支持
+            // キーボードナビゲーションのサポート
             el.addEventListener('focus', () => {
                 document.body.classList.add('welcome-hover-active');
             });
-            
+
             el.addEventListener('blur', () => {
                 document.body.classList.remove('welcome-hover-active');
             });
 
-            // 点击涟漪效果
-            el.addEventListener('click', function(e) {
+            // クリックリップル効果
+            el.addEventListener('click', function (e) {
                 const ripple = document.createElement('span');
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
                 const x = e.clientX - rect.left - size / 2;
                 const y = e.clientY - rect.top - size / 2;
-                
+
                 ripple.style.width = ripple.style.height = size + 'px';
                 ripple.style.left = x + 'px';
                 ripple.style.top = y + 'px';
                 ripple.classList.add('ripple');
-                
+
                 this.appendChild(ripple);
-                
+
                 setTimeout(() => {
                     ripple.remove();
                 }, 600);
@@ -283,15 +283,15 @@
         });
     }
 
-    // 添加日期显示
+    // 日付表示を追加
     function initDateDisplay() {
         const dateElement = document.querySelector('.welcome-date');
         if (!dateElement) return;
 
         const now = new Date();
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
+        const options = {
+            year: 'numeric',
+            month: 'long',
             day: 'numeric',
             weekday: 'long'
         };
@@ -299,18 +299,18 @@
         dateElement.textContent = dateString;
     }
 
-    // 视差滚动效果
+    // パララックススクロール効果
     function initParallax() {
         if (prefersReducedMotion()) {
             return;
         }
 
         const parallaxElements = document.querySelectorAll('[data-parallax]');
-        
+
         const handleScroll = throttle((e) => {
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
-            
+
             parallaxElements.forEach(el => {
                 const speed = parseFloat(el.dataset.parallax) || 0.5;
                 const x = (mouseX - 0.5) * speed * 100;
@@ -322,7 +322,7 @@
         document.addEventListener('mousemove', handleScroll);
     }
 
-    // 初始化所有功能
+    // 全機能の初期化
     function init() {
         try {
             createParticles();
@@ -337,7 +337,7 @@
         }
     }
 
-    // DOM加载完成后初始化
+    // DOM読み込み完了後に初期化
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

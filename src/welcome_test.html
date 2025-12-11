@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome | HAL未来創造展</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Space+Grotesk:wght@300;500;700&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Space+Grotesk:wght@300;500;700&family=Noto+Sans+JP:wght@900&display=swap"
+        rel="stylesheet">
+
     <style>
-        /* --- 基础设定 --- */
+        /* --- 基本設定 --- */
         :root {
-            --bg-color: #fce412; 
+            --bg-color: #fce412;
             --text-color: #1a1a1a;
         }
 
@@ -19,14 +22,14 @@
             color: var(--text-color);
             font-family: 'Space Grotesk', sans-serif;
             overflow: hidden;
-            cursor: none; 
+            cursor: none;
             height: 100vh;
             width: 100vw;
             margin: 0;
         }
 
         /* =========================================
-           1. 加载层 (左右开门式)
+           1. ローディング層 (左右開き)
            ========================================= */
         #loader-wrapper {
             position: fixed;
@@ -47,15 +50,15 @@
             z-index: 2;
             transition: transform 1s cubic-bezier(0.8, 0, 0.2, 1);
         }
-        
+
         .panel-left {
             left: 0;
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .panel-right {
             right: 0;
-            border-left: 1px solid rgba(255,255,255,0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .loading-line-wrap {
@@ -92,54 +95,69 @@
             transition: opacity 0.3s;
         }
 
-        .split-open .panel-left { transform: translateX(-100%); }
-        .split-open .panel-right { transform: translateX(100%); }
-        .fade-out { opacity: 0; }
+        .split-open .panel-left {
+            transform: translateX(-100%);
+        }
+
+        .split-open .panel-right {
+            transform: translateX(100%);
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
 
         /* =========================================
-           2. 跑马灯 (Marquee) - 关键修改部分
+           2. マーキー (Marquee) - 重要な修正部分
            ========================================= */
         .marquee-container {
             position: absolute;
             top: 50%;
             left: 0;
             width: 100%;
-            transform: translateY(-50%) rotate(-5deg); 
-            z-index: 0; 
-            opacity: 0.08; 
-            pointer-events: none; 
-            white-space: nowrap; 
+            transform: translateY(-50%) rotate(-5deg);
+            z-index: 0;
+            opacity: 0.08;
+            pointer-events: none;
+            white-space: nowrap;
             overflow: hidden;
-            /* 默认显示 (电脑端) */
+            /* デフォルト表示（PC） */
             display: block;
         }
 
-        /* --- 这里是控制手机端隐藏的核心代码 --- */
+        /* --- ここがモバイル端で非表示にするためのコアコード --- */
         @media (max-width: 768px) {
             .marquee-container {
-                display: none; /* 屏幕小于768px时隐藏 */
+                display: none;
+                /* 768px未満の画面で非表示 */
             }
         }
 
         .marquee-content {
             display: inline-block;
             font-family: 'Oswald', 'Noto Sans JP', sans-serif;
-            font-weight: 900; 
-            font-size: 15vh; 
+            font-weight: 900;
+            font-size: 15vh;
             text-transform: uppercase;
             animation: scrollText 25s linear infinite;
         }
+
         @keyframes scrollText {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         /* =========================================
-           3. 主内容区
+           3. メインコンテンツエリア
            ========================================= */
         #hero {
             position: relative;
-            z-index: 10; 
+            z-index: 10;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -149,50 +167,117 @@
             transform: scale(0.95);
             transition: all 1s ease-out;
         }
+
         .brand-logo {
-            width: 300px; max-width: 60vw; mix-blend-mode: multiply; 
-            filter: blur(10px); transform: translateY(20px);
+            width: 300px;
+            max-width: 60vw;
+            mix-blend-mode: multiply;
+            filter: blur(10px);
+            transform: translateY(20px);
             transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
-        .logo-reveal { filter: blur(0px) !important; transform: translateY(0) !important; }
+
+        .logo-reveal {
+            filter: blur(0px) !important;
+            transform: translateY(0) !important;
+        }
+
         .hero-text {
-            margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.2em;
-            font-size: 0.8rem; opacity: 0; transform: translateY(20px);
+            margin-top: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            opacity: 0;
+            transform: translateY(20px);
             transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
         }
-        .hero-text.show { opacity: 1; transform: translateY(0); }
-        
-        .enter-btn {
-            margin-top: 3rem; padding: 12px 32px; border: 2px solid black;
-            background: transparent; text-transform: uppercase; font-weight: bold;
-            font-size: 0.9rem; cursor: none; position: relative; overflow: hidden;
-            transition: color 0.3s; opacity: 0; animation: fadeInUp 1s forwards 1.2s;
-        }
-        .enter-btn::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: black; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1); z-index: -1;
-        }
-        .enter-btn:hover { color: var(--bg-color); }
-        .enter-btn:hover::before { left: 0; }
-        @keyframes fadeInUp { to { opacity: 1; } }
 
-        /* 装饰 */
+        .hero-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .enter-btn {
+            margin-top: 3rem;
+            padding: 12px 32px;
+            border: 2px solid black;
+            background: transparent;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: none;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 1.2s;
+        }
+
+        .enter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: black;
+            transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: -1;
+        }
+
+        .enter-btn:hover {
+            color: var(--bg-color);
+        }
+
+        .enter-btn:hover::before {
+            left: 0;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 装飾 */
         .cursor-dot {
-            width: 10px; height: 10px; background: black; border-radius: 50%;
-            position: fixed; pointer-events: none; z-index: 100; transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: black;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 100;
+            transform: translate(-50%, -50%);
         }
+
         .cursor-outline {
-            width: 40px; height: 40px; border: 1px solid black; border-radius: 50%;
-            position: fixed; pointer-events: none; z-index: 99; transform: translate(-50%, -50%); transition: transform 0.1s;
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s;
         }
+
         .grid-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-            background-size: 50px 50px; z-index: -1; pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
         }
     </style>
 </head>
+
 <body>
 
     <div id="loader-wrapper">
@@ -210,7 +295,8 @@
 
     <div class="marquee-container">
         <div class="marquee-content">
-            HAL FUTURE CREATION EXHIBITION 2025  //  DESIGN  //  DEVELOPMENT  //  INNOVATION  //  HAL FUTURE CREATION EXHIBITION 2025  //  DESIGN  //  DEVELOPMENT  //  INNOVATION  //
+            HAL FUTURE CREATION EXHIBITION 2025 // DESIGN // DEVELOPMENT // INNOVATION // HAL FUTURE CREATION EXHIBITION
+            2025 // DESIGN // DEVELOPMENT // INNOVATION //
         </div>
     </div>
 
@@ -245,7 +331,7 @@
             const interval = setInterval(() => {
                 progress += Math.floor(Math.random() * 5) + 2;
                 if (progress > 100) progress = 100;
-                
+
                 vBar.style.height = progress + '%';
                 counter.innerText = progress + '%';
 
@@ -255,19 +341,19 @@
                         vBar.classList.add('fade-out');
                         counter.classList.add('fade-out');
                         wrapper.classList.add('split-open');
-                        
+
                         setTimeout(() => {
                             hero.style.opacity = '1';
                             hero.style.transform = 'scale(1)';
-                            if(logo) logo.classList.add('logo-reveal');
-                            if(text) text.classList.add('show');
+                            if (logo) logo.classList.add('logo-reveal');
+                            if (text) text.classList.add('show');
                         }, 500);
                     }, 500);
                 }
             }, 30);
         });
 
-        // 鼠标跟随
+        // マウス追従
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
         window.addEventListener('mousemove', (e) => {
@@ -281,7 +367,7 @@
             }, { duration: 500, fill: "forwards" });
         });
 
-        // 交互
+        // インタラクション
         document.querySelectorAll('.interactable').forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
             el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
@@ -296,4 +382,5 @@
         });
     </script>
 </body>
+
 </html>
