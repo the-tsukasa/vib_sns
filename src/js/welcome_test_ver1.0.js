@@ -4,36 +4,36 @@
    最終更新：2025-01-XX
    ========================================================= */
 
-(function() {
+(function () {
   'use strict';
 
-  // DOM 元素
+  // DOM要素
   const transitionOverlay = document.getElementById('transitionOverlay');
   const testContainer = document.getElementById('testContainer');
 
-  // 进入主网站的转换效果
+  // メインサイトへの遷移効果
   function enterMainSite() {
-    // 添加容器淡出效果
+    // コンテナのフェードアウト効果を追加
     if (testContainer) {
       testContainer.classList.add('fade-out');
     }
 
-    // 显示过渡遮罩
+    // トランジションマスクを表示
     if (transitionOverlay) {
       transitionOverlay.classList.add('active');
     }
 
-    // 延迟跳转，让动画完成
+    // 遷移を遅延させ、アニメーションを完了させる
     setTimeout(() => {
       window.location.href = './index.html';
     }, 1000);
   }
 
-  // 页面加载后5秒自动跳转
+  // ページ読み込み完了後5秒で自動遷移
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       enterMainSite();
-    }, 5000); // 5秒 = 5000毫秒
+    }, 5000); // 5秒 = 5000ミリ秒
   });
 
 })();

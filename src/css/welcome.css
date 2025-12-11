@@ -1,5 +1,5 @@
 /* =========================================================
-   Welcome Page - 超高级入口页面样式（纯CSS制作）
+   Welcome Page - 超高級エントランスページスタイル（純粋なCSSで作成）
    作成者：曹 小帥（SOU）
    最終更新：2025-01-XX
    ========================================================= */
@@ -7,7 +7,7 @@
 @import url("./core/variables.css");
 @import url("./core/reset.css");
 
-/* ===== 基础容器 ===== */
+/* ===== 基本コンテナ ===== */
 .welcome-container {
   position: fixed;
   inset: 0;
@@ -25,7 +25,7 @@
   opacity: 0;
 }
 
-/* ===== 背景装饰 ===== */
+/* ===== 背景装飾 ===== */
 .welcome-bg {
   position: absolute;
   inset: 0;
@@ -81,7 +81,7 @@
   animation: particles-float 40s linear infinite;
 }
 
-/* ===== 主要内容区域 ===== */
+/* ===== メインコンテンツエリア ===== */
 .welcome-content {
   position: relative;
   z-index: 2;
@@ -96,7 +96,7 @@
   perspective: 1000px;
 }
 
-/* ===== Logo 容器 ===== */
+/* ===== ロゴコンテナ ===== */
 .logo-wrapper {
   display: flex;
   flex-direction: column;
@@ -116,7 +116,7 @@
   transform-style: preserve-3d;
 }
 
-/* ===== 轨道系统 ===== */
+/* ===== 軌道システム ===== */
 .logo-orbits {
   position: absolute;
   width: 100%;
@@ -158,7 +158,7 @@
   box-shadow: 0 0 20px rgba(255, 204, 0, 0.1);
 }
 
-/* ===== Logo核心 ===== */
+/* ===== ロゴコア ===== */
 .logo-core {
   position: relative;
   width: 200px;
@@ -214,7 +214,7 @@
   animation: path-glow 2s ease-in-out infinite;
 }
 
-/* ===== 粒子效果 ===== */
+/* ===== パーティクル効果 ===== */
 .particles {
   position: absolute;
   width: 100%;
@@ -288,7 +288,7 @@
   animation-delay: 3.5s;
 }
 
-/* ===== 品牌名称 ===== */
+/* ===== ブランド名 ===== */
 .brand-name {
   position: relative;
   overflow: visible;
@@ -367,7 +367,7 @@
   animation-delay: 0.7s, 1.7s, 1.7s, 1.7s;
 }
 
-/* ===== 加载指示器 ===== */
+/* ===== ローディングインジケーター ===== */
 .loading-indicator {
   width: 250px;
   height: 3px;
@@ -402,7 +402,7 @@
   animation: loading-sweep 1.5s ease-in-out infinite 2s;
 }
 
-/* ===== 动画定义 ===== */
+/* ===== アニメーション定義 ===== */
 @keyframes aurora-shift {
   0% {
     transform: translate(0, 0) scale(1) rotate(0deg);
@@ -661,7 +661,7 @@
   }
 }
 
-/* ===== 过渡动画遮罩 ===== */
+/* ===== トランジションアニメーションマスク ===== */
 .transition-overlay {
   position: fixed;
   inset: 0;
@@ -679,7 +679,7 @@
   pointer-events: all;
 }
 
-/* ===== 响应式设计 ===== */
+/* ===== レスポンシブデザイン ===== */
 @media (max-width: 768px) {
   .logo-container {
     width: 250px;

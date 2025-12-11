@@ -1,12 +1,12 @@
 /* =========================================================
-   Welcome Page Enhanced Styles - 增强版欢迎页面样式
+   Welcome Page Enhanced Styles - 強化版ウェルカムページスタイル
    
-   包含增强的视觉效果、动画和交互
+   強化された視覚効果、アニメーション、およびインタラクションを含む
    ========================================================= */
 
-/* --- 基础设定 --- */
+/* --- 基本設定 --- */
 :root {
-    --welcome-bg-color: #fce412; 
+    --welcome-bg-color: #fce412;
     --welcome-text-color: #1a1a1a;
     --welcome-transition-base: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     --welcome-transition-slow: 1s cubic-bezier(0.8, 0, 0.2, 1);
@@ -18,7 +18,7 @@
     color: var(--welcome-text-color);
     font-family: 'Space Grotesk', sans-serif;
     overflow: hidden;
-    cursor: none; 
+    cursor: none;
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -26,7 +26,7 @@
 }
 
 /* =========================================
-   0. 动态背景效果
+   0. 動的背景効果
    ========================================= */
 .welcome-animated-bg {
     position: fixed;
@@ -35,23 +35,28 @@
     width: 100%;
     height: 100%;
     z-index: -2;
-    background: linear-gradient(
-        135deg,
-        var(--welcome-bg-color) 0%,
-        #fff9b3 50%,
-        var(--welcome-bg-color) 100%
-    );
+    background: linear-gradient(135deg,
+            var(--welcome-bg-color) 0%,
+            #fff9b3 50%,
+            var(--welcome-bg-color) 100%);
     background-size: 200% 200%;
     animation: welcome-gradientShift 15s ease infinite;
     opacity: 0.3;
 }
 
 @keyframes welcome-gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
-/* 粒子效果容器 */
+/* パーティクル効果コンテナ */
 .welcome-particles {
     position: fixed;
     top: 0;
@@ -73,16 +78,21 @@
 }
 
 @keyframes welcome-float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) translateX(0);
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     90% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(-100vh) translateX(50px);
         opacity: 0;
@@ -90,7 +100,7 @@
 }
 
 /* =========================================
-   1. 加载层 (增强版)
+   1. ローディング層 (強化版)
    ========================================= */
 .welcome-loader-wrapper {
     position: fixed;
@@ -116,12 +126,12 @@
 
 .welcome-panel-left {
     left: 0;
-    border-right: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .welcome-panel-right {
     right: 0;
-    border-left: 1px solid rgba(255,255,255,0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .welcome-loading-line-wrap {
@@ -140,13 +150,11 @@
 .welcome-v-bar {
     width: 100%;
     height: 0%;
-    background: linear-gradient(
-        to bottom,
-        var(--welcome-bg-color),
-        #fff9b3,
-        var(--welcome-bg-color)
-    );
-    box-shadow: 
+    background: linear-gradient(to bottom,
+            var(--welcome-bg-color),
+            #fff9b3,
+            var(--welcome-bg-color));
+    box-shadow:
         0 0 30px var(--welcome-glow-color),
         0 0 60px var(--welcome-glow-color);
     transition: height 0.3s ease-out;
@@ -162,18 +170,21 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
     animation: welcome-shimmer 2s infinite;
 }
 
 @keyframes welcome-shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 .welcome-loader-counter {
@@ -191,41 +202,39 @@
     letter-spacing: 0.1em;
 }
 
-.welcome-split-open .welcome-panel-left { 
-    transform: translateX(-100%); 
+.welcome-split-open .welcome-panel-left {
+    transform: translateX(-100%);
 }
 
-.welcome-split-open .welcome-panel-right { 
-    transform: translateX(100%); 
+.welcome-split-open .welcome-panel-right {
+    transform: translateX(100%);
 }
 
-.welcome-fade-out { 
+.welcome-fade-out {
     opacity: 0;
     transition: opacity 0.5s ease-out;
 }
 
 /* =========================================
-   2. 跑马灯 (增强版)
+   2. マーキー (強化版)
    ========================================= */
 .welcome-marquee-container {
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
-    transform: translateY(-50%) rotate(-5deg); 
-    z-index: 0; 
-    opacity: 0.08; 
-    pointer-events: none; 
-    white-space: nowrap; 
+    transform: translateY(-50%) rotate(-5deg);
+    z-index: 0;
+    opacity: 0.08;
+    pointer-events: none;
+    white-space: nowrap;
     overflow: hidden;
     display: block;
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 20%,
-        black 80%,
-        transparent
-    );
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent);
 }
 
 @media (max-width: 768px) {
@@ -237,41 +246,51 @@
 .welcome-marquee-content {
     display: inline-block;
     font-family: 'Oswald', 'Noto Sans JP', sans-serif;
-    font-weight: 900; 
-    font-size: 15vh; 
+    font-weight: 900;
+    font-size: 15vh;
     text-transform: uppercase;
     animation: welcome-scrollText 25s linear infinite;
     will-change: transform;
-    background: linear-gradient(
-        90deg,
-        var(--welcome-text-color),
-        rgba(0, 0, 0, 0.5),
-        var(--welcome-text-color)
-    );
+    background: linear-gradient(90deg,
+            var(--welcome-text-color),
+            rgba(0, 0, 0, 0.5),
+            var(--welcome-text-color));
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: welcome-scrollText 25s linear infinite,
-               welcome-textGradient 5s ease infinite;
+        welcome-textGradient 5s ease infinite;
 }
 
 @keyframes welcome-scrollText {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 @keyframes welcome-textGradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 /* =========================================
-   3. 主内容区 (增强版)
+   3. メインコンテンツエリア (強化版)
    ========================================= */
 .welcome-hero {
     position: relative;
-    z-index: 10; 
+    z-index: 10;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -286,10 +305,10 @@
 }
 
 .welcome-brand-logo {
-    width: 350px; 
-    max-width: 65vw; 
-    mix-blend-mode: multiply; 
-    filter: blur(10px); 
+    width: 350px;
+    max-width: 65vw;
+    mix-blend-mode: multiply;
+    filter: blur(10px);
     transform: translateY(20px) scale(0.9);
     transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
     will-change: filter, transform;
@@ -297,32 +316,35 @@
     margin-bottom: 0.5rem;
 }
 
-.welcome-logo-reveal { 
-    filter: blur(0px) !important; 
+.welcome-logo-reveal {
+    filter: blur(0px) !important;
     transform: translateY(0) scale(1) !important;
     animation: welcome-logoPulse 3s ease-in-out infinite;
 }
 
 @keyframes welcome-logoPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
     }
+
     50% {
         transform: scale(1.02);
         filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.1));
     }
 }
 
-/* 文字美化布局 - 打字机效果 */
+/* テキスト装飾レイアウト - タイプライター効果 */
 .welcome-hero-text {
-    margin-top: 2rem; 
+    margin-top: 2rem;
     margin-bottom: 0.5rem;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     letter-spacing: 0.5em;
-    font-size: 1rem; 
+    font-size: 1rem;
     font-weight: 700;
-    opacity: 0; 
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
     position: relative;
@@ -343,26 +365,31 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
     animation: welcome-textShine 3s ease-in-out infinite;
 }
 
-.welcome-hero-text.show { 
-    opacity: 1; 
+.welcome-hero-text.show {
+    opacity: 1;
     transform: translateY(0);
 }
 
 @keyframes welcome-textShine {
-    0%, 100% { left: -100%; }
-    50% { left: 100%; }
+
+    0%,
+    100% {
+        left: -100%;
+    }
+
+    50% {
+        left: 100%;
+    }
 }
 
-/* 打字机效果 */
+/* タイプライター効果 */
 .welcome-hero-text.typing::after {
     content: '|';
     animation: welcome-blink 1s infinite;
@@ -370,24 +397,32 @@
 }
 
 @keyframes welcome-blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 .welcome-enter-btn {
-    margin-top: 2.5rem; 
+    margin-top: 2.5rem;
     margin-bottom: 0.5rem;
-    padding: 16px 42px; 
+    padding: 16px 42px;
     border: 2px solid black;
-    background: transparent; 
-    text-transform: uppercase; 
+    background: transparent;
+    text-transform: uppercase;
     font-weight: bold;
-    font-size: 1rem; 
-    cursor: none; 
-    position: relative; 
+    font-size: 1rem;
+    cursor: none;
+    position: relative;
     overflow: hidden;
-    transition: all var(--welcome-transition-base); 
-    opacity: 0; 
+    transition: all var(--welcome-transition-base);
+    opacity: 0;
     animation: welcome-fadeInUp 1s forwards 1.2s;
     text-decoration: none;
     color: inherit;
@@ -396,14 +431,14 @@
 }
 
 .welcome-enter-btn::before {
-    content: ''; 
-    position: absolute; 
-    top: 0; 
-    left: -100%; 
-    width: 100%; 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
     height: 100%;
-    background: black; 
-    transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1); 
+    background: black;
+    transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: -1;
 }
 
@@ -426,15 +461,15 @@
 }
 
 .welcome-enter-btn:hover,
-.welcome-enter-btn:focus { 
+.welcome-enter-btn:focus {
     color: var(--welcome-bg-color);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .welcome-enter-btn:hover::before,
-.welcome-enter-btn:focus::before { 
-    left: 0; 
+.welcome-enter-btn:focus::before {
+    left: 0;
 }
 
 .welcome-enter-btn:active::after {
@@ -443,7 +478,7 @@
     transition: width 0.3s, height 0.3s;
 }
 
-/* 涟漪效果 */
+/* リップル効果 */
 .welcome-enter-btn {
     position: relative;
     overflow: hidden;
@@ -465,18 +500,19 @@
     }
 }
 
-@keyframes welcome-fadeInUp { 
+@keyframes welcome-fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
-    to { 
+
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* 日期显示 */
+/* 日付表示 */
 .welcome-date {
     margin-top: 1.5rem;
     margin-bottom: 0.3rem;
@@ -488,8 +524,8 @@
     text-transform: uppercase;
 }
 
-/* HAL TOKYO 25 样式 */
-.welcome-hero > div:last-child {
+/* HAL TOKYO 25 スタイル */
+.welcome-hero>div:last-child {
     font-size: 0.65rem !important;
     font-weight: 700 !important;
     letter-spacing: 0.6em !important;
@@ -500,16 +536,16 @@
 }
 
 /* =========================================
-   4. 装饰元素 (增强版)
+   4. 装飾要素 (強化版)
    ========================================= */
 .welcome-cursor-dot {
-    width: 12px; 
-    height: 12px; 
-    background: black; 
+    width: 12px;
+    height: 12px;
+    background: black;
     border-radius: 50%;
-    position: fixed; 
-    pointer-events: none; 
-    z-index: 100; 
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
     transform: translate(-50%, -50%);
     will-change: left, top;
     transition: transform 0.1s ease-out;
@@ -517,14 +553,14 @@
 }
 
 .welcome-cursor-outline {
-    width: 50px; 
-    height: 50px; 
-    border: 2px solid black; 
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
     border-radius: 50%;
-    position: fixed; 
-    pointer-events: none; 
-    z-index: 99; 
-    transform: translate(-50%, -50%); 
+    position: fixed;
+    pointer-events: none;
+    z-index: 99;
+    transform: translate(-50%, -50%);
     transition: transform 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out;
     will-change: left, top, transform;
 }
@@ -536,23 +572,28 @@
 }
 
 .welcome-grid-bg {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-    background-size: 50px 50px; 
-    z-index: -1; 
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
     pointer-events: none;
     animation: welcome-gridMove 20s linear infinite;
 }
 
 @keyframes welcome-gridMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
 }
 
 .welcome-magnetic-wrap {
@@ -560,7 +601,7 @@
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* 光晕效果 */
+/* 光彩効果 */
 .welcome-glow {
     position: absolute;
     width: 500px;
@@ -573,59 +614,63 @@
 }
 
 @keyframes welcome-glowPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.3;
     }
+
     50% {
         transform: scale(1.2);
         opacity: 0.5;
     }
 }
 
-/* 移动端优化 */
+/* モバイル最適化 */
 @media (max-width: 768px) {
     .welcome-brand-logo {
         width: 240px;
         margin-bottom: 0.3rem;
     }
-    
+
     .welcome-hero-text {
         font-size: 0.85rem;
         margin-top: 1.5rem;
         letter-spacing: 0.4em;
         padding: 0 1rem;
     }
-    
+
     .welcome-enter-btn {
         font-size: 0.9rem;
         padding: 14px 36px;
         margin-top: 2rem;
         letter-spacing: 0.12em;
     }
-    
+
     .welcome-date {
         font-size: 0.75rem;
         letter-spacing: 0.35em;
     }
-    
-    .welcome-hero > div:last-child {
+
+    .welcome-hero>div:last-child {
         font-size: 0.6rem !important;
         letter-spacing: 0.5em !important;
     }
-    
+
     .welcome-loader-counter {
         font-size: 1.8rem;
         left: calc(50% + 20px);
     }
-    
+
     .welcome-animated-bg {
         display: none;
     }
 }
 
-/* 减少动画偏好 */
+/* アニメーションの抑制設定 */
 @media (prefers-reduced-motion: reduce) {
+
     .welcome-marquee-content,
     .welcome-v-bar,
     .welcome-loader-panel,
@@ -638,10 +683,9 @@
         animation: none !important;
         transition: none !important;
     }
-    
+
     .welcome-cursor-dot,
     .welcome-cursor-outline {
         display: none;
     }
 }
-
