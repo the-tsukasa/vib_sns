@@ -1,12 +1,12 @@
 /* =========================================================
-   Welcome Page Creative Styles - 创意版欢迎页面样式
+   Welcome Page Creative Styles - クリエイティブ版ウェルカムページスタイル
    
-   包含3D效果、创意动画、高级视觉效果
+   3D効果、クリエイティブアニメーション、高度な視覚効果を含む
    ========================================================= */
 
-/* --- 基础设定 --- */
+/* --- 基本設定 --- */
 :root {
-    --welcome-bg-color: #fce412; 
+    --welcome-bg-color: #fce412;
     --welcome-text-color: #1a1a1a;
     --welcome-transition-base: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     --welcome-transition-slow: 1s cubic-bezier(0.8, 0, 0.2, 1);
@@ -19,7 +19,7 @@
     color: var(--welcome-text-color);
     font-family: 'Space Grotesk', sans-serif;
     overflow: hidden;
-    cursor: none; 
+    cursor: none;
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -28,7 +28,7 @@
 }
 
 /* =========================================
-   0. 创意背景系统 - 增强版
+   0. クリエイティブ背景システム - 強化版
    ========================================= */
 .welcome-creative-bg {
     position: fixed;
@@ -37,7 +37,7 @@
     width: 100%;
     height: 100%;
     z-index: -3;
-    background: 
+    background:
         radial-gradient(circle at 15% 30%, rgba(255, 0, 102, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 85% 70%, rgba(0, 102, 255, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 50% 50%, rgba(252, 228, 18, 0.05) 0%, transparent 70%),
@@ -49,15 +49,18 @@
 }
 
 @keyframes welcome-creativeGradient {
-    0%, 100% { 
+
+    0%,
+    100% {
         background-position: 0% 50%, 100% 50%, 0% 50%;
     }
-    50% { 
+
+    50% {
         background-position: 100% 50%, 0% 50%, 100% 50%;
     }
 }
 
-/* 3D网格背景 - 优化版 */
+/* 3Dグリッド背景 - 最適化版 */
 .welcome-3d-grid {
     position: fixed;
     top: 0;
@@ -74,9 +77,9 @@
     position: absolute;
     width: 200%;
     height: 200%;
-    background-image: 
-        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 80px 80px;
     transform: rotateX(65deg) translateZ(-250px);
     animation: welcome-grid3D 35s linear infinite;
@@ -84,11 +87,16 @@
 }
 
 @keyframes welcome-grid3D {
-    0% { transform: rotateX(60deg) translateZ(-200px) translateY(0); }
-    100% { transform: rotateX(60deg) translateZ(-200px) translateY(60px); }
+    0% {
+        transform: rotateX(60deg) translateZ(-200px) translateY(0);
+    }
+
+    100% {
+        transform: rotateX(60deg) translateZ(-200px) translateY(60px);
+    }
 }
 
-/* 高级粒子系统 - 优化版 */
+/* 高度なパーティクルシステム - 最適化版 */
 .welcome-particles-creative {
     position: fixed;
     top: 0;
@@ -120,16 +128,21 @@
 }
 
 @keyframes welcome-particleFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1) rotate(0deg);
         opacity: 0;
     }
+
     15% {
         opacity: 0.6;
     }
+
     85% {
         opacity: 0.6;
     }
+
     100% {
         transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px)) scale(1.2) rotate(180deg);
         opacity: 0;
@@ -137,11 +150,20 @@
 }
 
 @keyframes welcome-particlePulse {
-    0%, 100% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.2); opacity: 0.3; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
 }
 
-/* 鼠标轨迹粒子 */
+/* マウス軌跡パーティクル */
 .welcome-trail-particle {
     position: fixed;
     width: 6px;
@@ -159,6 +181,7 @@
         transform: scale(1);
         opacity: 0.6;
     }
+
     100% {
         transform: scale(0);
         opacity: 0;
@@ -166,7 +189,7 @@
 }
 
 /* =========================================
-   1. 创意加载动画
+   1. クリエイティブローディングアニメーション
    ========================================= */
 .welcome-loader-wrapper {
     position: fixed;
@@ -188,7 +211,7 @@
     z-index: 2;
     transition: transform 1.2s cubic-bezier(0.8, 0, 0.2, 1);
     will-change: transform;
-    box-shadow: 
+    box-shadow:
         inset 0 0 150px rgba(252, 228, 18, 0.2),
         0 0 100px rgba(0, 0, 0, 0.5);
     transform-style: preserve-3d;
@@ -223,15 +246,13 @@
 .welcome-v-bar {
     width: 100%;
     height: 0%;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        var(--welcome-bg-color) 20%,
-        #fff9b3 50%,
-        var(--welcome-bg-color) 80%,
-        transparent
-    );
-    box-shadow: 
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--welcome-bg-color) 20%,
+            #fff9b3 50%,
+            var(--welcome-bg-color) 80%,
+            transparent);
+    box-shadow:
         0 0 40px var(--welcome-glow-color),
         0 0 80px var(--welcome-glow-color),
         inset 0 0 20px rgba(255, 255, 255, 0.3);
@@ -249,12 +270,10 @@
     left: 0;
     right: 0;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.4),
-        transparent 50%,
-        rgba(0, 0, 0, 0.2)
-    );
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.4),
+            transparent 50%,
+            rgba(0, 0, 0, 0.2));
     animation: welcome-barShine 2s infinite;
 }
 
@@ -265,23 +284,33 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.5),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent);
     animation: welcome-shimmer 1.5s infinite;
 }
 
 @keyframes welcome-barShine {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 @keyframes welcome-shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 .welcome-loader-counter {
@@ -295,7 +324,7 @@
     color: var(--welcome-bg-color);
     z-index: 3;
     transition: opacity 0.3s;
-    text-shadow: 
+    text-shadow:
         0 0 30px var(--welcome-glow-color),
         0 0 60px var(--welcome-glow-color),
         0 0 90px var(--welcome-glow-color);
@@ -304,89 +333,104 @@
 }
 
 @keyframes welcome-counterPulse {
-    0%, 100% { transform: translateY(-50%) scale(1); }
-    50% { transform: translateY(-50%) scale(1.1); }
+
+    0%,
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.1);
+    }
 }
 
-.welcome-split-open .welcome-panel-left { 
+.welcome-split-open .welcome-panel-left {
     transform: translateX(-100%) rotateY(-15deg);
 }
 
-.welcome-split-open .welcome-panel-right { 
+.welcome-split-open .welcome-panel-right {
     transform: translateX(100%) rotateY(15deg);
 }
 
-.welcome-fade-out { 
+.welcome-fade-out {
     opacity: 0;
     transition: opacity 0.6s ease-out;
 }
 
 /* =========================================
-   2. 创意跑马灯
+   2. クリエイティブマーキー
    ========================================= */
 .welcome-marquee-container {
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
-    transform: translateY(-50%) rotate(-5deg) perspective(1000px) rotateX(10deg); 
-    z-index: 0; 
-    opacity: 0.1; 
-    pointer-events: none; 
-    white-space: nowrap; 
+    transform: translateY(-50%) rotate(-5deg) perspective(1000px) rotateX(10deg);
+    z-index: 0;
+    opacity: 0.1;
+    pointer-events: none;
+    white-space: nowrap;
     overflow: hidden;
     display: block;
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-    );
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 15%,
+            black 85%,
+            transparent);
 }
 
 .welcome-marquee-content {
     display: inline-block;
     font-family: 'Oswald', 'Noto Sans JP', sans-serif;
-    font-weight: 900; 
-    font-size: 16vh; 
+    font-weight: 900;
+    font-size: 16vh;
     text-transform: uppercase;
     animation: welcome-scrollText 25s linear infinite;
     will-change: transform;
-    background: linear-gradient(
-        90deg,
-        var(--welcome-text-color),
-        var(--welcome-accent),
-        var(--welcome-text-color),
-        var(--welcome-accent),
-        var(--welcome-text-color)
-    );
+    background: linear-gradient(90deg,
+            var(--welcome-text-color),
+            var(--welcome-accent),
+            var(--welcome-text-color),
+            var(--welcome-accent),
+            var(--welcome-text-color));
     background-size: 300% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: 
+    animation:
         welcome-scrollText 25s linear infinite,
         welcome-textGradient 8s ease infinite;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
 }
 
 @keyframes welcome-scrollText {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 @keyframes welcome-textGradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 /* =========================================
-   3. 创意主内容区
+   3. クリエイティブメインコンテンツエリア
    ========================================= */
 .welcome-hero {
     position: relative;
-    z-index: 10; 
+    z-index: 10;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -400,10 +444,10 @@
 }
 
 .welcome-brand-logo {
-    width: 300px; 
-    max-width: 60vw; 
-    mix-blend-mode: multiply; 
-    filter: blur(15px) brightness(0.8); 
+    width: 300px;
+    max-width: 60vw;
+    mix-blend-mode: multiply;
+    filter: blur(15px) brightness(0.8);
     transform: translateY(30px) scale(0.85) perspective(1000px) rotateX(20deg);
     transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
     will-change: filter, transform;
@@ -411,39 +455,44 @@
     transform-style: preserve-3d;
 }
 
-.welcome-logo-reveal { 
-    filter: blur(0px) brightness(1) !important; 
+.welcome-logo-reveal {
+    filter: blur(0px) brightness(1) !important;
     transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg) !important;
     animation: welcome-logo3D 4s ease-in-out infinite;
 }
 
 @keyframes welcome-logo3D {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg);
         filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
     }
+
     25% {
         transform: translateY(-5px) scale(1.02) perspective(1000px) rotateX(2deg) rotateY(-2deg);
         filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
     }
+
     50% {
         transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg);
         filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
     }
+
     75% {
         transform: translateY(-5px) scale(1.02) perspective(1000px) rotateX(-2deg) rotateY(2deg);
         filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
     }
 }
 
-/* 文字拆分效果 - 美化布局 */
+/* テキスト分割効果 - 装飾レイアウト */
 .welcome-hero-text {
-    margin-top: 2.5rem; 
-    text-transform: uppercase; 
+    margin-top: 2.5rem;
+    text-transform: uppercase;
     letter-spacing: 0.45em;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
     font-weight: 700;
-    opacity: 0; 
+    opacity: 0;
     transform: translateY(30px) perspective(1000px) rotateX(20deg);
     transition: opacity 1s ease 0.6s, transform 1s ease 0.6s;
     position: relative;
@@ -467,7 +516,7 @@
     display: inline-block;
     transform: translateZ(0);
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-                color 0.3s ease;
+        color 0.3s ease;
     position: relative;
     color: var(--welcome-text-color);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -499,7 +548,7 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 空格字符特殊处理 - 通过 JS 添加类 */
+/* スペース文字の特殊処理 - JS経由でクラスを追加 */
 .welcome-hero-text .char.space {
     width: 0.3em;
     min-width: 0.3em;
@@ -511,11 +560,13 @@
         opacity: 0;
         filter: blur(5px);
     }
+
     50% {
         transform: translateY(-8px) rotateX(0deg) scale(1.15) rotateY(0deg);
         opacity: 0.9;
         filter: blur(1px);
     }
+
     100% {
         transform: translateY(0) rotateX(0deg) scale(1) rotateY(0deg);
         opacity: 1;
@@ -523,25 +574,25 @@
     }
 }
 
-.welcome-hero-text.show { 
-    opacity: 1; 
+.welcome-hero-text.show {
+    opacity: 1;
     transform: translateY(0) perspective(1000px) rotateX(0deg);
 }
 
-/* 创意按钮 - 高级动效设计 */
+/* クリエイティブボタン - 高度なモーションデザイン */
 .welcome-enter-btn {
-    margin-top: 3rem; 
-    padding: 20px 52px; 
+    margin-top: 3rem;
+    padding: 20px 52px;
     border: 2.5px solid var(--welcome-text-color);
-    background: transparent; 
-    text-transform: uppercase; 
+    background: transparent;
+    text-transform: uppercase;
     font-weight: 700;
-    font-size: 0.95rem; 
-    cursor: none; 
-    position: relative; 
+    font-size: 0.95rem;
+    cursor: none;
+    position: relative;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
-    opacity: 0; 
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0;
     animation: welcome-fadeInUp 1s forwards 1.4s;
     text-decoration: none;
     color: var(--welcome-text-color);
@@ -552,27 +603,25 @@
     border-radius: 2px;
 }
 
-/* 背景填充效果 */
+/* 背景塗りつぶし効果 */
 .welcome-enter-btn::before {
-    content: ''; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        var(--welcome-text-color) 0%,
-        rgba(0, 0, 0, 0.95) 50%,
-        var(--welcome-text-color) 100%
-    );
+    background: linear-gradient(135deg,
+            var(--welcome-text-color) 0%,
+            rgba(0, 0, 0, 0.95) 50%,
+            var(--welcome-text-color) 100%);
     transform: translateX(-100%) translateY(-100%) rotate(45deg);
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 0;
     transform-origin: top left;
 }
 
-/* 边框光效和阴影 */
+/* ボーダー光効果と影 */
 .welcome-enter-btn::after {
     content: '';
     position: absolute;
@@ -580,14 +629,12 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    background: linear-gradient(
-        45deg,
-        var(--welcome-text-color),
-        rgba(252, 228, 18, 0.5),
-        var(--welcome-text-color),
-        rgba(252, 228, 18, 0.5),
-        var(--welcome-text-color)
-    );
+    background: linear-gradient(45deg,
+            var(--welcome-text-color),
+            rgba(252, 228, 18, 0.5),
+            var(--welcome-text-color),
+            rgba(252, 228, 18, 0.5),
+            var(--welcome-text-color));
     background-size: 300% 300%;
     z-index: -1;
     opacity: 0;
@@ -616,10 +663,10 @@
 }
 
 .welcome-enter-btn:hover,
-.welcome-enter-btn:focus { 
+.welcome-enter-btn:focus {
     border-color: var(--welcome-text-color);
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 
+    box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.25),
         0 0 0 2px rgba(252, 228, 18, 0.2),
         inset 0 0 30px rgba(252, 228, 18, 0.15),
@@ -629,13 +676,11 @@
 
 .welcome-enter-btn:hover .btn-text {
     transform: translateX(3px) scale(1.05);
-    background: linear-gradient(
-        90deg, 
-        var(--welcome-text-color) 0%,
-        rgba(0, 0, 0, 0.6) 30%,
-        rgba(0, 0, 0, 0.6) 70%,
-        var(--welcome-text-color) 100%
-    );
+    background: linear-gradient(90deg,
+            var(--welcome-text-color) 0%,
+            rgba(0, 0, 0, 0.6) 30%,
+            rgba(0, 0, 0, 0.6) 70%,
+            var(--welcome-text-color) 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -654,7 +699,7 @@
 
 .welcome-enter-btn:active {
     transform: translateY(-5px) scale(0.99);
-    box-shadow: 
+    box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.2),
         inset 0 0 25px rgba(252, 228, 18, 0.2);
 }
@@ -667,32 +712,37 @@
     0% {
         background-position: 0% 0%;
     }
+
     100% {
         background-position: 200% 200%;
     }
 }
 
 @keyframes welcome-textShimmer {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
 }
 
-@keyframes welcome-fadeInUp { 
+@keyframes welcome-fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px) perspective(1000px) rotateX(20deg);
     }
-    to { 
+
+    to {
         opacity: 1;
         transform: translateY(0) perspective(1000px) rotateX(0deg);
     }
 }
 
-/* 日期显示 */
+/* 日付表示 */
 .welcome-date {
     margin-top: 1.5rem;
     font-size: 0.75rem;
@@ -704,23 +754,23 @@
 }
 
 /* =========================================
-   4. 创意装饰元素
+   4. クリエイティブ装飾要素
    ========================================= */
-/* 光标点 - 高级设计 */
+/* カーソルポイント - 高度なデザイン */
 .welcome-cursor-dot {
-    width: 6px; 
-    height: 6px; 
+    width: 6px;
+    height: 6px;
     background: radial-gradient(circle, var(--welcome-text-color) 0%, rgba(0, 0, 0, 0.8) 100%);
     border-radius: 50%;
-    position: fixed; 
-    pointer-events: none; 
-    z-index: 100; 
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
     transform: translate(-50%, -50%);
     will-change: left, top, transform, width, height;
-    transition: transform 0.08s cubic-bezier(0.23, 1, 0.32, 1), 
-                width 0.2s cubic-bezier(0.23, 1, 0.32, 1),
-                height 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 
+    transition: transform 0.08s cubic-bezier(0.23, 1, 0.32, 1),
+        width 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+        height 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow:
         0 0 8px rgba(0, 0, 0, 0.4),
         0 0 16px var(--welcome-glow-color),
         inset 0 0 4px rgba(252, 228, 18, 0.3);
@@ -740,23 +790,23 @@
     animation: welcome-dotPulse 2s ease-in-out infinite;
 }
 
-/* 光标外圈 - 流畅跟随增强 */
+/* カーソル外輪 - スムーズな追従強化 */
 .welcome-cursor-outline {
-    width: 36px; 
-    height: 36px; 
-    border: 1.5px solid var(--welcome-text-color); 
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid var(--welcome-text-color);
     border-radius: 50%;
-    position: fixed; 
-    pointer-events: none; 
-    z-index: 99; 
-    transform: translate(-50%, -50%); 
+    position: fixed;
+    pointer-events: none;
+    z-index: 99;
+    transform: translate(-50%, -50%);
     transition: all 0.12s cubic-bezier(0.23, 1, 0.32, 1);
     will-change: left, top, transform, width, height, border-width, opacity;
     opacity: 0.5;
     background: radial-gradient(circle, rgba(252, 228, 18, 0.05), transparent 70%);
 }
 
-/* 光标外圈光效 - 多层 */
+/* カーソル外輪光効果 - 多層 */
 .welcome-cursor-outline::before {
     content: '';
     position: absolute;
@@ -771,7 +821,7 @@
     filter: blur(0.5px);
 }
 
-/* 光标外圈内部点 - 增强 */
+/* カーソル外輪内部ポイント - 強化 */
 .welcome-cursor-outline::after {
     content: '';
     position: absolute;
@@ -811,10 +861,13 @@
 }
 
 @keyframes welcome-dotPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.15;
     }
+
     50% {
         transform: translate(-50%, -50%) scale(1.5);
         opacity: 0.05;
@@ -822,10 +875,13 @@
 }
 
 @keyframes welcome-innerDotPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.9;
     }
+
     50% {
         transform: translate(-50%, -50%) scale(1.3);
         opacity: 0.6;
@@ -833,10 +889,13 @@
 }
 
 @keyframes welcome-cursorPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.4;
     }
+
     50% {
         transform: translate(-50%, -50%) scale(1.3);
         opacity: 0.1;
@@ -844,10 +903,13 @@
 }
 
 @keyframes welcome-cursorPulseHover {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.6;
     }
+
     50% {
         transform: translate(-50%, -50%) scale(1.5);
         opacity: 0.2;
@@ -855,16 +917,16 @@
 }
 
 .welcome-grid-bg {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
-    background-size: 60px 60px; 
-    z-index: -1; 
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
     pointer-events: none;
     animation: welcome-gridMove 30s linear infinite;
     opacity: 0.4;
@@ -872,8 +934,13 @@
 }
 
 @keyframes welcome-gridMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
 }
 
 .welcome-magnetic-wrap {
@@ -888,13 +955,11 @@
     width: 800px;
     height: 800px;
     border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(252, 228, 18, 0.25),
-        rgba(255, 0, 102, 0.08),
-        rgba(0, 102, 255, 0.05),
-        transparent 65%
-    );
+    background: radial-gradient(circle,
+            rgba(252, 228, 18, 0.25),
+            rgba(255, 0, 102, 0.08),
+            rgba(0, 102, 255, 0.05),
+            transparent 65%);
     pointer-events: none;
     z-index: 1;
     animation: welcome-glowPulse 6s ease-in-out infinite;
@@ -907,20 +972,21 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(252, 228, 18, 0.15),
-        transparent 60%
-    );
+    background: radial-gradient(circle,
+            rgba(252, 228, 18, 0.15),
+            transparent 60%);
     animation: welcome-glowPulse 4s ease-in-out infinite reverse;
     filter: blur(30px);
 }
 
 @keyframes welcome-glowPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1) rotate(0deg);
         opacity: 0.4;
     }
+
     50% {
         transform: scale(1.3) rotate(180deg);
         opacity: 0.6;
@@ -932,23 +998,23 @@
     .welcome-brand-logo {
         width: 200px;
     }
-    
+
     .welcome-hero-text {
         font-size: 0.7rem;
         margin-top: 1.5rem;
     }
-    
+
     .welcome-enter-btn {
         font-size: 0.85rem;
         padding: 14px 32px;
         margin-top: 2rem;
     }
-    
+
     .welcome-loader-counter {
         font-size: 2rem;
         left: calc(50% + 25px);
     }
-    
+
     .welcome-creative-bg,
     .welcome-3d-grid {
         display: none;
@@ -957,16 +1023,16 @@
 
 /* 减少动画偏好 */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
         animation: none !important;
         transition: none !important;
     }
-    
+
     .welcome-cursor-dot,
     .welcome-cursor-outline {
         display: none;
     }
 }
-
