@@ -1,0 +1,76 @@
+{
+  "name": "Vib（ヴィブ）| すれ違いSNS",
+  "short_name": "Vib",
+  "description": "Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発された、近接検知と位置同期を活用したソーシャル体験のプロトタイプです。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0D0F1A",
+  "theme_color": "#0D0F1A",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "lang": "ja",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "./assets/icons/favicon-64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["social", "lifestyle", "utilities"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "プロジェクト概要",
+      "short_name": "概要",
+      "description": "プロジェクトの目的とコンセプトを確認",
+      "url": "/#worldview",
+      "icons": [
+        {
+          "src": "./assets/icons/logo.png",
+          "sizes": "36x36"
+        }
+      ]
+    },
+    {
+      "name": "機能紹介",
+      "short_name": "機能",
+      "description": "アプリの主要機能を確認",
+      "url": "/#feature-1",
+      "icons": [
+        {
+          "src": "./assets/icons/logo.png",
+          "sizes": "36x36"
+        }
+      ]
+    },
+    {
+      "name": "FAQ",
+      "short_name": "FAQ",
+      "description": "よくある質問を確認",
+      "url": "/#faq",
+      "icons": [
+        {
+          "src": "./assets/icons/logo.png",
+          "sizes": "36x36"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+
