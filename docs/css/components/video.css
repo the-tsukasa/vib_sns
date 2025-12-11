@@ -1,0 +1,92 @@
+/* =========================================================
+   视频组件样式
+   ========================================================= */
+.video-demo-container {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.video-demo-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary, #ffffff);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(13, 15, 26, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.demo-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+  border-radius: 12px;
+}
+
+/* 响应式视频 - 16:9 宽高比 */
+.video-wrapper::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 宽高比 */
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .video-demo-container {
+    margin-top: 3rem;
+  }
+
+  .video-demo-container h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .video-wrapper {
+    border-radius: 8px;
+    margin: 0 1rem;
+  }
+
+  .video-wrapper video {
+    border-radius: 8px;
+  }
+}
+
+/* 视频加载状态 */
+.video-wrapper.loading::after {
+  content: "読み込み中...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--yellow, #ffcc00);
+  font-size: 14px;
+  z-index: 1;
+}
+
+/* 视频控制栏样式优化 */
+.demo-video::-webkit-media-controls-panel {
+  background-color: rgba(13, 15, 26, 0.9);
+}
+
+.demo-video::-webkit-media-controls-play-button,
+.demo-video::-webkit-media-controls-volume-slider {
+  filter: brightness(0) invert(1);
+}
+
