@@ -59,13 +59,12 @@
     <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
       <a href="#top" class="nav-link">TOP</a>
       <a href="#worldview" class="nav-link">プロジェクト概要</a>
-      <a href="#how-it-works" class="nav-link">技術の仕組み</a>
-      <a href="#feature-1" class="nav-link">機能紹介</a>
+      <a href="#features" class="nav-link">機能紹介</a>
       <a href="#usecase" class="nav-link">ユースケース</a>
       <a href="#safety" class="nav-link">技術&安全性</a>
+      <a href="#download" class="nav-link">Webアプリ</a>
       <a href="#roadmap" class="nav-link">開発ロードマップ</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="#download" class="nav-link">Webアプリ</a>
     </nav>
     <div class="sidebar__footer">
       <a href="./welcome.html" class="nav-link--welcome">← Back to Welcome</a>
@@ -95,7 +94,7 @@
               <strong>近接検知</strong> / <strong>位置同期</strong> / <strong>匿名アカウント</strong>
             </p>
             <div class="hero__actions">
-              <a href="#feature-1" class="btn btn--primary">アプリ紹介を見る</a>
+              <a href="#features" class="btn btn--primary">アプリ紹介を見る</a>
               <a href="#worldview" class="btn btn--outline">世界観を知る</a>
             </div>
           </div>
@@ -126,53 +125,22 @@
           </p>
         </div>
         <div class="split__media">
-          <img src="./assets/images/vision-tech.jpg" alt="光の粒子が交差する世界観" class="section__image" loading="lazy" width="600" height="400">
+          <img src="./assets/images/hero/hero-worldview.png" alt="光の粒子が交差する世界観" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
     </section>
 
-    <!-- 03 How It Works -->
-    <section id="how-it-works" class="section observe">
-      <h2>Vibの仕組み</h2>
-      <p class="section__lead">シンプルな3ステップで、すれ違いを記録します。</p>
-      <div class="grid">
-        <div class="card">
-          <div>
-            <h3>1. BLE で近接端末を検出</h3>
-            <p>Android アプリが Bluetooth Low Energy (BLE) スキャンにより、近くの Vib ユーザー端末を検出します。低消費電力で動作し、バックグラウンドでも継続的に監視可能です。</p>
-          </div>
-        </div>
-        <div class="card">
-          <div>
-            <h3>2. GPS と近接アルゴリズムで「すれ違い」を判定</h3>
-            <p>GPS 位置情報と BLE の信号強度を組み合わせ、近接検知アルゴリズムで「すれ違い」を判定。匿名化されたデータを Firebase Firestore に保存します。</p>
-          </div>
-        </div>
-        <div class="card">
-          <div>
-            <h3>3. 通知・振動フィードバックで届く</h3>
-            <p>すれ違いが検出されると、アプリが通知や振動フィードバックを送信。ユーザーはアプリ内で、近くを通った人との記録を確認できます。</p>
-          </div>
-        </div>
-      </div>
-      <!-- 操作デモ動画 -->
-      <div class="video-demo-container">
-        <h3>動作イメージ</h3>
-        <div class="video-wrapper">
-          <video class="demo-video" controls preload="metadata" aria-label="Vib アプリ操作デモ動画">
-            <source src="./assets/video1.mp4" type="video/mp4">
-            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/video1.mp4">動画をダウンロード</a>してください。</p>
-          </video>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 機能1: スポット投稿の可視化マップ -->
-    <section id="feature-1" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>感情マップの可視化</h2>
-          <p class="section__lead">投稿された「今の瞬間」を、地図で可視化</p>
+    <!-- 04 Features: 主要機能 -->
+    <section id="features" class="section observe">
+      <h2>主要機能</h2>
+      <p class="section__lead">Vibの5つの核心機能で、新しいソーシャル体験を実現</p>
+      
+      <!-- 機能1: 感情マップの可視化 -->
+      <div class="feature-item" id="feature-1">
+        <div class="split">
+          <div class="split__text">
+            <h3>感情マップの可視化</h3>
+            <p class="section__lead">投稿された「今の瞬間」を、地図で可視化</p>
           <ul class="feature-list">
             <li>
               <strong>感情投稿の可視化</strong>
@@ -213,14 +181,14 @@
           <img src="./assets/images/demo/Group1_new.png" alt="感情マップが可視化された画面" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 05 機能2: 今の瞬間をシェア -->
-    <section id="feature-2" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>今の瞬間をシェア</h2>
-          <p class="section__lead">写真と一言で、今この瞬間を共有</p>
+      <!-- 機能2: 今の瞬間をシェア -->
+      <div class="feature-item" id="feature-2">
+        <div class="split">
+          <div class="split__text">
+            <h3>今の瞬間をシェア</h3>
+            <p class="section__lead">写真と一言で、今この瞬間を共有</p>
           <ul class="feature-list">
             <li>
               <strong>気軽な投稿</strong>
@@ -251,59 +219,66 @@
           <img src="./assets/images/demo/Group6_new.png" alt="今の瞬間をシェアする投稿画面" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 06 機能3: すれ違い履歴 -->
-    <section id="feature-3" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>すれ違い履歴</h2>
-          <p class="section__lead">すれ違った人を、3つの分類で振り返る</p>
+
+      <!-- 機能5: ソーシャルインタラクション -->
+      <div class="feature-item" id="feature-5">
+        <div class="split">
+          <div class="split__text">
+            <h3>ソーシャルインタラクション</h3>
+            <p class="section__lead">すれ違った人とのつながりを、より深く</p>
           <ul class="feature-list">
             <li>
-              <strong>すれ違い一覧表示</strong>
+              <strong>いいね機能</strong>
               <p>
-                直近ですれ違ったユーザーを、
-                時系列のリスト形式で表示します。
-                距離やタイミングを直感的に確認できます。
+                すれ違ったユーザーに「いいね」を送信できます。
+                お互いにいいねを送ると「共鳴」として記録され、
+                すれ違い履歴で特別な分類として表示されます。
+                共鳴したユーザーは、より深いつながりを持つ可能性があります。
               </p>
             </li>
             <li>
-              <strong>3つの分類</strong>
+              <strong>フォロー機能</strong>
               <p>
-                <strong>すれ違い：</strong>今日初めて出会ったユーザー<br>
-                <strong>再会：</strong>以前にも出会ったことがあるユーザー<br>
-                <strong>共鳴：</strong>お互いにいいねを送ったユーザー
+                気になるユーザーをフォローすると、
+                その人の投稿がタイムラインに優先表示されます。
+                フォロー・フォロワー数の統計も確認でき、
+                自分のつながりの広がりを可視化できます。
               </p>
             </li>
             <li>
-              <strong>簡単なリアクション</strong>
+              <strong>通知システム</strong>
               <p>
-                「いいね」や「フォロー」など、
-                ワンタップで相手に反応できます。
+                新しいいいねやフォロー、共鳴の通知を
+                アプリ内で受け取れます。
+                未読通知はバッジで表示され、
+                リアルタイムでつながりの変化を把握できます。
               </p>
             </li>
             <li>
-              <strong>匿名でのやり取り</strong>
+              <strong>リアルタイム同期</strong>
               <p>
-                ユーザーは匿名のまま表示され、
-                個人情報を公開することなく利用できます。
+                すべてのインタラクション（いいね、フォロー、通知など）は
+                Firebase Firestore でリアルタイムに同期され、
+                複数デバイス間でも即座に反映されます。
               </p>
             </li>
           </ul>
         </div>
         <div class="split__media">
-          <img src="./assets/images/demo/Group3_new.png" alt="すれ違い履歴一覧画面" class="section__image" loading="lazy" width="600" height="400">
+          <img src="./assets/images/demo/Group3_new.png" alt="ソーシャルインタラクション画面（いいね・フォローボタン）" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
+    </div>
     </section>
 
-    <!-- 07 機能4: プロフィール -->
-    <section id="feature-4" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>プロフィール</h2>
-          <p class="section__lead">自分らしさを、匿名で表現</p>
+          <!-- 機能3: プロフィール -->
+      <div class="feature-item" id="feature-4">
+        <div class="split">
+          <div class="split__text">
+            <h3>プロフィール</h3>
+            <p class="section__lead">自分らしさを、匿名で表現</p>
           <ul class="feature-list">
             <li>
               <strong>匿名プロフィール</strong>
@@ -333,55 +308,7 @@
           <img src="./assets/images/demo/Group5_new.png" alt="プロフィール画面" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
-    </section>
-
-    <!-- 08 機能5: ソーシャルインタラクション（新規追加） -->
-    <section id="feature-5" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>ソーシャルインタラクション</h2>
-          <p class="section__lead">すれ違った人と、簡単に反応できる</p>
-          <ul class="feature-list">
-            <li>
-              <strong>いいね機能</strong>
-              <p>
-                すれ違ったユーザーに「いいね」を送信できます。
-                お互いにいいねを送ると「共鳴」として記録され、
-                特別な分類として表示されます。
-              </p>
-            </li>
-            <li>
-              <strong>フォロー機能</strong>
-              <p>
-                気になるユーザーをフォローすると、
-                その人の投稿がタイムラインに優先表示されます。
-                フォロー・フォロワー数の統計も確認できます。
-              </p>
-            </li>
-            <li>
-              <strong>通知システム</strong>
-              <p>
-                新しいいいねやフォローがあると、
-                アプリ内で通知を受け取れます。
-                未読通知はバッジで表示され、
-                いつでも確認できます。
-              </p>
-            </li>
-            <li>
-              <strong>リアルタイム同期</strong>
-              <p>
-                すべてのインタラクションは
-                Firebase Firestore でリアルタイムに同期され、
-                即座に反映されます。
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="split__media">
-          <img src="./assets/images/demo/Group3_new.png" alt="ソーシャルインタラクション画面（いいね・フォローボタン）" class="section__image" loading="lazy" width="600" height="400">
-        </div>
-      </div>
-    </section>
+    </div>
 
     <!-- 09 Use Case -->
     <section id="usecase" class="section observe">
@@ -391,7 +318,7 @@
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
-            <img src="./assets/images/vision/1.webp" alt="通勤シーン" class="section__image" loading="lazy" width="600" height="400">
+            <img src="./assets/images/UseCase/UseCase1.png" alt="通勤シーン" class="section__image" loading="lazy" width="600" height="400">
           </div>
           <div class="split__text">
             <h3>通勤・通学</h3>
@@ -403,7 +330,7 @@
       <div class="usecase-item">
         <div class="split split--reverse">
           <div class="split__media">
-            <img src="./assets/images/vision/2.webp" alt="カフェ・クリエイター" class="section__image" loading="lazy" width="600" height="400">
+            <img src="./assets/images/UseCase/UseCase2.png" alt="カフェ・クリエイター" class="section__image" loading="lazy" width="600" height="400">
           </div>
           <div class="split__text">
             <h3>カフェ・勉強スペース</h3>
@@ -415,7 +342,7 @@
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
-            <img src="./assets/images/vision/3.webp" alt="夜の帰宅" class="section__image" loading="lazy" width="600" height="400">
+            <img src="./assets/images/UseCase/UseCase3.png" alt="夜の帰宅" class="section__image" loading="lazy" width="600" height="400">
           </div>
           <div class="split__text">
             <h3>イベント・展示会</h3>
@@ -432,16 +359,61 @@
         Vib は、BLE・GPS・Firebase を組み合わせた "すれ違い検出アプリ" です。
         日常の中で自然に動作し、安心して使える体験を目指しました。
       </p>
+      
+      <!-- 動作の仕組み -->
+      <h3>Vibの仕組み</h3>
+      <p class="section__lead">シンプルな3ステップで、すれ違いを記録します。</p>
+      <div class="how-it-works-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>BLE で近接端末を検出</h4>
+            <p>Android アプリが Bluetooth Low Energy (BLE) スキャンにより、近くの Vib ユーザー端末を検出します。低消費電力で動作し、バックグラウンドでも継続的に監視可能です。</p>
+          </div>
+        </div>
+        <div class="step-connector">
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>GPS と近接アルゴリズムで「すれ違い」を判定</h4>
+            <p>GPS 位置情報と BLE の信号強度を組み合わせ、近接検知アルゴリズムで「すれ違い」を判定。匿名化されたデータを Firebase Firestore に保存します。</p>
+          </div>
+        </div>
+        <div class="step-connector">
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>通知・振動フィードバックで届く</h4>
+            <p>すれ違いが検出されると、アプリが通知や振動フィードバックを送信。ユーザーはアプリ内で、近くを通った人との記録を確認できます。</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 操作デモ動画 -->
+      <div class="video-demo-container">
+        <h3>動作イメージ</h3>
+        <p class="video-description">実際の動作を動画でご確認いただけます</p>
+        <div class="video-wrapper">
+          <video class="demo-video" controls preload="metadata" aria-label="Vib アプリ操作デモ動画">
+            <source src="./assets/video1.mp4" type="video/mp4">
+            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/video1.mp4">動画をダウンロード</a>してください。</p>
+          </video>
+        </div>
+      </div>
+      
       <div class="split">
         <div class="split__media">
-          <img src="./assets/images/Safety.jpg" alt="Vib Chip 図解" class="section__image" loading="lazy" width="600" height="400">
+          <img src="./assets/images/Safety.png" alt="Vib Chip 図解" class="section__image" loading="lazy" width="600" height="400">
         </div>
         <div class="split__text">
-          <h3>アプリコンセプト</h3>
-          <p>
-            Vib は、近くを通ったユーザー同士を自動で記録する "すれ違い SNS" です。
-            BLE の近接検出と GPS の位置情報を用いて、日常の中の小さなつながりを可視化します。
-          </p>
           <h3>プライバシー設計</h3>
           <ul>
             <li>
@@ -543,7 +515,21 @@
       </ul>
     </section>
 
-    <!-- 11 Roadmap -->
+    <!-- 11 Web App Access -->
+    <section id="download" class="section download observe">
+      <h2>Webアプリにアクセス</h2>
+      <p class="section__lead">Android アプリに加えて、Web バージョンでも体験いただけます</p>
+      <p>Vib は Android アプリとして提供されていますが、Web バージョンもご利用いただけます。スマートフォンやタブレットのブラウザから直接アクセスできます。QRコードをクリックするか、スキャンしてアクセスしてください。</p>
+      <div class="store-buttons">
+        <a href="https://vib-sns-prod.web.app/" target="_blank" rel="noopener noreferrer" aria-label="Webアプリアクセス用QRコード - 新しいタブで開く" class="qr-link">
+          <img src="./assets/images/qr/hRr8YW.png" alt="Webアプリアクセス用QRコード - クリックしてアクセス" loading="lazy" width="200" height="200" class="qr-image">
+          <span class="qr-hint">クリックしてアクセス</span>
+        </a>
+      </div>
+      <p class="coming-soon">※ HAL東京 展示会用プロトタイプ・技術デモ版です</p>
+    </section>
+
+    <!-- 12 Roadmap -->
     <section id="roadmap" class="section observe">
       <h2>開発ロードマップ</h2>
       <p class="section__lead">学生プロジェクトとしての開発計画</p>
@@ -576,7 +562,7 @@
       </div>
     </section>
 
-    <!-- 12 FAQ -->
+    <!-- 13 FAQ -->
     <section id="faq" class="section faq observe">
       <h2>よくある質問</h2>
       <p class="section__lead">学生プロジェクトに関する、よくある質問と回答。</p>
@@ -616,18 +602,6 @@
       </div>
     </section>
 
-    <!-- 13 Web App Access -->
-    <section id="download" class="section download observe">
-      <h2>Webアプリにアクセス</h2>
-      <p>Vib Webアプリは、スマートフォンやタブレットのブラウザから直接アクセスできます。QRコードをスキャンするか、リンクからアクセスしてください。</p>
-      <div class="store-buttons">
-        <a href="https://vib-sns-prod.web.app/" target="_blank" rel="noopener noreferrer" aria-label="Webアプリアクセス用QRコード - 新しいタブで開く">
-          <img src="./assets/images/qr/hRr8YW.png" alt="Webアプリアクセス用QRコード" loading="lazy" width="200" height="200">
-        </a>
-      </div>
-      <p class="coming-soon">※ HAL東京 展示会用プロトタイプ・技術デモ版です</p>
-    </section>
-
     <!-- ===== Footer ===== -->
     <footer class="footer">
       <div class="footer__brand">
@@ -638,8 +612,7 @@
           <h4>サービス</h4>
           <ul class="footer__links">
             <li><a href="#worldview">プロジェクト概要</a></li>
-            <li><a href="#how-it-works">技術の仕組み</a></li>
-            <li><a href="#feature-1">機能紹介</a></li>
+            <li><a href="#features">機能紹介</a></li>
             <li><a href="#usecase">ユースケース</a></li>
           </ul>
         </div>
