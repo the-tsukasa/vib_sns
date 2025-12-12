@@ -37,6 +37,48 @@
   display: inline-block;
 }
 
+.qr-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-white);
+  box-shadow: var(--shadow-md);
+}
+
+.qr-link:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.qr-link:hover .qr-image {
+  transform: scale(1.05);
+}
+
+.qr-image {
+  width: 200px;
+  height: 200px;
+  transition: transform var(--transition-base);
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.qr-hint {
+  font-size: 0.9rem;
+  color: var(--gray);
+  font-weight: 500;
+  transition: color var(--transition-base);
+}
+
+.qr-link:hover .qr-hint {
+  color: var(--yellow-dark);
+}
+
 .store-buttons img {
   height: 60px;
   transition: transform var(--transition-fast);

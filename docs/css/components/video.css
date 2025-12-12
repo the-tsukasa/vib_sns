@@ -9,7 +9,13 @@
 .video-demo-container h3 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  color: var(--text-primary, #ffffff);
+  color: var(--text-primary);
+}
+
+.video-description {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
 }
 
 .video-wrapper {
@@ -17,10 +23,17 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  background: rgba(13, 15, 26, 0.8);
-  border-radius: 12px;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-xl);
+  border: 2px solid rgba(255, 204, 0, 0.1);
+  transition: all var(--transition-base);
+}
+
+.video-wrapper:hover {
+  border-color: rgba(255, 204, 0, 0.3);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
 }
 
 .demo-video {
