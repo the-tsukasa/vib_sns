@@ -184,7 +184,7 @@
 
       <!-- 操作デモ動画 -->
       <div class="video-demo-container">
-        <h3>操作デモ</h3>
+        <h3>動作イメージ</h3>
         <div class="video-wrapper">
           <video 
             class="demo-video"
@@ -207,37 +207,54 @@
     <section id="feature-1" class="section observe">
       <div class="split">
         <div class="split__text">
-          <h2>近接検知機能</h2>
+          <h2>スポット投稿の可視化マップ</h2>
           <p class="section__lead">
-            BLE スキャンで近くのユーザーを自動検出
+            投稿された「今の瞬間」を、地図で可視化
           </p>
+
           <ul class="feature-list">
             <li>
-              <strong>バックグラウンド検出</strong>
+              <strong>投稿スポットの可視化</strong>
               <p>
-                Android の Bluetooth Low Energy (BLE) を使用し、アプリを閉じていても近くの Vib ユーザーを検出します。低消費電力設計で、電池への影響を最小限に抑えています。
+                ユーザーが投稿した「今の瞬間」は、
+                位置情報とともにマップ上に表示されます。
+                周囲で共有されている体験を直感的に確認できます。
               </p>
             </li>
+
             <li>
-              <strong>匿名性の保護</strong>
+              <strong>現在地を中心に表示</strong>
               <p>
-                検出時は個人を特定できる情報は送信されません。Firebase 匿名認証により、ユーザーID のみで識別されます。
+                自分の現在地を中心として、
+                近くに投稿されたスポットが
+                空間的に配置されます。
               </p>
             </li>
+
             <li>
-              <strong>技術実装</strong>
+              <strong>雰囲気が伝わるデザイン</strong>
               <p>
-                Android Kotlin で BLE スキャン API を実装。信号強度 (RSSI) と GPS 位置を組み合わせて、近接判定を行います。
+                アイコンや色分けによって、
+                投稿の雰囲気や傾向を
+                感覚的に把握できる設計です。
               </p>
             </li>
           </ul>
         </div>
+
         <div class="split__media">
-          <img src="./assets/images/demo/Group1_new.png" alt="近接検知機能 アプリ画面" class="section__image" loading="lazy"
-            width="600" height="400">
+          <img
+            src="./assets/images/demo/Group1_new.png"
+            alt="スポット投稿が可視化されたマップ画面"
+            class="section__image"
+            loading="lazy"
+            width="600"
+            height="400"
+          >
         </div>
       </div>
     </section>
+
 
     <!-- 05 機能2 -->
     <section id="feature-2" class="section observe">
