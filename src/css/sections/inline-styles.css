@@ -13,23 +13,8 @@
   background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
 }
 
-/* How It Works styles moved to #safety section */
-#safety .how-it-works-steps {
-  margin-top: 3rem;
-  margin-bottom: 4rem;
-}
-
-#safety .video-demo-container {
-  margin-top: 4rem;
-  margin-bottom: 3rem;
-}
-
-#safety h3 {
-  margin-top: 3rem;
-}
-
-#safety h3:first-of-type {
-  margin-top: 0;
+#how-it-works {
+  background: var(--bg-white);
 }
 
 /* ===== How It Works Styles ===== */
@@ -106,6 +91,7 @@
   text-align: center;
 }
 
+.step-content h3,
 .step-content h4 {
   font-size: 1.3rem;
   font-weight: 700;
@@ -311,7 +297,8 @@
     margin-bottom: 1.25rem;
   }
 
-  .step-content h3 {
+  .step-content h3,
+  .step-content h4 {
     font-size: 1.15rem;
   }
 
