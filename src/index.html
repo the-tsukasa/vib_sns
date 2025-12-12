@@ -133,7 +133,7 @@
         <div class="split__text">
           <h2>プロジェクトの目的</h2>
           <p class="section__lead">
-            HAL東京の学生プロジェクトとして、現実的な技術で新しいソーシャル体験を実現。
+            未来創造展のプロジェクトとして、現実的な技術で新しいソーシャル体験を実現。
           </p>
           <p>
             現代のSNSは、遠く離れた人とのつながりは簡単ですが、近くを通った人との小さな出会いを記録することは難しい。
@@ -243,109 +243,153 @@
     <section id="feature-2" class="section observe">
       <div class="split">
         <div class="split__text">
-          <h2>位置同期機能</h2>
+          <h2>今の瞬間をシェア</h2>
           <p class="section__lead">
-            GPS と Firebase で位置情報を安全に同期
+            写真と一言で、今この瞬間を共有
           </p>
+
           <ul class="feature-list">
             <li>
-              <strong>リアルタイム同期</strong>
+              <strong>気軽な投稿</strong>
               <p>
-                GPS で取得した位置情報を Firebase Firestore に保存し、すれ違い履歴をリアルタイムで同期します。データは最小化原則に基づき、必要最小限の情報のみを保存します。
+                今感じたことや目の前の風景を、
+                写真と短いテキストで手軽に投稿できます。
               </p>
             </li>
+
             <li>
-              <strong>プライバシー設定</strong>
+              <strong>ハッシュタグでつながる</strong>
               <p>
-                ユーザーは位置情報の共有範囲を設定可能。公開範囲を「非公開」「友達のみ」「全員」から選択できます。
+                「旅」「カフェ」などのハッシュタグを選択し、
+                共通の興味を持つユーザーとゆるやかにつながれます。
               </p>
             </li>
+
             <li>
-              <strong>技術実装</strong>
+              <strong>匿名で安心</strong>
               <p>
-                Android Location Services と Firebase Firestore を連携。位置情報は暗号化され、匿名化された形式で保存されます。
+                投稿は匿名で行われ、
+                実名や連絡先などの個人情報は必要ありません。
               </p>
             </li>
           </ul>
         </div>
+
         <div class="split__media">
-          <img src="./assets/images/demo/Group2_new.png" alt="位置同期機能 アプリ画面" class="section__image" loading="lazy"
-            width="600" height="400">
+          <img
+            src="./assets/images/demo/Group6_new.png"
+            alt="今の瞬間をシェアする投稿画面"
+            class="section__image"
+            loading="lazy"
+            width="600"
+            height="400"
+          >
         </div>
       </div>
     </section>
+
 
     <!-- 06 機能3 -->
     <section id="feature-3" class="section observe">
       <div class="split">
         <div class="split__text">
-          <h2>通知・振動フィードバック</h2>
+          <h2>すれ違い履歴</h2>
           <p class="section__lead">
-            すれ違いを検出したら、通知でお知らせ
+            すれ違った人を、一覧で振り返る
           </p>
+
           <ul class="feature-list">
             <li>
-              <strong>カスタマイズ可能な通知</strong>
+              <strong>すれ違い一覧表示</strong>
               <p>
-                すれ違いが検出されると、プッシュ通知や端末の振動でお知らせします。通知の種類や頻度は、ユーザーが設定画面で調整可能です。
+                直近ですれ違ったユーザーを、
+                時系列のリスト形式で表示します。
+                距離やタイミングを直感的に確認できます。
               </p>
             </li>
+
             <li>
-              <strong>バッテリー最適化</strong>
+              <strong>簡単なリアクション</strong>
               <p>
-                通知は必要最小限に制御され、バックグラウンド処理も Android の省電力機能を活用して、電池消費を抑えています。
+                「いいね」や「フォロー」など、
+                ワンタップで相手に反応できます。
               </p>
             </li>
+
             <li>
-              <strong>技術実装</strong>
+              <strong>匿名でのやり取り</strong>
               <p>
-                Firebase Cloud Messaging (FCM) と Android Notification API を使用。振動は Android Vibration API で実装しています。
+                ユーザーは匿名のまま表示され、
+                個人情報を公開することなく利用できます。
               </p>
             </li>
           </ul>
         </div>
+
         <div class="split__media">
-          <img src="./assets/images/demo/Group3_new.png" alt="通知機能 アプリ画面" class="section__image" loading="lazy" width="600"
-            height="400">
+          <img
+            src="./assets/images/demo/Group3_new.png"
+            alt="すれ違い履歴一覧画面"
+            class="section__image"
+            loading="lazy"
+            width="600"
+            height="400"
+          >
         </div>
       </div>
     </section>
 
-    <!-- 07 機能4 -->
-    <section id="feature-4" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>すれ違い履歴・プロフィール</h2>
-          <p class="section__lead">
-            アプリ内で、すれ違いの記録を確認・管理
-          </p>
-          <ul class="feature-list">
-            <li>
-              <strong>履歴の可視化</strong>
-              <p>
-                アプリ内で、過去のすれ違い履歴を時系列で確認できます。日付・時刻・場所（大まかな位置）を表示し、必要に応じて削除も可能です。
-              </p>
-            </li>
-            <li>
-              <strong>匿名プロフィール</strong>
-              <p>
-                ユーザーは匿名アカウントで利用可能。必要に応じて、ニックネームや簡単な自己紹介を設定できます。個人情報は一切不要です。
-              </p>
-            </li>
-            <li>
-              <strong>技術実装</strong>
-              <p>
-                Firebase Firestore で履歴データを管理。Android RecyclerView でリスト表示を実装し、データの取得・削除を効率的に処理します。
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="split__media">
-          <img src="./assets/images/demo/Group4_new.png" alt="履歴機能 アプリ画面" class="section__image" loading="lazy" width="600"
-            height="400">
-        </div>
+
+      <!-- 07 機能4 -->
+  <section id="feature-4" class="section observe">
+    <div class="split">
+      <div class="split__text">
+        <h2>プロフィール</h2>
+        <p class="section__lead">
+          自分らしさを、匿名で表現
+        </p>
+
+        <ul class="feature-list">
+          <li>
+            <strong>匿名プロフィール</strong>
+            <p>
+              実名や連絡先の登録は不要。
+              ニックネームと一言コメントのみで、
+              気軽に利用できます。
+            </p>
+          </li>
+
+          <li>
+            <strong>興味・テーマの設定</strong>
+            <p>
+              ハッシュタグやアイコンを通じて、
+              自分の興味や雰囲気を表現できます。
+            </p>
+          </li>
+
+          <li>
+            <strong>安心設計</strong>
+            <p>
+              個人を特定できる情報は表示されず、
+              プライバシーに配慮した設計です。
+            </p>
+          </li>
+        </ul>
       </div>
-    </section>
+
+      <div class="split__media">
+        <img
+          src="./assets/images/demo/Group5_new.png"
+          alt="プロフィール画面"
+          class="section__image"
+          loading="lazy"
+          width="600"
+          height="400"
+        >
+      </div>
+    </div>
+  </section>
+
 
 
     <!-- 08 Use Case -->
