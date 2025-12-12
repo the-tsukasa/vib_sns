@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/favicon-64.png">
   <title>Vib（ヴィブ）| すれ違いSNS - HAL東京 Team 222 - 作品展示</title>
-
   <!-- 基本スタイル -->
   <meta name="theme-color" content="#0D0F1A" />
-  <meta name="description"
-    content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発された、近接検知と位置同期を活用したソーシャル体験のプロトタイプです。" />
+  <meta name="description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発された、近接検知と位置同期を活用したソーシャル体験のプロトタイプです。" />
   <meta name="keywords" content="Vib, すれ違いSNS, BLE, GPS, Firebase, Android, HAL東京, 学生作品, プロトタイプ" />
   <meta name="author" content="Vib Team" />
   <meta name="robots" content="index, follow" />
-
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vib（ヴィブ）｜すれ違いSNS - HAL東京 学生作品展示" />
-  <meta property="og:description"
-    content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発されたプロトタイプです。" />
+  <meta property="og:description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発されたプロトタイプです。" />
   <meta property="og:image" content="./assets/images/hero-main.jpg" />
   <meta property="og:url" content="https://vib-sns.com" />
   <meta property="og:site_name" content="Vib" />
   <meta property="og:locale" content="ja_JP" />
-
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vib（ヴィブ）｜すれ違いSNS - HAL東京 学生作品" />
   <meta name="twitter:description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリのプロトタイプ。HAL東京の学生プロジェクトです。" />
   <meta name="twitter:image" content="./assets/images/hero-main.jpg" />
-
   <!-- Favicon -->
   <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
-
   <!-- PWA Manifest -->
   <link rel="manifest" href="./manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,20 +34,16 @@
   <meta name="apple-mobile-web-app-title" content="Vib">
   <link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/favicon.png">
   <link rel="apple-touch-icon" sizes="512x512" href="./assets/icons/favicon.png">
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"
-    media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </noscript>
-
   <!-- CSS -->
   <link rel="stylesheet" href="./css/main.css" />
 </head>
-
 <body>
   <!-- Skip to main content (A11y) -->
   <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
@@ -68,19 +56,17 @@
       </a>
       <p class="brand__name">Vib</p>
     </div>
-
     <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
       <a href="#top" class="nav-link">TOP</a>
       <a href="#worldview" class="nav-link">プロジェクト概要</a>
       <a href="#how-it-works" class="nav-link">技術の仕組み</a>
-      <a href="#feature-1" class="nav-link">機能紹介</a>
+      <a href="#features" class="nav-link">機能紹介</a>
       <a href="#usecase" class="nav-link">ユースケース</a>
       <a href="#safety" class="nav-link">技術&安全性</a>
+      <a href="#download" class="nav-link">Webアプリ</a>
       <a href="#roadmap" class="nav-link">開発ロードマップ</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="#download" class="nav-link">Webアプリ</a>
     </nav>
-
     <div class="sidebar__footer">
       <a href="./welcome.html" class="nav-link--welcome">← Back to Welcome</a>
     </div>
@@ -97,28 +83,24 @@
 
   <!-- ===== メインコンテンツ ===== -->
   <main class="content" id="main-content">
-
     <!-- 01 Hero -->
     <section id="top" class="section hero observe">
       <div class="hero-mod hero-mod--1">
         <div class="hero__inner">
           <div class="hero__copy">
             <span class="pill">HAL Tokyo / Team 222</span>
-            <h1>
-              人と人がつながる未来を可能にするSNS
-            </h1>
+            <h1>人と人がつながる未来を可能にするSNS</h1>
             <p class="lead">
               BLE × GPS × Firebase で実現する、新しいソーシャル体験へ。<br>
               <strong>近接検知</strong> / <strong>位置同期</strong> / <strong>匿名アカウント</strong>
             </p>
             <div class="hero__actions">
-              <a href="#feature-1" class="btn btn--primary">アプリ紹介を見る</a>
+              <a href="#features" class="btn btn--primary">アプリ紹介を見る</a>
               <a href="#worldview" class="btn btn--outline">世界観を知る</a>
             </div>
           </div>
           <div class="hero__art">
-            <img src="./assets/images/hero/hero-main.jpg" alt="Vib アプリビジュアル" class="hero__image" loading="eager"
-              width="800" height="600">
+            <img src="./assets/images/hero/hero-main.jpg" alt="Vib アプリビジュアル" class="hero__image" loading="eager" width="800" height="600">
           </div>
         </div>
         <div class="hero__scroll"><span>SCROLL</span>
@@ -132,13 +114,8 @@
       <div class="split">
         <div class="split__text">
           <h2>プロジェクトの目的</h2>
-          <p class="section__lead">
-            HAL東京の学生プロジェクトとして、現実的な技術で新しいソーシャル体験を実現。
-          </p>
-          <p>
-            現代のSNSは、遠く離れた人とのつながりは簡単ですが、近くを通った人との小さな出会いを記録することは難しい。
-            日常の中の「すれ違い」を可視化し、新しいつながりの可能性を探ります。
-          </p>
+          <p class="section__lead">未来創造展のプロジェクトとして、現実的な技術で新しいソーシャル体験を実現。</p>
+          <p>現代のSNSは、遠く離れた人とのつながりは簡単ですが、近くを通った人との小さな出会いを記録することは難しい。日常の中の「すれ違い」を可視化し、新しいつながりの可能性を探ります。</p>
           <p>
             <strong>Vibのコンセプト：</strong><br>
             「近接検知と位置同期を活用した、匿名性を重視したすれ違いSNS」
@@ -149,8 +126,7 @@
           </p>
         </div>
         <div class="split__media">
-          <img src="./assets/images/vision-tech.jpg" alt="光の粒子が交差する世界観" class="section__image" loading="lazy"
-            width="600" height="400">
+          <img src="./assets/images/hero/hero-worldview.png" alt="光の粒子が交差する世界観" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
     </section>
@@ -158,209 +134,242 @@
     <!-- 03 How It Works -->
     <section id="how-it-works" class="section observe">
       <h2>Vibの仕組み</h2>
-      <p class="section__lead">
-        シンプルな3ステップで、すれ違いを記録します。
-      </p>
-      <div class="grid">
-        <div class="card">
-          <div>
-            <h3>1. BLE で近接端末を検出</h3>
+      <p class="section__lead">シンプルな3ステップで、すれ違いを記録します。</p>
+      <div class="how-it-works-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>BLE で近接端末を検出</h3>
             <p>Android アプリが Bluetooth Low Energy (BLE) スキャンにより、近くの Vib ユーザー端末を検出します。低消費電力で動作し、バックグラウンドでも継続的に監視可能です。</p>
           </div>
         </div>
-        <div class="card">
-          <div>
-            <h3>2. GPS と近接アルゴリズムで「すれ違い」を判定</h3>
+        <div class="step-connector">
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>GPS と近接アルゴリズムで「すれ違い」を判定</h3>
             <p>GPS 位置情報と BLE の信号強度を組み合わせ、近接検知アルゴリズムで「すれ違い」を判定。匿名化されたデータを Firebase Firestore に保存します。</p>
           </div>
         </div>
-        <div class="card">
-          <div>
-            <h3>3. 通知・振動フィードバックで届く</h3>
+        <div class="step-connector">
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>通知・振動フィードバックで届く</h3>
             <p>すれ違いが検出されると、アプリが通知や振動フィードバックを送信。ユーザーはアプリ内で、近くを通った人との記録を確認できます。</p>
           </div>
         </div>
       </div>
-
       <!-- 操作デモ動画 -->
       <div class="video-demo-container">
-        <h3>操作デモ</h3>
+        <h3>動作イメージ</h3>
+        <p class="video-description">実際の動作を動画でご確認いただけます</p>
         <div class="video-wrapper">
-          <video 
-            class="demo-video"
-            controls
-            preload="metadata"
-            aria-label="Vib アプリ操作デモ動画"
-          >
+          <video class="demo-video" controls preload="metadata" aria-label="Vib アプリ操作デモ動画">
             <source src="./assets/video1.mp4" type="video/mp4">
-            <p>お使いのブラウザは動画再生に対応していません。
-              <a href="./assets/video1.mp4">動画をダウンロード</a>してください。
-            </p>
+            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/video1.mp4">動画をダウンロード</a>してください。</p>
           </video>
         </div>
       </div>
     </section>
 
-
-
-    <!-- 04 機能1 -->
-    <section id="feature-1" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>近接検知機能</h2>
-          <p class="section__lead">
-            BLE スキャンで近くのユーザーを自動検出
-          </p>
+    <!-- 04 Features: 主要機能 -->
+    <section id="features" class="section observe">
+      <h2>主要機能</h2>
+      <p class="section__lead">Vibの5つの核心機能で、新しいソーシャル体験を実現</p>
+      
+      <!-- 機能1: 感情マップの可視化 -->
+      <div class="feature-item" id="feature-1">
+        <div class="split">
+          <div class="split__text">
+            <h3>感情マップの可視化</h3>
+            <p class="section__lead">投稿された「今の瞬間」を、地図で可視化</p>
           <ul class="feature-list">
             <li>
-              <strong>バックグラウンド検出</strong>
+              <strong>感情投稿の可視化</strong>
               <p>
-                Android の Bluetooth Low Energy (BLE) を使用し、アプリを閉じていても近くの Vib ユーザーを検出します。低消費電力設計で、電池への影響を最小限に抑えています。
+                ユーザーが投稿した「今の気持ち」（うれしい、かなしいなど）は、
+                位置情報とともにマップ上に表示されます。
+                周囲で共有されている感情を直感的に確認できます。
               </p>
             </li>
             <li>
-              <strong>匿名性の保護</strong>
+              <strong>クラスタリング表示</strong>
               <p>
-                検出時は個人を特定できる情報は送信されません。Firebase 匿名認証により、ユーザーID のみで識別されます。
+                同じ地域に複数の投稿がある場合、
+                自動的にクラスタリングされ、
+                投稿数に応じて異なるアイコンで表示されます。
               </p>
             </li>
             <li>
-              <strong>技術実装</strong>
+              <strong>現在地を中心に表示</strong>
               <p>
-                Android Kotlin で BLE スキャン API を実装。信号強度 (RSSI) と GPS 位置を組み合わせて、近接判定を行います。
+                自分の現在地を中心として、
+                近くに投稿されたスポットが
+                空間的に配置されます。
+              </p>
+            </li>
+            <li>
+              <strong>雰囲気が伝わるデザイン</strong>
+              <p>
+                感情の種類やクラスタの規模によって、
+                アイコンや色分けが変化し、
+                投稿の雰囲気や傾向を
+                感覚的に把握できる設計です。
               </p>
             </li>
           </ul>
         </div>
         <div class="split__media">
-          <img src="./assets/images/demo/Group1_new.png" alt="近接検知機能 アプリ画面" class="section__image" loading="lazy"
-            width="600" height="400">
+          <img src="./assets/images/demo/Group1_new.png" alt="感情マップが可視化された画面" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 05 機能2 -->
-    <section id="feature-2" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>位置同期機能</h2>
-          <p class="section__lead">
-            GPS と Firebase で位置情報を安全に同期
-          </p>
+      <!-- 機能2: 今の瞬間をシェア -->
+      <div class="feature-item" id="feature-2">
+        <div class="split">
+          <div class="split__text">
+            <h3>今の瞬間をシェア</h3>
+            <p class="section__lead">写真と一言で、今この瞬間を共有</p>
           <ul class="feature-list">
+            <li>
+              <strong>気軽な投稿</strong>
+              <p>
+                今感じたことや目の前の風景を、
+                写真と短いテキストで手軽に投稿できます。
+              </p>
+            </li>
+            <li>
+              <strong>ハッシュタグでつながる</strong>
+              <p>
+                「旅」「カフェ」などのハッシュタグを選択し、
+                共通の興味を持つユーザーとゆるやかにつながれます。
+                タイムラインでは、フォローしているユーザーや
+                共通のハッシュタグを持つ投稿が優先表示されます。
+              </p>
+            </li>
+            <li>
+              <strong>匿名で安心</strong>
+              <p>
+                投稿は匿名で行われ、
+                実名や連絡先などの個人情報は必要ありません。
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="split__media">
+          <img src="./assets/images/demo/Group6_new.png" alt="今の瞬間をシェアする投稿画面" class="section__image" loading="lazy" width="600" height="400">
+        </div>
+      </div>
+    </div>
+
+
+      <!-- 機能5: ソーシャルインタラクション -->
+      <div class="feature-item" id="feature-5">
+        <div class="split">
+          <div class="split__text">
+            <h3>ソーシャルインタラクション</h3>
+            <p class="section__lead">すれ違った人とのつながりを、より深く</p>
+          <ul class="feature-list">
+            <li>
+              <strong>いいね機能</strong>
+              <p>
+                すれ違ったユーザーに「いいね」を送信できます。
+                お互いにいいねを送ると「共鳴」として記録され、
+                すれ違い履歴で特別な分類として表示されます。
+                共鳴したユーザーは、より深いつながりを持つ可能性があります。
+              </p>
+            </li>
+            <li>
+              <strong>フォロー機能</strong>
+              <p>
+                気になるユーザーをフォローすると、
+                その人の投稿がタイムラインに優先表示されます。
+                フォロー・フォロワー数の統計も確認でき、
+                自分のつながりの広がりを可視化できます。
+              </p>
+            </li>
+            <li>
+              <strong>通知システム</strong>
+              <p>
+                新しいいいねやフォロー、共鳴の通知を
+                アプリ内で受け取れます。
+                未読通知はバッジで表示され、
+                リアルタイムでつながりの変化を把握できます。
+              </p>
+            </li>
             <li>
               <strong>リアルタイム同期</strong>
               <p>
-                GPS で取得した位置情報を Firebase Firestore に保存し、すれ違い履歴をリアルタイムで同期します。データは最小化原則に基づき、必要最小限の情報のみを保存します。
-              </p>
-            </li>
-            <li>
-              <strong>プライバシー設定</strong>
-              <p>
-                ユーザーは位置情報の共有範囲を設定可能。公開範囲を「非公開」「友達のみ」「全員」から選択できます。
-              </p>
-            </li>
-            <li>
-              <strong>技術実装</strong>
-              <p>
-                Android Location Services と Firebase Firestore を連携。位置情報は暗号化され、匿名化された形式で保存されます。
+                すべてのインタラクション（いいね、フォロー、通知など）は
+                Firebase Firestore でリアルタイムに同期され、
+                複数デバイス間でも即座に反映されます。
               </p>
             </li>
           </ul>
         </div>
         <div class="split__media">
-          <img src="./assets/images/demo/Group2_new.png" alt="位置同期機能 アプリ画面" class="section__image" loading="lazy"
-            width="600" height="400">
+          <img src="./assets/images/demo/Group3_new.png" alt="ソーシャルインタラクション画面（いいね・フォローボタン）" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
+    </div>
     </section>
 
-    <!-- 06 機能3 -->
-    <section id="feature-3" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>通知・振動フィードバック</h2>
-          <p class="section__lead">
-            すれ違いを検出したら、通知でお知らせ
-          </p>
+          <!-- 機能3: プロフィール -->
+      <div class="feature-item" id="feature-4">
+        <div class="split">
+          <div class="split__text">
+            <h3>プロフィール</h3>
+            <p class="section__lead">自分らしさを、匿名で表現</p>
           <ul class="feature-list">
-            <li>
-              <strong>カスタマイズ可能な通知</strong>
-              <p>
-                すれ違いが検出されると、プッシュ通知や端末の振動でお知らせします。通知の種類や頻度は、ユーザーが設定画面で調整可能です。
-              </p>
-            </li>
-            <li>
-              <strong>バッテリー最適化</strong>
-              <p>
-                通知は必要最小限に制御され、バックグラウンド処理も Android の省電力機能を活用して、電池消費を抑えています。
-              </p>
-            </li>
-            <li>
-              <strong>技術実装</strong>
-              <p>
-                Firebase Cloud Messaging (FCM) と Android Notification API を使用。振動は Android Vibration API で実装しています。
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="split__media">
-          <img src="./assets/images/demo/Group3_new.png" alt="通知機能 アプリ画面" class="section__image" loading="lazy" width="600"
-            height="400">
-        </div>
-      </div>
-    </section>
-
-    <!-- 07 機能4 -->
-    <section id="feature-4" class="section observe">
-      <div class="split">
-        <div class="split__text">
-          <h2>すれ違い履歴・プロフィール</h2>
-          <p class="section__lead">
-            アプリ内で、すれ違いの記録を確認・管理
-          </p>
-          <ul class="feature-list">
-            <li>
-              <strong>履歴の可視化</strong>
-              <p>
-                アプリ内で、過去のすれ違い履歴を時系列で確認できます。日付・時刻・場所（大まかな位置）を表示し、必要に応じて削除も可能です。
-              </p>
-            </li>
             <li>
               <strong>匿名プロフィール</strong>
               <p>
-                ユーザーは匿名アカウントで利用可能。必要に応じて、ニックネームや簡単な自己紹介を設定できます。個人情報は一切不要です。
+                実名や連絡先の登録は不要。
+                ニックネームと一言コメントのみで、
+                気軽に利用できます。
               </p>
             </li>
             <li>
-              <strong>技術実装</strong>
+              <strong>興味・テーマの設定</strong>
               <p>
-                Firebase Firestore で履歴データを管理。Android RecyclerView でリスト表示を実装し、データの取得・削除を効率的に処理します。
+                ハッシュタグやアイコンを通じて、
+                自分の興味や雰囲気を表現できます。
+              </p>
+            </li>
+            <li>
+              <strong>安心設計</strong>
+              <p>
+                個人を特定できる情報は表示されず、
+                プライバシーに配慮した設計です。
               </p>
             </li>
           </ul>
         </div>
         <div class="split__media">
-          <img src="./assets/images/demo/Group4_new.png" alt="履歴機能 アプリ画面" class="section__image" loading="lazy" width="600"
-            height="400">
+          <img src="./assets/images/demo/Group5_new.png" alt="プロフィール画面" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
-    </section>
+    </div>
 
-
-    <!-- 08 Use Case -->
+    <!-- 09 Use Case -->
     <section id="usecase" class="section observe">
       <h2>ユースケース</h2>
-      <p class="section__lead">
-        機能を生活に落とし込む、3つの具体的なシーン。
-      </p>
-
+      <p class="section__lead">機能を生活に落とし込む、3つの具体的なシーン。</p>
       <!-- Use Case 1 -->
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
-            <img src="./assets/images/vision/1.webp" alt="通勤シーン" class="section__image" loading="lazy" width="600"
-              height="400">
+            <img src="./assets/images/UseCase/UseCase1.png" alt="通勤シーン" class="section__image" loading="lazy" width="600" height="400">
           </div>
           <div class="split__text">
             <h3>通勤・通学</h3>
@@ -368,13 +377,11 @@
           </div>
         </div>
       </div>
-
       <!-- Use Case 2 -->
       <div class="usecase-item">
         <div class="split split--reverse">
           <div class="split__media">
-            <img src="./assets/images/vision/2.webp" alt="カフェ・クリエイター" class="section__image" loading="lazy" width="600"
-              height="400">
+            <img src="./assets/images/UseCase/UseCase2.png" alt="カフェ・クリエイター" class="section__image" loading="lazy" width="600" height="400">
           </div>
           <div class="split__text">
             <h3>カフェ・勉強スペース</h3>
@@ -382,13 +389,11 @@
           </div>
         </div>
       </div>
-
       <!-- Use Case 3 -->
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
-            <img src="./assets/images/vision/3.webp" alt="夜の帰宅" class="section__image" loading="lazy" width="600"
-              height="400">
+            <img src="./assets/images/UseCase/UseCase3.png" alt="夜の帰宅" class="section__image" loading="lazy" width="600" height="400">
           </div>
           <div class="split__text">
             <h3>イベント・展示会</h3>
@@ -398,27 +403,18 @@
       </div>
     </section>
 
-    <!-- 08 Safety & Technology -->
+    <!-- 10 Safety & Technology -->
     <section id="safety" class="section observe">
       <h2>技術 & 安全性</h2>
       <p class="section__lead">
-        Vib は、BLE・GPS・Firebase を組み合わせた “すれ違い検出アプリ” です。
+        Vib は、BLE・GPS・Firebase を組み合わせた "すれ違い検出アプリ" です。
         日常の中で自然に動作し、安心して使える体験を目指しました。
       </p>
-
       <div class="split">
         <div class="split__media">
-          <img src="./assets/images/Safety.jpg" alt="Vib Chip 図解" class="section__image" loading="lazy" width="600"
-            height="400">
+          <img src="./assets/images/Safety.png" alt="Vib Chip 図解" class="section__image" loading="lazy" width="600" height="400">
         </div>
-
         <div class="split__text">
-          <h3>アプリコンセプト</h3>
-          <p>
-            Vib は、近くを通ったユーザー同士を自動で記録する “すれ違い SNS” です。
-            BLE の近接検出と GPS の位置情報を用いて、日常の中の小さなつながりを可視化します。
-          </p>
-
           <h3>プライバシー設計</h3>
           <ul>
             <li>
@@ -434,7 +430,6 @@
               <p>名前・メッセージ・公開範囲などをいつでも変更可能です。</p>
             </li>
           </ul>
-
           <h3>安全性</h3>
           <p>
             位置情報は権限取得時のみ取得し、バックグラウンド処理も最小限に制御。
@@ -442,14 +437,11 @@
           </p>
         </div>
       </div>
-
       <h3>技術構成</h3>
-
       <!-- 技術アイコン表示エリア -->
       <div class="tech-icons-carousel-wrapper">
         <div class="tech-icons-carousel" id="techIconsCarousel">
           <div class="tech-icons-track" id="techIconsTrack">
-
             <!-- アイコンセット1 -->
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div>
@@ -461,8 +453,7 @@
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/firebase.png" alt="Firebase"></div>
             </div>
             <div class="tech-icon-item">
-              <div class="tech-icon-box"><img src="./assets/images/tech-icons/Google_Maps_Logo.png" alt="Google Maps">
-              </div>
+              <div class="tech-icon-box"><img src="./assets/images/tech-icons/Google_Maps_Logo.png" alt="Google Maps"></div>
             </div>
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/gps.png" alt="GPS"></div>
@@ -470,7 +461,6 @@
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/map.png" alt="Map"></div>
             </div>
-
             <!-- アイコンセット2（ループ用） -->
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div>
@@ -482,8 +472,7 @@
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/firebase.png" alt="Firebase"></div>
             </div>
             <div class="tech-icon-item">
-              <div class="tech-icon-box"><img src="./assets/images/tech-icons/Google_Maps_Logo.png" alt="Google Maps">
-              </div>
+              <div class="tech-icon-box"><img src="./assets/images/tech-icons/Google_Maps_Logo.png" alt="Google Maps"></div>
             </div>
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/gps.png" alt="GPS"></div>
@@ -491,77 +480,80 @@
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/map.png" alt="Map"></div>
             </div>
-
           </div>
         </div>
       </div>
-
       <p>
         Vib の技術は、「正確」「低遅延」「低消費電力」を軸に設計されています。
         Firebase の高速同期、Bluetooth LE の近距離検出、GPS の空間認識、
-        Android ネイティブ制御が組み合わさり、すれ違い体験を滑らかに実現します。
+        Flutter によるクロスプラットフォーム開発が組み合わさり、すれ違い体験を滑らかに実現します。
       </p>
-
       <ul>
+        <li>
+          <strong>Flutter & Dart：</strong>
+          <p>クロスプラットフォーム開発フレームワークで、Android/iOS/Web に対応。Material 3 デザインシステムを採用。</p>
+        </li>
         <li>
           <strong>Firebase：</strong>
           <p>認証、プロフィール管理、すれ違い履歴をクラウドで一元管理。</p>
         </li>
-
         <li>
           <strong>Firestore：</strong>
           <p>位置・近接データをリアルタイムで同期し、常に最新状態を保持。</p>
         </li>
-
         <li>
           <strong>GPS：</strong>
           <p>大まかなユーザー位置を取得し、距離計算に利用。</p>
         </li>
-
         <li>
           <strong>Bluetooth LE：</strong>
-          <p>近接端末を低消費電力で検出し、“すれ違い” を記録。</p>
+          <p>近接端末を低消費電力で検出し、"すれ違い" を記録。</p>
         </li>
-
         <li>
           <strong>Android & Kotlin：</strong>
           <p>バックグラウンド測位、権限管理、UI 制御を担当。</p>
         </li>
       </ul>
-
     </section>
 
+    <!-- 11 Web App Access -->
+    <section id="download" class="section download observe">
+      <h2>Webアプリにアクセス</h2>
+      <p class="section__lead">Android アプリに加えて、Web バージョンでも体験いただけます</p>
+      <p>Vib は Android アプリとして提供されていますが、Web バージョンもご利用いただけます。スマートフォンやタブレットのブラウザから直接アクセスできます。QRコードをクリックするか、スキャンしてアクセスしてください。</p>
+      <div class="store-buttons">
+        <a href="https://vib-sns-prod.web.app/" target="_blank" rel="noopener noreferrer" aria-label="Webアプリアクセス用QRコード - 新しいタブで開く" class="qr-link">
+          <img src="./assets/images/qr/hRr8YW.png" alt="Webアプリアクセス用QRコード - クリックしてアクセス" loading="lazy" width="200" height="200" class="qr-image">
+          <span class="qr-hint">クリックしてアクセス</span>
+        </a>
+      </div>
+      <p class="coming-soon">※ HAL東京 展示会用プロトタイプ・技術デモ版です</p>
+    </section>
 
-    <!-- 09 Roadmap -->
+    <!-- 12 Roadmap -->
     <section id="roadmap" class="section observe">
       <h2>開発ロードマップ</h2>
-      <p class="section__lead">
-        学生プロジェクトとしての開発計画
-      </p>
+      <p class="section__lead">学生プロジェクトとしての開発計画</p>
       <div class="roadmap-container">
         <div class="roadmap-line"></div>
-
         <div class="roadmap-item">
           <div class="roadmap-dot"></div>
           <h3>Phase 1（完了）</h3>
           <p><strong>プロトタイプ開発</strong><br>
             Android アプリの基本機能（BLE 検出、GPS 位置取得、Firebase 連携）を実装。HAL東京の展示会用プロトタイプとして完成。</p>
         </div>
-
         <div class="roadmap-item">
           <div class="roadmap-dot"></div>
           <h3>Phase 2（進行中）</h3>
           <p><strong>機能改善・最適化</strong><br>
             バッテリー消費の最適化、通知機能の改善、UI/UX の向上を実施。ユーザーフィードバックを反映。</p>
         </div>
-
         <div class="roadmap-item">
           <div class="roadmap-dot"></div>
           <h3>Phase 3（予定）</h3>
           <p><strong>ベータ版リリース</strong><br>
             限定的なベータ版アプリをリリースし、実環境でのテストを実施。プライバシー・セキュリティの検証を強化。</p>
         </div>
-
         <div class="roadmap-item">
           <div class="roadmap-dot"></div>
           <h3>将来の展望</h3>
@@ -571,12 +563,10 @@
       </div>
     </section>
 
-    <!-- 10 FAQ -->
+    <!-- 13 FAQ -->
     <section id="faq" class="section faq observe">
       <h2>よくある質問</h2>
-      <p class="section__lead">
-        学生プロジェクトに関する、よくある質問と回答。
-      </p>
+      <p class="section__lead">学生プロジェクトに関する、よくある質問と回答。</p>
       <div class="faq-container">
         <details>
           <summary>アプリの権限について</summary>
@@ -584,13 +574,11 @@
         </details>
         <details>
           <summary>個人が特定されない理由は？</summary>
-          <p>Firebase 匿名認証を使用しているため、個人情報（メールアドレス、電話番号など）は一切不要です。ユーザーID
-            は匿名で生成され、個人を特定できる情報は保存されません。データ最小化原則に基づき、必要最小限の情報のみを Firestore に保存します。</p>
+          <p>Firebase 匿名認証を使用しているため、個人情報（メールアドレス、電話番号など）は一切不要です。ユーザーID は匿名で生成され、個人を特定できる情報は保存されません。データ最小化原則に基づき、必要最小限の情報のみを Firestore に保存します。</p>
         </details>
         <details>
           <summary>バッテリー消費は大丈夫？</summary>
-          <p>BLE スキャンと GPS 取得は、Android
-            の省電力機能を活用して最適化されています。バックグラウンド処理も最小限に制御し、電池への影響を抑えています。ただし、常時監視を行うため、通常のアプリよりやや消費が多くなる可能性があります。</p>
+          <p>BLE スキャンと GPS 取得は、Android の省電力機能を活用して最適化されています。バックグラウンド処理も最小限に制御し、電池への影響を抑えています。ただし、常時監視を行うため、通常のアプリよりやや消費が多くなる可能性があります。</p>
         </details>
         <details>
           <summary>通知をオフにできる？</summary>
@@ -608,20 +596,11 @@
           <summary>データの管理・削除について</summary>
           <p>アプリ内で、すれ違い履歴の削除が可能です。アカウントを削除すると、Firestore に保存されたデータも削除されます。プライバシーポリシーに基づき、ユーザーのデータ管理権を尊重しています。</p>
         </details>
+        <details>
+          <summary>「共鳴」とは何ですか？</summary>
+          <p>「共鳴」は、お互いに「いいね」を送ったユーザー同士の関係を表します。すれ違い履歴では、通常の「すれ違い」や「再会」とは別に、「共鳴」として特別に分類・表示されます。これにより、より深いつながりを持ったユーザーを簡単に見つけることができます。</p>
+        </details>
       </div>
-    </section>
-
-    <!-- 11 Web App Access -->
-    <section id="download" class="section download observe">
-      <h2>Webアプリにアクセス</h2>
-      <p>Vib Webアプリは、スマートフォンやタブレットのブラウザから直接アクセスできます。QRコードをスキャンするか、リンクからアクセスしてください。</p>
-      <div class="store-buttons">
-        <a href="https://vib-sns-prod.web.app/" target="_blank" rel="noopener noreferrer" aria-label="Webアプリアクセス用QRコード - 新しいタブで開く">
-          <img src="./assets/images/qr/hRr8YW.png" alt="Webアプリアクセス用QRコード" loading="lazy" width="200"
-            height="200">
-        </a>
-      </div>
-      <p class="coming-soon">※ HAL東京 展示会用プロトタイプ・技術デモ版です</p>
     </section>
 
     <!-- ===== Footer ===== -->
@@ -629,18 +608,16 @@
       <div class="footer__brand">
         <h3 class="footer__name">Vib</h3>
       </div>
-
       <div class="footer__content">
         <div class="footer__section">
           <h4>サービス</h4>
           <ul class="footer__links">
             <li><a href="#worldview">プロジェクト概要</a></li>
             <li><a href="#how-it-works">技術の仕組み</a></li>
-            <li><a href="#feature-1">機能紹介</a></li>
+            <li><a href="#features">機能紹介</a></li>
             <li><a href="#usecase">ユースケース</a></li>
           </ul>
         </div>
-
         <div class="footer__section">
           <h4>サポート</h4>
           <ul class="footer__links">
@@ -650,30 +627,24 @@
             <li><a href="mailto:ths40996@ths.hal.ac.jp">メール</a></li>
           </ul>
         </div>
-
         <div class="footer__section">
           <h4>フォローする</h4>
           <div class="footer__sns">
             <a href="https://github.com/vib-sns" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
-                <path
-                  d="M12 1.5c-5.8 0-10.5 4.7-10.5 10.5 0 4.6 3 8.5 7.1 9.9.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.6.4-1.1.7-1.3-2.3-.3-4.8-1.2-4.8-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.8-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.5 4.7-4.8 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C22.5 6.2 17.8 1.5 12 1.5Z">
-                </path>
+                <path d="M12 1.5c-5.8 0-10.5 4.7-10.5 10.5 0 4.6 3 8.5 7.1 9.9.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.6.4-1.1.7-1.3-2.3-.3-4.8-1.2-4.8-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.8-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.5 4.7-4.8 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C22.5 6.2 17.8 1.5 12 1.5Z"></path>
               </svg>
               <span class="sr-only">GitHub</span>
             </a>
             <a href="https://discord.gg/vib-sns" target="_blank" rel="noopener noreferrer" aria-label="Discord">
               <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
-                <path
-                  d="M20.3 4.4c-1.5-.7-3.1-1.2-4.8-1.5-.2.4-.4.9-.6 1.4-1.7-.3-3.4-.3-5.2 0-.2-.5-.4-.9-.6-1.4-1.7.3-3.3.8-4.8 1.5C1.6 8.2 1 11.8 1.3 15.3c2 1.5 3.9 2.4 5.8 3-.5-.7-.9-1.4-1.2-2.2.2.1.4.2.6.3 2.3 1.1 4.8 1.7 7.3 1.7s5-.6 7.3-1.7c.2-.1.4-.2.6-.3-.4.8-.9 1.5-1.3 2.2 1.9-.6 3.8-1.5 5.8-3 .3-3.5-.3-7.1-3.1-10.9ZM8.7 12.9c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Zm6.6 0c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Z">
-                </path>
+                <path d="M20.3 4.4c-1.5-.7-3.1-1.2-4.8-1.5-.2.4-.4.9-.6 1.4-1.7-.3-3.4-.3-5.2 0-.2-.5-.4-.9-.6-1.4-1.7.3-3.3.8-4.8 1.5C1.6 8.2 1 11.8 1.3 15.3c2 1.5 3.9 2.4 5.8 3-.5-.7-.9-1.4-1.2-2.2.2.1.4.2.6.3 2.3 1.1 4.8 1.7 7.3 1.7s5-.6 7.3-1.7c.2-.1.4-.2.6-.3-.4.8-.9 1.5-1.3 2.2 1.9-.6 3.8-1.5 5.8-3 .3-3.5-.3-7.1-3.1-10.9ZM8.7 12.9c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Zm6.6 0c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Z"></path>
               </svg>
               <span class="sr-only">Discord</span>
             </a>
           </div>
         </div>
       </div>
-
       <div class="footer__bottom">
         <div class="footer__legal">
           <small>© <span id="year"></span> Vib. All rights reserved.</small>
@@ -723,5 +694,4 @@
   <script src="./js/main.js"></script>
   <script src="./js/pwa.js"></script>
 </body>
-
 </html>

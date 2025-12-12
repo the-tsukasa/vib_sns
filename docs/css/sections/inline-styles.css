@@ -17,16 +17,129 @@
   background: var(--bg-white);
 }
 
-/* ===== Grid Styles ===== */
-#how-it-works .grid {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+/* ===== How It Works Styles ===== */
+.how-it-works-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
   margin-top: 4rem;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#how-it-works .card > div {
-  padding: 2rem;
+.step-card {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+  transform-origin: left;
+}
+
+.step-card:hover::before {
+  transform: scaleX(1);
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(255, 204, 0, 0.2);
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-2) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 16px rgba(255, 204, 0, 0.3);
+  transition: all var(--transition-base);
+}
+
+.step-card:hover .step-number {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 24px rgba(255, 204, 0, 0.4);
+}
+
+.step-content {
   text-align: center;
+}
+
+.step-content h3,
+.step-content h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.step-content p {
+  color: var(--gray);
+  line-height: var(--line-height-loose);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.step-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  margin-top: 30px;
+  flex-shrink: 0;
+  min-width: 60px;
+}
+
+.step-connector svg {
+  width: 60px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Video Container Styles */
+#how-it-works .video-demo-container {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+#how-it-works .video-demo-container h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+
+#how-it-works .video-description {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
 }
 
 /* ===== Use Case Item Styles ===== */
@@ -132,9 +245,29 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
-  #how-it-works .grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .how-it-works-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .step-card {
+    max-width: 100%;
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .step-connector {
+    transform: rotate(90deg);
+    margin: 0;
+    padding: 1rem 0;
+    min-width: auto;
+  }
+
+  .step-connector svg {
+    width: 20px;
+    height: 60px;
   }
 
   #roadmap .roadmap-container {
@@ -153,8 +286,32 @@
 }
 
 @media (max-width: 600px) {
-  #how-it-works .card > div {
-    padding: 1.5rem;
+  .step-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .step-content h3,
+  .step-content h4 {
+    font-size: 1.15rem;
+  }
+
+  .step-content p {
+    font-size: 0.9rem;
+  }
+
+  #how-it-works .video-demo-container {
+    margin-top: 3.5rem;
+  }
+
+  #how-it-works .video-demo-container h3 {
+    font-size: 1.5rem;
   }
 
   #roadmap .roadmap-container {
