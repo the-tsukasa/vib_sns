@@ -417,6 +417,13 @@ function initAutoScroll() {
   
   if (!isAutoplay) return;
   
+  // モバイル・タブレット（768px以下）では自動スクロールを無効化
+  const MIN_WIDTH_FOR_AUTOPLAY = 768;
+  if (window.innerWidth < MIN_WIDTH_FOR_AUTOPLAY) {
+    console.info('📱 モバイル端末のため、自動スクロールは無効です');
+    return;
+  }
+  
   // 設定
   const CONFIG = {
     SCROLL_SPEED: 1,          // スクロール速度（px/frame）
@@ -473,7 +480,10 @@ function initAutoScroll() {
   }
   
   // ユーザー操作で一時停止
-  function handleUserInteraction() {
+  function handleUserInteraction(e) {
+    // touchstart は無視（誤検知防止）- touchmove のみ反応
+    if (e && e.type === 'touchstart') return;
+    
     state.userPaused = true;
     enableSmoothScroll(); // ユーザー操作時は smooth scroll を有効化
     
@@ -486,8 +496,8 @@ function initAutoScroll() {
   
   // 初期化
   function init() {
-    // ユーザー操作のイベント
-    ['wheel', 'touchstart', 'touchmove', 'keydown'].forEach(event => {
+    // ユーザー操作のイベント（touchstart を除く - 誤検知防止）
+    ['wheel', 'touchmove', 'keydown'].forEach(event => {
       window.addEventListener(event, handleUserInteraction, { passive: true });
     });
     
@@ -544,13 +554,17 @@ function initAutoScroll() {
     
     // 少し遅延させてから開始（ページ読み込み完了を待つ）
     setTimeout(() => {
+      // デバッグ情報
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      console.info('🎬 展示会自動スクロールモード開始');
+      console.info(`   - ページ高さ: ${document.documentElement.scrollHeight}px`);
+      console.info(`   - ビューポート高さ: ${window.innerHeight}px`);
+      console.info(`   - 最大スクロール量: ${maxScroll}px`);
+      console.info('   - クリックで一時停止/再開');
+      console.info('   - マウスホイール/スワイプで10秒間一時停止');
+      
       // メインループ開始
       requestAnimationFrame(tick);
-      
-      // 開始メッセージ
-      console.info('🎬 展示会自動スクロールモード開始');
-      console.info('   - クリックで一時停止/再開');
-      console.info('   - マウスホイール/タッチで10秒間一時停止');
     }, 2000);
   }
   
