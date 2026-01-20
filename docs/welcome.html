@@ -155,6 +155,22 @@
 
     <script src="./js/welcome.js" defer></script>
     <script src="./js/pwa.js"></script>
+    <script>
+        // 展会自动播放模式脚本
+        window.addEventListener('load', () => {
+            // 等待入场动画播放完毕 (约6秒)
+            setTimeout(() => {
+                // 页面淡出效果
+                document.body.style.transition = 'opacity 1s ease';
+                document.body.style.opacity = '0';
+                
+                // 跳转到主页，并开启自动播放模式
+                setTimeout(() => {
+                    window.location.href = 'index.html?autoplay=true';
+                }, 1000);
+            }, 6000);
+        });
+    </script>
 </body>
 
 </html>
