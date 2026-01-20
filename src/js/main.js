@@ -419,143 +419,104 @@ function initAutoScroll() {
   
   // 設定
   const CONFIG = {
-    SCROLL_SPEED: 1.5,          // スクロール速度（px/frame）
+    SCROLL_SPEED: 1,          // スクロール速度（px/frame）
     PAUSE_DURATION: 3000,       // セクション間の停止時間（ミリ秒）
-    LOOP_DELAY: 5000,           // ループ前の待機時間（ミリ秒）
-    SECTION_THRESHOLD: 100,     // セクション検出の閾値（px）
-    SMOOTH_SCROLL: true,        // スムーススクロールを使用
   };
   
-  let isScrolling = true;
-  let isPaused = false;
-  let lastSectionIndex = -1;
-  let animationId = null;
+  // 状態管理（シンプル化）
+  let state = {
+    running: true,      // アニメーション実行中
+    userPaused: false,  // ユーザー操作による一時停止
+  };
   
-  // すべてのセクションを取得
-  const sections = document.querySelectorAll('section[id]');
-  const sectionPositions = [];
-  
-  // セクション位置を計算
-  function calculateSectionPositions() {
-    sectionPositions.length = 0;
-    sections.forEach((section, index) => {
-      sectionPositions.push({
-        index: index,
-        top: section.offsetTop,
-        height: section.offsetHeight,
-        id: section.id
-      });
-    });
+  // scroll-behavior の切り替え
+  function disableSmoothScroll() {
+    document.documentElement.style.scrollBehavior = 'auto';
   }
   
-  // 現在のセクションインデックスを取得
-  function getCurrentSectionIndex() {
-    const scrollY = window.scrollY + window.innerHeight / 2;
-    for (let i = sectionPositions.length - 1; i >= 0; i--) {
-      if (scrollY >= sectionPositions[i].top) {
-        return i;
-      }
-    }
-    return 0;
+  function enableSmoothScroll() {
+    document.documentElement.style.scrollBehavior = 'smooth';
   }
   
-  // セクションに到達したときに一時停止
-  function checkSectionPause() {
-    const currentIndex = getCurrentSectionIndex();
+  // メインループ - シンプル版（セクション停止なし、連続スクロール）
+  function tick() {
+    if (!state.running) return;
     
-    if (currentIndex !== lastSectionIndex && currentIndex >= 0) {
-      lastSectionIndex = currentIndex;
-      
-      // セクションの先頭付近で一時停止
-      const section = sectionPositions[currentIndex];
-      const scrollY = window.scrollY;
-      const sectionStart = section.top;
-      
-      if (Math.abs(scrollY - sectionStart) < CONFIG.SECTION_THRESHOLD) {
-        pauseScroll(CONFIG.PAUSE_DURATION);
-      }
-    }
-  }
-  
-  // 一時停止
-  function pauseScroll(duration) {
-    if (isPaused) return;
-    isPaused = true;
-    
-    setTimeout(() => {
-      isPaused = false;
-    }, duration);
-  }
-  
-  // スクロールアニメーション
-  function autoScroll() {
-    if (!isScrolling || isPaused) {
-      animationId = requestAnimationFrame(autoScroll);
+    // ユーザー操作による一時停止中は smooth scroll を有効化
+    if (state.userPaused) {
+      enableSmoothScroll();
+      requestAnimationFrame(tick);
       return;
     }
+    
+    // 自動スクロール中は smooth を無効化
+    disableSmoothScroll();
     
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const currentScroll = window.scrollY;
     
-    // ページ末尾に到達した場合、welcome ページに戻る
+    // ページ末尾チェック
     if (currentScroll >= maxScroll - 5) {
-      // ループ前に一時停止
-      isScrolling = false;
-      
-      // フェードアウト効果
+      state.running = false;
       document.body.style.transition = 'opacity 1s ease';
       document.body.style.opacity = '0';
-      
-      // welcome ページに戻る
       setTimeout(() => {
         window.location.href = 'welcome.html';
       }, 1000);
-      
       return;
     }
     
-    // スクロールを進める
-    window.scrollBy(0, CONFIG.SCROLL_SPEED);
+    // スクロール実行（即時、スムーズなし）
+    window.scrollTo(window.scrollX, currentScroll + CONFIG.SCROLL_SPEED);
     
-    // セクション到達チェック
-    checkSectionPause();
-    
-    animationId = requestAnimationFrame(autoScroll);
+    requestAnimationFrame(tick);
   }
   
-  // ユーザー操作で一時停止/再開
+  // ユーザー操作で一時停止
   function handleUserInteraction() {
-    // 一時的に自動スクロールを停止
-    isScrolling = false;
+    state.userPaused = true;
+    enableSmoothScroll(); // ユーザー操作時は smooth scroll を有効化
     
-    // 10秒後に自動再開
     clearTimeout(window.autoScrollResumeTimeout);
     window.autoScrollResumeTimeout = setTimeout(() => {
-      isScrolling = true;
+      state.userPaused = false;
+      console.log('User pause ended, resuming');
     }, 10000);
   }
   
   // 初期化
   function init() {
-    // セクション位置を計算
-    calculateSectionPositions();
-    
-    // リサイズ時に再計算
-    window.addEventListener('resize', calculateSectionPositions);
-    
     // ユーザー操作のイベント
     ['wheel', 'touchstart', 'touchmove', 'keydown'].forEach(event => {
       window.addEventListener(event, handleUserInteraction, { passive: true });
     });
     
-    // クリックで一時停止/再開のトグル
+    // ナビリンクをクリックしたときも smooth scroll を有効化して一時停止
+    document.querySelectorAll('.nav-link, a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        enableSmoothScroll();
+        state.userPaused = true;
+        
+        clearTimeout(window.autoScrollResumeTimeout);
+        window.autoScrollResumeTimeout = setTimeout(() => {
+          state.userPaused = false;
+        }, 10000);
+      });
+    });
+    
+    // クリックで一時停止/再開のトグル（リンク・ボタン以外）
     document.addEventListener('click', (e) => {
-      // リンクやボタン以外のクリックで一時停止/再開
+      // リンクやボタンのクリックは無視
       if (e.target.closest('a, button')) return;
       
-      isScrolling = !isScrolling;
+      state.userPaused = !state.userPaused;
       
-      // 視覚的フィードバック（オプション）
+      // 一時停止時は smooth scroll を有効化
+      if (state.userPaused) {
+        enableSmoothScroll();
+      }
+      
+      // 視覚的フィードバック
       const indicator = document.createElement('div');
       indicator.style.cssText = `
         position: fixed;
@@ -572,7 +533,7 @@ function initAutoScroll() {
         opacity: 1;
         transition: opacity 0.5s ease;
       `;
-      indicator.textContent = isScrolling ? '▶ 自動スクロール再開' : '⏸ 一時停止';
+      indicator.textContent = state.userPaused ? '⏸ 一時停止' : '▶ 自動スクロール再開';
       document.body.appendChild(indicator);
       
       setTimeout(() => {
@@ -583,7 +544,8 @@ function initAutoScroll() {
     
     // 少し遅延させてから開始（ページ読み込み完了を待つ）
     setTimeout(() => {
-      autoScroll();
+      // メインループ開始
+      requestAnimationFrame(tick);
       
       // 開始メッセージ
       console.info('🎬 展示会自動スクロールモード開始');
