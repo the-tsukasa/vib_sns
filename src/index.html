@@ -59,7 +59,6 @@
     <nav class="side-nav" id="sideNav" aria-label="サイドナビ">
       <a href="#top" class="nav-link">TOP</a>
       <a href="#worldview" class="nav-link">プロジェクト概要</a>
-      <a href="#how-it-works" class="nav-link">技術の仕組み</a>
       <a href="#features" class="nav-link">機能紹介</a>
       <a href="#usecase" class="nav-link">ユースケース</a>
       <a href="#safety" class="nav-link">技術&安全性</a>
@@ -127,56 +126,6 @@
         </div>
         <div class="split__media">
           <img src="./assets/images/hero/hero-worldview.png" alt="光の粒子が交差する世界観" class="section__image" loading="lazy" width="600" height="400">
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 How It Works -->
-    <section id="how-it-works" class="section observe">
-      <h2>Vibの仕組み</h2>
-      <p class="section__lead">シンプルな3ステップで、すれ違いを記録します。</p>
-      <div class="how-it-works-steps">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>BLE で近接端末を検出</h3>
-            <p>Android アプリが Bluetooth Low Energy (BLE) スキャンにより、近くの Vib ユーザー端末を検出します。低消費電力で動作し、バックグラウンドでも継続的に監視可能です。</p>
-          </div>
-        </div>
-        <div class="step-connector">
-          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>GPS と近接アルゴリズムで「すれ違い」を判定</h3>
-            <p>GPS 位置情報と BLE の信号強度を組み合わせ、近接検知アルゴリズムで「すれ違い」を判定。匿名化されたデータを Firebase Firestore に保存します。</p>
-          </div>
-        </div>
-        <div class="step-connector">
-          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>通知・振動フィードバックで届く</h3>
-            <p>すれ違いが検出されると、アプリが通知や振動フィードバックを送信。ユーザーはアプリ内で、近くを通った人との記録を確認できます。</p>
-          </div>
-        </div>
-      </div>
-      <!-- 操作デモ動画 -->
-      <div class="video-demo-container">
-        <h3>動作イメージ</h3>
-        <p class="video-description">実際の動作を動画でご確認いただけます</p>
-        <div class="video-wrapper">
-          <video class="demo-video" controls preload="metadata" muted playsinline data-autoplay aria-label="Vib アプリ操作デモ動画">
-            <source src="./assets/video1.mp4" type="video/mp4">
-            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/video1.mp4">動画をダウンロード</a>してください。</p>
-          </video>
         </div>
       </div>
     </section>
@@ -267,7 +216,7 @@
           </ul>
         </div>
         <div class="split__media">
-          <img src="./assets/images/demo/Group6_new1.png" alt="今の瞬間をシェアする投稿画面" class="section__image" loading="lazy" width="600" height="400">
+          <img src="./assets/images/demo/Group6_new.png" alt="今の瞬間をシェアする投稿画面" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
     </div>
@@ -322,44 +271,44 @@
         </div>
       </div>
     </div>
+    </section>
 
-      <!-- 機能3: プロフィール -->
+          <!-- 機能3: プロフィール -->
       <div class="feature-item" id="feature-4">
         <div class="split">
           <div class="split__text">
             <h3>プロフィール</h3>
             <p class="section__lead">自分らしさを、匿名で表現</p>
-            <ul class="feature-list">
-              <li>
-                <strong>匿名プロフィール</strong>
-                <p>
-                  実名や連絡先の登録は不要。
-                  ニックネームと一言コメントのみで、
-                  気軽に利用できます。
-                </p>
-              </li>
-              <li>
-                <strong>興味・テーマの設定</strong>
-                <p>
-                  ハッシュタグやアイコンを通じて、
-                  自分の興味や雰囲気を表現できます。
-                </p>
-              </li>
-              <li>
-                <strong>安心設計</strong>
-                <p>
-                  個人を特定できる情報は表示されず、
-                  プライバシーに配慮した設計です。
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div class="split__media">
-            <img src="./assets/images/demo/Group5_new.png" alt="プロフィール画面" class="section__image" loading="lazy" width="600" height="400">
-          </div>
+          <ul class="feature-list">
+            <li>
+              <strong>匿名プロフィール</strong>
+              <p>
+                実名や連絡先の登録は不要。
+                ニックネームと一言コメントのみで、
+                気軽に利用できます。
+              </p>
+            </li>
+            <li>
+              <strong>興味・テーマの設定</strong>
+              <p>
+                ハッシュタグやアイコンを通じて、
+                自分の興味や雰囲気を表現できます。
+              </p>
+            </li>
+            <li>
+              <strong>安心設計</strong>
+              <p>
+                個人を特定できる情報は表示されず、
+                プライバシーに配慮した設計です。
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="split__media">
+          <img src="./assets/images/demo/Group5_new.png" alt="プロフィール画面" class="section__image" loading="lazy" width="600" height="400">
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- 09 Use Case -->
     <section id="usecase" class="section observe">
@@ -410,6 +359,56 @@
         Vib は、BLE・GPS・Firebase を組み合わせた "すれ違い検出アプリ" です。
         日常の中で自然に動作し、安心して使える体験を目指しました。
       </p>
+      
+      <!-- 動作の仕組み -->
+      <h3>Vibの仕組み</h3>
+      <p class="section__lead">シンプルな3ステップで、すれ違いを記録します。</p>
+      <div class="how-it-works-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>BLE で近接端末を検出</h4>
+            <p>Android アプリが Bluetooth Low Energy (BLE) スキャンにより、近くの Vib ユーザー端末を検出します。低消費電力で動作し、バックグラウンドでも継続的に監視可能です。</p>
+          </div>
+        </div>
+        <div class="step-connector">
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>GPS と近接アルゴリズムで「すれ違い」を判定</h4>
+            <p>GPS 位置情報と BLE の信号強度を組み合わせ、近接検知アルゴリズムで「すれ違い」を判定。匿名化されたデータを Firebase Firestore に保存します。</p>
+          </div>
+        </div>
+        <div class="step-connector">
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 L50 10 M50 10 L40 5 M50 10 L40 15" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>通知・振動フィードバックで届く</h4>
+            <p>すれ違いが検出されると、アプリが通知や振動フィードバックを送信。ユーザーはアプリ内で、近くを通った人との記録を確認できます。</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 操作デモ動画 -->
+      <div class="video-demo-container">
+        <h3>動作イメージ</h3>
+        <p class="video-description">実際の動作を動画でご確認いただけます</p>
+        <div class="video-wrapper">
+          <video class="demo-video" controls preload="metadata" muted playsinline data-autoplay aria-label="Vib アプリ操作デモ動画">
+            <source src="./assets/video1.mp4" type="video/mp4">
+            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/video1.mp4">動画をダウンロード</a>してください。</p>
+          </video>
+        </div>
+      </div>
+      
       <div class="split">
         <div class="split__media">
           <img src="./assets/images/Safety.png" alt="Vib Chip 図解" class="section__image" loading="lazy" width="600" height="400">
@@ -613,7 +612,6 @@
           <h4>サービス</h4>
           <ul class="footer__links">
             <li><a href="#worldview">プロジェクト概要</a></li>
-            <li><a href="#how-it-works">技術の仕組み</a></li>
             <li><a href="#features">機能紹介</a></li>
             <li><a href="#usecase">ユースケース</a></li>
           </ul>

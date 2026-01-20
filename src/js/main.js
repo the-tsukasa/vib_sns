@@ -268,13 +268,16 @@ function initVideoAutoPlay() {
     const state = videoStates.get(video) || {};
     if (state.userPaused) return;
     
+    const wrapper = video.closest('.video-wrapper');
     const playPromise = video.play();
     if (playPromise && typeof playPromise.then === 'function') {
       playPromise
         .then(() => {
-          // 播放成功
-          const wrapper = video.closest('.video-wrapper');
-          if (wrapper) wrapper.classList.remove('loading');
+          // 播放成功，添加 playing 类
+          if (wrapper) {
+            wrapper.classList.remove('loading');
+            wrapper.classList.add('playing');
+          }
         })
         .catch((error) => {
           // 自动播放被阻止时的处理
@@ -291,6 +294,8 @@ function initVideoAutoPlay() {
   function safePause(video) {
     if (!video.paused) {
       video.pause();
+      const wrapper = video.closest('.video-wrapper');
+      if (wrapper) wrapper.classList.remove('playing');
     }
   }
 
@@ -306,6 +311,8 @@ function initVideoAutoPlay() {
       if (isInViewport && !video.ended) {
         videoStates.set(video, { userPaused: true });
       }
+      const wrapper = video.closest('.video-wrapper');
+      if (wrapper) wrapper.classList.remove('playing');
     });
     
     // 用户手动播放，重置状态
@@ -315,6 +322,8 @@ function initVideoAutoPlay() {
       if (isInViewport) {
         videoStates.set(video, { userPaused: false });
       }
+      const wrapper = video.closest('.video-wrapper');
+      if (wrapper) wrapper.classList.add('playing');
     });
     
     // 视频结束后重置状态，允许下次进入视口时自动播放
@@ -322,6 +331,8 @@ function initVideoAutoPlay() {
       videoStates.set(video, { userPaused: false });
       // 重置到开头，以便下次可以自动播放
       video.currentTime = 0;
+      const wrapper = video.closest('.video-wrapper');
+      if (wrapper) wrapper.classList.remove('playing');
     });
   });
 

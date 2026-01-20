@@ -23,7 +23,7 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  background: var(--bg-white);
+  background: transparent;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
@@ -40,7 +40,7 @@
   width: 100%;
   height: auto;
   display: block;
-  background: #000;
+  background: transparent;
   border-radius: 12px;
 }
 
@@ -58,6 +58,13 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: none;
+  transition: filter var(--transition-base);
+}
+
+/* 视频播放时保持无滤镜 */
+.video-wrapper.playing video {
+  filter: none;
 }
 
 /* 移动端优化 */
@@ -95,7 +102,7 @@
 
 /* 视频控制栏样式优化 */
 .demo-video::-webkit-media-controls-panel {
-  background-color: rgba(13, 15, 26, 0.9);
+  background-color: transparent;
 }
 
 .demo-video::-webkit-media-controls-play-button,
