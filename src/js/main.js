@@ -406,3 +406,199 @@ if (document.readyState === 'loading') {
   initVideoLazyLoad();
   initVideoAutoPlay();
 }
+
+/* =========================================================
+   8. 展示会自動スクロール機能（autoplay モード）
+   ========================================================= */
+function initAutoScroll() {
+  // URL パラメータを確認
+  const urlParams = new URLSearchParams(window.location.search);
+  const isAutoplay = urlParams.get('autoplay') === 'true';
+  
+  if (!isAutoplay) return;
+  
+  // 設定
+  const CONFIG = {
+    SCROLL_SPEED: 1.5,          // スクロール速度（px/frame）
+    PAUSE_DURATION: 3000,       // セクション間の停止時間（ミリ秒）
+    LOOP_DELAY: 5000,           // ループ前の待機時間（ミリ秒）
+    SECTION_THRESHOLD: 100,     // セクション検出の閾値（px）
+    SMOOTH_SCROLL: true,        // スムーススクロールを使用
+  };
+  
+  let isScrolling = true;
+  let isPaused = false;
+  let lastSectionIndex = -1;
+  let animationId = null;
+  
+  // すべてのセクションを取得
+  const sections = document.querySelectorAll('section[id]');
+  const sectionPositions = [];
+  
+  // セクション位置を計算
+  function calculateSectionPositions() {
+    sectionPositions.length = 0;
+    sections.forEach((section, index) => {
+      sectionPositions.push({
+        index: index,
+        top: section.offsetTop,
+        height: section.offsetHeight,
+        id: section.id
+      });
+    });
+  }
+  
+  // 現在のセクションインデックスを取得
+  function getCurrentSectionIndex() {
+    const scrollY = window.scrollY + window.innerHeight / 2;
+    for (let i = sectionPositions.length - 1; i >= 0; i--) {
+      if (scrollY >= sectionPositions[i].top) {
+        return i;
+      }
+    }
+    return 0;
+  }
+  
+  // セクションに到達したときに一時停止
+  function checkSectionPause() {
+    const currentIndex = getCurrentSectionIndex();
+    
+    if (currentIndex !== lastSectionIndex && currentIndex >= 0) {
+      lastSectionIndex = currentIndex;
+      
+      // セクションの先頭付近で一時停止
+      const section = sectionPositions[currentIndex];
+      const scrollY = window.scrollY;
+      const sectionStart = section.top;
+      
+      if (Math.abs(scrollY - sectionStart) < CONFIG.SECTION_THRESHOLD) {
+        pauseScroll(CONFIG.PAUSE_DURATION);
+      }
+    }
+  }
+  
+  // 一時停止
+  function pauseScroll(duration) {
+    if (isPaused) return;
+    isPaused = true;
+    
+    setTimeout(() => {
+      isPaused = false;
+    }, duration);
+  }
+  
+  // スクロールアニメーション
+  function autoScroll() {
+    if (!isScrolling || isPaused) {
+      animationId = requestAnimationFrame(autoScroll);
+      return;
+    }
+    
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const currentScroll = window.scrollY;
+    
+    // ページ末尾に到達した場合、welcome ページに戻る
+    if (currentScroll >= maxScroll - 5) {
+      // ループ前に一時停止
+      isScrolling = false;
+      
+      // フェードアウト効果
+      document.body.style.transition = 'opacity 1s ease';
+      document.body.style.opacity = '0';
+      
+      // welcome ページに戻る
+      setTimeout(() => {
+        window.location.href = 'welcome.html';
+      }, 1000);
+      
+      return;
+    }
+    
+    // スクロールを進める
+    window.scrollBy(0, CONFIG.SCROLL_SPEED);
+    
+    // セクション到達チェック
+    checkSectionPause();
+    
+    animationId = requestAnimationFrame(autoScroll);
+  }
+  
+  // ユーザー操作で一時停止/再開
+  function handleUserInteraction() {
+    // 一時的に自動スクロールを停止
+    isScrolling = false;
+    
+    // 10秒後に自動再開
+    clearTimeout(window.autoScrollResumeTimeout);
+    window.autoScrollResumeTimeout = setTimeout(() => {
+      isScrolling = true;
+    }, 10000);
+  }
+  
+  // 初期化
+  function init() {
+    // セクション位置を計算
+    calculateSectionPositions();
+    
+    // リサイズ時に再計算
+    window.addEventListener('resize', calculateSectionPositions);
+    
+    // ユーザー操作のイベント
+    ['wheel', 'touchstart', 'touchmove', 'keydown'].forEach(event => {
+      window.addEventListener(event, handleUserInteraction, { passive: true });
+    });
+    
+    // クリックで一時停止/再開のトグル
+    document.addEventListener('click', (e) => {
+      // リンクやボタン以外のクリックで一時停止/再開
+      if (e.target.closest('a, button')) return;
+      
+      isScrolling = !isScrolling;
+      
+      // 視覚的フィードバック（オプション）
+      const indicator = document.createElement('div');
+      indicator.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        z-index: 10000;
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      `;
+      indicator.textContent = isScrolling ? '▶ 自動スクロール再開' : '⏸ 一時停止';
+      document.body.appendChild(indicator);
+      
+      setTimeout(() => {
+        indicator.style.opacity = '0';
+        setTimeout(() => indicator.remove(), 500);
+      }, 1500);
+    });
+    
+    // 少し遅延させてから開始（ページ読み込み完了を待つ）
+    setTimeout(() => {
+      autoScroll();
+      
+      // 開始メッセージ
+      console.info('🎬 展示会自動スクロールモード開始');
+      console.info('   - クリックで一時停止/再開');
+      console.info('   - マウスホイール/タッチで10秒間一時停止');
+    }, 2000);
+  }
+  
+  // DOM 読み込み完了後に初期化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+}
+
+// 自動スクロール機能を初期化
+initAutoScroll();
