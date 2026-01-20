@@ -226,3 +226,37 @@ if (document.readyState === 'loading') {
 } else {
   initVideoLazyLoad();
 }
+
+/* =========================================================
+   7. 视频灰色滤镜控制（播放时移除滤镜）
+   ========================================================= */
+function initVideoFilter() {
+  const demoVideos = document.querySelectorAll('.demo-video');
+  
+  demoVideos.forEach(video => {
+    const videoWrapper = video.closest('.video-wrapper');
+    if (!videoWrapper) return;
+    
+    // 播放时移除灰色滤镜
+    video.addEventListener('play', () => {
+      videoWrapper.classList.add('playing');
+    });
+    
+    // 暂停时恢复灰色滤镜
+    video.addEventListener('pause', () => {
+      videoWrapper.classList.remove('playing');
+    });
+    
+    // 视频结束时恢复灰色滤镜
+    video.addEventListener('ended', () => {
+      videoWrapper.classList.remove('playing');
+    });
+  });
+}
+
+// 初始化视频滤镜控制
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVideoFilter);
+} else {
+  initVideoFilter();
+}
