@@ -158,7 +158,7 @@
     <script>
         // 展会自动播放模式脚本
         window.addEventListener('load', () => {
-            // 等待入场动画播放完毕 (约6秒)
+            // 等待入场动画播放完毕 (15秒)
             setTimeout(() => {
                 // 页面淡出效果
                 document.body.style.transition = 'opacity 1s ease';
@@ -168,7 +168,7 @@
                 setTimeout(() => {
                     window.location.href = 'index.html?autoplay=true';
                 }, 1000);
-            }, 6000);
+            }, 15000);
         });
     </script>
 </body>
