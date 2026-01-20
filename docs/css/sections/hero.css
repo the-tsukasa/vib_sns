@@ -6,7 +6,8 @@
 
 .hero {
   background: var(--gradient-warm);
-  min-height: 90vh;
+  min-height: 100vh;
+  min-height: 100dvh; /* 动态视口高度，更好地支持移动端 */
   display: flex;
   align-items: center;
   position: relative;
@@ -121,7 +122,8 @@
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .hero {
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
     padding: 80px 6vw;
   }
   
@@ -159,6 +161,8 @@
 
 @media (max-width: 600px) {
   .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
     padding: 60px 5vw;
   }
   
