@@ -67,6 +67,11 @@
   filter: none;
 }
 
+/* 视频播放时边框高亮 */
+.video-wrapper.playing {
+  border-color: rgba(255, 204, 0, 0.4);
+}
+
 /* 移动端优化 */
 @media (max-width: 768px) {
   .video-demo-container {
@@ -89,6 +94,10 @@
 }
 
 /* 视频加载状态 */
+.video-wrapper.loading {
+  pointer-events: none;
+}
+
 .video-wrapper.loading::after {
   content: "読み込み中...";
   position: absolute;
@@ -110,5 +119,12 @@
   filter: brightness(0) invert(1);
 }
 
+/* 视频焦点样式（无障碍） */
+.demo-video:focus {
+  outline: 2px solid var(--yellow, #ffcc00);
+  outline-offset: 2px;
+}
 
-
+.demo-video:focus:not(:focus-visible) {
+  outline: none;
+}
