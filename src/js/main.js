@@ -426,7 +426,7 @@ function initAutoScroll() {
   
   // 設定
   const CONFIG = {
-    SCROLL_SPEED: 1,          // スクロール速度（px/frame）
+    SCROLL_SPEED: 0.5,          // スクロール速度（px/frame）
     PAUSE_DURATION: 3000,       // セクション間の停止時間（ミリ秒）
   };
   
