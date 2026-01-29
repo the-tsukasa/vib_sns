@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/favicon-64.png">
   <title>Vib（ヴィブ）| すれ違いSNS - HAL東京 Team 222 - 作品展示</title>
-  <!-- 基本スタイル -->
+  <!-- 基本メタ情報・スタイル設定 -->
   <meta name="theme-color" content="#0D0F1A" />
   <meta name="description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発された、近接検知と位置同期を活用したソーシャル体験のプロトタイプです。" />
   <meta name="keywords" content="Vib, すれ違いSNS, BLE, GPS, Firebase, Android, HAL東京, 学生作品, プロトタイプ" />
   <meta name="author" content="Vib Team" />
   <meta name="robots" content="index, follow" />
-  <!-- Open Graph / Facebook -->
+  <!-- OGP（Open Graph / Facebook 用）メタタグ -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vib（ヴィブ）｜すれ違いSNS - HAL東京 学生作品展示" />
   <meta property="og:description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発されたプロトタイプです。" />
@@ -19,33 +19,33 @@
   <meta property="og:url" content="https://vib-sns.com" />
   <meta property="og:site_name" content="Vib" />
   <meta property="og:locale" content="ja_JP" />
-  <!-- Twitter Card -->
+  <!-- X（旧Twitter）カード用メタタグ -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vib（ヴィブ）｜すれ違いSNS - HAL東京 学生作品" />
   <meta name="twitter:description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリのプロトタイプ。HAL東京の学生プロジェクトです。" />
   <meta name="twitter:image" content="./assets/images/hero-main.jpg" />
-  <!-- Favicon -->
+  <!-- ファビコン -->
   <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
-  <!-- PWA Manifest -->
+  <!-- PWA マニフェスト -->
   <link rel="manifest" href="./manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Vib">
   <link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/favicon.png">
   <link rel="apple-touch-icon" sizes="512x512" href="./assets/icons/favicon.png">
-  <!-- Google Fonts -->
+  <!-- Google Fonts 読み込み -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </noscript>
-  <!-- CSS -->
+  <!-- メイン CSS 読み込み -->
   <link rel="stylesheet" href="./css/main.css" />
 </head>
 <body>
-  <!-- Skip to main content (A11y) -->
+  <!-- メインコンテンツへのスキップリンク（アクセシビリティ） -->
   <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
   <!-- ===== サイドナビゲーション ===== -->
@@ -80,9 +80,9 @@
     <span class="hamburger__line"></span>
   </button>
 
-  <!-- ===== メインコンテンツ ===== -->
+  <!-- ===== メインコンテンツ全体 ===== -->
   <main class="content" id="main-content">
-    <!-- 01 Hero -->
+    <!-- 01 ヒーローセクション（導入） -->
     <section id="top" class="section hero observe">
       <div class="hero-mod hero-mod--1">
         <div class="hero__inner">
@@ -108,7 +108,7 @@
       </div>
     </section>
 
-    <!-- 02 Worldview -->
+    <!-- 02 プロジェクト概要（Worldview） -->
     <section id="worldview" class="section observe">
       <div class="split">
         <div class="split__text">
@@ -130,12 +130,12 @@
       </div>
     </section>
 
-    <!-- 04 Features: 主要機能 -->
+    <!-- 04 機能紹介（Features） -->
     <section id="features" class="section observe">
       <h2>主要機能</h2>
       <p class="section__lead">Vibの5つの核心機能で、新しいソーシャル体験を実現</p>
       
-      <!-- 機能1: 感情マップの可視化 -->
+      <!-- 機能1：感情マップの可視化 -->
       <div class="feature-item" id="feature-1">
         <div class="split">
           <div class="split__text">
@@ -183,7 +183,7 @@
       </div>
     </div>
 
-      <!-- 機能2: 今の瞬間をシェア -->
+      <!-- 機能2：今の瞬間をシェア -->
       <div class="feature-item" id="feature-2">
         <div class="split">
           <div class="split__text">
@@ -222,7 +222,7 @@
     </div>
 
 
-      <!-- 機能5: ソーシャルインタラクション -->
+      <!-- 機能5：ソーシャルインタラクション -->
       <div class="feature-item" id="feature-5">
         <div class="split">
           <div class="split__text">
@@ -272,7 +272,7 @@
       </div>
     </div>
 
-      <!-- 機能4: プロフィール -->
+      <!-- 機能4：プロフィール -->
       <div class="feature-item" id="feature-4">
         <div class="split">
           <div class="split__text">
@@ -310,11 +310,11 @@
       </div>
     </section>
 
-    <!-- 09 Use Case -->
+    <!-- 09 ユースケース（Use Case） -->
     <section id="usecase" class="section observe">
       <h2>ユースケース</h2>
       <p class="section__lead">機能を生活に落とし込む、3つの具体的なシーン。</p>
-      <!-- Use Case 1 -->
+      <!-- ユースケース 1 -->
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
@@ -326,7 +326,7 @@
           </div>
         </div>
       </div>
-      <!-- Use Case 2 -->
+      <!-- ユースケース 2 -->
       <div class="usecase-item">
         <div class="split split--reverse">
           <div class="split__media">
@@ -338,7 +338,7 @@
           </div>
         </div>
       </div>
-      <!-- Use Case 3 -->
+      <!-- ユースケース 3 -->
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
@@ -352,7 +352,7 @@
       </div>
     </section>
 
-    <!-- 10 Safety & Technology -->
+    <!-- 10 技術・安全性（Safety & Technology） -->
     <section id="safety" class="section observe">
       <h2>技術 & 安全性</h2>
       <p class="section__lead">
@@ -360,7 +360,7 @@
         日常の中で自然に動作し、安心して使える体験を目指しました。
       </p>
       
-      <!-- 動作の仕組み -->
+      <!-- 動作の仕組み（How it works） -->
       <h3>Vibの仕組み</h3>
       <p class="section__lead">シンプルな3ステップで、すれ違いを記録します。</p>
       <div class="how-it-works-steps">
@@ -397,7 +397,7 @@
         </div>
       </div>
       
-      <!-- 操作デモ動画 -->
+      <!-- 操作デモ動画（アプリ動作イメージ） -->
       <div class="video-demo-container">
         <h3>動作イメージ</h3>
         <p class="video-description">実際の動作を動画でご確認いただけます</p>
@@ -437,11 +437,11 @@
         </div>
       </div>
       <h3>技術構成</h3>
-      <!-- 技術アイコン表示エリア -->
+      <!-- 技術スタック・アイコン表示エリア -->
       <div class="tech-icons-carousel-wrapper">
         <div class="tech-icons-carousel" id="techIconsCarousel">
           <div class="tech-icons-track" id="techIconsTrack">
-            <!-- アイコンセット1 -->
+            <!-- アイコンセット1（1周目） -->
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div>
             </div>
@@ -460,7 +460,7 @@
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/map.png" alt="Map"></div>
             </div>
-            <!-- アイコンセット2（ループ用） -->
+            <!-- アイコンセット2（ループ用・2周目） -->
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div>
             </div>
@@ -515,7 +515,7 @@
       </ul>
     </section>
 
-    <!-- 11 Web App Access -->
+    <!-- 11 Webアプリへのアクセス -->
     <section id="download" class="section download observe">
       <h2>Webアプリにアクセス</h2>
       <p class="section__lead">Android アプリに加えて、Web バージョンでも体験いただけます</p>
@@ -529,7 +529,7 @@
       <p class="coming-soon">※ HAL東京 展示会用プロトタイプ・技術デモ版です</p>
     </section>
 
-    <!-- 12 Roadmap -->
+    <!-- 12 開発ロードマップ（Roadmap） -->
     <section id="roadmap" class="section observe">
       <h2>開発ロードマップ</h2>
       <p class="section__lead">学生プロジェクトとしての開発計画</p>
@@ -562,7 +562,7 @@
       </div>
     </section>
 
-    <!-- 12.5 審査動画 -->
+    <!-- 12.5 審査用デモ動画 -->
     <section id="review-video" class="section observe">
       <h2>審査用デモ動画</h2>
       <p class="section__lead">展示・審査向けにまとめた、Vib のデモンストレーション映像です。</p>
@@ -578,7 +578,7 @@
       </div>
     </section>
 
-    <!-- 13 FAQ -->
+    <!-- 13 よくある質問（FAQ） -->
     <section id="faq" class="section faq observe">
       <h2>よくある質問</h2>
       <p class="section__lead">学生プロジェクトに関する、よくある質問と回答。</p>
@@ -618,7 +618,7 @@
       </div>
     </section>
 
-    <!-- ===== Footer ===== -->
+    <!-- ===== フッター ===== -->
     <footer class="footer">
       <div class="footer__brand">
         <h3 class="footer__name">Vib</h3>
@@ -682,7 +682,7 @@
     </svg>
   </button>
 
-  <!-- 構造化データ (JSON-LD) -->
+  <!-- 構造化データ（JSON-LD） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -704,7 +704,7 @@
   }
   </script>
 
-  <!-- JS -->
+  <!-- JavaScript 読み込み -->
   <script src="./js/main.js"></script>
   <script src="./js/pwa.js"></script>
 </body>
