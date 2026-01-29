@@ -578,3 +578,41 @@ function initAutoScroll() {
 
 // 自動スクロール機能を初期化
 initAutoScroll();
+
+/* =========================================================
+   9. 審査用デモ動画（SharePoint）の再生エラーハンドリング
+   ========================================================= */
+(function initReviewVideoFallback() {
+  const reviewVideo = document.getElementById('reviewDemoVideo');
+  const fallbackBox = document.getElementById('reviewVideoFallback');
+
+  if (!reviewVideo || !fallbackBox) return;
+
+  // フォールバック表示用の共通関数
+  function showFallback() {
+    fallbackBox.hidden = false;
+  }
+
+  // 再生エラー・ネットワークエラー時にフォールバックを表示
+  reviewVideo.addEventListener('error', showFallback);
+  reviewVideo.addEventListener('stalled', showFallback);
+  reviewVideo.addEventListener('abort', showFallback);
+
+  // 一定時間経ってもメタデータが取得できない場合もフォールバック
+  setTimeout(() => {
+    try {
+      const NO_SOURCE = typeof HTMLMediaElement !== 'undefined'
+        ? HTMLMediaElement.NETWORK_NO_SOURCE
+        : 3;
+
+      if (
+        reviewVideo.readyState === 0 || // まったく読み込めていない
+        reviewVideo.networkState === NO_SOURCE
+      ) {
+        showFallback();
+      }
+    } catch (e) {
+      // 古いブラウザなどでの例外は無視
+    }
+  }, 8000);
+})();
