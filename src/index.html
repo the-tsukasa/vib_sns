@@ -64,7 +64,7 @@
       <a href="#safety" class="nav-link">技術&安全性</a>
       <a href="#download" class="nav-link">Webアプリ</a>
       <a href="#roadmap" class="nav-link">開発ロードマップ</a>
-      <a href="#hal-review" class="nav-link">学内審査動画</a>
+      <a href="#review-video" class="nav-link">学内審査動画</a>
       <a href="#faq" class="nav-link">FAQ</a>
     </nav>
     <div class="sidebar__footer">
@@ -564,14 +564,24 @@
     </section>
 
     <!-- 学内審査用デモ動画セクション -->
-    <section id="hal-review" class="section observe">
+    <section id="review-video" class="section observe">
       <h2>学内審査動画</h2>
       <p class="section__lead">HAL東京 学内審査で使用したプロトタイプデモ動画</p>
-      <div class="video-wrapper">
-        <video class="demo-video hal-review-embed" controls preload="metadata" playsinline aria-label="HAL 学内審査用デモ動画">
-          <source src="./assets/videos/26_HAL222.mp4" type="video/mp4">
-          <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/videos/26_HAL222.mp4">動画をダウンロード</a>してください。</p>
-        </video>
+      <div class="video-demo-container">
+        <div class="video-wrapper">
+          <video class="demo-video" id="reviewDemoVideo" controls preload="metadata" muted playsinline aria-label="HAL 学内審査用デモ動画">
+            <source src="./assets/videos/26_HAL222.mp4" type="video/mp4">
+            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/videos/26_HAL222.mp4">動画をダウンロード</a>してください。</p>
+          </video>
+          <div class="video-fallback" id="reviewVideoFallback" hidden>
+            <p class="video-fallback__text">
+              ブラウザやネットワークの制限により、このページ内で動画を再生できない場合があります。
+            </p>
+            <a class="btn btn--primary" href="./assets/videos/26_HAL222.mp4" target="_blank" rel="noopener">
+              別タブで動画を開く
+            </a>
+          </div>
+        </div>
       </div>
       <p class="section__lead">動画が再生されない場合は<a href="./assets/videos/26_HAL222.mp4" target="_blank" rel="noopener">こちらのリンク</a>からご覧ください。</p>
     </section>

@@ -78,6 +78,27 @@
   border-color: rgba(255, 204, 0, 0.4);
 }
 
+/* 審査動画用フォールバック（動画中央にオーバーレイ表示） */
+.video-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(5, 7, 15, 0.82);
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+.video-fallback__text {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 /* 移动端优化 */
 @media (max-width: 768px) {
   .video-demo-container {
