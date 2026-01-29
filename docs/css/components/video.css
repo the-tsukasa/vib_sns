@@ -51,12 +51,18 @@
   padding-top: 56.25%; /* 16:9 宽高比 */
 }
 
-.video-wrapper video {
+.video-wrapper video,
+.video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.video-wrapper video {
   object-fit: contain;
   filter: none;
   transition: filter var(--transition-base);
@@ -88,7 +94,8 @@
     margin: 0 1rem;
   }
 
-  .video-wrapper video {
+  .video-wrapper video,
+  .video-wrapper iframe {
     border-radius: 8px;
   }
 }
