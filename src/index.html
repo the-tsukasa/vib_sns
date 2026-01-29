@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/favicon-64.png">
   <title>Vib（ヴィブ）| すれ違いSNS - HAL東京 Team 222 - 作品展示</title>
-  <!-- 基本スタイル -->
+  <!-- メタ情報および基本設定 -->
   <meta name="theme-color" content="#0D0F1A" />
   <meta name="description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発された、近接検知と位置同期を活用したソーシャル体験のプロトタイプです。" />
   <meta name="keywords" content="Vib, すれ違いSNS, BLE, GPS, Firebase, Android, HAL東京, 学生作品, プロトタイプ" />
   <meta name="author" content="Vib Team" />
   <meta name="robots" content="index, follow" />
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph（Facebook向け共有設定） -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vib（ヴィブ）｜すれ違いSNS - HAL東京 学生作品展示" />
   <meta property="og:description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリ。HAL東京の学生プロジェクトとして開発されたプロトタイプです。" />
@@ -19,36 +19,36 @@
   <meta property="og:url" content="https://vib-sns.com" />
   <meta property="og:site_name" content="Vib" />
   <meta property="og:locale" content="ja_JP" />
-  <!-- Twitter Card -->
+  <!-- Twitterカード用メタデータ -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vib（ヴィブ）｜すれ違いSNS - HAL東京 学生作品" />
   <meta name="twitter:description" content="Android × BLE × GPS × Firebase を使ったすれ違いSNSアプリのプロトタイプ。HAL東京の学生プロジェクトです。" />
   <meta name="twitter:image" content="./assets/images/hero-main.jpg" />
-  <!-- Favicon -->
+  <!-- ファビコン設定 -->
   <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
-  <!-- PWA Manifest -->
+  <!-- PWA マニフェスト -->
   <link rel="manifest" href="./manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Vib">
   <link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/favicon.png">
   <link rel="apple-touch-icon" sizes="512x512" href="./assets/icons/favicon.png">
-  <!-- Google Fonts -->
+  <!-- Google Fonts の読み込み -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </noscript>
-  <!-- CSS -->
+  <!-- メインCSSの読み込み -->
   <link rel="stylesheet" href="./css/main.css" />
 </head>
 <body>
-  <!-- Skip to main content (A11y) -->
+  <!-- メインコンテンツへのスキップリンク（アクセシビリティ対応） -->
   <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
-  <!-- ===== サイドナビゲーション ===== -->
+  <!-- サイドナビゲーション（固定メニュー） -->
   <aside class="sidebar">
     <div class="brand">
       <a href="#top" class="brand__link">
@@ -64,6 +64,7 @@
       <a href="#safety" class="nav-link">技術&安全性</a>
       <a href="#download" class="nav-link">Webアプリ</a>
       <a href="#roadmap" class="nav-link">開発ロードマップ</a>
+      <a href="#hal-review" class="nav-link">学内審査動画</a>
       <a href="#faq" class="nav-link">FAQ</a>
     </nav>
     <div class="sidebar__footer">
@@ -73,16 +74,16 @@
 
   <div class="overlay" id="overlay"></div>
 
-  <!-- ===== ハンバーガーボタン ===== -->
+  <!-- ハンバーガーメニュー（モバイル用） -->
   <button class="hamburger" id="hamburger" aria-label="メニュー">
     <span class="hamburger__line"></span>
     <span class="hamburger__line"></span>
     <span class="hamburger__line"></span>
   </button>
 
-  <!-- ===== メインコンテンツ ===== -->
+  <!-- メインコンテンツ全体 -->
   <main class="content" id="main-content">
-    <!-- 01 Hero -->
+    <!-- 01 ヒーローセクション -->
     <section id="top" class="section hero observe">
       <div class="hero-mod hero-mod--1">
         <div class="hero__inner">
@@ -108,7 +109,7 @@
       </div>
     </section>
 
-    <!-- 02 Worldview -->
+    <!-- 02 プロジェクト概要（Worldview） -->
     <section id="worldview" class="section observe">
       <div class="split">
         <div class="split__text">
@@ -130,7 +131,7 @@
       </div>
     </section>
 
-    <!-- 04 Features: 主要機能 -->
+    <!-- 04 主要機能セクション -->
     <section id="features" class="section observe">
       <h2>主要機能</h2>
       <p class="section__lead">Vibの5つの核心機能で、新しいソーシャル体験を実現</p>
@@ -310,11 +311,11 @@
       </div>
     </section>
 
-    <!-- 09 Use Case -->
+    <!-- 09 ユースケースセクション -->
     <section id="usecase" class="section observe">
       <h2>ユースケース</h2>
       <p class="section__lead">機能を生活に落とし込む、3つの具体的なシーン。</p>
-      <!-- Use Case 1 -->
+      <!-- ユースケース1：通勤・通学 -->
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
@@ -326,7 +327,7 @@
           </div>
         </div>
       </div>
-      <!-- Use Case 2 -->
+      <!-- ユースケース2：カフェ・勉強スペース -->
       <div class="usecase-item">
         <div class="split split--reverse">
           <div class="split__media">
@@ -338,7 +339,7 @@
           </div>
         </div>
       </div>
-      <!-- Use Case 3 -->
+      <!-- ユースケース3：イベント・展示会 -->
       <div class="usecase-item">
         <div class="split">
           <div class="split__media">
@@ -352,7 +353,7 @@
       </div>
     </section>
 
-    <!-- 10 Safety & Technology -->
+    <!-- 10 技術と安全性セクション -->
     <section id="safety" class="section observe">
       <h2>技術 & 安全性</h2>
       <p class="section__lead">
@@ -397,14 +398,14 @@
         </div>
       </div>
       
-      <!-- 操作デモ動画 -->
+      <!-- 操作デモ動画（技術セクション内） -->
       <div class="video-demo-container">
         <h3>動作イメージ</h3>
         <p class="video-description">実際の動作を動画でご確認いただけます</p>
         <div class="video-wrapper">
           <video class="demo-video" controls preload="metadata" muted playsinline data-autoplay aria-label="Vib アプリ操作デモ動画">
-            <source src="./assets/video1.mp4" type="video/mp4">
-            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/video1.mp4">動画をダウンロード</a>してください。</p>
+            <source src="./assets/videos/app_demo.mp4" type="video/mp4">
+            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/videos/app_demo.mp4">動画をダウンロード</a>してください。</p>
           </video>
         </div>
       </div>
@@ -437,11 +438,11 @@
         </div>
       </div>
       <h3>技術構成</h3>
-      <!-- 技術アイコン表示エリア -->
+      <!-- 技術アイコン表示エリア（使用技術アイコンのカルーセル） -->
       <div class="tech-icons-carousel-wrapper">
         <div class="tech-icons-carousel" id="techIconsCarousel">
           <div class="tech-icons-track" id="techIconsTrack">
-            <!-- アイコンセット1 -->
+            <!-- アイコンセット1（1巡目） -->
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div>
             </div>
@@ -460,7 +461,7 @@
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/map.png" alt="Map"></div>
             </div>
-            <!-- アイコンセット2（ループ用） -->
+            <!-- アイコンセット2（ループ用・2巡目） -->
             <div class="tech-icon-item">
               <div class="tech-icon-box"><img src="./assets/images/tech-icons/Android.png" alt="Android"></div>
             </div>
@@ -515,7 +516,7 @@
       </ul>
     </section>
 
-    <!-- 11 Web App Access -->
+    <!-- 11 Webアプリアクセスセクション -->
     <section id="download" class="section download observe">
       <h2>Webアプリにアクセス</h2>
       <p class="section__lead">Android アプリに加えて、Web バージョンでも体験いただけます</p>
@@ -529,7 +530,7 @@
       <p class="coming-soon">※ HAL東京 展示会用プロトタイプ・技術デモ版です</p>
     </section>
 
-    <!-- 12 Roadmap -->
+    <!-- 12 開発ロードマップセクション -->
     <section id="roadmap" class="section observe">
       <h2>開発ロードマップ</h2>
       <p class="section__lead">学生プロジェクトとしての開発計画</p>
@@ -562,7 +563,20 @@
       </div>
     </section>
 
-    <!-- 13 FAQ -->
+    <!-- 学内審査用デモ動画セクション -->
+    <section id="hal-review" class="section observe">
+      <h2>学内審査動画</h2>
+      <p class="section__lead">HAL東京 学内審査で使用したプロトタイプデモ動画</p>
+        <div class="video-wrapper">
+          <video class="demo-video" controls preload="metadata" playsinline aria-label="HAL 学内審査用デモ動画">
+            <source src="./assets/videos/hal_review.mp4" type="video/mp4">
+            <p>お使いのブラウザは動画再生に対応していません。<a href="./assets/videos/hal_review.mp4">動画をダウンロード</a>してください。</p>
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 よくある質問（FAQ）セクション -->
     <section id="faq" class="section faq observe">
       <h2>よくある質問</h2>
       <p class="section__lead">学生プロジェクトに関する、よくある質問と回答。</p>
@@ -602,7 +616,7 @@
       </div>
     </section>
 
-    <!-- ===== Footer ===== -->
+    <!-- フッターエリア -->
     <footer class="footer">
       <div class="footer__brand">
         <h3 class="footer__name">Vib</h3>
@@ -659,14 +673,14 @@
     </footer>
   </main>
 
-  <!-- トップへ戻るボタン -->
+  <!-- トップへ戻るボタン（ページ先頭へのショートカット） -->
   <button id="backToTop" class="back-to-top" aria-label="ページトップに戻る">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M18 15l-6-6-6 6" />
     </svg>
   </button>
 
-  <!-- 構造化データ (JSON-LD) -->
+  <!-- 構造化データ（JSON-LD） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -688,7 +702,7 @@
   }
   </script>
 
-  <!-- JS -->
+  <!-- JavaScriptファイルの読み込み -->
   <script src="./js/main.js"></script>
   <script src="./js/pwa.js"></script>
 </body>
