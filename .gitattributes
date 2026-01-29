@@ -1,0 +1,2 @@
+# Git LFS - 大ファイル（動画）を LFS で管理
+*.mp4 filter=lfs diff=lfs merge=lfs -text
