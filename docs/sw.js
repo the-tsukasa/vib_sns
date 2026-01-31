@@ -4,8 +4,8 @@
  * 作成者：曹 小帥（SOU）
  */
 
-const CACHE_NAME = 'vib-sns-v1.0.0';
-const RUNTIME_CACHE = 'vib-sns-runtime-v1.0.0';
+const CACHE_NAME = 'vib-sns-v1.0.1';
+const RUNTIME_CACHE = 'vib-sns-runtime-v1.0.1';
 
 // 需要缓存的资源列表
 const PRECACHE_URLS = [
@@ -75,6 +75,17 @@ self.addEventListener('fetch', (event) => {
 
   // 跳过跨域请求（除非是 same-origin）
   if (!event.request.url.startsWith(self.location.origin)) {
+    return;
+  }
+
+  // 动画ファイルはキャッシュせず、常にネットワークから取得
+  const url = new URL(event.request.url);
+  if (url.pathname.endsWith('.mp4') || 
+      url.pathname.endsWith('.webm') || 
+      url.pathname.endsWith('.ogg') ||
+      url.pathname.includes('/videos/')) {
+    // 动画ファイルはネットワークのみから取得
+    event.respondWith(fetch(event.request));
     return;
   }
 
