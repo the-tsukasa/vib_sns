@@ -11,7 +11,7 @@
   if ('serviceWorker' in navigator) {
     // 注册 Service Worker
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register(new URL('./sw.js', document.baseURI).href)
         .then((registration) => {
           console.log('[PWA] Service Worker registered successfully:', registration.scope);
 
@@ -123,12 +123,12 @@
   // 显示安装提示（可选）
   let deferredPrompt;
   window.addEventListener('beforeinstallprompt', (e) => {
-    // 阻止默认的安装提示
     e.preventDefault();
     deferredPrompt = e;
-
-    // 可以在这里显示自定义的安装提示
-    // showInstallPrompt();
+    // 若未安装且用户可能想安装，延迟显示自定义安装横幅（避免与默认横幅重复）
+    if (!isPWAInstalled()) {
+      setTimeout(() => showInstallPrompt(), 1500);
+    }
   });
 
   // 安装提示函数（可选实现）

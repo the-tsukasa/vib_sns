@@ -37,7 +37,7 @@
       "name": "プロジェクト概要",
       "short_name": "概要",
       "description": "プロジェクトの目的とコンセプトを確認",
-      "url": "/#worldview",
+      "url": "./#worldview",
       "icons": [
         {
           "src": "./assets/icons/logo.png",
@@ -49,7 +49,7 @@
       "name": "機能紹介",
       "short_name": "機能",
       "description": "アプリの主要機能を確認",
-      "url": "/#feature-1",
+      "url": "./#feature-1",
       "icons": [
         {
           "src": "./assets/icons/logo.png",
@@ -61,7 +61,7 @@
       "name": "FAQ",
       "short_name": "FAQ",
       "description": "よくある質問を確認",
-      "url": "/#faq",
+      "url": "./#faq",
       "icons": [
         {
           "src": "./assets/icons/logo.png",
