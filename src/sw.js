@@ -78,13 +78,13 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 动画ファイルはキャッシュせず、常にネットワークから取得
+  // 视频文件不缓存，始终从网络获取
   const url = new URL(event.request.url);
   if (url.pathname.endsWith('.mp4') || 
       url.pathname.endsWith('.webm') || 
       url.pathname.endsWith('.ogg') ||
       url.pathname.includes('/videos/')) {
-    // 动画ファイルはネットワークのみから取得
+    // 视频文件仅从网络获取
     event.respondWith(fetch(event.request));
     return;
   }
