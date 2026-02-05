@@ -1,21 +1,14 @@
-# Vib（ヴィブ）
+# Welcome to Vib SNS
 
-HAL東京 Team 222 が開発した「すれ違いSNS」の公式Webサイトです。
+## Image Specifications
+- Welcome Screen: 400px width
+- Desktop View: 600px width
+- Mobile View: 250px width
 
-## プロジェクト概要
-BLE・GPS・Firebaseを活用した擦れ違い型ソーシャルアプリのプロモーションサイト。感情の可視化、リアルタイム共有、匿名プロフィールなどの機能を紹介しています。
+![Welcome Screen](path/to/welcome-screen-image.jpg)
 
-## 開発情報
-- **開発チーム**: HAL東京 PI12A グループ2
-- **展示会**: HAL未来創造展2026
-- **お問い合わせ**: ths40996@ths.hal.ac.jp
+![Desktop View](path/to/desktop-view-image.jpg)
 
-## デプロイ
-```bash
-bash sync.sh
-```
+![Mobile View](path/to/mobile-view-image.jpg)
 
-
-
-
-
+Please ensure to use optimized images to enhance loading speed.
