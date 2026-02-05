@@ -14,9 +14,10 @@ HTML5、CSS3、vanilla JavaScriptで構築されたモダンでレスポンシ�
 ## スクリーンショット
 
 ### デスクトップ表示
-<img src="src/assets/images/readme/index.html(Nest Hub Max).png" alt="デスクトップ表示" width="300">
-<img src="src/assets/images/readme/GIF/chrome-capture.gif" alt="デスクトップ表示" width="300">
-
+<p>
+<img src="src/assets/images/readme/index.html(Nest Hub Max).png" alt="デスクトップ表示" width="405">
+<img src="src/assets/images/readme/GIF/chrome-capture.gif" alt="GIF demo" width="405">
+</p>
 
 ### モバイル表示
 <p>
