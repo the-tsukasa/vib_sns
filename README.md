@@ -18,10 +18,10 @@ HTML5、CSS3、vanilla JavaScriptで構築されたモダンでレスポンシ�
 
 ### モバイル表示
 <p>
-<img src="src/assets/images/readme/welcome.html(iPhone 14 Pro Max).png" alt="ウェルカム画面" width="250">
-<img src="src/assets/images/readme/index.html(iPhone 14 Pro Max) (1).png" alt="モバイル - トップ" width="250">
-<img src="src/assets/images/readme/index.html(iPhone 14 Pro Max) (2).png" alt="モバイル - 機能" width="250">
-<img src="src/assets/images/readme/index.html(iPhone 14 Pro Max) (3).png" alt="モバイル - ボトム" width="250">
+<img src="src/assets/images/readme/welcome.html(iPhone 14 Pro Max).png" alt="ウェルカム画面" width="200">
+<img src="src/assets/images/readme/index.html(iPhone 14 Pro Max) (1).png" alt="モバイル - トップ" width="200">
+<img src="src/assets/images/readme/index.html(iPhone 14 Pro Max) (2).png" alt="モバイル - 機能" width="200">
+<img src="src/assets/images/readme/index.html(iPhone 14 Pro Max) (3).png" alt="モバイル - ボトム" width="200">
 </p>
 
 
