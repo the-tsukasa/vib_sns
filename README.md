@@ -44,7 +44,7 @@ HTML5、CSS3、vanilla JavaScriptで構築されたモダンでレスポンシ�
 
 ## クイックスタート
 
-```bash
+`bash
 # リポジトリのクローン
 git clone https://github.com/the-tsukasa/vib_sns.git
 cd vib_sns
