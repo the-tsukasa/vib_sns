@@ -49,24 +49,10 @@ HTML5、CSS3、vanilla JavaScriptで構築されたモダンでレスポンシ�
 git clone https://github.com/the-tsukasa/vib_sns.git
 cd vib_sns
 
-# ローカルサーバーの起動
-python -m http.server 8000
-# または
-npx http-server src -p 8000
-
-# ブラウザでアクセス
-http://localhost:8000
-```
-
 ## ドキュメント
-
-- [CSSアーキテクチャ](src/css/README.md)
 - [ライブデモ](https://the-tsukasa.github.io/vib_sns/)
 
 ## ライセンス
-
-MIT License
-
 ---
 
 <div align="center">
