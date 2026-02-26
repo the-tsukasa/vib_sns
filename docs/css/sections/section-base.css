@@ -101,6 +101,11 @@
   margin-top: 3rem;
 }
 
+/* AIDEA gallery: force vertical stacking */
+.aidea-grid {
+  grid-template-columns: 1fr;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .section {
